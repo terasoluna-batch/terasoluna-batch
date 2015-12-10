@@ -89,8 +89,8 @@ public class AsyncBatchExecutor {
             JobOperator jobOperator = context.getBean(JOB_OPERATOR_BEAN_NAME,
                     JobOperator.class);
             return jobOperator.start(args);
-        } catch (Exception e) {
-            LOGGER.error(LogId.EAL025094, e);
+        } catch (Throwable t) {
+            LOGGER.error(LogId.EAL025094, t);
             return FAIL_TO_OBTAIN_JOB_OPERATOR_CODE;
         } finally {
             if (context != null) {

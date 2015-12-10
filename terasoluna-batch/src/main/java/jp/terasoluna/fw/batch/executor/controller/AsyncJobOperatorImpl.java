@@ -17,7 +17,6 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandler;
 import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.logger.TLogger;
@@ -40,7 +39,12 @@ public class AsyncJobOperatorImpl implements JobOperator {
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AsyncJobOperatorImpl.class);
-    
+
+    /**
+     * ループ中断例外のリターンコード.
+     */
+    protected static final int LOOP_ERROR_ABORTED_STATUS = 255;
+
     /**
      * ジョブのポーリング間隔。<br>
      */
@@ -63,35 +67,25 @@ public class AsyncJobOperatorImpl implements JobOperator {
     protected AsyncBatchStopper asyncBatchStopper;
 
     /**
-     * フレームワーク例外ハンドリング機能。<br>
-     */
-    protected ExceptionStatusHandler exceptionStatusHandler;
-
-    /**
      * コンストラクタ。<br>
      * ジョブの起動とポーリングループの終了条件監視に必要となる機能を設定する。
      *
      * @param batchJobDataRepository ジョブの検索機能
      * @param asyncJobLauncher       ジョブの起動機能
      * @param asyncBatchStopper      終了条件監視機能
-     * @param exceptionStatusHandler フレームワーク例外ハンドリング機能
      */
     public AsyncJobOperatorImpl(BatchJobDataRepository batchJobDataRepository,
             AsyncJobLauncher asyncJobLauncher,
-            AsyncBatchStopper asyncBatchStopper,
-            ExceptionStatusHandler exceptionStatusHandler) {
+            AsyncBatchStopper asyncBatchStopper) {
         Assert.notNull(batchJobDataRepository,
                 LOGGER.getLogMessage(LogId.EAL025074));
         Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025075));
         Assert.notNull(asyncBatchStopper,
                 LOGGER.getLogMessage(LogId.EAL025076));
-        Assert.notNull(exceptionStatusHandler,
-                LOGGER.getLogMessage(LogId.EAL025077));
 
         this.batchJobDataRepository = batchJobDataRepository;
         this.asyncJobLauncher = asyncJobLauncher;
         this.asyncBatchStopper = asyncBatchStopper;
-        this.exceptionStatusHandler = exceptionStatusHandler;
     }
 
     /**
@@ -115,8 +109,8 @@ public class AsyncJobOperatorImpl implements JobOperator {
                         .executeJob(batchJobListResult.getJobSequenceId());
             }
         } catch (Exception e) {
-            // ループ中断例外と返却ステータスコードの判定
-            return exceptionStatusHandler.handleException(e);
+            LOGGER.error(LogId.EAL025053, e);
+            return LOOP_ERROR_ABORTED_STATUS;
         } finally {
             asyncJobLauncher.shutdown();
         }

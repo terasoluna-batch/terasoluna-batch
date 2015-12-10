@@ -1,7 +1,6 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandler;
 import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
 import jp.terasoluna.fw.logger.TLogger;
 
@@ -23,7 +22,6 @@ import java.util.concurrent.TimeUnit;
  * &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
  *     &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
  *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
- *     &lt;constructor-arg index=&quot;2&quot; ref=&quot;exceptionStatusHandler&quot;/&gt;
  * &lt;/bean&gt;
  * &lt;bean id=&quot;threadPoolTaskExecutor&quot; class=&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt;
  *     &lt;property name=&quot;threadFactory&quot; ref=&quot;separateGroupThreadFactory&quot;/&gt;
@@ -65,11 +63,6 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     protected JobExecutorTemplate jobExecutorTemplate;
 
     /**
-     * フレームワーク機能内部で発生した例外によるハンドリング機能。
-     */
-    protected ExceptionStatusHandler exceptionStatusHandler;
-
-    /**
      * 非同期バッチ待ち状態解決の公平性。デフォルト：{@code true}
      */
     protected boolean fair = true;
@@ -89,21 +82,16 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
      * コンストラクタ。<br>
      * @param threadPoolTaskExecutor {@code ThreadPoolTaskExecutor}のデリゲータ
      * @param jobExecutorTemplate ジョブの前処理と主処理を定義するテンプレート
-     * @param exceptionStatusHandler フレームワーク内部例外を処理するハンドラ
      */
     public AsyncJobLauncherImpl(ThreadPoolTaskExecutor threadPoolTaskExecutor,
-            JobExecutorTemplate jobExecutorTemplate,
-            ExceptionStatusHandler exceptionStatusHandler) {
+            JobExecutorTemplate jobExecutorTemplate) {
         Assert.notNull(threadPoolTaskExecutor, LOGGER.getLogMessage(
                 LogId.EAL025055));
         Assert.notNull(jobExecutorTemplate, LOGGER.getLogMessage(
                 LogId.EAL025057));
-        Assert.notNull(exceptionStatusHandler, LOGGER.getLogMessage(
-                LogId.EAL025091));
 
         this.threadPoolTaskExecutor = threadPoolTaskExecutor;
         this.jobExecutorTemplate = jobExecutorTemplate;
-        this.exceptionStatusHandler = exceptionStatusHandler;
     }
 
     /**
@@ -142,8 +130,8 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                 public void run() {
                     try {
                         jobExecutorTemplate.executeWorker(jobSequenceId);
-                    } catch (RuntimeException e) {
-                        exceptionStatusHandler.handleException(e);
+                    } catch (Throwable t) {
+                        LOGGER.error(LogId.EAL025053, t);
                     } finally {
                         taskPoolLimit.release();
                     }
