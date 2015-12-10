@@ -28,6 +28,7 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 
+import org.apache.ibatis.session.RowBounds;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,7 +66,7 @@ public class BatchJobDataRepositoryImplTest {
     public void testResolveBatchJobResult01() {
         // テスト入力データ設定
         when(((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
-                .selectJobList(any(BatchJobListParam.class))).thenReturn(
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(
                         new ArrayList<BatchJobListResult>() {
                             private static final long serialVersionUID = 1L;
 
@@ -99,7 +100,7 @@ public class BatchJobDataRepositoryImplTest {
     public void testResolveBatchJobResult02() {
         // テスト入力データ設定
         when(((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
-                .selectJobList(any(BatchJobListParam.class))).thenReturn(null);
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(null);
 
         // テスト実施
         BatchJobListResult batchJobListResult = batchJobDataRepository
@@ -122,7 +123,7 @@ public class BatchJobDataRepositoryImplTest {
     public void testResolveBatchJobResult03() {
         // テスト入力データ設定
         when(((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
-                .selectJobList(any(BatchJobListParam.class))).thenReturn(null);
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(null);
 
         // テスト実施
         BatchJobListResult batchJobListResult = batchJobDataRepository
