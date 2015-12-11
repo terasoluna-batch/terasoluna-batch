@@ -39,7 +39,7 @@ public class QueueingResultHandlerImplTest {
      */
     @Test
     public void testHandleResult001() {
-        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DummyResultContext ctxInNull = new DummyResultContext();
         ctxInNull.setResultObject(null);
         assertNotNull(drh);
@@ -60,24 +60,24 @@ public class QueueingResultHandlerImplTest {
      */
     @Test
     public void testHandleResult002() {
-        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
 
         assertNotNull(drh);
         try {
             DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
+            context.setResultObject(HogeBean.buider().hoge("hoge1").build());
             drh.handleResult(context);
             context = new DummyResultContext();
-            context.setResultObject("hoge2");
+            context.setResultObject(HogeBean.buider().hoge("hoge2").build());
             drh.handleResult(context);
             DummyResultContext contextInNull = new DummyResultContext();
             contextInNull.setResultObject(null);
             drh.handleResult(contextInNull);
             context = new DummyResultContext();
-            context.setResultObject("hoge3");
+            context.setResultObject(HogeBean.buider().hoge("hoge3").build());
             drh.handleResult(context);
             context = new DummyResultContext();
-            context.setResultObject("hoge4");
+            context.setResultObject(HogeBean.buider().hoge("hoge4").build());
             drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class QueueingResultHandlerImplTest {
      */
     @Test
     public void testHandleResult003() {
-        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
 
@@ -98,16 +98,16 @@ public class QueueingResultHandlerImplTest {
 
         try {
             DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
+            context.setResultObject(HogeBean.buider().hoge("hoge1").build());
             drh.handleResult(context);
-            context.setResultObject("hoge2");
+            context.setResultObject(HogeBean.buider().hoge("hoge2").build());
             drh.handleResult(context);
             DummyResultContext contextInNull = new DummyResultContext();
             contextInNull.setResultObject(null);
             drh.handleResult(contextInNull);
-            context.setResultObject("hoge3");
+            context.setResultObject(HogeBean.buider().hoge("hoge3").build());
             drh.handleResult(context);
-            context.setResultObject("hoge4");
+            context.setResultObject(HogeBean.buider().hoge("hoge4").build());
             drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,7 +117,7 @@ public class QueueingResultHandlerImplTest {
 
     @Test
     public void testHandleResult004() throws Exception {
-        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        final QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -128,7 +128,7 @@ public class QueueingResultHandlerImplTest {
                 Thread.currentThread().interrupt();
                 // 割り込み発生時はhandleResultは処理されず、スレッドが割り込み状態のままであること。
                 DummyResultContext context = new DummyResultContext();
-                context.setResultObject("hoge1");
+                context.setResultObject(HogeBean.buider().hoge("hoge1").build());
                 drh.handleResult(context);
                 assertTrue(Thread.currentThread().isInterrupted());
                 assertNull(drh.prevRow);
@@ -143,29 +143,29 @@ public class QueueingResultHandlerImplTest {
      */
     @Test
     public void testHandleResult005() {
-        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
         DummyResultContext context = new DummyResultContext();
-        context.setResultObject("hoge1");
+        context.setResultObject(HogeBean.buider().hoge("hoge1").build());
         drh.handleResult(context);
-        context.setResultObject("hoge2");
+        context.setResultObject(HogeBean.buider().hoge("hoge2").build());
         drh.handleResult(context);
         daoCollector.exceptionFlag = true;
-        context.setResultObject("hoge3");
+        context.setResultObject(HogeBean.buider().hoge("hoge3").build());
         drh.handleResult(context);
         assertTrue(Thread.currentThread().isInterrupted());
     }
 
     @Test
     public void testDelayCollect001() throws Exception {
-        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        final QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DaoCollectorStub004 daoCollector = new DaoCollectorStub004(1);
         drh.setDaoCollector(daoCollector);
-        drh.prevRow = "rowObject";
+        drh.prevRow = HogeBean.buider().hoge("rowObject").build();
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
@@ -186,10 +186,10 @@ public class QueueingResultHandlerImplTest {
 
     @Test
     public void testDelayCollect002() throws Exception {
-        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
+        final QueueingResultHandlerImpl<HogeBean> drh = new QueueingResultHandlerImpl<>();
         DaoCollectorStub003 daoCollector = new DaoCollectorStub003();
         drh.setDaoCollector(daoCollector);
-        drh.prevRow = "rowObject";
+        drh.prevRow = HogeBean.buider().hoge("rowObject").build();
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
             @Override

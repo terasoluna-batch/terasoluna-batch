@@ -51,7 +51,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @Test
     public void testHandleResult001() {
         @SuppressWarnings("deprecation")
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
 
         assertNotNull(drh);
         DummyResultContext contextInNull = new DummyResultContext();
@@ -74,22 +74,22 @@ public class Queueing1NRelationResultHandlerImplTest {
     @Test
     public void testHandleResult002() {
         @SuppressWarnings("deprecation")
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
 
         assertNotNull(drh);
 
         try {
             DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
+            context.setResultObject(HogeBean.buider().hoge("hoge1").build());
             drh.handleResult(context);
-            context.setResultObject("hoge2");
+            context.setResultObject(HogeBean.buider().hoge("hoge2").build());
             drh.handleResult(context);
             DummyResultContext contextInNull = new DummyResultContext();
             contextInNull.setResultObject(null);
             drh.handleResult(contextInNull);
-            context.setResultObject("hoge3");
+            context.setResultObject(HogeBean.buider().hoge("hoge3").build());
             drh.handleResult(context);
-            context.setResultObject("hoge4");
+            context.setResultObject(HogeBean.buider().hoge("hoge4").build());
             drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,7 +103,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @Test
     public void testHandleResult003() {
         @SuppressWarnings("deprecation")
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
 
@@ -111,16 +111,16 @@ public class Queueing1NRelationResultHandlerImplTest {
 
         try {
             DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
+            context.setResultObject(HogeBean.buider().hoge("hoge1").build());
             drh.handleResult(context);
-            context.setResultObject("hoge2");
+            context.setResultObject(HogeBean.buider().hoge("hoge2").build());
             drh.handleResult(context);
             DummyResultContext contextInNull = new DummyResultContext();
             contextInNull.setResultObject(null);
             drh.handleResult(contextInNull);
-            context.setResultObject("hoge3");
+            context.setResultObject(HogeBean.buider().hoge("hoge3").build());
             drh.handleResult(context);
-            context.setResultObject("hoge4");
+            context.setResultObject(HogeBean.buider().hoge("hoge4").build());
             drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,7 +134,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @Test
     public void testHandleResult004() throws Exception {
         @SuppressWarnings("deprecation")
-        final Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        final Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -145,7 +145,7 @@ public class Queueing1NRelationResultHandlerImplTest {
                 Thread.currentThread().interrupt();
                     // 割り込み発生時はhandleResultは処理されず、スレッドが割り込み状態となっていること。
                     DummyResultContext context = new DummyResultContext();
-                    context.setResultObject("rowObject");
+                    context.setResultObject(HogeBean.buider().hoge("rowObject").build());
                     drh.handleResult(context);
                     assertTrue(Thread.currentThread().isInterrupted());
                     assertNull(drh.prevRow);
@@ -162,19 +162,19 @@ public class Queueing1NRelationResultHandlerImplTest {
     @Test
     public void testHandleResult005() throws Exception {
         @SuppressWarnings("deprecation")
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
         DummyResultContext context = new DummyResultContext();
-        context.setResultObject("hoge1");
+        context.setResultObject(HogeBean.buider().hoge("hoge1").build());
         drh.handleResult(context);
-        context.setResultObject("hoge2");
+        context.setResultObject(HogeBean.buider().hoge("hoge2").build());
         drh.handleResult(context);
         daoCollector.exceptionFlag = true;
-        context.setResultObject("hoge3");
+        context.setResultObject(HogeBean.buider().hoge("hoge3").build());
         drh.handleResult(context);
         assertTrue(Thread.currentThread().isInterrupted());
     }
@@ -185,7 +185,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect001() {
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         drh.prevRow = null;
         drh.dataCount = new AtomicLong(0);
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
@@ -203,7 +203,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect002() {
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         HogeBean bean = new HogeBean();
         bean.setHoge("hoge1");
         drh.prevRow = bean;
@@ -228,7 +228,7 @@ public class Queueing1NRelationResultHandlerImplTest {
     @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect003() {
-        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
+        Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollectorStub004 daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
         HogeBean hoge1 = new HogeBean();
@@ -309,9 +309,9 @@ public class Queueing1NRelationResultHandlerImplTest {
 
         try {
             DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
+            context.setResultObject(HogeBean.buider().hoge("hoge1").build());
             drh.handleResult(context);
-            context.setResultObject("hoge2");
+            context.setResultObject(HogeBean.buider().hoge("hoge2").build());
             drh.handleResult(context);
             drh.delayCollect();
             fail("失敗");

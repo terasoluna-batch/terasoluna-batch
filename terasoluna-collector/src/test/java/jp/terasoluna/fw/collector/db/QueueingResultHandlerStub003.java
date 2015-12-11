@@ -2,7 +2,7 @@ package jp.terasoluna.fw.collector.db;
 
 import org.apache.ibatis.session.ResultContext;
 
-public class QueueingResultHandlerStub003 implements QueueingResultHandler {
+public class QueueingResultHandlerStub003<T> implements QueueingResultHandler<T> {
 
     public QueueingResultHandlerStub003() throws IllegalAccessException {
         throw new IllegalAccessException();
@@ -12,11 +12,11 @@ public class QueueingResultHandlerStub003 implements QueueingResultHandler {
 
     }
 
-    public void setDaoCollector(DaoCollector<?> daoCollector) {
+    public void setDaoCollector(DaoCollector<T> daoCollector) {
 
     }
 
-    public void handleResult(ResultContext resultContext) {
+    public void handleResult(ResultContext<? extends T> resultContext) {
 
     }
 }
