@@ -73,11 +73,11 @@ public class BatchJobManagementParam {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BatchJobManagementParam[");
-        buf.append("jobSequenceId=" + jobSequenceId);
-        buf.append(",forUpdate=" + ForUpdate);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BatchJobManagementParam[");
+        sb.append("jobSequenceId=" + jobSequenceId);
+        sb.append(",forUpdate=" + ForUpdate);
+        sb.append("]");
+        return sb.toString();
     }
 }

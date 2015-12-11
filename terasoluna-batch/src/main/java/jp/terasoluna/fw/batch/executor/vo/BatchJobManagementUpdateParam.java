@@ -123,13 +123,13 @@ public class BatchJobManagementUpdateParam {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BatchJobManagementUpdateParam[");
-        buf.append("jobSequenceId=" + jobSequenceId);
-        buf.append(",BLogicAppStatus=" + blogicAppStatus);
-        buf.append(",curAppStatus=" + CurAppStatus);
-        buf.append(",updDateTime=" + UpdDateTime);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BatchJobManagementUpdateParam[");
+        sb.append("jobSequenceId=" + jobSequenceId);
+        sb.append(",BLogicAppStatus=" + blogicAppStatus);
+        sb.append(",curAppStatus=" + CurAppStatus);
+        sb.append(",updDateTime=" + UpdDateTime);
+        sb.append("]");
+        return sb.toString();
     }
 }

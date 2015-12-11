@@ -49,10 +49,10 @@ public class BatchJobListResult {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BatchJobListResult[");
-        buf.append("jobSequenceId=" + jobSequenceId);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BatchJobListResult[");
+        sb.append("jobSequenceId=" + jobSequenceId);
+        sb.append("]");
+        return sb.toString();
     }
 }

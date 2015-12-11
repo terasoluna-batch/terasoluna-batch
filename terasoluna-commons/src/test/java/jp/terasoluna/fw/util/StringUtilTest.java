@@ -1383,16 +1383,10 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("1=東京");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "1=東京" + LINE_SEP + "}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1419,20 +1413,11 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("1=東京");
-        sb.append(LINE_SEP);
-        sb.append("2=京都");
-        sb.append(LINE_SEP);
-        sb.append("3=兵庫");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "1=東京" + LINE_SEP + "2=京都"
+                + LINE_SEP + "3=兵庫" + LINE_SEP + "}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1455,14 +1440,10 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP+"Map{"+LINE_SEP+"}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1490,20 +1471,11 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("1=東京");
-        sb.append(LINE_SEP);
-        sb.append("2=null");
-        sb.append(LINE_SEP);
-        sb.append("3=兵庫");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "1=東京" + LINE_SEP + "2=null"
+                + LINE_SEP + "3=兵庫" + LINE_SEP + "}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1529,15 +1501,9 @@ public class StringUtilTest {
         // テスト実行
         String result = StringUtil.dump(map);
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("null=東京");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "null=東京" + LINE_SEP + "}";
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1602,18 +1568,11 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("1=[東京, 大阪]");
-        sb.append(LINE_SEP);
-        sb.append("2=[03, 06]");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "1=[東京, 大阪]" + LINE_SEP
+                + "2=[03, 06]" + LINE_SEP + "}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
@@ -1668,18 +1627,11 @@ public class StringUtilTest {
         String result = StringUtil.dump(map);
 
         // 結果
-        StringBuffer sb = new StringBuffer();
-        sb.append(LINE_SEP);
-        sb.append("Map{");
-        sb.append(LINE_SEP);
-        sb.append("1=[東京, 大阪]");
-        sb.append(LINE_SEP);
-        sb.append("2={03,06}");
-        sb.append(LINE_SEP);
-        sb.append("}");
+        String str = LINE_SEP + "Map{" + LINE_SEP + "1=[東京, 大阪]" + LINE_SEP
+                + "2={03,06}" + LINE_SEP + "}";
 
         // 結果確認
-        assertEquals(sb.toString(), result);
+        assertEquals(str, result);
     }
 
     /**
