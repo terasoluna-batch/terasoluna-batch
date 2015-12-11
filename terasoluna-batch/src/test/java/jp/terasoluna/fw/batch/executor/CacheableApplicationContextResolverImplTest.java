@@ -16,8 +16,6 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.blogic.BLogic;
-import jp.terasoluna.fw.batch.executor.CacheableApplicationContextResolverImpl;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import org.junit.Before;
 import org.junit.Test;
