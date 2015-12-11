@@ -19,7 +19,7 @@ package jp.terasoluna.fw.batch.executor.worker;
 /**
  * ジョブシーケンスコードで決定されるジョブを定義するインタフェース。<br>
  */
-public interface JobExecutorTemplate {
+public interface AsyncJobWorker {
 
     /**
      * ジョブの主処理を行う。<br>

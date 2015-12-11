@@ -627,7 +627,7 @@ public final class LogId {
      */
     public static final String EAL025056 = "EAL025056";
     /**
-     * <strong>EAL025057 = [Assertion failed] - AsyncJobLauncherImpl constructor needs JobExecutorTemplate</strong>
+     * <strong>EAL025057 = [Assertion failed] - AsyncJobLauncherImpl constructor needs AsyncJobWorker</strong>
      */
     public static final String EAL025057 = "EAL025057";
     /**
@@ -639,35 +639,35 @@ public final class LogId {
      */
     public static final String EAL025059 = "EAL025059";
     /**
-     * <strong>EAL025060 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicResolver</strong>
+     * <strong>EAL025060 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicResolver</strong>
      */
     public static final String EAL025060 = "EAL025060";
     /**
-     * <strong>EAL025061 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExceptionHandlerResolver</strong>
+     * <strong>EAL025061 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExceptionHandlerResolver</strong>
      */
     public static final String EAL025061 = "EAL025061";
     /**
-     * <strong>EAL025062 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicApplicationContextResolver</strong>
+     * <strong>EAL025062 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicApplicationContextResolver</strong>
      */
     public static final String EAL025062 = "EAL025062";
     /**
-     * <strong>EAL025063 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchJobDataRepository</strong>
+     * <strong>EAL025063 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchJobDataRepository</strong>
      */
     public static final String EAL025063 = "EAL025063";
     /**
-     * <strong>EAL025064 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicParamConverter</strong>
+     * <strong>EAL025064 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicParamConverter</strong>
      */
     public static final String EAL025064 = "EAL025064";
     /**
-     * <strong>EAL025065 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExecutor</strong>
+     * <strong>EAL025065 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExecutor</strong>
      */
     public static final String EAL025065 = "EAL025065";
     /**
-     * <strong>EAL025066 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchStatusChanger</strong>
+     * <strong>EAL025066 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchStatusChanger</strong>
      */
     public static final String EAL025066 = "EAL025066";
     /**
-     * <strong>EAL025067 = [Assertion failed] - WorkerTemplateImpl constructor needs ExceptionStatusHandler</strong>
+     * <strong>EAL025067 = [Assertion failed] - AsyncJobWorkerImpl constructor needs ExceptionStatusHandler</strong>
      */
     public static final String EAL025067 = "EAL025067";
     /**

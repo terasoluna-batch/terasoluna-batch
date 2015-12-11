@@ -38,7 +38,7 @@ import org.springframework.util.ClassUtils;
  * @see ApplicationContextResolver
  * @see JobOperator
  * @see jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncher
- * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate
+ * @see jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker
  */
 public class AsyncBatchExecutor {
 

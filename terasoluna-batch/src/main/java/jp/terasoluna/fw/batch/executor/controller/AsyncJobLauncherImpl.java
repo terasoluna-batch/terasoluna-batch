@@ -2,7 +2,7 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandler;
-import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
+import jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.beans.factory.InitializingBean;
@@ -18,12 +18,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * 非同期バッチ実行機能で多重度の最大値を{@code ThreadPoolTaskExecutor}の最大スレッドプールサイズとした非同期のジョブ起動を行う。<br>
  * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。
- * 本機能を利用するにはジョブ実行テンプレート{@code JobExecutorTemplate}のBean定義が必要となる。
+ * 本機能を利用するにはワーカスレッド処理{@code AsyncJobWorker}のBean定義が必要となる。
  * 以下は{@code AsyncJobLauncher}と、非同期ジョブの多重度を決定する{@code ThreadPoolTaskExecutor}のBean定義の設定例である。
  * <code><pre>
  * &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
  *     &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
- *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
+ *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;asyncJobWorker&quot;/&gt;
  *     &lt;constructor-arg index=&quot;2&quot; ref=&quot;exceptionStatusHandler&quot;/&gt;
  * &lt;/bean&gt;
  * &lt;bean id=&quot;threadPoolTaskExecutor&quot; class=&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt;
@@ -63,7 +63,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     /**
      * ジョブ実行のテンプレート機能。
      */
-    protected JobExecutorTemplate jobExecutorTemplate;
+    protected AsyncJobWorker asyncJobWorker;
 
     /**
      * フレームワーク機能内部で発生した例外によるハンドリング機能。
@@ -89,21 +89,21 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     /**
      * コンストラクタ。<br>
      * @param threadPoolTaskExecutor {@code ThreadPoolTaskExecutor}のデリゲータ
-     * @param jobExecutorTemplate ジョブの前処理と主処理を定義するテンプレート
+     * @param asyncJobWorker ジョブの前処理と主処理を定義するテンプレート
      * @param exceptionStatusHandler フレームワーク内部例外を処理するハンドラ
      */
     public AsyncJobLauncherImpl(ThreadPoolTaskExecutor threadPoolTaskExecutor,
-            JobExecutorTemplate jobExecutorTemplate,
+            AsyncJobWorker asyncJobWorker,
             ExceptionStatusHandler exceptionStatusHandler) {
         Assert.notNull(threadPoolTaskExecutor, LOGGER.getLogMessage(
                 LogId.EAL025055));
-        Assert.notNull(jobExecutorTemplate, LOGGER.getLogMessage(
+        Assert.notNull(asyncJobWorker, LOGGER.getLogMessage(
                 LogId.EAL025057));
         Assert.notNull(exceptionStatusHandler, LOGGER.getLogMessage(
                 LogId.EAL025091));
 
         this.threadPoolTaskExecutor = threadPoolTaskExecutor;
-        this.jobExecutorTemplate = jobExecutorTemplate;
+        this.asyncJobWorker = asyncJobWorker;
         this.exceptionStatusHandler = exceptionStatusHandler;
     }
 
@@ -129,7 +129,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                 @Override
                 public void run() {
                     try {
-                        jobExecutorTemplate.executeWorker(jobSequenceId);
+                        asyncJobWorker.executeWorker(jobSequenceId);
                     } catch (RuntimeException e) {
                         exceptionStatusHandler.handleException(e);
                     } finally {

@@ -24,8 +24,8 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
  * <br>
  * 非同期バッチエグゼキュータから呼ばれ、指定されたジョブシーケンスコードからジョブを実行する。
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
- * @deprecated 本クラスはバージョン3.6.0よりジョブ実行時の前処理・主処理実装として{@code WorkerTemplateImpl}に移行したため、本APIは非推奨とする。
- * @see jp.terasoluna.fw.batch.executor.worker.WorkerTemplateImpl
+ * @deprecated 本クラスはバージョン3.6.0よりジョブ実行時の前処理・主処理実装として{@code AsyncJobWorkerImpl}に移行したため、本APIは非推奨とする。
+ * @see jp.terasoluna.fw.batch.executor.worker.AsyncJobWorkerImpl
  */
 @Deprecated
 public class BatchServantImpl extends AbstractJobBatchExecutor implements
