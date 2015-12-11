@@ -553,31 +553,31 @@ public class BLogicParam {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BLogicParam[");
-        buf.append("jobSequenceId=" + jobSequenceId);
-        buf.append(",jobAppCd=" + jobAppCd);
-        buf.append(",jobArgNm1=" + jobArgNm1);
-        buf.append(",jobArgNm2=" + jobArgNm2);
-        buf.append(",jobArgNm3=" + jobArgNm3);
-        buf.append(",jobArgNm4=" + jobArgNm4);
-        buf.append(",jobArgNm5=" + jobArgNm5);
-        buf.append(",jobArgNm6=" + jobArgNm6);
-        buf.append(",jobArgNm7=" + jobArgNm7);
-        buf.append(",jobArgNm8=" + jobArgNm8);
-        buf.append(",jobArgNm9=" + jobArgNm9);
-        buf.append(",jobArgNm10=" + jobArgNm10);
-        buf.append(",jobArgNm11=" + jobArgNm11);
-        buf.append(",jobArgNm12=" + jobArgNm12);
-        buf.append(",jobArgNm13=" + jobArgNm13);
-        buf.append(",jobArgNm14=" + jobArgNm14);
-        buf.append(",jobArgNm15=" + jobArgNm15);
-        buf.append(",jobArgNm16=" + jobArgNm16);
-        buf.append(",jobArgNm17=" + jobArgNm17);
-        buf.append(",jobArgNm18=" + jobArgNm18);
-        buf.append(",jobArgNm19=" + jobArgNm19);
-        buf.append(",jobArgNm20=" + jobArgNm20);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BLogicParam[");
+        sb.append("jobSequenceId=" + jobSequenceId);
+        sb.append(",jobAppCd=" + jobAppCd);
+        sb.append(",jobArgNm1=" + jobArgNm1);
+        sb.append(",jobArgNm2=" + jobArgNm2);
+        sb.append(",jobArgNm3=" + jobArgNm3);
+        sb.append(",jobArgNm4=" + jobArgNm4);
+        sb.append(",jobArgNm5=" + jobArgNm5);
+        sb.append(",jobArgNm6=" + jobArgNm6);
+        sb.append(",jobArgNm7=" + jobArgNm7);
+        sb.append(",jobArgNm8=" + jobArgNm8);
+        sb.append(",jobArgNm9=" + jobArgNm9);
+        sb.append(",jobArgNm10=" + jobArgNm10);
+        sb.append(",jobArgNm11=" + jobArgNm11);
+        sb.append(",jobArgNm12=" + jobArgNm12);
+        sb.append(",jobArgNm13=" + jobArgNm13);
+        sb.append(",jobArgNm14=" + jobArgNm14);
+        sb.append(",jobArgNm15=" + jobArgNm15);
+        sb.append(",jobArgNm16=" + jobArgNm16);
+        sb.append(",jobArgNm17=" + jobArgNm17);
+        sb.append(",jobArgNm18=" + jobArgNm18);
+        sb.append(",jobArgNm19=" + jobArgNm19);
+        sb.append(",jobArgNm20=" + jobArgNm20);
+        sb.append("]");
+        return sb.toString();
     }
 }

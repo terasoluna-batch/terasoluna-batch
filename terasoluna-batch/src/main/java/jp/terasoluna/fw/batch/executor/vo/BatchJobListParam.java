@@ -75,11 +75,11 @@ public class BatchJobListParam {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BatchJobListParam[");
-        buf.append("jobAppCd=" + JobAppCd);
-        buf.append(",curAppStatusList=" + CurAppStatusList);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BatchJobListParam[");
+        sb.append("jobAppCd=" + JobAppCd);
+        sb.append(",curAppStatusList=" + CurAppStatusList);
+        sb.append("]");
+        return sb.toString();
     }
 }

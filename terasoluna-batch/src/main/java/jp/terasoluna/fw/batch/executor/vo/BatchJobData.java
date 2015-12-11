@@ -651,35 +651,35 @@ public class BatchJobData {
      * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
-        final StringBuffer buf = new StringBuffer();
-        buf.append("BatchJobData[");
-        buf.append("jobSequenceId=" + jobSequenceId);
-        buf.append(",jobAppCd=" + fJobAppCd);
-        buf.append(",jobArgNm1=" + fJobArgNm1);
-        buf.append(",jobArgNm2=" + fJobArgNm2);
-        buf.append(",jobArgNm3=" + fJobArgNm3);
-        buf.append(",jobArgNm4=" + fJobArgNm4);
-        buf.append(",jobArgNm5=" + fJobArgNm5);
-        buf.append(",jobArgNm6=" + fJobArgNm6);
-        buf.append(",jobArgNm7=" + fJobArgNm7);
-        buf.append(",jobArgNm8=" + fJobArgNm8);
-        buf.append(",jobArgNm9=" + fJobArgNm9);
-        buf.append(",jobArgNm10=" + fJobArgNm10);
-        buf.append(",jobArgNm11=" + fJobArgNm11);
-        buf.append(",jobArgNm12=" + fJobArgNm12);
-        buf.append(",jobArgNm13=" + fJobArgNm13);
-        buf.append(",jobArgNm14=" + fJobArgNm14);
-        buf.append(",jobArgNm15=" + fJobArgNm15);
-        buf.append(",jobArgNm16=" + fJobArgNm16);
-        buf.append(",jobArgNm17=" + fJobArgNm17);
-        buf.append(",jobArgNm18=" + fJobArgNm18);
-        buf.append(",jobArgNm19=" + fJobArgNm19);
-        buf.append(",jobArgNm20=" + fJobArgNm20);
-        buf.append(",blogicAppStatus=" + fBLogicAppStatus);
-        buf.append(",curAppStatus=" + fCurAppStatus);
-        buf.append(",addDateTime=" + fAddDateTime);
-        buf.append(",updDateTime=" + fUpdDateTime);
-        buf.append("]");
-        return buf.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("BatchJobData[");
+        sb.append("jobSequenceId=" + jobSequenceId);
+        sb.append(",jobAppCd=" + fJobAppCd);
+        sb.append(",jobArgNm1=" + fJobArgNm1);
+        sb.append(",jobArgNm2=" + fJobArgNm2);
+        sb.append(",jobArgNm3=" + fJobArgNm3);
+        sb.append(",jobArgNm4=" + fJobArgNm4);
+        sb.append(",jobArgNm5=" + fJobArgNm5);
+        sb.append(",jobArgNm6=" + fJobArgNm6);
+        sb.append(",jobArgNm7=" + fJobArgNm7);
+        sb.append(",jobArgNm8=" + fJobArgNm8);
+        sb.append(",jobArgNm9=" + fJobArgNm9);
+        sb.append(",jobArgNm10=" + fJobArgNm10);
+        sb.append(",jobArgNm11=" + fJobArgNm11);
+        sb.append(",jobArgNm12=" + fJobArgNm12);
+        sb.append(",jobArgNm13=" + fJobArgNm13);
+        sb.append(",jobArgNm14=" + fJobArgNm14);
+        sb.append(",jobArgNm15=" + fJobArgNm15);
+        sb.append(",jobArgNm16=" + fJobArgNm16);
+        sb.append(",jobArgNm17=" + fJobArgNm17);
+        sb.append(",jobArgNm18=" + fJobArgNm18);
+        sb.append(",jobArgNm19=" + fJobArgNm19);
+        sb.append(",jobArgNm20=" + fJobArgNm20);
+        sb.append(",blogicAppStatus=" + fBLogicAppStatus);
+        sb.append(",curAppStatus=" + fCurAppStatus);
+        sb.append(",addDateTime=" + fAddDateTime);
+        sb.append(",updDateTime=" + fUpdDateTime);
+        sb.append("]");
+        return sb.toString();
     }
 }
