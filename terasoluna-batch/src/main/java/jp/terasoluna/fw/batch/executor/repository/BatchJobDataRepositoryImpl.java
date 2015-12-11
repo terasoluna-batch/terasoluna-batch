@@ -19,6 +19,7 @@ package jp.terasoluna.fw.batch.executor.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.util.Assert;
 
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
@@ -45,6 +46,12 @@ public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
             AsyncJobOperatorImpl.class);
 
     protected SystemDao systemDao;
+
+    /**
+     * 先頭1行取得指定の条件.
+     */
+    private static final RowBounds LIMIT_ONE_ROWBOUNDS =
+            new RowBounds(RowBounds.NO_ROW_OFFSET, 1);
 
     /**
      * コンストラクタ。
@@ -74,7 +81,8 @@ public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
                 add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
             }
         });
-        List<BatchJobListResult> resultList = systemDao.selectJobList(param);
+        List<BatchJobListResult> resultList = systemDao.selectJobList(
+                LIMIT_ONE_ROWBOUNDS, param);
         if (resultList == null || resultList.isEmpty()) {
             return null;
         }
