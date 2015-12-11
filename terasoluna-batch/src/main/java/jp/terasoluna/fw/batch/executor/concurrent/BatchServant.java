@@ -20,8 +20,8 @@ package jp.terasoluna.fw.batch.executor.concurrent;
  * バッチサーバントインタフェース。<br>
  * <br>
  * 非同期バッチエグゼキュータから呼ばれ、指定されたジョブシーケンスコードからジョブを実行する。
- * @deprecated 本機能はバージョン3.6.0よりジョブ実行の前処理・主処理を扱うインタフェースとして{@code JobExecutorTemplate}に移行されたため、非推奨APIとする。
- * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate
+ * @deprecated 本機能はバージョン3.6.0よりジョブ実行の前処理・主処理を扱うインタフェースとして{@code AsyncJobWorker}に移行されたため、非推奨APIとする。
+ * @see jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker
  */
 @Deprecated
 public interface BatchServant extends Runnable {

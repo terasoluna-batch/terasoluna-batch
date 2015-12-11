@@ -163,10 +163,6 @@ public final class LogId {
      */
     public static final String DAL025030 = "DAL025030";
     /**
-     * <strong>DAL025031 = AsyncBatchExecutor WAIT ENDS activeCount:[{0}]</strong>
-     */
-    public static final String DAL025031 = "DAL025031";
-    /**
      * <strong>DAL025032 = activeCount:[{0}] corePoolSize:[{1}] maxPoolSize:[{2}] poolSize:[{3}] activeCount:[{4}] taskCount:[{5}] queueSize:[{6}] remainingCapacity:[{7}]</strong>
      */
     public static final String DAL025032 = "DAL025032";
@@ -363,6 +359,14 @@ public final class LogId {
      */
     public static final String IAL025020 = "IAL025020";
     /**
+     * <strong>IAL025021 = Waiting to shutdown all tasks in ThreadPoolTaskExecutor.</strong>
+     */
+    public static final String IAL025021 = "IAL025021";
+    /**
+     * <strong>IAL025022 = Skipped job execution, because target job was not found. jobSequenceId[{0}]</strong>
+     */
+    public static final String IAL025022 = "IAL025022";
+    /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
     public static final String WAL025001 = "WAL025001";
@@ -394,10 +398,6 @@ public final class LogId {
      * <strong>WAL025008 = MessageAccessor is null.{0}</strong>
      */
     public static final String WAL025008 = "WAL025008";
-    /**
-     * <strong>WAL025009 = Async job aborted in preprocessing because updating current application status was failed. jobSequenceId:[{0}]</strong>
-     */
-    public static final String WAL025009 = "WAL025009";
     /**
      * <strong>WAL025010 = ExceptionHandler won't be used in BLogic {0}, Bean Definition Files {1}</strong>
      */
@@ -627,7 +627,7 @@ public final class LogId {
      */
     public static final String EAL025056 = "EAL025056";
     /**
-     * <strong>EAL025057 = [Assertion failed] - AsyncJobLauncherImpl constructor needs JobExecutorTemplate</strong>
+     * <strong>EAL025057 = [Assertion failed] - AsyncJobLauncherImpl constructor needs AsyncJobWorker</strong>
      */
     public static final String EAL025057 = "EAL025057";
     /**
@@ -639,35 +639,35 @@ public final class LogId {
      */
     public static final String EAL025059 = "EAL025059";
     /**
-     * <strong>EAL025060 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicResolver</strong>
+     * <strong>EAL025060 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicResolver</strong>
      */
     public static final String EAL025060 = "EAL025060";
     /**
-     * <strong>EAL025061 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExceptionHandlerResolver</strong>
+     * <strong>EAL025061 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExceptionHandlerResolver</strong>
      */
     public static final String EAL025061 = "EAL025061";
     /**
-     * <strong>EAL025062 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicApplicationContextResolver</strong>
+     * <strong>EAL025062 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicApplicationContextResolver</strong>
      */
     public static final String EAL025062 = "EAL025062";
     /**
-     * <strong>EAL025063 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchJobDataRepository</strong>
+     * <strong>EAL025063 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchJobDataRepository</strong>
      */
     public static final String EAL025063 = "EAL025063";
     /**
-     * <strong>EAL025064 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicParamConverter</strong>
+     * <strong>EAL025064 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicParamConverter</strong>
      */
     public static final String EAL025064 = "EAL025064";
     /**
-     * <strong>EAL025065 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExecutor</strong>
+     * <strong>EAL025065 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExecutor</strong>
      */
     public static final String EAL025065 = "EAL025065";
     /**
-     * <strong>EAL025066 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchStatusChanger</strong>
+     * <strong>EAL025066 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchStatusChanger</strong>
      */
     public static final String EAL025066 = "EAL025066";
     /**
-     * <strong>EAL025067 = [Assertion failed] - WorkerTemplateImpl constructor needs ExceptionStatusHandler</strong>
+     * <strong>EAL025067 = [Assertion failed] - AsyncJobWorkerImpl constructor needs ExceptionStatusHandler</strong>
      */
     public static final String EAL025067 = "EAL025067";
     /**
