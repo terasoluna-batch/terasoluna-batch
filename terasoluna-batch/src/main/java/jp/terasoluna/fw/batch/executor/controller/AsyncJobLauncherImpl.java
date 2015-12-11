@@ -61,7 +61,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     protected ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     /**
-     * ジョブ実行のテンプレート機能。
+     * ワーカスレッド処理機能。
      */
     protected AsyncJobWorker asyncJobWorker;
 
@@ -89,7 +89,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     /**
      * コンストラクタ。<br>
      * @param threadPoolTaskExecutor {@code ThreadPoolTaskExecutor}のデリゲータ
-     * @param asyncJobWorker ジョブの前処理と主処理を定義するテンプレート
+     * @param asyncJobWorker ワーカスレッドの処理機能
      * @param exceptionStatusHandler フレームワーク内部例外を処理するハンドラ
      */
     public AsyncJobLauncherImpl(ThreadPoolTaskExecutor threadPoolTaskExecutor,

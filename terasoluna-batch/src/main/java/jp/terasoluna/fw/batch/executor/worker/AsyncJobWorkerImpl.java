@@ -34,7 +34,7 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * ジョブシーケンスコードで決定されるジョブの前処理と主処理を定義する実装クラス<br>
+ * ジョブシーケンスコードで決定されワーカスレッド内の処理を定義する実装クラス<br>
  * <p>
  * 前処理となる{@code beforeExecute}は実行された結果、{@code false}が返却された場合、 もしくは、{@code Exception}がスローされた場合、主処理である{@code executeWorker}
  * は実行されないよう、本機能の呼び出し元で実装すること。<br>
