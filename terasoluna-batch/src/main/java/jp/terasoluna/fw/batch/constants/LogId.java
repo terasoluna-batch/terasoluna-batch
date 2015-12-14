@@ -651,7 +651,7 @@ public final class LogId {
      */
     public static final String EAL025062 = "EAL025062";
     /**
-     * <strong>EAL025063 = [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchJobDataRepository</strong>
+     * <strong>EAL025063 = [Assertion failed] - AsyncJobWorkerImpl constructor needs JobControlFinder</strong>
      */
     public static final String EAL025063 = "EAL025063";
     /**
@@ -671,7 +671,7 @@ public final class LogId {
      */
     public static final String EAL025068 = "EAL025068";
     /**
-     * <strong>EAL025069 = [Assertion failed] - BatchJobDataRepositoryImpl constructor needs SystemDao</strong>
+     * <strong>EAL025069 = [Assertion failed] - JobControlFinderImpl constructor needs SystemDao</strong>
      */
     public static final String EAL025069 = "EAL025069";
     /**
@@ -687,7 +687,7 @@ public final class LogId {
      */
     public static final String EAL025073 = "EAL025073";
     /**
-     * <strong>EAL025074 = [Assertion failed] - AsyncJobOperatorImpl constructor needs BatchJobDataRepository</strong>
+     * <strong>EAL025074 = [Assertion failed] - AsyncJobOperatorImpl constructor needs JobControlFinder</strong>
      */
     public static final String EAL025074 = "EAL025074";
     /**
@@ -698,6 +698,10 @@ public final class LogId {
      * <strong>EAL025076 = [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncBatchStopper</strong>
      */
     public static final String EAL025076 = "EAL025076";
+    /**
+     * <strong>EAL025077 = [Assertion failed] - AsyncJobOperatorImpl constructor needs ExceptionStatusHandler</strong>
+     */
+    public static final String EAL025077 = "EAL025077";
     /**
      * <strong>EAL025078 = [Assertion failed] - Property of polling.interval must be defined.</strong>
      */
@@ -750,6 +754,10 @@ public final class LogId {
      * <strong>EAL025090 = An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set.</strong>
      */
     public static final String EAL025090 = "EAL025090";
+    /**
+     * <strong>EAL025091 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ExceptionStatusHandler.</strong>
+     */
+    public static final String EAL025091 = "EAL025091";
     /**
      * <strong>EAL025092 = invalid format in batch.properties, key: {0}</strong>
      */

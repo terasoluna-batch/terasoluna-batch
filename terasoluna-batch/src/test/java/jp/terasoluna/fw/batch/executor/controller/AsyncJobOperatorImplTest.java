@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.exception.BatchException;
-import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
+import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +37,7 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
  */
 public class AsyncJobOperatorImplTest {
 
-    protected BatchJobDataRepository batchJobDataRepository;
+    protected JobControlFinder jobControlFinder;
 
     protected AsyncJobLauncher asyncJobLauncher;
 
@@ -51,7 +51,7 @@ public class AsyncJobOperatorImplTest {
      */
     @Before
     public void setUp() {
-        this.batchJobDataRepository = mock(BatchJobDataRepository.class);
+        this.jobControlFinder = mock(JobControlFinder.class);
         this.asyncJobLauncher = mock(AsyncJobLauncher.class);
         this.asyncBatchStopper = mock(AsyncBatchStopper.class);
         this.logger.clear();
@@ -63,7 +63,7 @@ public class AsyncJobOperatorImplTest {
      * 事前条件
      * ・とくになし
      * 確認項目
-     * ・{@code BatchJobDataRepository}がnullであるとき、アサーションエラーとして
+     * ・{@code JobControlFinder}がnullであるとき、アサーションエラーとして
      * 　{@code IllegalArgumentException}がスローされること。
      * </pre>
      *
@@ -77,7 +77,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025074] [Assertion failed] - AsyncJobOperatorImpl constructor needs BatchJobDataRepository",
+                    "[EAL025074] [Assertion failed] - AsyncJobOperatorImpl constructor needs JobControlFinder",
                     e.getMessage());
         }
     }
@@ -98,7 +98,7 @@ public class AsyncJobOperatorImplTest {
     public void testAsyncJobOperatorImpl02() throws Exception {
         try {
             // テスト実行
-            new AsyncJobOperatorImpl(batchJobDataRepository, null,
+            new AsyncJobOperatorImpl(jobControlFinder, null,
                     asyncBatchStopper);
             fail();
         } catch (IllegalArgumentException e) {
@@ -124,7 +124,7 @@ public class AsyncJobOperatorImplTest {
     public void testAsyncJobOperatorImpl03() throws Exception {
         try {
             // テスト実行
-            new AsyncJobOperatorImpl(batchJobDataRepository, asyncJobLauncher,
+            new AsyncJobOperatorImpl(jobControlFinder, asyncJobLauncher,
                     null);
             fail();
         } catch (IllegalArgumentException e) {
@@ -149,10 +149,10 @@ public class AsyncJobOperatorImplTest {
     public void testAsyncJobOperatorImpl04() throws Exception {
         // テスト実行
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
-        assertSame(batchJobDataRepository,
-                asyncJobOperator.batchJobDataRepository);
+        assertSame(jobControlFinder,
+                asyncJobOperator.jobControlFinder);
         assertSame(asyncJobLauncher, asyncJobOperator.asyncJobLauncher);
         assertSame(asyncBatchStopper, asyncJobOperator.asyncBatchStopper);
     }
@@ -173,16 +173,16 @@ public class AsyncJobOperatorImplTest {
     public void testStart01() throws Exception {
         doReturn(true).when(asyncBatchStopper).canStop();
         String[] args = new String[] {};
-        doReturn(new BatchJobListResult()).when(batchJobDataRepository)
+        doReturn(new BatchJobListResult()).when(jobControlFinder)
                 .resolveBatchJobResult(args);
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
         assertEquals(0, asyncJobOperator.start(new String[] {}));
 
-        // BatchJobDataRepository#resolveBatchJobResult()が１度も呼ばれていないこと。
-        verify(batchJobDataRepository, never()).resolveBatchJobResult(args);
+        // JobControlFinder#resolveBatchJobResult()が１度も呼ばれていないこと。
+        verify(jobControlFinder, never()).resolveBatchJobResult(args);
 
         // シャットダウン処理が呼び出されていること。
         verify(asyncJobLauncher).shutdown();
@@ -194,7 +194,7 @@ public class AsyncJobOperatorImplTest {
      * 事前条件
      * ・コンストラクタのアサーションを全て成功させていること。
      * 確認項目
-     * ・{@code BatchJobDataRepository#resolveBatchJobResult()}が{@code null}
+     * ・{@code JobControlFinder#resolveBatchJobResult()}が{@code null}
      * を返す時、ポーリングスリープが行われてジョブが実行されないこと。
      * </pre>
      *
@@ -204,10 +204,10 @@ public class AsyncJobOperatorImplTest {
     public void testStart02() throws Exception {
         doReturn(false).doReturn(true).when(asyncBatchStopper).canStop();
         String[] args = new String[] {};
-        doReturn(null).when(batchJobDataRepository).resolveBatchJobResult(args);
+        doReturn(null).when(jobControlFinder).resolveBatchJobResult(args);
         doNothing().when(asyncJobLauncher).executeJob(anyString());
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
         assertEquals(0, asyncJobOperator.start(new String[] {}));
@@ -237,11 +237,11 @@ public class AsyncJobOperatorImplTest {
         BatchJobListResult result = new BatchJobListResult() {{
             setJobSequenceId("jobSequenceId");
         }};
-        doReturn(result).when(batchJobDataRepository)
+        doReturn(result).when(jobControlFinder)
                 .resolveBatchJobResult(args);
         doNothing().when(asyncJobLauncher).executeJob(anyString());
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
         assertEquals(0, asyncJobOperator.start(new String[] {}));
@@ -272,11 +272,11 @@ public class AsyncJobOperatorImplTest {
         BatchJobListResult result = new BatchJobListResult() {{
             setJobSequenceId("jobSequenceId");
         }};
-        doReturn(result).when(batchJobDataRepository)
+        doReturn(result).when(jobControlFinder)
                 .resolveBatchJobResult(args);
         doNothing().when(asyncJobLauncher).executeJob(anyString());
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
         assertEquals(0, asyncJobOperator.start(new String[] {}));
@@ -306,14 +306,14 @@ public class AsyncJobOperatorImplTest {
         BatchJobListResult result = new BatchJobListResult() {{
             setJobSequenceId("jobSequenceId");
         }};
-        doReturn(result).when(batchJobDataRepository)
+        doReturn(result).when(jobControlFinder)
                 .resolveBatchJobResult(args);
         doNothing().when(asyncJobLauncher).executeJob(anyString());
         IllegalStateException e = new IllegalStateException(
                 "job execution failed.");
         doThrow(e).when(asyncJobLauncher).executeJob("jobSequenceId");
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
         try {
@@ -342,7 +342,7 @@ public class AsyncJobOperatorImplTest {
     public void testPollingSleep01() throws Exception {
         Thread.interrupted(); // あらかじめ割り込み状態をクリアしておく。
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
         asyncJobOperator.jobIntervalTime = 1L;
 
         // テスト実行
@@ -364,7 +364,7 @@ public class AsyncJobOperatorImplTest {
     @Test
     public void testPollingSleep02() throws Exception {
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
-                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
+                jobControlFinder, asyncJobLauncher, asyncBatchStopper);
         asyncJobOperator.jobIntervalTime = 1L;
 
         // スリープの呼び出し前から割り込み状態にする。

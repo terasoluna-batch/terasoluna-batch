@@ -30,7 +30,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
-import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
+import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
@@ -61,7 +61,7 @@ public class AsyncJobWorkerImplTest {
 
     private ApplicationContextResolver mockBLogicApplicationContextResolver;
 
-    private BatchJobDataRepository mockBatchJobDataRepository;
+    private JobControlFinder mockJobControlFinder;
 
     private BLogicParamConverter mockBLogicParamConverter;
 
@@ -78,7 +78,7 @@ public class AsyncJobWorkerImplTest {
         this.mockBLogicResolver = mock(BLogicResolver.class);
         this.mockBLogicExceptionHandlerResolver = mock(BLogicExceptionHandlerResolver.class);
         this.mockBLogicApplicationContextResolver = mock(ApplicationContextResolver.class);
-        this.mockBatchJobDataRepository = mock(BatchJobDataRepository.class);
+        this.mockJobControlFinder = mock(JobControlFinder.class);
         this.mockBLogicParamConverter = mock(BLogicParamConverter.class);
         this.mockBLogicExecutor = mock(BLogicExecutor.class);
         this.mockJobStatusChanger = mock(JobStatusChanger.class);
@@ -93,7 +93,7 @@ public class AsyncJobWorkerImplTest {
         this.mockBLogicResolver = null;
         this.mockBLogicExceptionHandlerResolver = null;
         this.mockBLogicApplicationContextResolver = null;
-        this.mockBatchJobDataRepository = null;
+        this.mockJobControlFinder = null;
         this.mockBLogicParamConverter = null;
         this.mockBLogicExecutor = null;
         this.mockJobStatusChanger = null;
@@ -118,7 +118,7 @@ public class AsyncJobWorkerImplTest {
             // テスト実行
             new AsyncJobWorkerImpl(null, mockBLogicExceptionHandlerResolver,
                     mockBLogicApplicationContextResolver, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     mockBLogicParamConverter, 
                     mockBLogicExecutor, 
                     mockJobStatusChanger);
@@ -149,7 +149,7 @@ public class AsyncJobWorkerImplTest {
             new AsyncJobWorkerImpl(mockBLogicResolver,
                     null, 
                     mockBLogicApplicationContextResolver, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     mockBLogicParamConverter, 
                     mockBLogicExecutor, 
                     mockJobStatusChanger);
@@ -180,7 +180,7 @@ public class AsyncJobWorkerImplTest {
             new AsyncJobWorkerImpl(mockBLogicResolver,
                     mockBLogicExceptionHandlerResolver, 
                     null, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     mockBLogicParamConverter, 
                     mockBLogicExecutor, 
                     mockJobStatusChanger);
@@ -199,7 +199,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code batchJobDataRepository}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code jobControlFinder}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -219,7 +219,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025063] [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchJobDataRepository"));
+                    is("[EAL025063] [Assertion failed] - AsyncJobWorkerImpl constructor needs JobControlFinder"));
         }
     }
 
@@ -242,7 +242,7 @@ public class AsyncJobWorkerImplTest {
             new AsyncJobWorkerImpl(mockBLogicResolver,
                     mockBLogicExceptionHandlerResolver, 
                     mockBLogicApplicationContextResolver, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     null, 
                     mockBLogicExecutor, 
                     mockJobStatusChanger);
@@ -273,7 +273,7 @@ public class AsyncJobWorkerImplTest {
             new AsyncJobWorkerImpl(mockBLogicResolver,
                     mockBLogicExceptionHandlerResolver,
                     mockBLogicApplicationContextResolver, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     mockBLogicParamConverter, 
                     null, 
                     mockJobStatusChanger);
@@ -304,7 +304,7 @@ public class AsyncJobWorkerImplTest {
             new AsyncJobWorkerImpl(mockBLogicResolver,
                     mockBLogicExceptionHandlerResolver,
                     mockBLogicApplicationContextResolver, 
-                    mockBatchJobDataRepository, 
+                    mockJobControlFinder, 
                     mockBLogicParamConverter, 
                     mockBLogicExecutor, 
                     null);
@@ -323,7 +323,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicResolver}、{@code bLogicExceptionHandlerResolver}、{@code bLogicApplicationContextResolver}、{@code batchJobDataRepository}、{@code bLogicParamConverter}、{@code bLogicExecutor}、{@code jobStatusChanger}が正しく設定されていること
+     * ・{@code AsyncJobWorkerImpl}の{@code bLogicResolver}、{@code bLogicExceptionHandlerResolver}、{@code bLogicApplicationContextResolver}、{@code jobControlFinder}、{@code bLogicParamConverter}、{@code bLogicExecutor}、{@code jobStatusChanger}が正しく設定されていること
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -334,7 +334,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -344,8 +344,8 @@ public class AsyncJobWorkerImplTest {
                 is(mockBLogicExceptionHandlerResolver));
         assertThat(target.bLogicApplicationContextResolver,
                 is(mockBLogicApplicationContextResolver));
-        assertThat(target.batchJobDataRepository,
-                is(mockBatchJobDataRepository));
+        assertThat(target.jobControlFinder,
+                is(mockJobControlFinder));
         assertThat(target.bLogicParamConverter, is(mockBLogicParamConverter));
         assertThat(target.bLogicExecutor, is(mockBLogicExecutor));
         assertThat(target.jobStatusChanger, is(mockJobStatusChanger));
@@ -371,7 +371,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -403,7 +403,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository,
+                mockJobControlFinder,
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -439,7 +439,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -463,7 +463,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code BatchJobDataRepository}にて{@code BatchJobData}を取得する際に例外が発生した場合、
+     * ・{@code JobControlFinder}にて{@code BatchJobData}を取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
      * </pre>
      * 
@@ -472,7 +472,7 @@ public class AsyncJobWorkerImplTest {
     @Test
     public void testExecuteWorker01() throws Exception {
         Exception ex = new IllegalArgumentException();
-        when(mockBatchJobDataRepository.resolveBatchJobData(anyString()))
+        when(mockJobControlFinder.resolveBatchJobData(anyString()))
                 .thenThrow(ex);
 
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
@@ -481,7 +481,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -549,7 +549,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -560,7 +560,7 @@ public class AsyncJobWorkerImplTest {
         // テスト実行
         target.executeWorker("0000001");
 
-        verify(mockBatchJobDataRepository).resolveBatchJobData(
+        verify(mockJobControlFinder).resolveBatchJobData(
                 "0000001");
         verify(mockBLogicResolver, never()).resolveBLogic(
                 any(ApplicationContext.class), anyString());
@@ -616,7 +616,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -626,13 +626,13 @@ public class AsyncJobWorkerImplTest {
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
-        doReturn(batchJobData).when(mockBatchJobDataRepository)
+        doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
 
         // テスト実行
         target.executeWorker("seq0000001");
 
-        verify(mockBatchJobDataRepository).resolveBatchJobData(
+        verify(mockJobControlFinder).resolveBatchJobData(
                 "seq0000001");
         verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
@@ -689,7 +689,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -700,13 +700,13 @@ public class AsyncJobWorkerImplTest {
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
-        doReturn(batchJobData).when(mockBatchJobDataRepository)
+        doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
 
         // テスト実行
         target.executeWorker("seq0000001");
 
-        verify(mockBatchJobDataRepository).resolveBatchJobData(
+        verify(mockJobControlFinder).resolveBatchJobData(
                 "seq0000001");
         verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
@@ -757,7 +757,7 @@ public class AsyncJobWorkerImplTest {
                 setJobAppCd("0000001");
             }
         };
-        when(mockBatchJobDataRepository.resolveBatchJobData("0000001"))
+        when(mockJobControlFinder.resolveBatchJobData("0000001"))
                 .thenReturn(batchJobData);
 
         final ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
@@ -793,7 +793,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -854,7 +854,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
@@ -864,7 +864,7 @@ public class AsyncJobWorkerImplTest {
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
-        doReturn(batchJobData).when(mockBatchJobDataRepository)
+        doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
 
         // テスト実行
@@ -919,7 +919,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver,
                 mockBLogicApplicationContextResolver,
-                mockBatchJobDataRepository,
+                mockJobControlFinder,
                 mockBLogicParamConverter,
                 mockBLogicExecutor,
                 mockJobStatusChanger));
@@ -964,7 +964,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -1001,7 +1001,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -1043,7 +1043,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter,
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
@@ -1080,7 +1080,7 @@ public class AsyncJobWorkerImplTest {
         AsyncJobWorkerImpl target = new AsyncJobWorkerImpl(mockBLogicResolver,
                 mockBLogicExceptionHandlerResolver, 
                 mockBLogicApplicationContextResolver, 
-                mockBatchJobDataRepository, 
+                mockJobControlFinder, 
                 mockBLogicParamConverter, 
                 mockBLogicExecutor, 
                 mockJobStatusChanger);

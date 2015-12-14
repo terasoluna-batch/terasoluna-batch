@@ -25,6 +25,7 @@ import jp.terasoluna.fw.batch.constants.JobStatusConstants;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
+import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
@@ -41,8 +42,8 @@ import org.springframework.dao.DataAccessException;
  * 主にフレームワークのAbstractJobBatchExecutorから利用されるユーティリティ。<br>
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
  *
- * @deprecated バージョン3.5.0で一部メソッドが非推奨化されたが、バージョン3.6.0よりジョブ管理テーブルの操作は{@code BatchJobDataRepository}に移行しているため、クラス全体を非推奨APIとする。
- * @see jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository
+ * @deprecated バージョン3.5.0で一部メソッドが非推奨化されたが、バージョン3.6.0よりジョブ管理テーブルの操作は{@code JobControlFinder}に移行しているため、クラス全体を非推奨APIとする。
+ * @see JobControlFinder
  */
 @Deprecated
 public class JobUtil {
