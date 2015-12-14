@@ -16,6 +16,7 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
+import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import org.junit.Before;
@@ -293,8 +294,7 @@ public class AsyncJobOperatorImplTest {
      * 事前条件
      * ・コンストラクタのアサーションを全て成功させていること。
      * 確認項目
-     * ・ジョブの実行中に例外が発生した場合、EAL025053ログを出力し、
-     * 終了コード255が返却されること。
+     * ・ジョブの実行中に例外が発生した場合、例外がそのままスローされること。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -316,12 +316,15 @@ public class AsyncJobOperatorImplTest {
                 batchJobDataRepository, asyncJobLauncher, asyncBatchStopper);
 
         // テスト実行
-        assertEquals(255, asyncJobOperator.start(new String[] {}));
+        try {
+            asyncJobOperator.start(new String[] {});
+            fail();
+        } catch (IllegalStateException ise) {
+            assertThat(ise, is(e));
+        }
 
         // シャットダウン処理が呼び出されていること。
         verify(asyncJobLauncher).shutdown();
-
-        assertThat(logger.getLoggingEvents(), is(asList(error(e, "[EAL025053] An exception occurred."))));
     }
 
     /**
@@ -352,7 +355,8 @@ public class AsyncJobOperatorImplTest {
      * 事前条件
      * ・とくになし
      * 確認項目
-     * ・ポーリングループ時のスリープで割り込みが発生した場合InterruptedExceptionが発生すること。
+     * ・ポーリングループ時のスリープで割り込みが発生した場合、InterruptedExceptionをラップした
+     * 　BatchExceptionが発生すること。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -370,7 +374,8 @@ public class AsyncJobOperatorImplTest {
             // テスト実行
             asyncJobOperator.pollingSleep();
             fail();
-        } catch (InterruptedException e) {
+        } catch (BatchException e) {
+            assertTrue(e.getCause() instanceof InterruptedException);
         }
     }
     

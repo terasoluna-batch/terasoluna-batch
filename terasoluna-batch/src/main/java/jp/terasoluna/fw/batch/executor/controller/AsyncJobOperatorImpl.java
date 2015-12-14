@@ -17,6 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.logger.TLogger;
@@ -39,11 +40,6 @@ public class AsyncJobOperatorImpl implements JobOperator {
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AsyncJobOperatorImpl.class);
-
-    /**
-     * ループ中断例外のリターンコード.
-     */
-    protected static final int LOOP_ERROR_ABORTED_STATUS = 255;
 
     /**
      * ジョブのポーリング間隔。<br>
@@ -108,9 +104,6 @@ public class AsyncJobOperatorImpl implements JobOperator {
                 asyncJobLauncher
                         .executeJob(batchJobListResult.getJobSequenceId());
             }
-        } catch (Exception e) {
-            LOGGER.error(LogId.EAL025053, e);
-            return LOOP_ERROR_ABORTED_STATUS;
         } finally {
             asyncJobLauncher.shutdown();
         }
@@ -120,10 +113,12 @@ public class AsyncJobOperatorImpl implements JobOperator {
     /**
      * ポーリングにより実行対象となるジョブが見つからない場合一定時間スリープさせる。<br>
      * スリープの時間は{@code jobIntervalTime}プロパティで定められる。
-     *
-     * @throws InterruptedException 割り込み例外
      */
-    protected void pollingSleep() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(jobIntervalTime);
+    protected void pollingSleep() {
+        try {
+            TimeUnit.MILLISECONDS.sleep(jobIntervalTime);
+        } catch (InterruptedException e) {
+            throw new BatchException(e);
+        }
     }
 }
