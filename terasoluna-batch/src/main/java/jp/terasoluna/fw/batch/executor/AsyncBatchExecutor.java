@@ -82,8 +82,8 @@ public class AsyncBatchExecutor {
             int status = jobOperator.start(args);
             LOGGER.info(LogId.IAL025013);
             return status;
-        } catch (Exception e) {
-            LOGGER.error(LogId.EAL025094, e);
+        } catch (Throwable t) {
+            LOGGER.error(LogId.EAL025094, t);
             return FAIL_TO_OBTAIN_JOB_OPERATOR_CODE;
         } finally {
             if (context != null) {

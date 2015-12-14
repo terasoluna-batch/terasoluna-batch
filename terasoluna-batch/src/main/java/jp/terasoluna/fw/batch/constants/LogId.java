@@ -667,10 +667,6 @@ public final class LogId {
      */
     public static final String EAL025066 = "EAL025066";
     /**
-     * <strong>EAL025067 = [Assertion failed] - AsyncJobWorkerImpl constructor needs ExceptionStatusHandler</strong>
-     */
-    public static final String EAL025067 = "EAL025067";
-    /**
      * <strong>EAL025068 = JobSequenceId:{0} : The previous processing of the BLogic execution has failed.</strong>
      */
     public static final String EAL025068 = "EAL025068";
@@ -702,10 +698,6 @@ public final class LogId {
      * <strong>EAL025076 = [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncBatchStopper</strong>
      */
     public static final String EAL025076 = "EAL025076";
-    /**
-     * <strong>EAL025077 = [Assertion failed] - AsyncJobOperatorImpl constructor needs ExceptionStatusHandler</strong>
-     */
-    public static final String EAL025077 = "EAL025077";
     /**
      * <strong>EAL025078 = [Assertion failed] - Property of polling.interval must be defined.</strong>
      */
@@ -758,10 +750,6 @@ public final class LogId {
      * <strong>EAL025090 = An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set.</strong>
      */
     public static final String EAL025090 = "EAL025090";
-    /**
-     * <strong>EAL025091 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ExceptionStatusHandler.</strong>
-     */
-    public static final String EAL025091 = "EAL025091";
     /**
      * <strong>EAL025092 = invalid format in batch.properties, key: {0}</strong>
      */
