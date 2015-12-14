@@ -27,7 +27,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
-import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
+import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
@@ -66,9 +66,9 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     protected ApplicationContextResolver bLogicApplicationContextResolver;
 
     /**
-     * ジョブシーケンスコードに該当するBatchJobDataを取得するためのBatchJobDataRepositoryオブジェクト
+     * ジョブシーケンスコードに該当するBatchJobDataを取得するためのJobControlFinderオブジェクト
      */
-    protected BatchJobDataRepository batchJobDataRepository;
+    protected JobControlFinder jobControlFinder;
 
     /**
      * BatchJobDataからBLogicParamに変換するためのBLogicParamConverterオブジェクト
@@ -90,7 +90,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * @param bLogicResolver BLogicのインスタンスを取得するためのBLogicResolverオブジェクト
      * @param bLogicExceptionHandlerResolver BLogic用の例外ハンドラのインスタンスを取得するためのBLogicExceptionHandlerResolverオブジェクト
      * @param bLogicApplicationContextResolver ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのBLogicApplicationContextResolverオブジェクト
-     * @param batchJobDataRepository ジョブシーケンスコードに該当するBatchJobDataを取得するためのBatchJobDataRepositoryオブジェクト
+     * @param jobControlFinder ジョブシーケンスコードに該当するBatchJobDataを取得するためのJobControlFinderオブジェクト
      * @param bLogicParamConverter BatchJobDataからBLogicParamに変換するためのBLogicParamConverterオブジェクト
      * @param bLogicExecutor BLogicの実行を移譲するBLogicExecutorオブジェクト
      * @param jobStatusChanger ジョブ管理テーブルのジョブステータスを変更するためのJobStatusChangerオブジェクト
@@ -98,7 +98,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     protected AsyncJobWorkerImpl(BLogicResolver bLogicResolver,
             BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver,
             ApplicationContextResolver bLogicApplicationContextResolver,
-            BatchJobDataRepository batchJobDataRepository,
+            JobControlFinder jobControlFinder,
             BLogicParamConverter bLogicParamConverter,
             BLogicExecutor bLogicExecutor, JobStatusChanger jobStatusChanger) {
         Assert.notNull(bLogicResolver, LOGGER.getLogMessage(LogId.EAL025060));
@@ -106,7 +106,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
                 .getLogMessage(LogId.EAL025061));
         Assert.notNull(bLogicApplicationContextResolver, LOGGER
                 .getLogMessage(LogId.EAL025062));
-        Assert.notNull(batchJobDataRepository, LOGGER
+        Assert.notNull(jobControlFinder, LOGGER
                 .getLogMessage(LogId.EAL025063));
         Assert.notNull(bLogicParamConverter, LOGGER
                 .getLogMessage(LogId.EAL025064));
@@ -116,7 +116,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
         this.bLogicResolver = bLogicResolver;
         this.bLogicExceptionHandlerResolver = bLogicExceptionHandlerResolver;
         this.bLogicApplicationContextResolver = bLogicApplicationContextResolver;
-        this.batchJobDataRepository = batchJobDataRepository;
+        this.jobControlFinder = jobControlFinder;
         this.bLogicParamConverter = bLogicParamConverter;
         this.bLogicExecutor = bLogicExecutor;
         this.jobStatusChanger = jobStatusChanger;
@@ -171,7 +171,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
         BLogicParam bLogicParam = null;
 
         try {
-            BatchJobData batchJobData = batchJobDataRepository
+            BatchJobData batchJobData = jobControlFinder
                     .resolveBatchJobData(jobSequenceId);
             bLogicContext = bLogicApplicationContextResolver
                     .resolveApplicationContext(batchJobData);

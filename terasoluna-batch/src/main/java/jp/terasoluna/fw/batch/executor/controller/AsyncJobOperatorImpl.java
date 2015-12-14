@@ -18,7 +18,8 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
-import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
+import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.logger.TLogger;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,7 +51,7 @@ public class AsyncJobOperatorImpl implements JobOperator {
     /**
      * ジョブの検索機能。<br>
      */
-    protected BatchJobDataRepository batchJobDataRepository;
+    protected JobControlFinder jobControlFinder;
 
     /**
      * ジョブの起動機能。<br>
@@ -66,20 +67,20 @@ public class AsyncJobOperatorImpl implements JobOperator {
      * コンストラクタ。<br>
      * ジョブの起動とポーリングループの終了条件監視に必要となる機能を設定する。
      *
-     * @param batchJobDataRepository ジョブの検索機能
+     * @param jobControlFinder ジョブの検索機能
      * @param asyncJobLauncher       ジョブの起動機能
      * @param asyncBatchStopper      終了条件監視機能
      */
-    public AsyncJobOperatorImpl(BatchJobDataRepository batchJobDataRepository,
+    public AsyncJobOperatorImpl(JobControlFinder jobControlFinder,
             AsyncJobLauncher asyncJobLauncher,
             AsyncBatchStopper asyncBatchStopper) {
-        Assert.notNull(batchJobDataRepository,
+        Assert.notNull(jobControlFinder,
                 LOGGER.getLogMessage(LogId.EAL025074));
         Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025075));
         Assert.notNull(asyncBatchStopper,
                 LOGGER.getLogMessage(LogId.EAL025076));
 
-        this.batchJobDataRepository = batchJobDataRepository;
+        this.jobControlFinder = jobControlFinder;
         this.asyncJobLauncher = asyncJobLauncher;
         this.asyncBatchStopper = asyncBatchStopper;
     }
@@ -94,7 +95,7 @@ public class AsyncJobOperatorImpl implements JobOperator {
     public int start(String[] args) {
         try {
             while (!asyncBatchStopper.canStop()) {
-                BatchJobListResult batchJobListResult = batchJobDataRepository
+                BatchJobListResult batchJobListResult = jobControlFinder
                         .resolveBatchJobResult(args);
                 if (batchJobListResult == null) {
                     pollingSleep();

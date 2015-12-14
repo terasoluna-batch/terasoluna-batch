@@ -23,7 +23,7 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
  * ジョブパラメータを解決するインタフェース。<br>
  * @since 3.6
  */
-public interface BatchJobDataRepository {
+public interface JobControlFinder {
 
     /**
      * ジョブ起動引数である{@code String}配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>
