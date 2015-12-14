@@ -778,4 +778,8 @@ public final class LogId {
      * <strong>EAL025096 = ApplicationContext closing failed.</strong>
      */
     public static final String EAL025096 = "EAL025096";
+    /**
+     * <strong>EAL025097 = Connection retry count exceeded limit. maxRetryCount:{0}.</strong>
+     */
+    public static final String EAL025097 = "EAL025097";
 }
