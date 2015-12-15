@@ -30,7 +30,7 @@ import org.springframework.transaction.TransactionException;
 
 /**
  * コネクションのリトライを行なうインターセプター<br>
- * データベースに接続する際に、retryInterval(デフォルト20000ミリ秒)の間待機しながら、最大maxRetryCount(デフォルト0回)回リトライを行なう。
+ * フレームワークによりデータベースに接続する際、retryInterval(デフォルト20000ミリ秒)の間待機しながら、最大maxRetryCount(デフォルト0回)回リトライを行なう。
  * なお、リトライ処理時間がretryReset(デフォルト600000ミリ秒)経過した場合、リトライ回数はリセットされる。<br />
  * 本機能を利用するにはBean定義が必要となる。
  * 以下はBean定義に記述される{@code BatchStatusChanger}、{@code BatchJobDataResolver}の公開メソッドに対して{@code AdminConnectionRetryInterceptor}によるコネクションリトライを行うための設定例である。
