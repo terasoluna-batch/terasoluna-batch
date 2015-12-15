@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
  *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;asyncJobWorker&quot;/&gt;
  * &lt;/bean&gt;
  * &lt;bean id=&quot;threadPoolTaskExecutor&quot; class=&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt;
- *     &lt;property name=&quot;threadFactory&quot; ref=&quot;separateGroupThreadFactory&quot;/&gt;
  *     &lt;property name=&quot;corePoolSize&quot; value=&quot;4&quot;/&gt;   ←コアプールサイズ
  *     &lt;property name=&quot;maxPoolSize&quot; value=&quot;4&quot;/&gt;    ←最大プールサイズ
  *     &lt;property name=&quot;queueCapacity&quot; value=&quot;4&quot;/&gt;  ←キューサイズの上限

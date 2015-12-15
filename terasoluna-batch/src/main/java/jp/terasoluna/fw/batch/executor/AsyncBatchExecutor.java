@@ -26,10 +26,6 @@ import org.springframework.context.ApplicationContext;
  * 非同期型ジョブ起動機能のエントリポイント。<br>
  * TERASOLUNAフレームワークの非同期DIコンテナを作成し、{@code JobOperator}による非同期ジョブ機能の起動を行う。
  *
- * バージョンアップ時の注意：本クラスはバージョン3.6から{@code AbstractJobBatchExecutor}を継承しない。<br>
- * 本クラス、および{@code AbstractJobBatchExecutor}の独自拡張を行っている場合は以下参照先にある
- * 代替機能についてそれぞれ拡張を行うこと。
- *
  * @see ApplicationContextResolver
  * @see JobOperator
  * @see jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncher
