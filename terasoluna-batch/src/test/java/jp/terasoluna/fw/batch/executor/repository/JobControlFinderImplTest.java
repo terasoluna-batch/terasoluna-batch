@@ -57,7 +57,8 @@ public class JobControlFinderImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・とくになし
+     * ・引数（固定）："0000000001"のjobSequenceId
+     * ・SystemDaoの戻り値："0000000001"のjobSequenceIdを含む1件の{@code BatchJobDataResult}のリスト
      * 確認項目
      * ・"0000000001"のbatchJobListResultが返却されること
      * </pre>
@@ -91,7 +92,8 @@ public class JobControlFinderImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・systemDaoがselectJobListでnullを返却する
+     * ・引数（固定）："0000000001"のjobSequenceId
+     * ・SystemDaoの戻り値：null
      * 確認項目
      * ・nullのbatchJobListResultが返却されること
      * </pre>
@@ -100,7 +102,35 @@ public class JobControlFinderImplTest {
     public void testResolveBatchJobResult02() {
         // テスト入力データ設定
         when(((JobControlFinderImpl) jobControlFinder).systemDao
-                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(null);
+                .selectJobList(any(RowBounds.class),
+                        any(BatchJobListParam.class)))
+                .thenReturn(null);
+
+        // テスト実施
+        BatchJobListResult batchJobListResult = jobControlFinder
+                .resolveBatchJobResult(new String[] { "0000000001" });
+        // 結果検証
+        assertNull(batchJobListResult);
+    }
+
+    /**
+     * resolveBatchJobResultテスト 【正常系】
+     *
+     * <pre>
+     * 事前条件
+     * ・引数（固定）："0000000001"のjobSequenceId
+     * ・SystemDaoの戻り値：空の{@code BatchJobDataResult}のリスト
+     * 確認項目
+     * ・nullのbatchJobListResultが返却されること
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobResult03() {
+        // テスト入力データ設定
+        when(((JobControlFinderImpl) jobControlFinder).systemDao
+                .selectJobList(any(RowBounds.class),
+                        any(BatchJobListParam.class)))
+                .thenReturn(new ArrayList<BatchJobListResult>());
 
         // テスト実施
         BatchJobListResult batchJobListResult = jobControlFinder
@@ -114,33 +144,10 @@ public class JobControlFinderImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・引数にnullを設定する
+     * ・引数：null
+     * ・SystemDaoの戻り値（固定）："0000000001"のjobSequenceIdを含む1件の{@code BatchJobDataResult}のリスト
      * 確認項目
-     * ・nullのbatchJobListResultが返却されること
-     * </pre>
-     */
-    @Test
-    public void testResolveBatchJobResult03() {
-        // テスト入力データ設定
-        when(((JobControlFinderImpl) jobControlFinder).systemDao
-                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(null);
-
-        // テスト実施
-        BatchJobListResult batchJobListResult = jobControlFinder
-                .resolveBatchJobResult(null);
-        // 結果検証
-        assertNull(batchJobListResult);
-    }
-
-
-    /**
-     * resolveBatchJobResultテスト 【正常系】
-     *
-     * <pre>
-     * 事前条件
-     * ・とくになし
-     * 確認項目
-     * ・メソッド引数が空配列の場合も、SystemDaoが返却したbatchJobListResultが取得できること。
+     * ・"0000000001"のbatchJobListResultが返却されること（引数に影響しないこと。）
      * </pre>
      */
     @Test
@@ -162,7 +169,77 @@ public class JobControlFinderImplTest {
 
         // テスト実施
         BatchJobListResult batchJobListResult = jobControlFinder
+                .resolveBatchJobResult(null);
+        // 結果検証
+        assertEquals("0000000001", batchJobListResult.getJobSequenceId());
+    }
+
+    /**
+     * resolveBatchJobResultテスト 【正常系】
+     *
+     * <pre>
+     * 事前条件
+     * ・引数：空のString配列
+     * ・SystemDaoの戻り値（固定）："0000000001"のjobSequenceIdを含む1件の{@code BatchJobDataResult}のリスト
+     * 確認項目
+     * ・"0000000001"のbatchJobListResultが返却されること（引数に影響しないこと。）
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobResult05() {
+        // テスト入力データ設定
+        when(((JobControlFinderImpl) jobControlFinder).systemDao
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(
+                new ArrayList<BatchJobListResult>() {
+                    private static final long serialVersionUID = 1L;
+
+                    {
+                        add(new BatchJobListResult() {
+                            {
+                                setJobSequenceId("0000000001");
+                            }
+                        });
+                    }
+                });
+
+        // テスト実施
+        BatchJobListResult batchJobListResult = jobControlFinder
                 .resolveBatchJobResult(new String[0]);
+        // 結果検証
+        assertEquals("0000000001", batchJobListResult.getJobSequenceId());
+    }
+
+    /**
+     * resolveBatchJobResultテスト 【正常系】
+     *
+     * <pre>
+     * 事前条件
+     * ・引数："0000000001"を含むString配列
+     * ・SystemDaoの戻り値（固定）："0000000001"のjobSequenceIdを含む1件の{@code BatchJobDataResult}のリスト
+     * 確認項目
+     * ・"0000000001"のbatchJobListResultが返却されること（引数に影響しないこと。）
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobResult06() {
+        // テスト入力データ設定
+        when(((JobControlFinderImpl) jobControlFinder).systemDao
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(
+                new ArrayList<BatchJobListResult>() {
+                    private static final long serialVersionUID = 1L;
+
+                    {
+                        add(new BatchJobListResult() {
+                            {
+                                setJobSequenceId("0000000001");
+                            }
+                        });
+                    }
+                });
+
+        // テスト実施
+        BatchJobListResult batchJobListResult = jobControlFinder
+                .resolveBatchJobResult(new String[]{"0000000001"});
         // 結果検証
         assertEquals("0000000001", batchJobListResult.getJobSequenceId());
     }
