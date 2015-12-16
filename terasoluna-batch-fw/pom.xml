@@ -28,13 +28,7 @@
         <jdk.version>1.7</jdk.version>
 
         <!-- TERASOLUNA -->
-        <terasoluna.fw.version>${project.version}</terasoluna.fw.version>
-        <terasoluna.batch.version>${terasoluna.fw.version}</terasoluna.batch.version>
-        <terasoluna.collector.version>${terasoluna.fw.version}</terasoluna.collector.version>
-        <terasoluna.commons.version>${terasoluna.fw.version}</terasoluna.commons.version>
-        <terasoluna.filedao.version>${terasoluna.fw.version}</terasoluna.filedao.version>
-        <terasoluna.logger.version>${terasoluna.fw.version}</terasoluna.logger.version>
-        <terasoluna.validator.version>${terasoluna.fw.version}</terasoluna.validator.version>
+        <terasoluna-fw-batch.version>${project.version}</terasoluna-fw-batch.version>
 
         <!-- Dependence library version -->
         <!-- == Spring IO Platform == -->
@@ -49,14 +43,12 @@
         <mybatis-spring.version>1.2.3</mybatis-spring.version>
         <!-- dozer -->
         <dozer.version>5.5.1</dozer.version>
-        <dozer.spring.version>5.5.1</dozer.spring.version>
         <!-- oro -->
         <oro.version>2.0.8</oro.version>
         <!-- assertj -->
         <assertj.version>2.2.0</assertj.version>
-        <!-- powermock-mockito -->
-        <powermock.core.version>1.6.2</powermock.core.version>
-        <powermock-mockito.version>1.6.2</powermock-mockito.version>
+        <!-- powermock -->
+        <powermock.version>1.6.2</powermock.version>
         <!-- logback -->
         <logback.version>1.1.2</logback.version>
         <!-- slf4j -->
@@ -86,7 +78,6 @@
         <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
         <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
-        <assertj.version>2.2.0</assertj.version>
     </properties>
 
     <!-- Environment Settings -->
@@ -564,22 +555,22 @@ sp_cleanup.organize_imports=true
             <dependency>
                 <groupId>jp.terasoluna.fw</groupId>
                 <artifactId>terasoluna-commons</artifactId>
-                <version>${terasoluna.fw.version}</version>
+                <version>${terasoluna-fw-batch.version}</version>
             </dependency>
             <dependency>
                 <groupId>jp.terasoluna.fw</groupId>
                 <artifactId>terasoluna-validator</artifactId>
-                <version>${terasoluna.fw.version}</version>
+                <version>${terasoluna-fw-batch.version}</version>
             </dependency>
             <dependency>
                 <groupId>jp.terasoluna.fw</groupId>
                 <artifactId>terasoluna-filedao</artifactId>
-                <version>${terasoluna.filedao.version}</version>
+                <version>${terasoluna-fw-batch.version}</version>
             </dependency>
             <dependency>
                 <groupId>jp.terasoluna.fw</groupId>
                 <artifactId>terasoluna-logger</artifactId>
-                <version>${terasoluna.logger.version}</version>
+                <version>${terasoluna-fw-batch.version}</version>
             </dependency>
 
             <!-- commons -->
@@ -637,17 +628,17 @@ sp_cleanup.organize_imports=true
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-core</artifactId>
-                <version>${powermock.core.version}</version>
+                <version>${powermock.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito</artifactId>
-                <version>${powermock-mockito.version}</version>
+                <version>${powermock.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>${powermock-mockito.version}</version>
+                <version>${powermock.version}</version>
             </dependency>
             
             <!-- slf4j -->
