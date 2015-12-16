@@ -13,9 +13,6 @@
         FROM
             JOB_CONTROL A
         <where>
-            <if test="jobAppCd != null">
-                A.JOB_APP_CD = #{jobAppCd}
-            </if>
             <if
                 test="curAppStatusList != null and curAppStatusList.size() != 0">
                 <foreach item="curAppStatus" collection="curAppStatusList"

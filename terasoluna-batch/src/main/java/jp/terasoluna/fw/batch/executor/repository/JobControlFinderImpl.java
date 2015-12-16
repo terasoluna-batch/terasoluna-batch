@@ -63,17 +63,15 @@ public class JobControlFinderImpl implements JobControlFinder {
 
     /**
      * ジョブ起動引数である{@code String}配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>
+     * 本メソッドではジョブの起動引数{@code args}はメソッド引数で渡されるが、ジョブリストの絞り込みには利用しない。
+     * ジョブリストの絞り込みが必要となる場合は、別途本メソッドと呼び出し元、マッパーXMLファイルを拡張すること。
+     *
      * @param args ジョブ起動引数
      * @return ジョブリスト取得用DAOの出力パラメータ
      */
     @Override
     public BatchJobListResult resolveBatchJobResult(String[] args) {
-        String jobAppCd = null;
-        if (args != null && args.length > 0) {
-            jobAppCd = args[0];
-        }
         BatchJobListParam param = new BatchJobListParam();
-        param.setJobAppCd(jobAppCd);
         param.setCurAppStatusList(new ArrayList<String>() {
             private static final long serialVersionUID = 1L;
 

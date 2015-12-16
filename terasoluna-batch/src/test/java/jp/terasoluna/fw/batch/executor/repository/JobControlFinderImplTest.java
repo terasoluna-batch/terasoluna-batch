@@ -132,6 +132,41 @@ public class JobControlFinderImplTest {
         assertNull(batchJobListResult);
     }
 
+
+    /**
+     * resolveBatchJobResultテスト 【正常系】
+     *
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・メソッド引数が空配列の場合も、SystemDaoが返却したbatchJobListResultが取得できること。
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobResult04() {
+        // テスト入力データ設定
+        when(((JobControlFinderImpl) jobControlFinder).systemDao
+                .selectJobList(any(RowBounds.class), any(BatchJobListParam.class))).thenReturn(
+                new ArrayList<BatchJobListResult>() {
+                    private static final long serialVersionUID = 1L;
+
+                    {
+                        add(new BatchJobListResult() {
+                            {
+                                setJobSequenceId("0000000001");
+                            }
+                        });
+                    }
+                });
+
+        // テスト実施
+        BatchJobListResult batchJobListResult = jobControlFinder
+                .resolveBatchJobResult(new String[0]);
+        // 結果検証
+        assertEquals("0000000001", batchJobListResult.getJobSequenceId());
+    }
+
     /**
      * resolveBatchJobDataテスト 【正常系】
      * 
