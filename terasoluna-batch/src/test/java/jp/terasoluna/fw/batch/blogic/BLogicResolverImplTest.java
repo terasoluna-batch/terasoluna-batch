@@ -37,7 +37,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  */
 public class BLogicResolverImplTest {
 
-    BLogicResolverImpl bLogicResolverImpl;
+    BLogicResolverImpl blogicResolverImpl;
 
     private TestLogger logger = TestLoggerFactory
             .getTestLogger(BLogicResolverImpl.class);
@@ -45,7 +45,7 @@ public class BLogicResolverImplTest {
     @Before
     public void setUp() {
         // テスト準備
-        bLogicResolverImpl = new BLogicResolverImpl();
+        blogicResolverImpl = new BLogicResolverImpl();
     }
 
     /**
@@ -71,10 +71,10 @@ public class BLogicResolverImplTest {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
         // テスト実施
-        BLogic bLogic = bLogicResolverImpl.resolveBLogic(applicationContext,
+        BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
                 "B000011");
         // 結果検証
-        assertTrue(bLogic instanceof BLogic);
+        assertTrue(blogic instanceof BLogic);
     }
 
     /**
@@ -93,7 +93,7 @@ public class BLogicResolverImplTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
         try {
             // テスト実施
-            bLogicResolverImpl.resolveBLogic(applicationContext,
+            blogicResolverImpl.resolveBLogic(applicationContext,
                     "DEFINE_NOT_EXIST");
             fail();
         } catch (Exception e) {
@@ -129,10 +129,10 @@ public class BLogicResolverImplTest {
                 BLogic.class);
 
         // テスト実施
-        BLogic bLogic = bLogicResolverImpl
+        BLogic blogic = blogicResolverImpl
                 .resolveBLogic(mockContext, "B000011");
         // 結果検証
-        assertTrue(bLogic instanceof BLogic);
+        assertTrue(blogic instanceof BLogic);
     }
 
     /**
@@ -151,15 +151,15 @@ public class BLogicResolverImplTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
         try {
             // テスト準備
-            bLogicResolverImpl.enableJobComponentAnnotation = true;
+            blogicResolverImpl.enableJobComponentAnnotation = true;
             // テスト実施
-            BLogic bLogic = bLogicResolverImpl.resolveBLogic(
+            BLogic blogic = blogicResolverImpl.resolveBLogic(
                     applicationContext, "B000011");
             // 結果検証
-            assertTrue(bLogic instanceof BLogic);
+            assertTrue(blogic instanceof BLogic);
         } finally {
             // テスト完了処理
-            bLogicResolverImpl.enableJobComponentAnnotation = false;
+            blogicResolverImpl.enableJobComponentAnnotation = false;
         }
     }
 
@@ -179,16 +179,16 @@ public class BLogicResolverImplTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
         try {
             // テスト準備
-            bLogicResolverImpl.enableJobComponentAnnotation = true;
+            blogicResolverImpl.enableJobComponentAnnotation = true;
 
             // テスト実施
-            BLogic bLogic = bLogicResolverImpl.resolveBLogic(
+            BLogic blogic = blogicResolverImpl.resolveBLogic(
                     applicationContext, "B000012");
             // 結果検証
-            assertTrue(bLogic instanceof BLogic);
+            assertTrue(blogic instanceof BLogic);
         } finally {
             // テスト完了処理
-            bLogicResolverImpl.enableJobComponentAnnotation = false;
+            blogicResolverImpl.enableJobComponentAnnotation = false;
         }
     }
 
@@ -208,10 +208,10 @@ public class BLogicResolverImplTest {
         // テスト準備
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
         // テスト実施
-        BLogic bLogic = bLogicResolverImpl.resolveFromAnnotation(
+        BLogic blogic = blogicResolverImpl.resolveFromAnnotation(
                 applicationContext, "B000012");
         // 結果検証
-        assertTrue(bLogic instanceof BLogic);
+        assertTrue(blogic instanceof BLogic);
     }
 
     /**
@@ -230,7 +230,7 @@ public class BLogicResolverImplTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
         // テスト実施
         // 結果検証
-        assertNull(bLogicResolverImpl.resolveFromAnnotation(applicationContext,
+        assertNull(blogicResolverImpl.resolveFromAnnotation(applicationContext,
                 "DEFINE_NOT_EXIST"));
     }
 
@@ -249,7 +249,7 @@ public class BLogicResolverImplTest {
 
         // テスト実施
         // 結果検証
-        assertEquals("B000011" + "BLogic", bLogicResolverImpl
+        assertEquals("B000011" + "BLogic", blogicResolverImpl
                 .getBLogicBeanName("B000011"));
     }
 
@@ -267,7 +267,7 @@ public class BLogicResolverImplTest {
     public void testGetBLogicBeanName02() {
         // テスト実施
         // 結果検証
-        assertEquals("", bLogicResolverImpl.getBLogicBeanName(null));
+        assertEquals("", blogicResolverImpl.getBLogicBeanName(null));
     }
 
 }

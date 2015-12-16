@@ -107,7 +107,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -137,7 +137,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicExceptionHandlerResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicExceptionHandlerResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -168,7 +168,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicApplicationContextResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicApplicationContextResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -230,7 +230,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicParamConverter}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicParamConverter}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -261,7 +261,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicExecutor}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicExecutor}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -323,7 +323,7 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code AsyncJobWorkerImpl}の{@code bLogicResolver}、{@code bLogicExceptionHandlerResolver}、{@code bLogicApplicationContextResolver}、{@code jobControlFinder}、{@code bLogicParamConverter}、{@code bLogicExecutor}、{@code jobStatusChanger}が正しく設定されていること
+     * ・{@code AsyncJobWorkerImpl}の{@code blogicResolver}、{@code blogicExceptionHandlerResolver}、{@code blogicApplicationContextResolver}、{@code jobControlFinder}、{@code blogicParamConverter}、{@code blogicExecutor}、{@code jobStatusChanger}が正しく設定されていること
      * </pre>
      * 
      * @throws Exception 予期しない例外
@@ -339,15 +339,15 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger);
 
-        assertThat(target.bLogicResolver, is(mockBLogicResolver));
-        assertThat(target.bLogicExceptionHandlerResolver,
+        assertThat(target.blogicResolver, is(mockBLogicResolver));
+        assertThat(target.blogicExceptionHandlerResolver,
                 is(mockBLogicExceptionHandlerResolver));
-        assertThat(target.bLogicApplicationContextResolver,
+        assertThat(target.blogicApplicationContextResolver,
                 is(mockBLogicApplicationContextResolver));
         assertThat(target.jobControlFinder,
                 is(mockJobControlFinder));
-        assertThat(target.bLogicParamConverter, is(mockBLogicParamConverter));
-        assertThat(target.bLogicExecutor, is(mockBLogicExecutor));
+        assertThat(target.blogicParamConverter, is(mockBLogicParamConverter));
+        assertThat(target.blogicExecutor, is(mockBLogicExecutor));
         assertThat(target.jobStatusChanger, is(mockJobStatusChanger));
     }
 
@@ -475,7 +475,7 @@ public class AsyncJobWorkerImplTest {
         when(mockJobControlFinder.resolveBatchJobData(anyString()))
                 .thenThrow(ex);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -486,7 +486,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
@@ -507,9 +507,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(255));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(255));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
                 any(ApplicationContext.class), any(BLogic.class),
@@ -543,7 +543,7 @@ public class AsyncJobWorkerImplTest {
                         .resolveApplicationContext(any(BatchJobData.class)))
                 .thenThrow(ex);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -554,7 +554,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
@@ -575,9 +575,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(255));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(255));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
                 any(ApplicationContext.class), any(BLogic.class),
@@ -610,7 +610,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicResolver.resolveBLogic(any(ApplicationContext.class),
                         anyString())).thenThrow(ex);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -621,7 +621,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
@@ -647,9 +647,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(255));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(255));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
                 any(ApplicationContext.class), any(BLogic.class),
@@ -683,7 +683,7 @@ public class AsyncJobWorkerImplTest {
                         .convertBLogicParam(any(BatchJobData.class)))
                 .thenThrow(ex);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -694,7 +694,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
 
@@ -721,9 +721,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(255));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(255));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
                 any(ApplicationContext.class), any(BLogic.class),
@@ -787,7 +787,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor.execute(applicationContext, blogic, param,
                         null)).thenReturn(result);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -798,7 +798,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
@@ -811,9 +811,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(applicationContext);
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(1));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(1));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         assertThat(
                 logger.getLoggingEvents(),
@@ -848,7 +848,7 @@ public class AsyncJobWorkerImplTest {
                         any(ApplicationContext.class), anyString()))
                 .thenReturn(exceptionHandler);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -859,7 +859,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor, 
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
@@ -875,9 +875,9 @@ public class AsyncJobWorkerImplTest {
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(any(ApplicationContext.class));
 
-        BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(255));
-        assertThat(bLogicResult.getBlogicThrowable(), nullValue());
+        BLogicResult blogicResult = blogicResultCaptor.getValue();
+        assertThat(blogicResult.getBlogicStatus(), is(255));
+        assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         assertThat(
                 logger.getLoggingEvents(),
@@ -913,7 +913,7 @@ public class AsyncJobWorkerImplTest {
                         any(ApplicationContext.class), anyString()))
                 .thenReturn(exceptionHandler);
 
-        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
         AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
@@ -924,7 +924,7 @@ public class AsyncJobWorkerImplTest {
                 mockBLogicExecutor,
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
-                bLogicResultCaptor.capture());
+                blogicResultCaptor.capture());
         doReturn(false).when(target).beforeExecute(anyString());
 
         // テスト実行
@@ -956,7 +956,7 @@ public class AsyncJobWorkerImplTest {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenReturn(true);
-        BLogicResult bLogicResult = new BLogicResult() {
+        BLogicResult blogicResult = new BLogicResult() {
             {
                 setBlogicStatus(1);
             }
@@ -970,10 +970,10 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger);
 
         // テスト実行
-        target.afterExecuteWorker("000001", bLogicResult);
+        target.afterExecuteWorker("000001", blogicResult);
 
         verify(mockJobStatusChanger).changeToEndStatus("000001",
-                bLogicResult);
+                blogicResult);
     }
 
     /**
@@ -993,7 +993,7 @@ public class AsyncJobWorkerImplTest {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenReturn(false);
-        BLogicResult bLogicResult = new BLogicResult() {
+        BLogicResult blogicResult = new BLogicResult() {
             {
                 setBlogicStatus(1);
             }
@@ -1007,10 +1007,10 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger);
 
         // テスト実行
-        target.afterExecuteWorker("000001", bLogicResult);
+        target.afterExecuteWorker("000001", blogicResult);
 
         verify(mockJobStatusChanger).changeToEndStatus("000001",
-                bLogicResult);
+                blogicResult);
 
         assertThat(
                 logger.getLoggingEvents(),
@@ -1035,7 +1035,7 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenThrow(
                 new RuntimeException());
-        BLogicResult bLogicResult = new BLogicResult() {
+        BLogicResult blogicResult = new BLogicResult() {
             {
                 setBlogicStatus(1);
             }
@@ -1049,10 +1049,10 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger);
 
         // テスト実行
-        target.afterExecuteWorker("000001", bLogicResult);
+        target.afterExecuteWorker("000001", blogicResult);
 
         verify(mockJobStatusChanger).changeToEndStatus("000001",
-                bLogicResult);
+                blogicResult);
 
         assertThat(
                 logger.getLoggingEvents(),

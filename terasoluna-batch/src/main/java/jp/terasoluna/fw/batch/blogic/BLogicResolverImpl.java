@@ -61,28 +61,28 @@ public class BLogicResolverImpl implements BLogicResolver {
      */
     @Override
     public BLogic resolveBLogic(ApplicationContext ctx, String jobAppCd) {
-        BLogic bLogic = null;
+        BLogic blogic = null;
         if (enableJobComponentAnnotation) {
-            bLogic = resolveFromAnnotation(ctx, jobAppCd);
-            if (bLogic != null) {
-                return bLogic;
+            blogic = resolveFromAnnotation(ctx, jobAppCd);
+            if (blogic != null) {
+                return blogic;
             }
         }
 
-        String bLogicBeanName = getBLogicBeanName(jobAppCd);
+        String blogicBeanName = getBLogicBeanName(jobAppCd);
         // ビジネスロジックのBeanが存在するか確認
-        if (ctx.containsBean(bLogicBeanName)) {
-            return ctx.getBean(bLogicBeanName, BLogic.class);
+        if (ctx.containsBean(blogicBeanName)) {
+            return ctx.getBean(blogicBeanName, BLogic.class);
         }
 
-        String decapitalizedName = Introspector.decapitalize(bLogicBeanName);
+        String decapitalizedName = Introspector.decapitalize(blogicBeanName);
         try {
-            bLogic = ctx.getBean(decapitalizedName, BLogic.class);
+            blogic = ctx.getBean(decapitalizedName, BLogic.class);
         } catch (BeansException e) {
             LOGGER.error(LogId.EAL025009, decapitalizedName);
             throw e;
         }
-        return bLogic;
+        return blogic;
     }
 
     /**
