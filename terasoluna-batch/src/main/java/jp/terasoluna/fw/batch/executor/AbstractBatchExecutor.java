@@ -356,9 +356,6 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         // システム共通AppContextName初期化
         initDefaultAppContext();
 
-        // システム共通DAO初期化
-        initSystemDatasourceDao();
-
         // エラーメッセージの初期化
         initDefaultErrorMessage();
 
@@ -387,13 +384,6 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             LOGGER.error(LogId.EAL025004, defaultAppContextName);
             return;
         }
-    }
-
-    /**
-     * システム共通で用いられるDAOをBean定義ファイルから取得する.
-     */
-    protected void initSystemDatasourceDao() {
-        // AbstractJobBatchExecutorに移動
     }
 
     /**
@@ -543,7 +533,6 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
 
         // Bean定義ファイル取得
         ApplicationContext context = initJobAppContext(jobAppCd, jobRecord);
-        ThreadGroupApplicationContextHolder.setApplicationContext(context);
 
         try {
             // バッチ実行
@@ -553,7 +542,6 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
                         exceptionHandlerBeanName, param, context);
             }
         } finally {
-            ThreadGroupApplicationContextHolder.removeApplicationContext();
             // ジョブ用ApplicationContextをクローズする
             closeApplicationContext(context);
         }

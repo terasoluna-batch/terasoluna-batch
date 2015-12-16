@@ -122,11 +122,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
         <property name="maxPoolSize" value="2" />
     </bean>
 
-    <!-- スレッド実行用Runnableクラス（scopeは必ずprototypeにすること） -->
-    <bean id="batchServant" scope="prototype"
-          class="jp.terasoluna.fw.batch.executor.concurrent.BatchServantImpl">
-    </bean>
-
     <!-- モックのJobOperator -->
     <bean id="jobOperator" class="jp.terasoluna.fw.batch.executor.controller.MockJobOperator"/>
 </beans>

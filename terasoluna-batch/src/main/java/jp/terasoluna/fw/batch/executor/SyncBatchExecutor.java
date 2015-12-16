@@ -22,7 +22,6 @@ import java.lang.reflect.Method;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.util.JobUtil;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
@@ -79,7 +78,7 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
 
         // 引数に「ジョブ業務コード」が指定されていなければ、環境変数から取得する
         if (jobAppCd == null || jobAppCd.length() == 0) {
-            jobAppCd = JobUtil.getenv(ENV_JOB_APP_CD);
+            jobAppCd = getenv(ENV_JOB_APP_CD);
         }
         // ジョブ業務コード
         jobRecord.setJobAppCd(jobAppCd);
@@ -94,7 +93,7 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
                 envName.append(ENV_JOB_ARG_NM);
                 envName.append(i);
 
-                param = JobUtil.getenv(envName.toString());
+                param = getenv(envName.toString());
 
                 if (param != null && param.length() != 0) {
                     setParam(jobRecord, JOB_ARG_PARAM_BASE, i, param);
@@ -103,11 +102,11 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
         }
 
         // ジョブシーケンスコード
-        jobRecord.setJobSequenceId(JobUtil.getenv(ENV_JOB_SEQ_ID));
+        jobRecord.setJobSequenceId(getenv(ENV_JOB_SEQ_ID));
         // 業務ステータス
-        jobRecord.setErrAppStatus(JobUtil.getenv(ENV_BLOGIC_APP_STATUS));
+        jobRecord.setErrAppStatus(getenv(ENV_BLOGIC_APP_STATUS));
         // ステータス
-        jobRecord.setCurAppStatus(JobUtil.getenv(ENV_CUR_APP_STATUS));
+        jobRecord.setCurAppStatus(getenv(ENV_CUR_APP_STATUS));
 
         // バッチ処理実行
         SyncBatchExecutor executor = new SyncBatchExecutor();
@@ -212,5 +211,21 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
                 }
             }
         }
+    }
+
+    /**
+     * <h6>指定された環境変数の値を取得する.</h6>
+     * <p>
+     * システム環境で変数を定義しない場合は ""（空文字） を返す
+     * </p>
+     * @param name 環境変数名
+     * @return 環境変数の値
+     */
+    static String getenv(String name) {
+        String ret = System.getenv(name);
+        if (ret == null) {
+            return "";
+        }
+        return ret;
     }
 }

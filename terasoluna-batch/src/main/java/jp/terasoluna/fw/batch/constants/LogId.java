@@ -11,18 +11,6 @@ public final class LogId {
      */
     public static final String TAL025002 = "TAL025002";
     /**
-     * <strong>TAL025003 = Get ApplicationContext.{0}</strong>
-     */
-    public static final String TAL025003 = "TAL025003";
-    /**
-     * <strong>TAL025004 = Set ApplicationContext.{0}</strong>
-     */
-    public static final String TAL025004 = "TAL025004";
-    /**
-     * <strong>TAL025005 = Remove ApplicationContext.{0}</strong>
-     */
-    public static final String TAL025005 = "TAL025005";
-    /**
      * <strong>TAL025006 = Get MessageAccessor.{0}</strong>
      */
     public static final String TAL025006 = "TAL025006";
@@ -146,10 +134,6 @@ public final class LogId {
      * <strong>DAL025026 = jobSequenceId:[{0}]</strong>
      */
     public static final String DAL025026 = "DAL025026";
-    /**
-     * <strong>DAL025027 =  tg:[{0}] t:[{1}]</strong>
-     */
-    public static final String DAL025027 = "DAL025027";
     /**
      * <strong>DAL025028 = task wait.</strong>
      */
@@ -379,10 +363,6 @@ public final class LogId {
      */
     public static final String WAL025003 = "WAL025003";
     /**
-     * <strong>WAL025004 = ApplicationContext is null.{0}</strong>
-     */
-    public static final String WAL025004 = "WAL025004";
-    /**
      * <strong>WAL025005 = MessageAccessor is null.</strong>
      */
     public static final String WAL025005 = "WAL025005";
@@ -518,10 +498,6 @@ public final class LogId {
      * <strong>EAL025029 = ThreadPoolTaskExecutor bean not found. beanName:[{0}]</strong>
      */
     public static final String EAL025029 = "EAL025029";
-    /**
-     * <strong>EAL025030 = BatchServant not found. bean name:[{0}]</strong>
-     */
-    public static final String EAL025030 = "EAL025030";
     /**
      * <strong>EAL025031 = AsyncBatchExecutor ABNORMAL END</strong>
      */
@@ -714,10 +690,6 @@ public final class LogId {
      * <strong>EAL025080 = [Assertion failed] - Property of beanDefinition.business.classpath must be defined.</strong>
      */
     public static final String EAL025080 = "EAL025080";
-    /**
-     * <strong>EAL025081 = [Assertion failed] - Property of batchTaskExecutor.batchServant must be defined.</strong>
-     */
-    public static final String EAL025081 = "EAL025081";
     /**
      * <strong>EAL025082 = [Assertion failed] - Property of batchTaskExecutor.dbAbnormalRetryMax must be defined.</strong>
      */
