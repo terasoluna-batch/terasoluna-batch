@@ -53,17 +53,17 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     /**
      * BLogicのインスタンスを取得するためのBLogicResolverオブジェクト
      */
-    protected BLogicResolver bLogicResolver;
+    protected BLogicResolver blogicResolver;
 
     /**
      * BLogic用の例外ハンドラのインスタンスを取得するためのBLogicExceptionHandlerResolverオブジェクト
      */
-    protected BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver;
+    protected BLogicExceptionHandlerResolver blogicExceptionHandlerResolver;
 
     /**
      * ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのApplicationContextResolverオブジェクト
      */
-    protected ApplicationContextResolver bLogicApplicationContextResolver;
+    protected ApplicationContextResolver blogicApplicationContextResolver;
 
     /**
      * ジョブシーケンスコードに該当するBatchJobDataを取得するためのJobControlFinderオブジェクト
@@ -73,7 +73,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     /**
      * BatchJobDataからBLogicParamに変換するためのBLogicParamConverterオブジェクト
      */
-    protected BLogicParamConverter bLogicParamConverter;
+    protected BLogicParamConverter blogicParamConverter;
 
     /**
      * ジョブ管理テーブルのジョブステータスを変更するためのJobStatusChangerオブジェクト
@@ -83,42 +83,42 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     /**
      * BLogicの実行を移譲するBLogicExecutorオブジェクト
      */
-    protected BLogicExecutor bLogicExecutor;
+    protected BLogicExecutor blogicExecutor;
 
     /**
      * AsyncJobWorkerImplのコンストラクタ<br>
-     * @param bLogicResolver BLogicのインスタンスを取得するためのBLogicResolverオブジェクト
-     * @param bLogicExceptionHandlerResolver BLogic用の例外ハンドラのインスタンスを取得するためのBLogicExceptionHandlerResolverオブジェクト
-     * @param bLogicApplicationContextResolver ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのBLogicApplicationContextResolverオブジェクト
+     * @param blogicResolver BLogicのインスタンスを取得するためのBLogicResolverオブジェクト
+     * @param blogicExceptionHandlerResolver BLogic用の例外ハンドラのインスタンスを取得するためのBLogicExceptionHandlerResolverオブジェクト
+     * @param blogicApplicationContextResolver ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのBLogicApplicationContextResolverオブジェクト
      * @param jobControlFinder ジョブシーケンスコードに該当するBatchJobDataを取得するためのJobControlFinderオブジェクト
-     * @param bLogicParamConverter BatchJobDataからBLogicParamに変換するためのBLogicParamConverterオブジェクト
-     * @param bLogicExecutor BLogicの実行を移譲するBLogicExecutorオブジェクト
+     * @param blogicParamConverter BatchJobDataからBLogicParamに変換するためのBLogicParamConverterオブジェクト
+     * @param blogicExecutor BLogicの実行を移譲するBLogicExecutorオブジェクト
      * @param jobStatusChanger ジョブ管理テーブルのジョブステータスを変更するためのJobStatusChangerオブジェクト
      */
-    protected AsyncJobWorkerImpl(BLogicResolver bLogicResolver,
-            BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver,
-            ApplicationContextResolver bLogicApplicationContextResolver,
+    protected AsyncJobWorkerImpl(BLogicResolver blogicResolver,
+            BLogicExceptionHandlerResolver blogicExceptionHandlerResolver,
+            ApplicationContextResolver blogicApplicationContextResolver,
             JobControlFinder jobControlFinder,
-            BLogicParamConverter bLogicParamConverter,
-            BLogicExecutor bLogicExecutor, JobStatusChanger jobStatusChanger) {
-        Assert.notNull(bLogicResolver, LOGGER.getLogMessage(LogId.EAL025060));
-        Assert.notNull(bLogicExceptionHandlerResolver, LOGGER
+            BLogicParamConverter blogicParamConverter,
+            BLogicExecutor blogicExecutor, JobStatusChanger jobStatusChanger) {
+        Assert.notNull(blogicResolver, LOGGER.getLogMessage(LogId.EAL025060));
+        Assert.notNull(blogicExceptionHandlerResolver, LOGGER
                 .getLogMessage(LogId.EAL025061));
-        Assert.notNull(bLogicApplicationContextResolver, LOGGER
+        Assert.notNull(blogicApplicationContextResolver, LOGGER
                 .getLogMessage(LogId.EAL025062));
         Assert.notNull(jobControlFinder, LOGGER
                 .getLogMessage(LogId.EAL025063));
-        Assert.notNull(bLogicParamConverter, LOGGER
+        Assert.notNull(blogicParamConverter, LOGGER
                 .getLogMessage(LogId.EAL025064));
-        Assert.notNull(bLogicExecutor, LOGGER.getLogMessage(LogId.EAL025065));
+        Assert.notNull(blogicExecutor, LOGGER.getLogMessage(LogId.EAL025065));
         Assert.notNull(jobStatusChanger, LOGGER.getLogMessage(LogId.EAL025066));
 
-        this.bLogicResolver = bLogicResolver;
-        this.bLogicExceptionHandlerResolver = bLogicExceptionHandlerResolver;
-        this.bLogicApplicationContextResolver = bLogicApplicationContextResolver;
+        this.blogicResolver = blogicResolver;
+        this.blogicExceptionHandlerResolver = blogicExceptionHandlerResolver;
+        this.blogicApplicationContextResolver = blogicApplicationContextResolver;
         this.jobControlFinder = jobControlFinder;
-        this.bLogicParamConverter = bLogicParamConverter;
-        this.bLogicExecutor = bLogicExecutor;
+        this.blogicParamConverter = blogicParamConverter;
+        this.blogicExecutor = blogicExecutor;
         this.jobStatusChanger = jobStatusChanger;
     }
 
@@ -164,43 +164,43 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             return;
         }
 
-        BLogicResult bLogicResult = new BLogicResult();
-        ApplicationContext bLogicContext = null;
-        ExceptionHandler bLogicExceptionHandler = null;
-        BLogic bLogic = null;
-        BLogicParam bLogicParam = null;
+        BLogicResult blogicResult = new BLogicResult();
+        ApplicationContext blogicContext = null;
+        ExceptionHandler blogicExceptionHandler = null;
+        BLogic blogic = null;
+        BLogicParam blogicParam = null;
 
         try {
             BatchJobData batchJobData = jobControlFinder
                     .resolveBatchJobData(jobSequenceId);
-            bLogicContext = bLogicApplicationContextResolver
+            blogicContext = blogicApplicationContextResolver
                     .resolveApplicationContext(batchJobData);
-            bLogic = bLogicResolver.resolveBLogic(bLogicContext, batchJobData.getJobAppCd());
-            bLogicParam = bLogicParamConverter.convertBLogicParam(batchJobData);
+            blogic = blogicResolver.resolveBLogic(blogicContext, batchJobData.getJobAppCd());
+            blogicParam = blogicParamConverter.convertBLogicParam(batchJobData);
 
             try {
-                bLogicExceptionHandler = bLogicExceptionHandlerResolver
-                        .resolveExceptionHandler(bLogicContext, batchJobData.getJobAppCd());
+                blogicExceptionHandler = blogicExceptionHandlerResolver
+                        .resolveExceptionHandler(blogicContext, batchJobData.getJobAppCd());
             } catch (Exception e) {
                 // Do nothing
             }
-            if (bLogicExceptionHandler == null) {
+            if (blogicExceptionHandler == null) {
                 // ExceptionHandlerがない場合でも処理を継続する
                 LOGGER.warn(LogId.WAL025014);
             }
 
             try {
-                bLogicResult = bLogicExecutor.execute(bLogicContext, bLogic,
-                        bLogicParam, bLogicExceptionHandler);
+                blogicResult = blogicExecutor.execute(blogicContext, blogic,
+                        blogicParam, blogicExceptionHandler);
             } catch (Exception e) {
                 LOGGER.error(LogId.EAL025093, e, jobSequenceId);
             }
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025068, e, jobSequenceId);
         } finally {
-            afterExecuteWorker(jobSequenceId, bLogicResult);
-            bLogicApplicationContextResolver
-                    .closeApplicationContext(bLogicContext);
+            afterExecuteWorker(jobSequenceId, blogicResult);
+            blogicApplicationContextResolver
+                    .closeApplicationContext(blogicContext);
         }
 
     }
@@ -211,16 +211,16 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * ジョブシーケンスコードに該当するジョブのレコードに対し、ビジネスロジック戻り値を更新し、 ジョブステータスを「処理済み：2」に更新する。
      * </p>
      * @param jobSequenceId ジョブシーケンスコード
-     * @param bLogicResult ビジネスロジック戻り値
+     * @param blogicResult ビジネスロジック戻り値
      */
     protected void afterExecuteWorker(String jobSequenceId,
-            BLogicResult bLogicResult) {
-        Integer blogicStatus = bLogicResult == null ? null : bLogicResult
+            BLogicResult blogicResult) {
+        Integer blogicStatus = blogicResult == null ? null : blogicResult
                 .getBlogicStatus();
 
         try {
             boolean updated = jobStatusChanger.changeToEndStatus(jobSequenceId,
-                    bLogicResult);
+                    blogicResult);
             if (!updated) {
                 LOGGER.error(LogId.EAL025025, jobSequenceId, blogicStatus);
             }

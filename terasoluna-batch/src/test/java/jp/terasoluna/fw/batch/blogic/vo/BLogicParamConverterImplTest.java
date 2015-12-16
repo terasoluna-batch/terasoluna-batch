@@ -78,8 +78,8 @@ public class BLogicParamConverterImplTest {
      */
     @Test
     public void testBLogicParamConverterImpl02() throws Exception {
-        BLogicParamConverterImpl bLogicParamConverter = new BLogicParamConverterImpl(beanMapper);
-        assertThat(this.beanMapper, is(bLogicParamConverter.beanMapper));
+        BLogicParamConverterImpl blogicParamConverter = new BLogicParamConverterImpl(beanMapper);
+        assertThat(this.beanMapper, is(blogicParamConverter.beanMapper));
     }
 
     /**
@@ -126,8 +126,8 @@ public class BLogicParamConverterImplTest {
             }
         };
 
-        BLogicParamConverterImpl bLogicParamConverter = new BLogicParamConverterImpl(beanMapper);
-        BLogicParam dist = bLogicParamConverter.convertBLogicParam(source);
+        BLogicParamConverterImpl blogicParamConverter = new BLogicParamConverterImpl(beanMapper);
+        BLogicParam dist = blogicParamConverter.convertBLogicParam(source);
 
         assertThat(dist.getJobAppCd(), is("B000001"));
         assertThat(dist.getJobSequenceId(), is("000000001"));
@@ -184,8 +184,8 @@ public class BLogicParamConverterImplTest {
             }
         };
 
-        BLogicParamConverterImpl bLogicParamConverter = new BLogicParamConverterImpl(beanMapper);
-        BLogicParam dist = bLogicParamConverter.convertBLogicParam(source);
+        BLogicParamConverterImpl blogicParamConverter = new BLogicParamConverterImpl(beanMapper);
+        BLogicParam dist = blogicParamConverter.convertBLogicParam(source);
 
         assertThat(dist.getJobAppCd(), is("B000001"));
         assertThat(dist.getJobSequenceId(), is("000000001"));
@@ -240,8 +240,8 @@ public class BLogicParamConverterImplTest {
             }
         };
 
-        BLogicParamConverterImpl bLogicParamConverter = new BLogicParamConverterImpl(beanMapper);
-        BLogicParam dist = bLogicParamConverter.convertBLogicParam(source);
+        BLogicParamConverterImpl blogicParamConverter = new BLogicParamConverterImpl(beanMapper);
+        BLogicParam dist = blogicParamConverter.convertBLogicParam(source);
 
         assertThat(dist.getJobAppCd(), nullValue());
         assertThat(dist.getJobSequenceId(), nullValue());

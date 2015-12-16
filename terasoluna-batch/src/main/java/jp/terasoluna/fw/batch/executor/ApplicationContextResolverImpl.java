@@ -182,11 +182,11 @@ public class ApplicationContextResolverImpl
     @Override
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) {
-        String bLogicBeanDefinitionName = getBeanFileName(batchJobData);
+        String blogicBeanDefinitionName = getBeanFileName(batchJobData);
         if (parent != null) {
-            return new ClassPathXmlApplicationContext(new String[]{ bLogicBeanDefinitionName }, parent);
+            return new ClassPathXmlApplicationContext(new String[]{ blogicBeanDefinitionName }, parent);
         }
-        return new ClassPathXmlApplicationContext(bLogicBeanDefinitionName);
+        return new ClassPathXmlApplicationContext(blogicBeanDefinitionName);
     }
 
     /**
