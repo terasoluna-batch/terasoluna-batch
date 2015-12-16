@@ -490,4 +490,33 @@ public class SyncBatchExecutorTest {
             throw new NullPointerException();
         }
     }
+
+    /**
+     * testGetenv01
+     * @throws Exception
+     */
+    @Test
+    public void testGetenv01() throws Exception {
+        String result = SyncBatchExecutor.getenv("");
+        assertEquals("", result);
+    }
+
+    /**
+     * testGetenv02<br>
+     * 事前準備：<br>
+     * 事前に以下のコマンドを設定し、環境変数を設定しておくこと<br>
+     * eclipseで実行する際は実行の構成で設定すること<br>
+     * SET JOB_APP_CD=B000001
+     * @throws Exception
+     */
+    @Test
+    public void testGetenv02() throws Exception {
+        try {
+            SystemEnvUtils.setEnv("JOB_APP_CD", "B000001");
+            String result = SyncBatchExecutor.getenv("JOB_APP_CD");
+            assertEquals("B000001", result);
+        } finally {
+            SystemEnvUtils.restoreEnv();
+        }
+    }
 }
