@@ -15,14 +15,6 @@ public final class LogId {
      */
     public static final String TAL041003 = "TAL041003";
     /**
-     * <strong>TAL041005 = Future is done.</strong>
-     */
-    public static final String TAL041005 = "TAL041005";
-    /**
-     * <strong>TAL041006 = hasNext() wait {0} msec.</strong>
-     */
-    public static final String TAL041006 = "TAL041006";
-    /**
      * <strong>TAL041007 = next() value:[null] queue size:[{0}]</strong>
      */
     public static final String TAL041007 = "TAL041007";
@@ -30,18 +22,6 @@ public final class LogId {
      * <strong>TAL041008 = peekNext() value:[null] queue size:[{0}]</strong>
      */
     public static final String TAL041008 = "TAL041008";
-    /**
-     * <strong>TAL041009 = Future is done. thread:[{0}]</strong>
-     */
-    public static final String TAL041009 = "TAL041009";
-    /**
-     * <strong>TAL041010 = wait {0} msec. thread:[{1}]</strong>
-     */
-    public static final String TAL041010 = "TAL041010";
-    /**
-     * <strong>TAL041011 = finalize() was called. thread:[{0}]</strong>
-     */
-    public static final String TAL041011 = "TAL041011";
     /**
      * <strong>TAL041012 = setFinish(). thread:[{0}]</strong>
      */
@@ -54,18 +34,6 @@ public final class LogId {
      * <strong>TAL041014 = isFinish() is true and queue is empty.</strong>
      */
     public static final String TAL041014 = "TAL041014";
-    /**
-     * <strong>TAL041015 = Collector status is end. queue size:[{0}]</strong>
-     */
-    public static final String TAL041015 = "TAL041015";
-    /**
-     * <strong>TAL041016 = Collector status is end.</strong>
-     */
-    public static final String TAL041016 = "TAL041016";
-    /**
-     * <strong>TAL041017 = Collector status is not null.</strong>
-     */
-    public static final String TAL041017 = "TAL041017";
     /**
      * <strong>TAL041018 = FileCollector is finish. datacount:[{0}]</strong>
      */
@@ -103,25 +71,9 @@ public final class LogId {
      */
     public static final String WAL041004 = "WAL041004";
     /**
-     * <strong>WAL041005 = The collector is not closed surely. thread:[{0}]</strong>
-     */
-    public static final String WAL041005 = "WAL041005";
-    /**
-     * <strong>WAL041006 = Future is null. thread:[{0}]</strong>
-     */
-    public static final String WAL041006 = "WAL041006";
-    /**
      * <strong>EAL041001 = {0}</strong>
      */
     public static final String EAL041001 = "EAL041001";
-    /**
-     * <strong>EAL041002 = The clone cannot be made.</strong>
-     */
-    public static final String EAL041002 = "EAL041002";
-    /**
-     * <strong>EAL041003 = The thread cannot be started.</strong>
-     */
-    public static final String EAL041003 = "EAL041003";
     /**
      * <strong>FAL041001 = {0}</strong>
      */
