@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -25,7 +18,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <h4>【クラスの概要】</h4> 固定長ファイル用のFileLineWriterを生成する。<br>
  * AbstractFileUpdateDAOのサブクラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileUpdateDAO
  */
 public class FixedFileUpdateDAOTest {

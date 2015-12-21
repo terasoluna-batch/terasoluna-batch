@@ -1,10 +1,3 @@
-/*
- * $Id: 
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -31,7 +24,6 @@ import org.mockito.Mockito;
  * <h4>【クラスの概要】</h4> 指定された文字列をパーズし、Date型に変換する。<br>
  * 変換結果をファイル行オブジェクトのDate型の属性に値を格納する。
  * <p>
- * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnParser
  */
 public class DateColumnParserTest {

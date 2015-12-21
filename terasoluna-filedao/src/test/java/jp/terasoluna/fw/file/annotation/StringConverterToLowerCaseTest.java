@@ -1,10 +1,3 @@
-/*
- * $Id: StringConverterToLowerCaseTest.java 5819 2007-12-20 05:55:47Z fukuyot $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.annotation;
 
 import static org.junit.Assert.assertEquals;
@@ -18,7 +11,6 @@ import org.junit.Test;
  * <h4>【クラスの概要】</h4> アノテーションStringConverterの記述に従い、文字列の変換処理を行う。<br>
  * StringConverterToLowerCaseは入力された文字列（アルファベット） 文字列を全て小文字にして返却する。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.annotation.StringConverterToLowerCase
  */
 public class StringConverterToLowerCaseTest {

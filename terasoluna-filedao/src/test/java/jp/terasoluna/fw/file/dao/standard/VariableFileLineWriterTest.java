@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -34,8 +27,6 @@ import org.mockito.Mockito;
  * <h4>【クラスの概要】</h4> ファイル行オブジェクトからデータを読み込み、1行分のデータを可変長形式で ファイルに書き込む。<br>
  * AbstractFileLineWriterのサブクラス。
  * <p>
- * @author 奥田哲司
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter
  */
 public class VariableFileLineWriterTest {

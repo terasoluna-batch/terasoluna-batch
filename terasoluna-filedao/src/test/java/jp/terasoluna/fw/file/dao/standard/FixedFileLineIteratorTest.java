@@ -1,10 +1,3 @@
-/*
- * $Id: FixedFileLineIteratorTest.java 5354 2007-10-03 06:06:25Z anh $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -30,8 +23,6 @@ import org.mockito.Mockito;
  * <p>
  * <h4>【クラスの概要】</h4> 固定長ファイル用のファイルアクセス(データ取得)クラス。
  * <p>
- * @author 奥田哲司
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator
  */
 public class FixedFileLineIteratorTest {

@@ -4,7 +4,6 @@ import jp.terasoluna.fw.file.annotation.StringConverter;
 
 /**
  * privateデフォルトコンストラクタを持つStringConverterスタブ
- * @author 趙俸徹
  */
 public class AbstractFileLineWriter_StringConverterStub02 implements
                                                          StringConverter {

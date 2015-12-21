@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +16,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> String型のファイル行オブジェクトの属性にファイルから読み込んだカラムの文字列を格納する。
  * <p>
- * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.NullColumnParser
  */
 public class NullColumnParserTest {

@@ -15,7 +15,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * <ul>
  * <li>全項目：デフォルト値以外</li>
  * </ul>
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub39 extends

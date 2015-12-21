@@ -7,7 +7,6 @@ import java.io.Reader;
  * LineFeed1LineReadeの試験で利用するファイル行オブジェクトクラス。<br>
  * 空実装<br>
  * 入力された文字列をread()することで一文字づつ返す。
- * @author 姜恩美
  */
 public class LineFeed1LineReader_ReaderStub01 extends Reader {
 

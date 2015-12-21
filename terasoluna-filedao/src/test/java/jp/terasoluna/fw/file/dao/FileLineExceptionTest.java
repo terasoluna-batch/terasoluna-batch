@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao;
 
 import static org.junit.Assert.*;
@@ -18,7 +11,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> ファイルアクセス機能で発生する例外をラップするRuntimeException
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
 public class FileLineExceptionTest {

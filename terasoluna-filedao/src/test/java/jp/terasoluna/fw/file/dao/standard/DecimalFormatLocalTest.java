@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +17,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> DecimalFormatがスレッドセーフではないため、ThreadLocalを使用してスレッドセーフにする。
  * <p>
- * @author 姜 恩美
  * @see jp.terasoluna.fw.file.dao.standard.DecimalFormatLocal
  */
 public class DecimalFormatLocalTest {

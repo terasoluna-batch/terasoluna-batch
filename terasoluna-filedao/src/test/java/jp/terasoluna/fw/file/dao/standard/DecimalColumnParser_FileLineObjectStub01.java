@@ -1,9 +1,3 @@
-/*
- * $Id: DecimalColumnParser_Stub01.java 6004 2008-01-11 10:18:33Z anh $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
 package jp.terasoluna.fw.file.dao.standard;
 
 import java.math.BigDecimal;

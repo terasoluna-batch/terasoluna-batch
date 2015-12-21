@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -51,8 +44,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> ファイルアクセス(読取)のスーパークラス。抽象クラスのため、AbstractFileLineIteratorImplクラスを作成して試験を実施する。
  * <p>
- * @author 奥田哲司
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator
  */
 @RunWith(PowerMockRunner.class)

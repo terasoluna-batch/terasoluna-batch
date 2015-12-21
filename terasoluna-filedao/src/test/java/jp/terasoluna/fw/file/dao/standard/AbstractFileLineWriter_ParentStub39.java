@@ -10,7 +10,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * <li>全項目：デフォルト値以外</li>
  * </ul>
  * フィールドを持たない。
- * @author 趙俸徹
  */
 @FileFormat(lineFeedChar = "\r", delimiter = '|', encloseChar = '\"', fileEncoding = "UTF-8", headerLineCount = 5, trailerLineCount = 5, overWriteFlg = true)
 public class AbstractFileLineWriter_ParentStub39 {

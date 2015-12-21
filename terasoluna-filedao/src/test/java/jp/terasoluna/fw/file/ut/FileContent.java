@@ -1,9 +1,3 @@
-/*
- * $Id: FileContent.java 5230 2007-09-28 10:04:13Z anh $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
 package jp.terasoluna.fw.file.ut;
 
 import java.io.File;
@@ -14,7 +8,6 @@ import java.io.IOException;
  * ファイルの中身をバイナリ比較するためのラッパークラス。 <BR>
  * <BR>
  * 通常はUTUtil.assertEqualsFile()メソッドがあるので、このクラスを直接 使う必要性は少ないと思われる。
- * @author 木村真幸
  * @version 2003.08.20
  */
 public class FileContent {

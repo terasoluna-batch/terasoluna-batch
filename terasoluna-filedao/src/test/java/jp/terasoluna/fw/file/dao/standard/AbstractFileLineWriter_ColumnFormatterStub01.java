@@ -8,7 +8,6 @@ import jp.terasoluna.fw.file.dao.standard.ColumnFormatter;
 /**
  * ColumnFormatterのスタブクラス。<br>
  * 入力に関係なくnullを返す。
- * @author 趙俸徹
  */
 public class AbstractFileLineWriter_ColumnFormatterStub01 implements
                                                          ColumnFormatter {

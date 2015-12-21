@@ -1,9 +1,3 @@
-/*
- * $Id: CSVFileLineIterator_Stub06.java 37124 2011-09-09 10:39:33Z bs-thashidume $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
 package jp.terasoluna.fw.file.dao.standard;
 
 import jp.terasoluna.fw.file.annotation.FileFormat;

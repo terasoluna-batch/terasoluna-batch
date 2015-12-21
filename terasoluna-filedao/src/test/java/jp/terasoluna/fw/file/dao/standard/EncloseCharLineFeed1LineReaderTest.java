@@ -1,10 +1,3 @@
-/*
- * $Id: EncloseCharLineFeed1LineReaderTest.java 5354 2007-10-03 06:06:25Z anh $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -31,7 +24,6 @@ import org.junit.Test;
  * <p>
  * <h4>【クラスの概要】</h4> 囲み文字有り、行区切り文字が1文字の場合のファイルから1行分の文字列を取得する処理を行う。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed1LineReader
  */
 public class EncloseCharLineFeed1LineReaderTest {

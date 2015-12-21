@@ -15,7 +15,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * </ul>
  * <br>
  * フィールドは持たない<br>
- * @author 趙俸徹
  */
 @FileFormat(delimiter = '|', encloseChar = '\"', lineFeedChar = "\r\n\t", fileEncoding = "UTF-8", overWriteFlg = true)
 public class AbstractFileLineWriter_Stub05 {

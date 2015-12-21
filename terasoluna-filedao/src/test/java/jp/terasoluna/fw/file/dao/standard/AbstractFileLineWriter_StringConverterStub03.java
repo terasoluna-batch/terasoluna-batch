@@ -5,7 +5,6 @@ import jp.terasoluna.fw.file.annotation.StringConverter;
 /**
  * StringConverterスタブクラス。<br>
  * 入力データに"_convert()"を追加した結果を返す
- * @author 趙俸徹
  */
 public class AbstractFileLineWriter_StringConverterStub03 implements
                                                          StringConverter {

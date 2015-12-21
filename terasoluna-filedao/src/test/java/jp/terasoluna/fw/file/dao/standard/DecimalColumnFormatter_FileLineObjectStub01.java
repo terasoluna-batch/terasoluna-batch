@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 /**
  * DecimalColumnFormatterの試験で利用するファイル行オブジェクトクラス。<br>
  * 各試験別にフィールドを分けている。
- * @author 姜恩美
  */
 public class DecimalColumnFormatter_FileLineObjectStub01 {
 

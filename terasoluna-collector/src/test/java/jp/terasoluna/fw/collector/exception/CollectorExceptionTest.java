@@ -1,9 +1,3 @@
-/**
- * @(#)CollectorExceptionTest.java
- * システム名:TERASOLUNA-IDE
- * ファイルバージョン:$Id: CollectorExceptionTest.java 6835 2012-01-13 13:44:36Z bthashidumets $
- * Copyright 2009 NTT DATA Corporation.
- */
 package jp.terasoluna.fw.collector.exception;
 
 import static org.junit.Assert.*;

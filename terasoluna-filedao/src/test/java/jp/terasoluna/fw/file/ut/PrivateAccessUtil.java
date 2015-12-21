@@ -1,9 +1,3 @@
-/*
- * $Id: PrivateAccessUtil.java 5230 2007-09-28 10:04:13Z anh $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
 package jp.terasoluna.fw.file.ut;
 
 import java.lang.reflect.InvocationTargetException;
@@ -12,7 +6,6 @@ import java.lang.reflect.Method;
 /**
  * ◎ privateメソッドを呼び出すためのユーティリティクラス。
  * @version 2003.08.29
- * @author 丹羽 隆
  */
 class PrivateAccessUtil {
 

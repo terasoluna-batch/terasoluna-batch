@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertSame;
@@ -21,7 +14,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <h4>【クラスの概要】</h4> ファイルのデータ取得用のFileLineIteratorを生成する。<br>
  * （テスト実行のため、スタブlを用意する）
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO
  */
 public class AbstractFileQueryDAOTest {

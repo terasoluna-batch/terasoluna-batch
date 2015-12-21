@@ -12,7 +12,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * <br>
  * 親クラスを含めてフィールドを持たない<br>
  * 親クラスは@FileFormatの設定を持たない<br>
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub38 extends
