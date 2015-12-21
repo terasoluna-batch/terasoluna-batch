@@ -126,7 +126,6 @@
         <dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer-spring</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- hamcrest -->
@@ -144,7 +143,6 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- oracle 
