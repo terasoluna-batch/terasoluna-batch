@@ -74,11 +74,12 @@ public class AsyncJobOperatorImpl implements JobOperator {
     public AsyncJobOperatorImpl(JobControlFinder jobControlFinder,
             AsyncJobLauncher asyncJobLauncher,
             AsyncBatchStopper asyncBatchStopper) {
-        Assert.notNull(jobControlFinder,
-                LOGGER.getLogMessage(LogId.EAL025074));
-        Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025075));
-        Assert.notNull(asyncBatchStopper,
-                LOGGER.getLogMessage(LogId.EAL025076));
+        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "JobControlFinder"));
+        Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "AsyncJobLauncher"));
+        Assert.notNull(asyncBatchStopper, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "AsyncBatchStopper"));
 
         this.jobControlFinder = jobControlFinder;
         this.asyncJobLauncher = asyncJobLauncher;

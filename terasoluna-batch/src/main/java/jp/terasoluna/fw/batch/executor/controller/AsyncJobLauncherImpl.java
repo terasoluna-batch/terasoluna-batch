@@ -103,9 +103,10 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
             AsyncJobWorker asyncJobWorker) {
 
         Assert.notNull(threadPoolTaskExecutor, LOGGER.getLogMessage(
-                LogId.EAL025055));
-        Assert.notNull(asyncJobWorker, LOGGER.getLogMessage(
-                LogId.EAL025057));
+                LogId.EAL025089, this.getClass().getSimpleName(),
+                "ThreadPoolTaskExecutor"));
+        Assert.notNull(asyncJobWorker, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "AsyncJobWorker"));
 
         this.threadPoolTaskExecutor = threadPoolTaskExecutor;
         this.asyncJobWorker = asyncJobWorker;
