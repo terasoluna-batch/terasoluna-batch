@@ -1,10 +1,3 @@
-/*
- * $Id: CSVFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
- * 
- * Copyright (c) 2006-2015 NTT DATA Corporation
- * 
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +17,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> CSVファイル読取用のFileLineIterator生成クラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO
  */
 public class CSVFileQueryDAOTest {

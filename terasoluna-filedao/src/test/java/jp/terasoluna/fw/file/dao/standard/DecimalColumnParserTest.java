@@ -1,10 +1,3 @@
-/*
- * $Id: DecimalColumnParserTest.java 5354 2007-10-03 06:06:25Z anh $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -33,7 +26,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * <h4>【クラスの概要】</h4> 指定された文字列をパーズし、BigDecimal型に変換する。<br>
  * 変換結果をファイル行オブジェクトのBigDecimal型の属性に値を格納する。
  * <p>
- * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnParser
  */
 @RunWith(PowerMockRunner.class)

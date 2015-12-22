@@ -16,7 +16,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * <li>フィールド：String noMappingColumn2</li>
  * <li>フィールド：String noMappingColumn3</li>
  * </ul>
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub11 {

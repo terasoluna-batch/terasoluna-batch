@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -22,7 +15,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <h4>【クラスの概要】</h4> 指定された文字列をパーズし、int型に変換する。<br>
  * 変換結果をファイル行オブジェクトのint型の属性に値を格納する。
  * <p>
- * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.IntColumnParser
  */
 public class IntColumnParserTest {

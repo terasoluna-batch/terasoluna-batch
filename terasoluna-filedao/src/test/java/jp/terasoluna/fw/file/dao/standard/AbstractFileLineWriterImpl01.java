@@ -12,7 +12,6 @@ import jp.terasoluna.fw.file.dao.standard.ColumnFormatter;
  * 「区切り文字」と「囲み文字」を設定できる。<br>
  * コンストラクタでinit()を実行していないため、コンストラクタ以外の試験では<br>
  * インスタンス生成後、必ずinit()を実行してから利用すること。
- * @author 趙俸徹
  * @param <T> ファイル行オブジェクト
  */
 public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {

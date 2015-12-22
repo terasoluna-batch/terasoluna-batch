@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +17,6 @@ import static org.junit.Assert.assertSame;
  * <p>
  * <h4>【クラスの概要】</h4> 可変長ファイル読取用のFileLineIterator生成クラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO
  */
 public class VariableFileQueryDAOTest {

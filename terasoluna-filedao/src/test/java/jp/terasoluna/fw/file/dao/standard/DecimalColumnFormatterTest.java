@@ -1,10 +1,3 @@
-/*
- * $Id: DecimalColumnFormatterTest.java 5354 2007-10-03 06:06:25Z anh $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +25,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * <p>
  * <h4>【クラスの概要】</h4> アノテーションcolumnFormatの記述に従い、文字列の変換処理を行う。
  * <p>
- * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter
  */
 @RunWith(PowerMockRunner.class)

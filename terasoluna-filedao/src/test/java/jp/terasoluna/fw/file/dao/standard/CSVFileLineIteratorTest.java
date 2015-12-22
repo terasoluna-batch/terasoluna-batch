@@ -1,10 +1,3 @@
-/*
- * $Id: CSVFileLineIteratorTest.java 5654 2007-12-04 06:34:19Z pakucn $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -27,8 +20,6 @@ import org.mockito.Mockito;
  * <p>
  * <h4>【クラスの概要】</h4> CSVファイル用のファイルアクセス(データ取得)クラス。
  * <p>
- * @author 奥田哲司
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileLineIterator
  */
 public class CSVFileLineIteratorTest {

@@ -28,7 +28,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  * > columnIndex：2<br>
  * > その他項目：デフォルト値</li>
  * </ul>
- * @author 趙俸徹
  */
 @FileFormat(encloseChar = '\"')
 public class AbstractFileLineWriter_Stub28 {

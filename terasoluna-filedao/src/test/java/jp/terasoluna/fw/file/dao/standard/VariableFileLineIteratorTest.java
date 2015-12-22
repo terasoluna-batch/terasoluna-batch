@@ -1,10 +1,3 @@
-/*
- * $Id: VariableFileLineIteratorTest.java 5655 2007-12-04 06:41:04Z pakucn $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -28,8 +21,6 @@ import jp.terasoluna.fw.file.dao.FileException;
  * <p>
  * <h4>【クラスの概要】</h4> 可変長ファイル用のファイルアクセス(データ取得)クラス。
  * <p>
- * @author 奥田哲司
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineIterator
  */
 public class VariableFileLineIteratorTest {

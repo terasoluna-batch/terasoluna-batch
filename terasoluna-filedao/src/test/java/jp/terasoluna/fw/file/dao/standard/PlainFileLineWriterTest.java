@@ -1,10 +1,3 @@
-/*
- * $Id: PlainFileLineWriterTest.java 5230 2007-09-28 10:04:13Z anh $
- * 
- * Copyright (c) 2006 NTT DATA Corporation
- * 
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -37,7 +30,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * <h4>【クラスの概要】</h4> ビジネスロジックなどから受け取った文字列をファイルに出力する。 他のファイルアクセス機能とは異なり、ファイル行オブジェクトを使わない。<br>
  * AbstractFileLineWriterのサブクラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter
  */
 @RunWith(PowerMockRunner.class)

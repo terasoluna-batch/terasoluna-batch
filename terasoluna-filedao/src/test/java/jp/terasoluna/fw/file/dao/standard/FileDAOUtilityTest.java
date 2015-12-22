@@ -1,10 +1,3 @@
-/*
- * $Id: FileDAOUtilityTest.java 5230 2007-09-28 10:04:13Z anh $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -31,7 +24,6 @@ import org.junit.Test;
  * <p>
  * <h4>【クラスの概要】</h4> パディング、トリム処理を提供する。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.FileDAOUtility
  */
 public class FileDAOUtilityTest {

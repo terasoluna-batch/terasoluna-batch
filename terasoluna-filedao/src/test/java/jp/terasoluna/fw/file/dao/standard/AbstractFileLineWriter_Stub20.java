@@ -19,7 +19,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  * > columnIndex：0<br>
  * > stringConverter：NullStringConverter.class<br>
  * > その他項目：デフォルト値</li> </ul>
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub20 {

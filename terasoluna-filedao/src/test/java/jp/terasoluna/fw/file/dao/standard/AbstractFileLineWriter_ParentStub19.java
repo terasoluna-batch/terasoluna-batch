@@ -11,7 +11,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  *     <code>@OutputFileColumn</code>設定<br>
  * > columnIndex：0<br>
  * > その他項目：デフォルト値</li> </ul>
- * @author 趙俸徹
  */
 public class AbstractFileLineWriter_ParentStub19 {
 

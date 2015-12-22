@@ -1,10 +1,3 @@
-/*
- * $Id: FileUtilityTest.java 5576 2007-11-15 13:13:32Z pakucn $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.util;
 
 import static org.junit.Assert.assertEquals;
@@ -47,8 +40,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * <p>
  * <h4>【クラスの概要】</h4> ファイル操作機能を実装するクラス.
  * <p>
- * @author 吉信郁美
- * @author 趙俸徹
  * @see jp.terasoluna.fw.file.util.FileUtility
  */
 @RunWith(PowerMockRunner.class)

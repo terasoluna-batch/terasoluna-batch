@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -31,7 +24,6 @@ import org.mockito.Mockito;
  * <p>
  * <h4>【クラスの概要】</h4> ファイル行オブジェクトを用いないファイル読込クラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineIterator
  */
 public class PlainFileLineIteratorTest {

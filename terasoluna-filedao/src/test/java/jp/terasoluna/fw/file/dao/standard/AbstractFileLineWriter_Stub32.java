@@ -13,7 +13,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * </ul>
  * <br>
  * フィールドは持たない<br>
- * @author 趙俸徹
  */
 @FileFormat(delimiter = Character.MIN_VALUE, encloseChar = '\"')
 public class AbstractFileLineWriter_Stub32 {

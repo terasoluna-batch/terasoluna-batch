@@ -1,10 +1,3 @@
-/*
- * $Id: AbstractFileLineWriterTest.java 5819 2007-12-20 05:55:47Z fukuyot $
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -62,8 +55,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * <p>
  * <h4>【クラスの概要】</h4> ファイルアクセス(出力)のスーパークラス。抽象クラスのため、AbstractFileLineWriterImplクラスを作成して試験を実施する。
  * <p>
- * @author 奥田 哲司
- * @author 趙 俸徹
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineWriter
  */
 @RunWith(PowerMockRunner.class)

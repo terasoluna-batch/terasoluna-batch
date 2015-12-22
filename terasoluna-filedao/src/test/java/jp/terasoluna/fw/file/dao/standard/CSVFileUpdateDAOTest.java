@@ -1,10 +1,3 @@
-/*
- * $Id:$
- *
- * Copyright (c) 2006-2015 NTT DATA Corporation
- *
- */
-
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +19,6 @@ import static org.junit.Assert.assertSame;
  * <h4>【クラスの概要】</h4> CSVファイル用のFileLineWriterを生成する。<br>
  * AbstractFileUpdateDAOのサブクラス。
  * <p>
- * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO
  */
 public class CSVFileUpdateDAOTest {

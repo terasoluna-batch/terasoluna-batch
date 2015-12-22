@@ -19,7 +19,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  * > その他項目：デフォルト値</li>
  * </ul>
  * 各フィールドのgetter/setterメソッドを持たない。
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub25 {

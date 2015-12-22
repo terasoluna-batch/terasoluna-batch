@@ -1,9 +1,3 @@
-/*
- * $Id: UTUtil.java 5230 2007-09-28 10:04:13Z anh $
- *
- * Copyright (c) 2006 NTT DATA Corporation
- *
- */
 package jp.terasoluna.fw.file.ut;
 
 import java.io.File;
@@ -19,7 +13,6 @@ import static org.junit.Assert.assertTrue;
 /**
  * ◎ JUnitでの単体テストをサポートするユーティリティクラス。
  * @version 2003.08.29
- * @author 丹羽 隆
  */
 public class UTUtil {
 

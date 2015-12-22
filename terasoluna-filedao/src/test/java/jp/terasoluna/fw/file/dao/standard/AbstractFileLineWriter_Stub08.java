@@ -10,7 +10,6 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
  * <li>全項目：デフォルト値</li>
  * </ul>
  * <br>
- * @author 趙俸徹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub08 {
