@@ -77,7 +77,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025074] [Assertion failed] - AsyncJobOperatorImpl constructor needs JobControlFinder",
+                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl constructor requires JobControlFinder",
                     e.getMessage());
         }
     }
@@ -103,7 +103,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025075] [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncJobLauncher",
+                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl constructor requires AsyncJobLauncher",
                     e.getMessage());
         }
     }
@@ -129,7 +129,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025076] [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncBatchStopper",
+                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl constructor requires AsyncBatchStopper",
                     e.getMessage());
         }
     }

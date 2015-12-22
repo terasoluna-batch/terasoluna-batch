@@ -103,7 +103,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025055] [Assertion failed] - AsyncJobLauncherImpl constructor needs ThreadPoolTaskExecutor",
+                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl constructor requires ThreadPoolTaskExecutor",
                     e.getMessage());
         }
     }
@@ -128,7 +128,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025057] [Assertion failed] - AsyncJobLauncherImpl constructor needs AsyncJobWorker",
+                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl constructor requires AsyncJobWorker",
                     e.getMessage());
         }
     }

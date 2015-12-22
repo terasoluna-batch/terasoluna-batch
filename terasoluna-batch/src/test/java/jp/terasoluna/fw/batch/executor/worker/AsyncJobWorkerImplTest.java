@@ -126,7 +126,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025060] [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicResolver"));
+                    is("[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires BLogicResolver"));
         }
     }
 
@@ -157,7 +157,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025061] [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExceptionHandlerResolver"));
+                    is("[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires BLogicExceptionHandlerResolver"));
         }
     }
 
@@ -188,7 +188,8 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025062] [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicApplicationContextResolver"));
+ is(
+                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires ApplicationContextResolver"));
         }
     }
 
@@ -219,7 +220,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025063] [Assertion failed] - AsyncJobWorkerImpl constructor needs JobControlFinder"));
+                    is("[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires JobControlFinder"));
         }
     }
 
@@ -250,7 +251,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025064] [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicParamConverter"));
+                    is("[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires BLogicParamConverter"));
         }
     }
 
@@ -281,7 +282,7 @@ public class AsyncJobWorkerImplTest {
         } catch (IllegalArgumentException e) {
             assertThat(
                     e.getMessage(),
-                    is("[EAL025065] [Assertion failed] - AsyncJobWorkerImpl constructor needs BLogicExecutor"));
+                    is("[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires BLogicExecutor"));
         }
     }
 
@@ -310,9 +311,8 @@ public class AsyncJobWorkerImplTest {
                     null);
             fail();
         } catch (IllegalArgumentException e) {
-            assertThat(
-                    e.getMessage(),
-                    is("[EAL025066] [Assertion failed] - AsyncJobWorkerImpl constructor needs BatchStatusChanger"));
+            assertThat(e.getMessage(), is(
+                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl constructor requires JobStatusChanger"));
         }
     }
 
