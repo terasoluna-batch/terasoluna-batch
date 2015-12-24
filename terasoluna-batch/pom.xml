@@ -145,7 +145,13 @@
             <artifactId>mybatis-spring</artifactId>
         </dependency>
 
-        <!-- oracle 
+        <!-- args4j -->
+        <dependency>
+            <groupId>args4j</groupId>
+            <artifactId>args4j</artifactId>
+        </dependency>
+
+        <!-- oracle
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>

@@ -45,6 +45,8 @@
         <dozer.version>5.5.1</dozer.version>
         <!-- oro -->
         <oro.version>2.0.8</oro.version>
+        <!-- args4j -->
+        <args4j.version>2.32</args4j.version>
         <!-- assertj -->
         <assertj.version>2.2.0</assertj.version>
         <!-- powermock -->
@@ -614,6 +616,12 @@ sp_cleanup.organize_imports=true
                 <groupId>oro</groupId>
                 <artifactId>oro</artifactId>
                 <version>${oro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>args4j</groupId>
+                <artifactId>args4j</artifactId>
+                <version>${args4j.version}</version>
             </dependency>
 
             <!-- logback -->

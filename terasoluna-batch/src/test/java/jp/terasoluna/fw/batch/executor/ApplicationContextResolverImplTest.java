@@ -101,7 +101,7 @@ public class ApplicationContextResolverImplTest {
         // テスト実行
         ApplicationContext context = resolver.resolveApplicationContext();
 
-        assertTrue(context.containsBean("jobOperator"));
+        assertTrue(context.containsBean("syncJobOperator"));
         assertTrue(context.containsBean("systemDao"));
         assertNull(context.getParent());
     }

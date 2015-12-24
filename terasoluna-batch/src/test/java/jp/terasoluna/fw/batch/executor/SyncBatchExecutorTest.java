@@ -1,522 +1,271 @@
+/*
+ * Copyright (c) 2011 NTT DATA Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package jp.terasoluna.fw.batch.executor;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.lang.reflect.Method;
-
+import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
+import jp.terasoluna.fw.batch.executor.controller.JobOperator;
+import jp.terasoluna.fw.util.PropertyUtil;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.BeanCreationException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextException;
+import org.springframework.util.ReflectionUtils;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
-import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
+import java.lang.reflect.Field;
+import java.util.TreeMap;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
+
+/**
+ * {@code SyncBatchExecutor}のテストケース。
+ */
 public class SyncBatchExecutorTest {
 
     final SecurityManager sm = System.getSecurityManager();
 
-    public SyncBatchExecutorTest() {
-        super();
+    private TestLogger logger = TestLoggerFactory
+            .getTestLogger(SyncBatchExecutor.class);
+
+    private Object originProps;
+
+    private static Field propsField;
+
+    /***
+     * テストケース全体の前処理。<br>
+     * テストケース終了後に復元対象となる{@code PropertyUtil}の内部フィールドである
+     * propsを退避する。
+     */
+    @BeforeClass
+    public static void setUpClass() {
+        propsField = ReflectionUtils.findField(PropertyUtil.class, "props");
+        propsField.setAccessible(true);
     }
 
+    /**
+     * テスト前処理。<br>
+     * System.exit()でテストプロセスを止めないセキュリティマネージャを設定する。
+     *
+     * @throws Exception 予期しない例外
+     */
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         System.setSecurityManager(new SecurityManagerEx());
+        // PropertyUtilの内部プロパティを退避
+        this.originProps = propsField.get(null);
     }
 
+    /**
+     * テスト後処理。<br>
+     * セキュリティマネージャを元に戻す。
+     *
+     * @throws Exception 予期しない例外
+     */
     @After
-    public void tearDown() {
-        SystemEnvUtils.restoreEnv();
+    public void tearDown() throws Exception {
+        logger.clear();
         System.setSecurityManager(sm);
+        // PropertyUtilの内部プロパティを復元
+        propsField.set(null, this.originProps);
     }
 
     /**
-     * mainテスト01【異常系】
-     * 
-     * <pre>
+     * mainのテスト 【正常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数にfooを渡す
-     * ・beansDef/foo.xmlが存在しない
-     * 確認事項
-     * ・終了コードが255であること
-     * ・IDがWAL025002のWARNログが出力されること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * ・doMain()メソッドがコールされ、モックの{@code JobOperator}から
+     * 　終了ステータス23でプロセス終了すること。
+     * 　（プロセス終了は{@code ExitException}スローにより代用する。
+     * 　そのため例外キャッチを行っているが正常系としてテストを行う。）
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain01() throws Exception {
+    public void testMain() throws Exception {
         try {
-            SyncBatchExecutor.main(new String[] { "foo" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(255, e.state);
+            SyncBatchExecutor.main(new String[0]);
+            fail();
+        } catch (SecurityManagerEx.ExitException e) {
+            assertEquals(23, e.state);
         }
     }
 
     /**
-     * mainテスト02【正常系】
-     * 
-     * <pre>
+     * doMainのテスト 【正常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01を渡す
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * ・{@code JobOperator#start()}により、ステータスコードが返却されること。
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain02() throws Exception {
-        try {
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
+    public void testDoMain01() throws Exception {
+        JobOperator mockJobOperator = mock(JobOperator.class);
+        String[] args = new String[] { "aaa", "bbb", "ccc" };
+        doReturn(456).when(mockJobOperator).start(args);
+
+        ApplicationContext mockContext = mock(ApplicationContext.class);
+        doReturn(mockJobOperator).when(mockContext)
+                .getBean("syncJobOperator", JobOperator.class);
+
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
+
+        SyncBatchExecutor target = spy(new SyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(456, target.doMain(args));
+
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025014] SyncBatchExecutor START"),
+                info("[IAL025015] SyncBatchExecutor END blogicStatus:[456]"))));
     }
 
     /**
-     * mainテスト03【異常系】
-     * 
-     * <pre>
+     * doMainのテスト 【異常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数に何も渡さない
-     * ・環境変数JOB_APP_CDが未設定
-     * 確認事項
-     * ・終了コードが255であること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * ・{@code resolveApplicationContext()}メソッドによるリゾルバのクラスロード
+     * 　失敗により{@code IllegalClassTypeException}をスローした場合、
+     * 　{@code doMain()}の戻り値が{@code FAIL_TO_OBTAIN_JOB_OPERATOR_CODE}であること。
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain03() throws Exception {
-        try {
-            SystemEnvUtils.removeEnv(SyncBatchExecutor.ENV_JOB_APP_CD);
-            SyncBatchExecutor.main(new String[] {});
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(255, e.state);
-        }
+    public void testDoMain02() throws Exception {
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        Exception expectThrown = new IllegalClassTypeException(
+                "class-load error.");
+        doThrow(expectThrown).when(mockResolver).resolveApplicationContext();
+
+        SyncBatchExecutor target = spy(new SyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
+                target.doMain(new String[] {}));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025014] SyncBatchExecutor START"),
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
     }
 
     /**
-     * mainテスト04【異常系】
-     * 
-     * <pre>
+     * doMainのテスト 【異常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数に何も渡さない
-     * ・環境変数JOB_APP_CDにTestSyncBatchExecutor01を渡す
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * ・{@code ApplicationContext#getBean()}で例外をスローしたとき、
+     * 　コンテキストのクローズ処理が呼び出されること。
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain04() throws Exception {
-        try {
-            SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_APP_CD,
-                    "TestSyncBatchExecutor01");
-            SyncBatchExecutor.main(new String[] {});
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
+    public void testDoMain03() throws Exception {
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        ApplicationContext mockContext = mock(ApplicationContext.class);
+
+        Exception expectThrown = new BeanCreationException(
+                "class-load error.");
+        doThrow(expectThrown).when(mockContext).getBean(anyString(), eq(JobOperator.class));
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
+
+        SyncBatchExecutor target = spy(new SyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
+                target.doMain(new String[] {}));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025014] SyncBatchExecutor START"),
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
+
+        verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
 
     /**
-     * mainテスト05【正常系】
-     * 
-     * <pre>
+     * doMainのテスト 【異常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 を渡す
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・param1～20までID:DAL025044のログに出力されること
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * ・{@code ApplicationContext#getBean()}で例外をスローし、コンテキストの
+     * 　クローズ時にも例外をスローした場合、エラーログが出力されること。
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain05() throws Exception {
-        try {
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01",
-                    "param1", "param2", "param3", "param4", "param5", "param6",
-                    "param7", "param8", "param9", "param10", "param11",
-                    "param12", "param13", "param14", "param15", "param16",
-                    "param17", "param18", "param19", "param20" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
+    public void testDoMain04() throws Exception {
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        ApplicationContext mockContext = mock(ApplicationContext.class);
+
+        Exception expectThrown = new BeanCreationException(
+                "class-load error.");
+        Exception closeThrown = new ApplicationContextException("close error.");
+
+        doThrow(expectThrown).when(mockContext).getBean(anyString(), eq(JobOperator.class));
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
+        doThrow(closeThrown).when(mockResolver).closeApplicationContext(mockContext);
+
+        SyncBatchExecutor target = spy(new SyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
+                target.doMain(new String[] {}));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025014] SyncBatchExecutor START"),
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."),
+                error(closeThrown, "[EAL025096] ApplicationContext closing failed."))));
     }
 
     /**
-     * mainテスト06【正常系】
-     * 
-     * <pre>
+     * findAdminContextResolverのテスト 【正常系】
      * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21を渡す
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・param1～20までID:DAL025044のログに出力されること
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
+     * ・特になし
+     * 確認項目
+     * 　{@code ApplicationContextResolverImpl}インスタンスが返却されること。
+     *
+     * @throws Exception 予期しない例外
      */
     @Test
-    public void testMain06() throws Exception {
-        try {
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01",
-                    "param1", "param2", "param3", "param4", "param5", "param6",
-                    "param7", "param8", "param9", "param10", "param11",
-                    "param12", "param13", "param14", "param15", "param16",
-                    "param17", "param18", "param19", "param20", "param21" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
-    }
+    public void testFindAdminContextResolver01() throws Exception {
+        propsField.set(null, new TreeMap<String, String>());
+        SyncBatchExecutor target = new SyncBatchExecutor();
 
-    /**
-     * mainテスト07【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01を渡す
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * ・環境変数JOB_SEQ_IDにseq01が設定されている
-     * 確認事項
-     * ・終了コードが100であること
-     * ・ID:DAL025044のDEBUGログにjobSequenceId=seq01がふくまれること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testMain07() throws Exception {
-        try {
-            SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_SEQ_ID, "seq01");
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
-    }
-
-    /**
-     * mainテスト08【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01が設定されている
-     * ・環境変数JOB_ARG_NM1～20にそれぞれparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20が設定されている
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・param1～20までID:DAL025044のログに出力されること
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testMain08() throws Exception {
-        try {
-            for (int i = 1; i <= 20; i++) {
-                SystemEnvUtils.setEnv("JOB_ARG_NM" + i, "param" + i);
-            }
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
-    }
-
-    /**
-     * mainテスト09【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・SyncBatchExecutorの起動引数にTestSyncBatchExecutor01が設定されている
-     * ・環境変数JOB_ARG_NM1～20にそれぞれparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21が設定されている
-     * ・beansDef/TestSyncBatchExecutor01.xmlが存在する
-     * ・beanNameがTestSyncBatchExecutor01のBeanがロードされる
-     * 確認事項
-     * ・param1～20までID:DAL025044のログに出力されること
-     * ・終了コードが100であること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testMain09() throws Exception {
-        try {
-            for (int i = 1; i <= 21; i++) {
-                SystemEnvUtils.setEnv("JOB_ARG_NM" + i, "param" + i);
-            }
-            SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("異常です");
-        } catch (ExitException e) {
-            assertEquals(100, e.state);
-        }
-    }
-
-    /**
-     * getParamテスト01
-     * 
-     * <pre>
-     * 事前条件：
-     * getParamのget+第二引数+第三引数のメソッドが存在する
-     * 確認項目：
-     * ・get+第二引数+第三引数のメソッドの結果が返却されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testGetParam01() throws Exception {
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
-                new Class[] { Object.class, String.class, int.class });
-        method.setAccessible(true);
-        String getParam = (String) method.invoke(SyncBatchExecutor.class,
-                new Object[] { new GetParamBean(), "Foo", 1 });
-
-        assertEquals("foo1", getParam);
-    }
-
-    /**
-     * getParamテスト02
-     * 
-     * <pre>
-     * 事前条件：
-     * 
-     * 確認項目：
-     * ・nullが返却されること
-     * ・スタックトレースにjava.lang.SecurityExceptionが出力されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    // public void testGetParam02() throws Exception {
-    // 発生不可能
-    // }
-    /**
-     * getParamテスト03
-     * 
-     * <pre>
-     * 事前条件：
-     * get+第二引数+第三引数のメソッドが存在しない
-     * 確認項目：
-     * ・nullが返却されること
-     * ・スタックトレースにjava.lang.NoSuchMethodExceptionが出力されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testGetParam03() throws Exception {
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
-                new Class[] { Object.class, String.class, int.class });
-        method.setAccessible(true);
-        String getParam = (String) method.invoke(SyncBatchExecutor.class,
-                new Object[] { new BatchJobData(), "HogeMethod", 1 });
-        assertEquals(null, getParam);
-    }
-
-    /**
-     * getParamテスト04
-     * 
-     * <pre>
-     * 事前条件：
-     * 
-     * 確認項目：
-     * ・nullが返却されること
-     * ・スタックトレースにIllegalArgumentExceptionが出力されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    // public void testGetParam04() throws Exception {
-    // 発生不可能
-    // }
-    /**
-     * getParamテスト05
-     * 
-     * <pre>
-     * 事前条件：
-     * 
-     * 確認項目：
-     * ・nullが返却されること
-     * ・スタックトレースにIllegalAccessExceptionが出力されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-
-    // public void testGetParam05() throws Exception {
-    // 発生不可能
-    // }
-    /**
-     * getParamテスト06
-     * 
-     * <pre>
-     * 事前条件：
-     * 
-     * 確認項目：
-     * ・nullが返却されること
-     * ・スタックトレースにjava.lang.reflect.InvocationTargetExceptionが出力されること
-     * </pre>
-     * 
-     * @throws Exception
-     */
-    @Test
-    public void testGetParam06() throws Exception {
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
-                new Class[] { Object.class, String.class, int.class });
-        method.setAccessible(true);
-        String getParam = (String) method.invoke(SyncBatchExecutor.class,
-                new Object[] { new GetParamBean(), "Foo", 6 });
-        assertEquals(null, getParam);
-    }
-
-    /**
-     * GetParamBean
-     */
-    public static class GetParamBean {
-        private String foo1 = "foo1";
-
-        public String getFoo1() {
-            return foo1;
-        }
-
-        public String getFoo6() {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
-     * testSetParam01
-     * @throws Exception
-     */
-    @Test
-    public void testSetParam01() throws Exception {
-        SetParamBean bean = new SetParamBean();
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
-                new Class[] { Object.class, String.class, int.class,
-                        String.class });
-        method.setAccessible(true);
-        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 1,
-                "hoge" });
-        assertEquals("hoge", bean.getFoo1());
-    }
-
-    // SecurityExceptionのスタックトレースが出力されること
-    // public void testSetParam02() {
-    // 発生できず
-    // }
-
-    /**
-     * testSetParam03<br>
-     * NoSuchMethodExceptionのスタックトレースが出力されること
-     * @throws Exception
-     */
-    @Test
-    public void testSetParam03() throws Exception {
-        SetParamBean bean = new SetParamBean();
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
-                new Class[] { Object.class, String.class, int.class,
-                        String.class });
-        method.setAccessible(true);
-        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 3,
-                "hoge" });
-        assertEquals(null, bean.getFoo1());
-    }
-
-    // IllegalArgumentExceptionのスタックトレースが出力されること
-    // public void testSetParam04() {
-    // 発生できず
-    // }
-
-    // IllegalAccessExceptionのスタックトレースが出力されること
-    // public void testSetParam05() {
-    // 発生できず
-    // }
-
-    /**
-     * testSetParam06<br>
-     * InvocationTargetExceptionのスタックトレースが出力されること
-     * @throws Exception
-     */
-    @Test
-    public void testSetParam06() throws Exception {
-        SetParamBean bean = new SetParamBean();
-        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
-                new Class[] { Object.class, String.class, int.class,
-                        String.class });
-        method.setAccessible(true);
-        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 5,
-                "hoge" });
-        assertEquals(null, bean.getFoo1());
-    }
-
-    /**
-     * SetParamBean
-     */
-    public static class SetParamBean {
-        private String foo1;
-
-        public String getFoo1() {
-            return foo1;
-        }
-
-        public void setFoo1(String foo1) {
-            this.foo1 = foo1;
-        }
-
-        public void setFoo5(String foo1) {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
-     * testGetenv01
-     * @throws Exception
-     */
-    @Test
-    public void testGetenv01() throws Exception {
-        String result = SyncBatchExecutor.getenv("");
-        assertEquals("", result);
-    }
-
-    /**
-     * testGetenv02<br>
-     * 事前準備：<br>
-     * 事前に以下のコマンドを設定し、環境変数を設定しておくこと<br>
-     * eclipseで実行する際は実行の構成で設定すること<br>
-     * SET JOB_APP_CD=B000001
-     * @throws Exception
-     */
-    @Test
-    public void testGetenv02() throws Exception {
-        try {
-            SystemEnvUtils.setEnv("JOB_APP_CD", "B000001");
-            String result = SyncBatchExecutor.getenv("JOB_APP_CD");
-            assertEquals("B000001", result);
-        } finally {
-            SystemEnvUtils.restoreEnv();
-        }
+        // テスト実行
+        ApplicationContextResolver resolver = target
+                .findAdminContextResolver();
+        assertThat(resolver, is(instanceOf(ApplicationContextResolverImpl.class)));
     }
 }
