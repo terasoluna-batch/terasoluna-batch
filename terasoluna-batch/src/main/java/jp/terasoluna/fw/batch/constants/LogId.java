@@ -323,19 +323,11 @@ public final class LogId {
      */
     public static final String EAL025054 = "EAL025054";
     /**
-     * <strong>EAL025056 = [Assertion failed] - Property of executor.endMonitoringFile must be defined.</strong>
-     */
-    public static final String EAL025056 = "EAL025056";
-    /**
-     * <strong>EAL025058 = [Assertion failed] - Property of executor.jobTerminateWaitInterval must be defined.</strong>
-     */
-    public static final String EAL025058 = "EAL025058";
-    /**
      * <strong>EAL025068 = JobSequenceId:{0} : The previous processing of the BLogic execution has failed.</strong>
      */
     public static final String EAL025068 = "EAL025068";
     /**
-     * <strong>EAL025089 = [Assertion failed] - {0} constructor requires {1}</strong>
+     * <strong>EAL025089 = [Assertion failed] - {0} requires to set {1}. please confirm the settings.</strong>
      */
     public static final String EAL025089 = "EAL025089";
     /**

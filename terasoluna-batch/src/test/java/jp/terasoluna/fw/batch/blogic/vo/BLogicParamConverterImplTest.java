@@ -59,9 +59,8 @@ public class BLogicParamConverterImplTest {
             new BLogicParamConverterImpl(null);
             fail();
         } catch (IllegalArgumentException e) {
-            assertThat(
-                    e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - BLogicParamConverterImpl constructor requires org.dozer.Mapper"));
+            assertThat(e.getMessage(), is(
+                    "[EAL025089] [Assertion failed] - BLogicParamConverterImpl requires to set org.dozer.Mapper. please confirm the settings."));
         }
     }
 

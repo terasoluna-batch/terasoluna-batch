@@ -190,7 +190,8 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     public void afterPropertiesSet() throws Exception {
 
         Assert.state(executorJobTerminateWaitIntervalTime > 0, LOGGER
-                .getLogMessage(LogId.EAL025058));
+                .getLogMessage(LogId.EAL025089, this.getClass().getSimpleName(),
+                        "executor.jobTerminateWaitInterval"));
 
         int maxPoolSize = threadPoolTaskExecutor.getMaxPoolSize();
         LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);

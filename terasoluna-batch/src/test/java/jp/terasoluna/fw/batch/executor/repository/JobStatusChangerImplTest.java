@@ -110,7 +110,7 @@ public class JobStatusChangerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl constructor requires systemDao",
+                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl requires to set systemDao. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -134,7 +134,7 @@ public class JobStatusChangerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl constructor requires adminTransactionManager",
+                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl requires to set adminTransactionManager. please confirm the settings.",
                     e.getMessage());
         }
     }
