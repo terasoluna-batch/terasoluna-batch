@@ -103,7 +103,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025055] [Assertion failed] - AsyncJobLauncherImpl constructor needs ThreadPoolTaskExecutor",
+                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set ThreadPoolTaskExecutor. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -128,7 +128,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025057] [Assertion failed] - AsyncJobLauncherImpl constructor needs AsyncJobWorker",
+                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set AsyncJobWorker. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -694,7 +694,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalStateException e) {
             assertEquals(
-                    "[EAL025058] [Assertion failed] - Property of executor.jobTerminateWaitInterval must be defined.",
+                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set executor.jobTerminateWaitInterval. please confirm the settings.",
                     e.getMessage());
         }
     }

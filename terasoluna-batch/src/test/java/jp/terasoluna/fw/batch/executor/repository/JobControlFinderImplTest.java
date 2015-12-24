@@ -347,7 +347,7 @@ public class JobControlFinderImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025069] [Assertion failed] - JobControlFinderImpl constructor needs SystemDao",
+                    "[EAL025089] [Assertion failed] - JobControlFinderImpl requires to set SystemDao. please confirm the settings.",
                     e.getMessage());
         }
     }

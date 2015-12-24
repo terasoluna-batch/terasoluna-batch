@@ -101,17 +101,23 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             JobControlFinder jobControlFinder,
             BLogicParamConverter blogicParamConverter,
             BLogicExecutor blogicExecutor, JobStatusChanger jobStatusChanger) {
-        Assert.notNull(blogicResolver, LOGGER.getLogMessage(LogId.EAL025060));
-        Assert.notNull(blogicExceptionHandlerResolver, LOGGER
-                .getLogMessage(LogId.EAL025061));
-        Assert.notNull(blogicApplicationContextResolver, LOGGER
-                .getLogMessage(LogId.EAL025062));
-        Assert.notNull(jobControlFinder, LOGGER
-                .getLogMessage(LogId.EAL025063));
-        Assert.notNull(blogicParamConverter, LOGGER
-                .getLogMessage(LogId.EAL025064));
-        Assert.notNull(blogicExecutor, LOGGER.getLogMessage(LogId.EAL025065));
-        Assert.notNull(jobStatusChanger, LOGGER.getLogMessage(LogId.EAL025066));
+        Assert.notNull(blogicResolver, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "BLogicResolver"));
+        Assert.notNull(blogicExceptionHandlerResolver, LOGGER.getLogMessage(
+                LogId.EAL025089, this.getClass().getSimpleName(),
+                "BLogicExceptionHandlerResolver"));
+        Assert.notNull(blogicApplicationContextResolver, LOGGER.getLogMessage(
+                LogId.EAL025089, this.getClass().getSimpleName(),
+                "ApplicationContextResolver"));
+        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "JobControlFinder"));
+        Assert.notNull(blogicParamConverter, LOGGER.getLogMessage(
+                LogId.EAL025089, this.getClass().getSimpleName(),
+                "BLogicParamConverter"));
+        Assert.notNull(blogicExecutor, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "BLogicExecutor"));
+        Assert.notNull(jobStatusChanger, LOGGER.getLogMessage(LogId.EAL025089,
+                this.getClass().getSimpleName(), "JobStatusChanger"));
 
         this.blogicResolver = blogicResolver;
         this.blogicExceptionHandlerResolver = blogicExceptionHandlerResolver;
