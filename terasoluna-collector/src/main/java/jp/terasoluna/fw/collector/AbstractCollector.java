@@ -584,9 +584,8 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         throw new UnsupportedOperationException();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Iterable#iterator()
+    /**
+     * {@inheritDoc}
      */
     public Iterator<P> iterator() {
         return this;

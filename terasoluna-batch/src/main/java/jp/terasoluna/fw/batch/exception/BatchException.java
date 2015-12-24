@@ -50,7 +50,7 @@ public class BatchException extends RuntimeException {
 
     /**
      * BatchExceptionを生成する
-     * @param message
+     * @param message 例外メッセージ
      */
     public BatchException(String message) {
         super(message);
@@ -58,8 +58,8 @@ public class BatchException extends RuntimeException {
 
     /**
      * BatchExceptionを生成する
-     * @param message
-     * @param cause
+     * @param message 例外メッセージ
+     * @param cause 原因例外
      */
     public BatchException(String message, Throwable cause) {
         super(message, cause);
@@ -67,7 +67,7 @@ public class BatchException extends RuntimeException {
 
     /**
      * BatchExceptionを生成する
-     * @param cause
+     * @param cause 原因例外
      */
     public BatchException(Throwable cause) {
         super(cause);

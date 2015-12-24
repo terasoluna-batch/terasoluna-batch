@@ -33,9 +33,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 public class DaoTestCaseExecutionListener extends
                                          DependencyInjectionTestExecutionListener {
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.test.context.support.DependencyInjectionTestExecutionListener#prepareTestInstance(org.springframework.test.context.TestContext)
+    /**
+     * {@inheritDoc}
      */
     @Override
     public void prepareTestInstance(TestContext testContext) throws Exception {
@@ -43,9 +42,8 @@ public class DaoTestCaseExecutionListener extends
         super.prepareTestInstance(testContext);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.test.context.support.AbstractTestExecutionListener#afterTestMethod(org.springframework.test.context.TestContext)
+    /**
+     * {@inheritDoc}
      */
     @Override
     public void afterTestMethod(TestContext testContext) throws Exception {
@@ -62,9 +60,8 @@ public class DaoTestCaseExecutionListener extends
         // デフォルトでは何もしません
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.test.context.support.DependencyInjectionTestExecutionListener#injectDependencies(org.springframework.test.context.TestContext)
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected void injectDependencies(TestContext testContext) throws Exception {

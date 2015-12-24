@@ -74,9 +74,8 @@ public abstract class AbstractValidationErrorHandler implements
         this.logLevel = logLevel;
     }
 
-    /*
-     * (non-Javadoc)
-     * @seejp.terasoluna.fw.collector.validate.ValidationErrorHandler#handleValidationError(jp.terasoluna.fw.collector.vo. DataValueObject, org.springframework.validation.Errors)
+    /**
+     * {@inheritDoc}
      */
     public ValidateErrorStatus handleValidationError(
             DataValueObject dataValueObject, Errors errors) {

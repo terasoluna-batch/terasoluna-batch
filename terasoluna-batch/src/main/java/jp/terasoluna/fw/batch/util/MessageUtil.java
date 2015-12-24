@@ -50,7 +50,7 @@ public class MessageUtil {
 
     /**
      * コードに応じたメッセージを返却する<br>
-     * @param errorCode コード
+     * @param code コード
      * @return コードに応じたメッセージを返却する
      */
     public static String getMessage(String code) {
@@ -59,7 +59,7 @@ public class MessageUtil {
 
     /**
      * コードに応じたメッセージを返却する<br>
-     * @param errorCode コード
+     * @param code コード
      * @return コードに応じたメッセージを返却する
      */
     public static String getMessage(String code, Object[] args) {
@@ -156,7 +156,7 @@ public class MessageUtil {
     /**
      * スレッドグループとスレッド名を返すメソッド.<br>
      * デバッグ用メッセージを返す。
-     * @return String
+     * @return スレッドグループとスレッド名が判別可能なメッセージ
      */
     private static String getThreadMessage() {
         StringBuilder sb = new StringBuilder();

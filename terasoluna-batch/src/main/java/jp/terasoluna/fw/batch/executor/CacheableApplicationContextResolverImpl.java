@@ -89,7 +89,6 @@ import java.util.Map;
  * {@code cacheManager}をインジェクションしている場合、
  * キャッシュ対象の業務コンテキストとしてクローズがスキップされる。
  * </p>
- * @see org.springframework.cache.CacheManager
  * @since 3.6
  */
 public class CacheableApplicationContextResolverImpl

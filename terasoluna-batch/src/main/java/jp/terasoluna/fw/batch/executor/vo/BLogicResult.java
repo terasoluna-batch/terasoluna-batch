@@ -48,16 +48,16 @@ public class BLogicResult {
     }
 
     /**
-     * ビジネスロジックで発生した例外
-     * @return the blogicThrowable
+     * ビジネスロジックで発生した例外を取得する。
+     * @return ビジネスロジックで発生した例外
      */
     public Throwable getBlogicThrowable() {
         return blogicThrowable;
     }
 
     /**
-     * ビジネスロジックで発生した例外
-     * @param blogicThrowable the blogicThrowable to set
+     * ビジネスロジックで発生した例外を設定する。
+     * @param blogicThrowable ビジネスロジックで発生した例外
      */
     public void setBlogicThrowable(Throwable blogicThrowable) {
         this.blogicThrowable = blogicThrowable;

@@ -26,10 +26,8 @@ import java.text.MessageFormat;
  */
 public class DefaultMessageFormatter implements MessageFormatter {
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see jp.terasoluna.fw.message.MessageFormatter#format(java.lang.String, java.lang.Object[])
+    /**
+     * {@inheritDoc}
      */
     public String format(String pattern, Object... args) {
         return MessageFormat.format(pattern, args);

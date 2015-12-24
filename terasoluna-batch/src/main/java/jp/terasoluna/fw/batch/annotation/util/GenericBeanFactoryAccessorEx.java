@@ -41,15 +41,16 @@ public class GenericBeanFactoryAccessorEx {
     private ListableBeanFactory beanFactory;
     /**
      * コンストラクタ
-     * @param beanFactory
+     * @param beanFactory Beanファクトリオブジェクト
      */
     public GenericBeanFactoryAccessorEx(ListableBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.beans.factory.generic.GenericBeanFactoryAccessor#getBeansWithAnnotation(java.lang.Class)
+    /**
+     * 指定されたアノテーションをもとに{@code BeanFactory}内に該当するオブジェクトを検索する。
+     * @param annotationType アノテーション型
+     * @return Bean名をキーとし、{@code BeanFactory}から取得可能なオブジェクトを値とした{@code Map}
      */
     public Map<String, Object> getBeansWithAnnotation(
             Class<? extends Annotation> annotationType) {
@@ -64,10 +65,8 @@ public class GenericBeanFactoryAccessorEx {
         return results;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.beans.factory.generic.GenericBeanFactoryAccessor#findAnnotationOnBean(java.lang.String,
-     * java.lang.Class)
+    /**
+     * {@inheritDoc}
      */
     public <A extends Annotation> A findAnnotationOnBean(String beanName,
             Class<A> annotationType) {

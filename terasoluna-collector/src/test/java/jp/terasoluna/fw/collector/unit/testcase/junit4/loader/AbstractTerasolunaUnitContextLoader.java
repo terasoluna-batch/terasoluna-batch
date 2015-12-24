@@ -45,9 +45,8 @@ public abstract class AbstractTerasolunaUnitContextLoader extends
      */
     protected abstract List<String> getDefaultConfigs();
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.test.context.support.AbstractContextLoader#isGenerateDefaultLocations()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected boolean isGenerateDefaultLocations() {
@@ -55,9 +54,8 @@ public abstract class AbstractTerasolunaUnitContextLoader extends
         return false;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.springframework.test.context.support.AbstractContextLoader#modifyLocations(java.lang.Class, java.lang.String[])
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected String[] modifyLocations(Class<?> clazz, String... locations) {

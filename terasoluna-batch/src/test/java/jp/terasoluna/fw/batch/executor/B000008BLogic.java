@@ -23,9 +23,8 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
  */
 public class B000008BLogic {
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(jp.terasoluna.fw.batch .light.blogic.vo.BLogicParam)
+    /**
+     * {@inheritDoc}
      */
     public int execute(BLogicParam param) {
 

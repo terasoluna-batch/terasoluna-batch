@@ -34,7 +34,6 @@ import jp.terasoluna.fw.logger.TLogger;
 /**
  * ジョブの実行ステータス更新クラス。<br>
  * @since 3.6
- * @see JobStatusChanger
  */
 public class JobStatusChangerImpl implements JobStatusChanger {
 

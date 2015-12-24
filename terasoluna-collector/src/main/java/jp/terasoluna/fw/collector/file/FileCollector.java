@@ -113,9 +113,11 @@ public class FileCollector<P> extends AbstractCollector<P> {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.util.concurrent.Callable#call()
+    /**
+     * コレクタスレッドのエントリポイント。
+     *
+     * @return 取得件数
+     * @throws Exception 汎用例外
      */
     public Integer call() throws Exception {
         FileLineIterator<P> fli = null;

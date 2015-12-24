@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 /**
- * バッチ起動処理を定義するインタフェース。<br>
+ * ジョブの実行を管理するためのインタフェース。<br>
  * プロセスの起動直後に呼び出されるエントリポイントとなる。<br>
  *
  * @since 3.6
@@ -25,7 +25,7 @@ package jp.terasoluna.fw.batch.executor.controller;
 public interface JobOperator {
 
     /**
-     * バッチプロセス起動処理を行う。<br>
+     * ジョブを開始し、実行管理を行う。<br>
      *
      * @param args 起動時引数
      * @return プロセス終了ステータス

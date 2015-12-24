@@ -160,7 +160,6 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * 尚、このメソッドは、ワーカスレッド（非同期ジョブを実行するスレッド）で実行すること。
      * </p>
      * @param jobSequenceId ジョブシーケンスコード
-     * @see jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker#executeWorker(java.lang.String)
      */
     @Override
     public void executeWorker(final String jobSequenceId) {

@@ -25,6 +25,29 @@ import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * 例外ハンドラのデフォルト実装.
+ *
+ * 例外クラスと返却するステータス値のマップ<br>
+ * <p>
+ * Bean定義に例外の型と対応するステータス値とのマッピングを定義することで、例外ごとに返却するステータス値を変えることができる。<br>
+ * マッピング設定を省略した場合は、すべての例外に対してステータス値255を返却する。<br>
+ * </p>
+ * <p>
+ * <fieldset style="border:1pt solid black;padding:10px;width:100%;"><br>
+ * <legend>Bean定義記述例</legend>
+ *
+ * <pre>
+ * &lt;bean id=&quot;defaultExceptionHandler&quot; class=&quot;jp.terasoluna.fw.batch.exception.handler.DefaultExceptionHandler&quot;&gt;
+ *   &lt;property name=&quot;exceptionToStatusMap&quot;&gt;
+ *     &lt;map&gt;
+ *       &lt;entry key=&quot;jp.terasoluna.fw.batch.exception.BatchException&quot; value=&quot;123&quot;/&gt;
+ *       &lt;entry key=&quot;java.lang.Exception&quot; value=&quot;100&quot;/&gt;
+ *     &lt;/map&gt;
+ *   &lt;/property&gt;
+ * &lt;/bean&gt;
+ * </pre>
+ *
+ * </fieldset>
+ * </p>
  */
 public class DefaultExceptionHandler implements ExceptionHandler {
     /**
@@ -39,26 +62,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
     protected static final int DEFAULT_EXCEPTION_HANDLER_STATUS = 255;
 
     /**
-     * 例外クラスと返却するステータス値のマップ<br>
-     * <p>
-     * Bean定義に例外の型と対応するステータス値とのマッピングを定義することで、例外ごとに返却するステータス値を変えることができる。<br>
-     * マッピング設定を省略した場合は、すべての例外に対してステータス値255を返却する。<br>
-     * </p>
-     * <p>
-     * <fieldset style="border:1pt solid black;padding:10px;width:100%;"><br>
-     * <legend>Bean定義記述例</legend>
-     *
-     * <pre>
-     * &lt;property name=&quot;exceptionToStatusMap&quot;&gt;
-     *   &lt;map&gt;
-     *     &lt;entry key=&quot;jp.terasoluna.fw.batch.exception.BatchException&quot; value=&quot;123&quot;/&gt;
-     *     &lt;entry key=&quot;java.lang.Exception&quot; value=&quot;100&quot;/&gt;
-     *   &lt;/map&gt;
-     * &lt;/property&gt;
-     * </pre>
-     *
-     * </fieldset>
-     * </p>
+     * ハンドリング対象となる例外クラスと返却されるステータス値のマップ
      */
     protected Map<Class<? extends Throwable>, Integer> exceptionToStatusMap = null;
 
@@ -71,9 +75,8 @@ public class DefaultExceptionHandler implements ExceptionHandler {
         this.exceptionToStatusMap = exceptionToStatusMap;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.batch.exception.handler.ExceptionHandler#handleThrowableException(java.lang.Throwable)
+    /**
+     * {@inheritDoc}
      */
     public int handleThrowableException(Throwable e) {
         // WARNログを出力する

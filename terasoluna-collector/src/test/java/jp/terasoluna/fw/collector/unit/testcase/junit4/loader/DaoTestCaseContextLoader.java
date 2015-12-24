@@ -24,7 +24,7 @@ import jp.terasoluna.fw.collector.unit.testcase.TestCaseUtils;
  * DaoTestCase用コンテキストローダ。
  * 
  * <p>
- * {@link DaoTestCaseJunit4}用の{@link AbstractTerasolunaUnitContextLoader}拡張で、<br>
+ * {@link jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4}用の{@link AbstractTerasolunaUnitContextLoader}拡張で、<br>
  * デフォルトBean定義ファイルとして{@link TestCaseUtils#getConfigLocationsForDaoTestCase(String[])}で返却される パスを返却します。
  * </p>
  * 
@@ -32,9 +32,8 @@ import jp.terasoluna.fw.collector.unit.testcase.TestCaseUtils;
 public class DaoTestCaseContextLoader extends
                                      AbstractTerasolunaUnitContextLoader {
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.ex.batch.testcase.junit4.loader.AbstractTerasolunaUnitContextLoader#getDefaultConfigs()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected List<String> getDefaultConfigs() {

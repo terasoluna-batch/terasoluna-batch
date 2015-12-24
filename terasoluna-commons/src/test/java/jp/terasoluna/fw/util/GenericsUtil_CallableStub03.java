@@ -28,23 +28,23 @@ public class GenericsUtil_CallableStub03
         extends GenericsUtil_CallableStub01
         implements Callable<Integer>, Comparable<String>, Comparator<String>  {
 
-    /* (non-Javadoc)
-     * @see java.util.concurrent.Callable#call()
+    /**
+     * {@inheritDoc}
      */
     @Override
     public Integer call() throws Exception {
         return null;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
+    /**
+     * {@inheritDoc}
      */
     public int compareTo(String o) {
         return 0;
     }
 
-    /* (non-Javadoc)
-     * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+    /**
+     * {@inheritDoc}
      */
     public int compare(String o1, String o2) {
         return 0;

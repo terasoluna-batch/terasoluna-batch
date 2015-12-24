@@ -26,7 +26,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 public interface BLogic {
     /**
      * バッチ処理実行メソッド.
-     * @param param BLogocParam
+     * @param param BLogicParam
      * @return 終了フラグ
      */
     int execute(BLogicParam param);

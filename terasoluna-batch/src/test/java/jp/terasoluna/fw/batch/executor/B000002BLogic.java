@@ -24,15 +24,11 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
  */
 public class B000002BLogic implements BLogic {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * jp.terasoluna.fw.batch.blogic.BLogic#execute(jp.terasoluna.fw.batch
-	 * .light.blogic.vo.BLogicParam)
-	 */
-	public int execute(BLogicParam param) {
-		return 1;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public int execute(BLogicParam param) {
+        return 1;
+    }
 
 }

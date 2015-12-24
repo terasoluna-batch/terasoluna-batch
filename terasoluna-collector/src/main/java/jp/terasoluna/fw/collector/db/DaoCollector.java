@@ -168,9 +168,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.util.concurrent.Callable#call()
+    /**
+     * {@inheritDoc}
      */
     public Integer call() throws Exception {
         try {
@@ -306,9 +305,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
         return resultHandler;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#clone()
+    /**
+     * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -324,9 +322,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
         return obj;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.collector.AbstractCollector#addQueue(jp.terasoluna.fw.collector.vo.DataValueObject)
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected void addQueue(
