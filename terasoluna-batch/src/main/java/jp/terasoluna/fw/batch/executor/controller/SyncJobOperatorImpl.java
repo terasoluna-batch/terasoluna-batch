@@ -160,16 +160,20 @@ public class SyncJobOperatorImpl implements JobOperator {
         BatchJobData batchJobData = convertBatchJobData(args);
         ApplicationContext blogicContext = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
-        BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
-                batchJobData);
-        BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
-                blogicParam.getJobAppCd());
-        ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
-                blogicContext, blogicParam.getJobAppCd());
+        try {
+            BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
+                    batchJobData);
+            BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
+                    blogicParam.getJobAppCd());
+            ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
+                    blogicContext, blogicParam.getJobAppCd());
 
-        BLogicResult result = blogicExecutor.execute(blogicContext, blogic,
-                blogicParam, exceptionHandler);
-        return result.getBlogicStatus();
+            BLogicResult result = blogicExecutor.execute(blogicContext, blogic,
+                    blogicParam, exceptionHandler);
+            return result.getBlogicStatus();
+        } finally {
+            applicationContextResolver.closeApplicationContext(blogicContext);
+        }
     }
 
     /**
