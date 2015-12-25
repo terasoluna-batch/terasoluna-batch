@@ -68,37 +68,11 @@
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-        </dependency>
-
-        <!-- aopalliance -->
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
         </dependency>
 
         <!-- aspectj -->
@@ -107,15 +81,17 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
+        <!-- SLF4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+
         <!-- commons -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
 
         <!-- dozer -->
@@ -126,13 +102,6 @@
         <dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer-spring</artifactId>
-        </dependency>
-
-        <!-- hamcrest -->
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- mybatis -->
@@ -185,30 +154,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>slf4j-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>uk.org.lidalia</groupId>
-            <artifactId>lidalia-slf4j-ext</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-            </exclusions>
             <scope>test</scope>
         </dependency>
 

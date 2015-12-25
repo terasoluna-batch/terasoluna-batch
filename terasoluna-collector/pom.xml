@@ -88,19 +88,10 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>slf4j-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>uk.org.lidalia</groupId>
-            <artifactId>lidalia-slf4j-ext</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -108,20 +99,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <scope>test</scope>
-        </dependency>
-                <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -137,43 +114,39 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
+
         <!-- oracle
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <scope>test</scope>
         </dependency> -->
+
         <!-- postgresql
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>test</scope>
         </dependency> -->
+
         <!-- h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- テスト用ライブラリ -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-            </exclusions>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
