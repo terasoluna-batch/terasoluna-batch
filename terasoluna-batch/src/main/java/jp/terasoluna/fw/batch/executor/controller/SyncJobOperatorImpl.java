@@ -158,11 +158,11 @@ public class SyncJobOperatorImpl implements JobOperator {
     @Override
     public int start(String[] args) {
         BatchJobData batchJobData = convertBatchJobData(args);
+        BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
+                batchJobData);
         ApplicationContext blogicContext = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         try {
-            BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
-                    batchJobData);
             BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
                     blogicParam.getJobAppCd());
             ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
