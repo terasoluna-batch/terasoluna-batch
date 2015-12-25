@@ -20,19 +20,18 @@ import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
-import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
+import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.batch.executor.worker.BLogicExecutor;
 import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
 import org.junit.Before;
 import org.junit.Test;
-import org.kohsuke.args4j.CmdLineException;
 import org.springframework.context.ApplicationContext;
 
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
@@ -62,6 +61,8 @@ public class SyncJobOperatorImplTest {
 
     private ExceptionHandler exceptionHandler;
 
+    private BLogicExecutor blogicExecutor;
+
     /**
      * テスト前処理
      *
@@ -79,6 +80,7 @@ public class SyncJobOperatorImplTest {
         this.blogic = mock(BLogic.class);
         this.applicationContext = mock(ApplicationContext.class);
         this.exceptionHandler = mock(ExceptionHandler.class);
+        this.blogicExecutor = mock(BLogicExecutor.class);
 
         when(applicationContextResolver.resolveApplicationContext(
                 any(BatchJobData.class))).thenReturn(applicationContext);
@@ -92,7 +94,7 @@ public class SyncJobOperatorImplTest {
 
         this.target = new SyncJobOperatorImpl(applicationContextResolver,
                 blogicParamConverter, blogicExceptionHandlerResolver,
-                blogicResolver);
+                blogicResolver, blogicExecutor);
     }
 
     /**
@@ -113,7 +115,8 @@ public class SyncJobOperatorImplTest {
         try {
             // テスト実行
             new SyncJobOperatorImpl(null, blogicParamConverter,
-                    blogicExceptionHandlerResolver, blogicResolver);
+                    blogicExceptionHandlerResolver, blogicResolver,
+                    blogicExecutor);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
@@ -139,7 +142,8 @@ public class SyncJobOperatorImplTest {
         try {
             // テスト実行
             new SyncJobOperatorImpl(applicationContextResolver, null,
-                    blogicExceptionHandlerResolver, blogicResolver);
+                    blogicExceptionHandlerResolver, blogicResolver,
+                    blogicExecutor);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
@@ -165,7 +169,7 @@ public class SyncJobOperatorImplTest {
         try {
             // テスト実行
             new SyncJobOperatorImpl(applicationContextResolver,
-                    blogicParamConverter, null, blogicResolver);
+                    blogicParamConverter, null, blogicResolver, blogicExecutor);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
@@ -191,11 +195,39 @@ public class SyncJobOperatorImplTest {
         try {
             // テスト実行
             new SyncJobOperatorImpl(applicationContextResolver,
-                    blogicParamConverter, blogicExceptionHandlerResolver, null);
+                    blogicParamConverter, blogicExceptionHandlerResolver, null,
+                    blogicExecutor);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
                     is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicResolver. please confirm the settings."));
+        }
+    }
+
+    /**
+     * コンストラクタのテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・{@code blogicExecutor}がnullであるとき、アサーションエラーとして
+     * 　{@code IllegalArgumentException}がスローされること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testSyncJobOperatorImpl05() throws Exception {
+
+        try {
+            // テスト実行
+            new SyncJobOperatorImpl(applicationContextResolver,
+                    blogicParamConverter, blogicExceptionHandlerResolver,
+                    blogicResolver, null);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertThat(e.getMessage(),
+                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExecutor. please confirm the settings."));
         }
     }
 
@@ -211,12 +243,12 @@ public class SyncJobOperatorImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testSyncJobOperatorImpl05() throws Exception {
+    public void testSyncJobOperatorImpl06() throws Exception {
 
         // テスト実行
         SyncJobOperatorImpl target = new SyncJobOperatorImpl(
                 applicationContextResolver, blogicParamConverter,
-                blogicExceptionHandlerResolver, blogicResolver);
+                blogicExceptionHandlerResolver, blogicResolver, blogicExecutor);
 
         assertThat(target.applicationContextResolver,
                 is(applicationContextResolver));
@@ -224,6 +256,7 @@ public class SyncJobOperatorImplTest {
         assertThat(target.blogicExceptionHandlerResolver,
                 is(blogicExceptionHandlerResolver));
         assertThat(target.blogicResolver, is(blogicResolver));
+        assertThat(target.blogicExecutor, is(blogicExecutor));
     }
 
     /**
@@ -241,42 +274,17 @@ public class SyncJobOperatorImplTest {
     @Test
     public void testStart01() throws Exception {
 
-        doReturn(234).when(blogic).execute(any(BLogicParam.class));
+        BLogicResult blogicResult = new BLogicResult();
+        blogicResult.setBlogicStatus(234);
+        BLogicParam blogicParam = new BLogicParam();
+        doReturn(blogicParam).when(blogicParamConverter).convertBLogicParam(any(BatchJobData.class));
+        doReturn(blogicResult).when(blogicExecutor).execute(applicationContext, blogic, blogicParam, exceptionHandler);
 
         // テスト実行
         int status = target.start(new String[] { "jobAppCd" });
 
         assertThat(status, is(234));
-        verify(blogic).execute(any(BLogicParam.class));
-        verify(exceptionHandler, never()).handleThrowableException(
-                any(Throwable.class));
-    }
-
-    /**
-     * start()のテスト 【正常系】
-     * <pre>
-     * 事前条件
-     * ・とくになし
-     * 確認項目
-     * ・ビジネスロジックから例外がスローされた場合、{@code ExceptionHandler}が呼び出され、
-     * 　このハンドラからのステータスコードが返却されること。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testStart02() throws Exception {
-
-        IllegalStateException e = new IllegalStateException("BLogicからスローされる例外");
-        doThrow(e).when(blogic).execute(any(BLogicParam.class));
-        doReturn(123).when(exceptionHandler).handleThrowableException(e);
-
-        // テスト実行
-        int status = target.start(new String[] { "jobAppCd" });
-
-        assertThat(status, is(123));
-        verify(blogic).execute(any(BLogicParam.class));
-        verify(exceptionHandler).handleThrowableException(e);
+        verify(blogicExecutor).execute(applicationContext, blogic, blogicParam, exceptionHandler);
     }
 
     /**
