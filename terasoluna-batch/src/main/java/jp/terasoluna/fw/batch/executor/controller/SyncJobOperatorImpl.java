@@ -27,7 +27,7 @@ import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.worker.BLogicExecutor;
+import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.logger.TLogger;
 import org.apache.commons.beanutils.BeanUtils;
 import org.kohsuke.args4j.CmdLineException;
@@ -158,16 +158,16 @@ public class SyncJobOperatorImpl implements JobOperator {
     @Override
     public int start(String[] args) {
         BatchJobData batchJobData = convertBatchJobData(args);
-        ApplicationContext applicationContext = applicationContextResolver.resolveApplicationContext(
+        ApplicationContext blogicContext = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
                 batchJobData);
-        BLogic blogic = blogicResolver.resolveBLogic(applicationContext,
+        BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
                 blogicParam.getJobAppCd());
         ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
-                applicationContext, blogicParam.getJobAppCd());
+                blogicContext, blogicParam.getJobAppCd());
 
-        BLogicResult result = blogicExecutor.execute(applicationContext, blogic,
+        BLogicResult result = blogicExecutor.execute(blogicContext, blogic,
                 blogicParam, exceptionHandler);
         return result.getBlogicStatus();
     }

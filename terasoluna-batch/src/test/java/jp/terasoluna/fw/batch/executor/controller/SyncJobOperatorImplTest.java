@@ -25,7 +25,7 @@ import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.worker.BLogicExecutor;
+import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,7 +57,7 @@ public class SyncJobOperatorImplTest {
 
     private BLogic blogic;
 
-    private ApplicationContext applicationContext;
+    private ApplicationContext blogicContext;
 
     private ExceptionHandler exceptionHandler;
 
@@ -78,12 +78,12 @@ public class SyncJobOperatorImplTest {
         this.blogicResolver = mock(BLogicResolver.class);
 
         this.blogic = mock(BLogic.class);
-        this.applicationContext = mock(ApplicationContext.class);
+        this.blogicContext = mock(ApplicationContext.class);
         this.exceptionHandler = mock(ExceptionHandler.class);
         this.blogicExecutor = mock(BLogicExecutor.class);
 
         when(applicationContextResolver.resolveApplicationContext(
-                any(BatchJobData.class))).thenReturn(applicationContext);
+                any(BatchJobData.class))).thenReturn(blogicContext);
         when(blogicParamConverter.convertBLogicParam(
                 any(BatchJobData.class))).thenReturn(new BLogicParam());
         when(blogicResolver.resolveBLogic(any(ApplicationContext.class),
@@ -278,13 +278,13 @@ public class SyncJobOperatorImplTest {
         blogicResult.setBlogicStatus(234);
         BLogicParam blogicParam = new BLogicParam();
         doReturn(blogicParam).when(blogicParamConverter).convertBLogicParam(any(BatchJobData.class));
-        doReturn(blogicResult).when(blogicExecutor).execute(applicationContext, blogic, blogicParam, exceptionHandler);
+        doReturn(blogicResult).when(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
 
         // テスト実行
         int status = target.start(new String[] { "jobAppCd" });
 
         assertThat(status, is(234));
-        verify(blogicExecutor).execute(applicationContext, blogic, blogicParam, exceptionHandler);
+        verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
     }
 
     /**

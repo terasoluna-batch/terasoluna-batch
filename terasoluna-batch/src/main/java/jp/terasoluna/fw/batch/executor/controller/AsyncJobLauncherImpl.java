@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker;
+import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.beans.factory.InitializingBean;

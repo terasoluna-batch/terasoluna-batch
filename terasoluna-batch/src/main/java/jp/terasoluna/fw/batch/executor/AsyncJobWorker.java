@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.executor.worker;
+package jp.terasoluna.fw.batch.executor;
 
 /**
  * ジョブシーケンスコードで決定されワーカスレッド内の処理を定義するインタフェース。<br>

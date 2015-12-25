@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.executor.worker;
+package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.Assert;
 
