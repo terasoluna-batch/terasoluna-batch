@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 /**
- * バッチ処理を構成する非同期ジョブ実行管理を行うインタフェース。<br>
+ * 非同期型ジョブを起動するためのインタフェース。<br>
  *
  * @since 3.6
  */

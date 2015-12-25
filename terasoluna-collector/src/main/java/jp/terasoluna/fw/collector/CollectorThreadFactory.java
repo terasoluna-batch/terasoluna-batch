@@ -59,9 +59,8 @@ public class CollectorThreadFactory implements ThreadFactory {
         namePrefix = prefixSb.toString();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see java.util.concurrent.ThreadFactory#newThread(java.lang.Runnable)
+    /**
+     * {@inheritDoc}
      */
     public Thread newThread(Runnable runnable) {
         StringBuilder nameSb = new StringBuilder();

@@ -100,7 +100,7 @@ public class BatchUtil {
 
     /**
      * デフォルトのTransactionDefinitionを取得する
-     * @return
+     * @return トランザクション定義オブジェクト
      */
     public static TransactionDefinition getTransactionDefinition() {
         return new DefaultTransactionDefinition();
@@ -112,7 +112,7 @@ public class BatchUtil {
      * @param isolationLevel トランザクション分離レベル(@see TransactionDefinition) デフォルト：TransactionDefinition.ISOLATION_DEFAULT
      * @param timeout トランザクションタイムアウト(秒) デフォルト：TransactionDefinition.TIMEOUT_DEFAULT (タイムアウトなし)
      * @param readOnly リードオンリートランザクション デフォルト：false
-     * @return
+     * @return トランザクション定義オブジェクト
      */
     public static TransactionDefinition getTransactionDefinition(
             int propagationBehavior, int isolationLevel, int timeout,
@@ -618,7 +618,7 @@ public class BatchUtil {
      * トランザクションをコミットさせ、トランザクションを再度開始させる
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
-     * @return
+     * @return トランザクションステータス
      */
     public static TransactionStatus commitRestartTransaction(
             PlatformTransactionManager tran, TransactionStatus stat) {

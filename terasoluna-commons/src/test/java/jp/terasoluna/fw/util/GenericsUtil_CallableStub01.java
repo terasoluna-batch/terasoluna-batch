@@ -25,8 +25,8 @@ import java.util.concurrent.Callable;
  */
 public class GenericsUtil_CallableStub01 implements Callable<Integer> {
 
-    /* (non-Javadoc)
-     * @see java.util.concurrent.Callable#call()
+    /**
+     * {@inheritDoc}
      */
     public Integer call() throws Exception {
         return null;

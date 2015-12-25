@@ -268,10 +268,8 @@ public class TLogger implements Log {
         return new TLogger(name);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isFatalEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isFatalEnabled() {
         return logger.isFatalEnabled();
@@ -328,10 +326,8 @@ public class TLogger implements Log {
         fatal(true, logId, throwable, args);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isErrorEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isErrorEnabled() {
         return logger.isErrorEnabled();
@@ -404,10 +400,8 @@ public class TLogger implements Log {
         error(true, logId, throwable, args);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isWarnEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isWarnEnabled() {
         return logger.isWarnEnabled();
@@ -480,10 +474,8 @@ public class TLogger implements Log {
         warn(true, logId, throwable, args);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isInfoEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isInfoEnabled() {
         return logger.isInfoEnabled();
@@ -556,10 +548,8 @@ public class TLogger implements Log {
         info(true, logId, throwable, args);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isDebugEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isDebugEnabled() {
         return logger.isDebugEnabled();
@@ -632,10 +622,8 @@ public class TLogger implements Log {
         debug(true, logId, throwable, args);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.apache.commons.logging.Log#isTraceEnabled()
+    /**
+     * {@inheritDoc}
      */
     public boolean isTraceEnabled() {
         return logger.isTraceEnabled();
@@ -1139,8 +1127,6 @@ public class TLogger implements Log {
      * FATALログを出力します。
      * 
      * @param logId ログID
-     * @param throwable 起因例外
-     * @param args 置換パラメータ
      */
     public void fatal(String logId) {
         fatal(logId, (Object[]) null);

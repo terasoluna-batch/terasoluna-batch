@@ -12,10 +12,8 @@ import jp.terasoluna.fw.file.dao.standard.ColumnFormatter;
 public class AbstractFileLineWriter_ColumnFormatterStub01 implements
                                                          ColumnFormatter {
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.file.dao.standard.ColumnFormatter#format(java.lang.Object, java.lang.reflect.Method,
-     * java.lang.String)
+    /**
+     * {@inheritDoc}
      */
     public String format(Object t, Method method, String string)
                                                                 throws IllegalArgumentException,

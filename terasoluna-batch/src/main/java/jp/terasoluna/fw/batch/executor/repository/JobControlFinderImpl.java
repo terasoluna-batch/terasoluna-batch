@@ -34,7 +34,6 @@ import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * ジョブパラメータ解決の実装クラス。<br>
- * @see JobControlFinder
  * @since 3.6
  */
 public class JobControlFinderImpl implements JobControlFinder {

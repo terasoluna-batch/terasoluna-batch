@@ -27,13 +27,17 @@ public class GenericsUtil_Stub07
     extends GenericsUtil_Stub06
     implements Callable<String> {
 
-    /* (non-Javadoc)
+    /**
+     * {@inheritDoc}
      */
     @Override
     public String method(String[] s, Integer t, Boolean u) {
         return s.toString() + t.toString() + u.toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public String call() throws Exception {
         return null;
     }

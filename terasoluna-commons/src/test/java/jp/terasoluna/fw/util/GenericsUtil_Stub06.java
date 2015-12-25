@@ -24,7 +24,8 @@ package jp.terasoluna.fw.util;
 public class GenericsUtil_Stub06
     implements GenericsUtil_Stub05<String[], Integer, Boolean> {
 
-    /* (non-Javadoc)
+    /**
+     * {@inheritDoc}
      */
     public String method(String[] s, Integer t, Boolean u) {
         return s.toString() + t.toString() + u.toString();

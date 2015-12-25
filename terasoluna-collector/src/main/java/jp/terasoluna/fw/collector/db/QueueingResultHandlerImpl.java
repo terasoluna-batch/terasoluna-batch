@@ -49,9 +49,10 @@ public class QueueingResultHandlerImpl<T> implements QueueingResultHandler<T> {
     /** データカウント */
     protected AtomicLong dataCount = new AtomicLong(0);
 
-    /*
-     * (non-Javadoc)
-     * @see org.apache.ibatis.session.ResultHandler#handleResult(org.apache.ibatis.session.ResultContext)
+    /**
+     * 行取得時にMyBatisからコールバックされるハンドラメソッド。
+     *
+     * @param context 取得行コンテキスト
      */
     public void handleResult(ResultContext<? extends T> context) {
         delayCollect();

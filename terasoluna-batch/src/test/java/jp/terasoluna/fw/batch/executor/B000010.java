@@ -26,9 +26,8 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 @JobComponent(jobId = "B000010")
 public class B000010 implements BLogic {
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(jp.terasoluna.fw.batch .light.blogic.vo.BLogicParam)
+    /**
+     * {@inheritDoc}
      */
     public int execute(BLogicParam param) {
         return 0;

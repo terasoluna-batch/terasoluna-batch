@@ -69,7 +69,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
 
     /**
      * バッチ処理実行メソッド.
-     * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(java.lang.String[], com.ibatis.sqlmap.client.SqlMapClient)
+     * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(BLogicParam)
      */
     public int execute(BLogicParam param) {
         int status = PROCESS_END_STATUS_FAILURE;
@@ -107,9 +107,8 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
 
     /**
      * 主処理.
-     * @param param
-     * @return
-     * @throws SQLException
+     * @param param ビジネスロジックの入力パラメータ
+     * @return ステータスコード
      */
     public abstract int doMain(BLogicParam param);
 

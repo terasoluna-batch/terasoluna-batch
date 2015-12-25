@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 非同期ジョブの起動クラス。<br>
+ * 非同期型ジョブの実行を管理するためにフレームワークが提供するデフォルトの実装クラス。<br>
  * {@code start()}メソッド実行後、実行対象ジョブの検索によるポーリングと、
  * ポーリングループの終了監視を行う。<br>
  *

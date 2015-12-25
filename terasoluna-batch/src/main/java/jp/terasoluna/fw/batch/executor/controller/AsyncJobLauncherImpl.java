@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 非同期バッチ実行機能で多重度の最大値を{@code ThreadPoolTaskExecutor}の最大スレッドプールサイズとした非同期のジョブ起動を行う。<br>
+ * 非同期型ジョブを実行するためにフレームワークが提供するデフォルトの実装クラス。ThreadPoolTaskExecutorを使用して非同期型ジョブを実行する。<br>
  * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。
  * 本機能を利用するにはワーカスレッド処理{@code AsyncJobWorker}のBean定義が必要となる。
  * 以下は{@code AsyncJobLauncher}と、非同期ジョブの多重度を決定する{@code ThreadPoolTaskExecutor}のBean定義の設定例である。

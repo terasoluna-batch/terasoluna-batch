@@ -32,9 +32,8 @@ import jp.terasoluna.fw.batch.unit.testcase.TestCaseUtils;
 public class DaoTestCaseContextLoader extends
                                      AbstractTerasolunaUnitContextLoader {
 
-    /*
-     * (non-Javadoc)
-     * @see jp.terasoluna.fw.ex.batch.testcase.junit4.loader.AbstractTerasolunaUnitContextLoader#getDefaultConfigs()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected List<String> getDefaultConfigs() {

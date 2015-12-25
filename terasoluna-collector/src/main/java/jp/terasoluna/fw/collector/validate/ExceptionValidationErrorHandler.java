@@ -38,10 +38,8 @@ public class ExceptionValidationErrorHandler extends
         this.logLevel = ValidationErrorLoglevel.TRACE;
     }
 
-    /*
-     * (non-Javadoc)
-     * @seejp.terasoluna.fw.collector.validate.AbstractValidationErrorHandler#getValidateStatus(jp.terasoluna.fw.collector.vo.
-     * DataValueObject, org.springframework.validation.Errors)
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected ValidateErrorStatus getValidateStatus(

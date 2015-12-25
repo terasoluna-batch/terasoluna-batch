@@ -148,7 +148,7 @@ public class FastFileUtility extends FileUtility {
      * 引数に渡されたstreamがnullでなければクローズする。<br>
      * また、クローズする際にIOException例外が発生した場合は無視する。<br>
      * </p>
-     * @param fos FileOutputStream
+     * @param stream FileOutputStream
      */
     public static void closeQuietly(FileOutputStream stream) {
         try {

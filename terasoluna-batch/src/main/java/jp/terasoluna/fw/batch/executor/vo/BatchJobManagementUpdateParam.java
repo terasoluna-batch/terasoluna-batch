@@ -67,7 +67,7 @@ public class BatchJobManagementUpdateParam {
     /**
      * フィールド [errAppStatus]のセッターメソッド 項目の型 [java.lang.String]<br>
      * BLogicステータス
-     * @param argErrAppStatus フィールド[BLogicAppStatus]に格納したい値
+     * @param argBLogicAppStatus フィールド[BLogicAppStatus]に格納したい値
      */
     public void setBLogicAppStatus(final String argBLogicAppStatus) {
         blogicAppStatus = argBLogicAppStatus;

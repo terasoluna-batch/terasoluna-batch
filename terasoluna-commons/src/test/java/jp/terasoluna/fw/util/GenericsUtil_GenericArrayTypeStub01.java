@@ -27,8 +27,8 @@ import java.lang.reflect.Type;
 public class GenericsUtil_GenericArrayTypeStub01
         implements GenericArrayType {
 
-    /* (non-Javadoc)
-     * @see java.lang.reflect.GenericArrayType#getGenericComponentType()
+    /**
+     * {@inheritDoc}
      */
     public Type getGenericComponentType() {
         return new GenericsUtil_GenericArrayTypeStub02();
