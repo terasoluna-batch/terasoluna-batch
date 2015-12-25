@@ -16,13 +16,13 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import jp.terasoluna.fw.batch.executor.controller.JobOperator;
 import jp.terasoluna.fw.util.PropertyUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextException;
@@ -154,9 +154,9 @@ public class AsyncBatchExecutorTest {
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・{@code resolveApplicationContext()}メソッドによるリゾルバのクラスロード
-     * 　失敗により{@code IllegalClassTypeException}をスローした場合、
-     * 　{@code doMain()}の戻り値が{@code FAIL_TO_OBTAIN_JOB_OPERATOR_CODE}であること。
+     * ・{@code resolveApplicationContext()}メソッドによる{@code ApplicationContext}の生成失敗により
+     * {@code BeansException}をスローした場合、
+     * {@code doMain()}の戻り値が{@code FAIL_TO_OBTAIN_JOB_OPERATOR_CODE}であること。
      *
      * @throws Exception 予期しない例外
      */
@@ -164,8 +164,9 @@ public class AsyncBatchExecutorTest {
     public void testDoMain02() throws Exception {
         ApplicationContextResolver mockResolver = mock(
                 ApplicationContextResolver.class);
-        Exception expectThrown = new IllegalClassTypeException(
-                "class-load error.");
+        Exception expectThrown = new BeansException("applicationContext creation error.") {
+            private static final long serialVersionUID = 2970034475371975813L;
+        };
         doThrow(expectThrown).when(mockResolver).resolveApplicationContext();
 
         AsyncBatchExecutor target = spy(new AsyncBatchExecutor());
