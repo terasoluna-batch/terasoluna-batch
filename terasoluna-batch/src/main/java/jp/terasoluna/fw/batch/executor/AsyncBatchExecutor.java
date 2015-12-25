@@ -42,7 +42,7 @@ public class AsyncBatchExecutor {
     /**
      * {@code JobOperator}のBean名
      */
-    private static final String JOB_OPERATOR_BEAN_NAME = "jobOperator";
+    private static final String JOB_OPERATOR_BEAN_NAME = "asyncJobOperator";
 
     /**
      * {@code JobOperator}の取得に失敗した場合のプロセス終了コード

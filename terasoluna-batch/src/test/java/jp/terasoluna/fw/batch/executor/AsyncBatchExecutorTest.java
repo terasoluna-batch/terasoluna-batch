@@ -132,7 +132,7 @@ public class AsyncBatchExecutorTest {
 
         ApplicationContext mockContext = mock(ApplicationContext.class);
         doReturn(mockJobOperator).when(mockContext)
-                .getBean("jobOperator", JobOperator.class);
+                .getBean("asyncJobOperator", JobOperator.class);
 
         ApplicationContextResolver mockResolver = mock(
                 ApplicationContextResolver.class);

@@ -16,6 +16,8 @@
 
 package jp.terasoluna.fw.batch.executor.vo;
 
+import org.kohsuke.args4j.Argument;
+
 import java.sql.Timestamp;
 
 /**
@@ -32,126 +34,147 @@ public class BatchJobData {
      * フィールド [jobAppCd] 項目の型 [java.lang.String]<br>
      * ジョブ業務コード
      */
+    @Argument(index = 0)
     private String fJobAppCd;
 
     /**
      * フィールド [jobArgNm1] 項目の型 [java.lang.String]<br>
      * 引数1
      */
+    @Argument(index = 1)
     private String fJobArgNm1;
 
     /**
      * フィールド [jobArgNm2] 項目の型 [java.lang.String]<br>
      * 引数2
      */
+    @Argument(index = 2)
     private String fJobArgNm2;
 
     /**
      * フィールド [jobArgNm3] 項目の型 [java.lang.String]<br>
      * 引数3
      */
+    @Argument(index = 3)
     private String fJobArgNm3;
 
     /**
      * フィールド [jobArgNm4] 項目の型 [java.lang.String]<br>
      * 引数4
      */
+    @Argument(index = 4)
     private String fJobArgNm4;
 
     /**
      * フィールド [jobArgNm5] 項目の型 [java.lang.String]<br>
      * 引数5
      */
+    @Argument(index = 5)
     private String fJobArgNm5;
 
     /**
      * フィールド [jobArgNm6] 項目の型 [java.lang.String]<br>
      * 引数6
      */
+    @Argument(index = 6)
     private String fJobArgNm6;
 
     /**
      * フィールド [jobArgNm7] 項目の型 [java.lang.String]<br>
      * 引数7
      */
+    @Argument(index = 7)
     private String fJobArgNm7;
 
     /**
      * フィールド [jobArgNm8] 項目の型 [java.lang.String]<br>
      * 引数8
      */
+    @Argument(index = 8)
     private String fJobArgNm8;
 
     /**
      * フィールド [jobArgNm9] 項目の型 [java.lang.String]<br>
      * 引数9
      */
+    @Argument(index = 9)
     private String fJobArgNm9;
 
     /**
      * フィールド [jobArgNm10] 項目の型 [java.lang.String]<br>
      * 引数10
      */
+    @Argument(index = 10)
     private String fJobArgNm10;
 
     /**
      * フィールド [jobArgNm11] 項目の型 [java.lang.String]<br>
      * 引数11
      */
+    @Argument(index = 11)
     private String fJobArgNm11;
 
     /**
      * フィールド [jobArgNm12] 項目の型 [java.lang.String]<br>
      * 引数12
      */
+    @Argument(index = 12)
     private String fJobArgNm12;
 
     /**
      * フィールド [jobArgNm13] 項目の型 [java.lang.String]<br>
      * 引数13
      */
+    @Argument(index = 13)
     private String fJobArgNm13;
 
     /**
      * フィールド [jobArgNm14] 項目の型 [java.lang.String]<br>
      * 引数14
      */
+    @Argument(index = 14)
     private String fJobArgNm14;
 
     /**
      * フィールド [jobArgNm15] 項目の型 [java.lang.String]<br>
      * 引数15
      */
+    @Argument(index = 15)
     private String fJobArgNm15;
 
     /**
      * フィールド [jobArgNm16] 項目の型 [java.lang.String]<br>
      * 引数16
      */
+    @Argument(index = 16)
     private String fJobArgNm16;
 
     /**
      * フィールド [jobArgNm17] 項目の型 [java.lang.String]<br>
      * 引数17
      */
+    @Argument(index = 17)
     private String fJobArgNm17;
 
     /**
      * フィールド [jobArgNm18] 項目の型 [java.lang.String]<br>
      * 引数18
      */
+    @Argument(index = 18)
     private String fJobArgNm18;
 
     /**
      * フィールド [jobArgNm19] 項目の型 [java.lang.String]<br>
      * 引数19
      */
+    @Argument(index = 19)
     private String fJobArgNm19;
 
     /**
      * フィールド [jobArgNm20] 項目の型 [java.lang.String]<br>
      * 引数20
      */
+    @Argument(index = 20)
     private String fJobArgNm20;
 
     /**
