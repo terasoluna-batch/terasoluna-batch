@@ -16,12 +16,11 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
-import jp.terasoluna.fw.batch.executor.worker.AsyncJobWorker;
+import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.executor.worker;
+package jp.terasoluna.fw.batch.executor;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;

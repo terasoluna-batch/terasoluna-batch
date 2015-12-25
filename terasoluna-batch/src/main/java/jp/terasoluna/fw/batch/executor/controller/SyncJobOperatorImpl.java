@@ -25,7 +25,9 @@ import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
+import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.logger.TLogger;
 import org.apache.commons.beanutils.BeanUtils;
 import org.kohsuke.args4j.CmdLineException;
@@ -105,18 +107,24 @@ public class SyncJobOperatorImpl implements JobOperator {
     protected ApplicationContextResolver applicationContextResolver;
 
     /**
+     * ビジネスロジック実行機能
+     */
+    protected BLogicExecutor blogicExecutor;
+
+    /**
      * コンストラクタ。<br>
      *
      * @param applicationContextResolver     ビジネスロジック用アプリケーションコンテキスト取得機能
      * @param blogicParamConverter           ビジネスロジック入力オブジェクトへの変換機能
      * @param blogicExceptionHandlerResolver ビジネスロジック例外ハンドラ取得機能
      * @param blogicResolver                 ビジネスロジック取得機能
+     * @param blogicExecutor                 ビジネスロジック実行機能
      */
     public SyncJobOperatorImpl(
             ApplicationContextResolver applicationContextResolver,
             BLogicParamConverter blogicParamConverter,
             BLogicExceptionHandlerResolver blogicExceptionHandlerResolver,
-            BLogicResolver blogicResolver) {
+            BLogicResolver blogicResolver, BLogicExecutor blogicExecutor) {
 
         Assert.notNull(applicationContextResolver,
                 LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
@@ -130,11 +138,15 @@ public class SyncJobOperatorImpl implements JobOperator {
         Assert.notNull(blogicResolver,
                 LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
                         "blogicResolver"));
+        Assert.notNull(blogicExecutor,
+                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                        "blogicExecutor"));
 
         this.applicationContextResolver = applicationContextResolver;
         this.blogicParamConverter = blogicParamConverter;
         this.blogicExceptionHandlerResolver = blogicExceptionHandlerResolver;
         this.blogicResolver = blogicResolver;
+        this.blogicExecutor = blogicExecutor;
     }
 
     /**
@@ -146,22 +158,18 @@ public class SyncJobOperatorImpl implements JobOperator {
     @Override
     public int start(String[] args) {
         BatchJobData batchJobData = convertBatchJobData(args);
-        ApplicationContext applicationContext = applicationContextResolver.resolveApplicationContext(
+        ApplicationContext blogicContext = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         BLogicParam blogicParam = blogicParamConverter.convertBLogicParam(
                 batchJobData);
-        BLogic blogic = blogicResolver.resolveBLogic(applicationContext,
+        BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
                 blogicParam.getJobAppCd());
         ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
-                applicationContext, blogicParam.getJobAppCd());
+                blogicContext, blogicParam.getJobAppCd());
 
-        int status;
-        try {
-            status = blogic.execute(blogicParam);
-        } catch (Throwable t) {
-            status = exceptionHandler.handleThrowableException(t);
-        }
-        return status;
+        BLogicResult result = blogicExecutor.execute(blogicContext, blogic,
+                blogicParam, exceptionHandler);
+        return result.getBlogicStatus();
     }
 
     /**
