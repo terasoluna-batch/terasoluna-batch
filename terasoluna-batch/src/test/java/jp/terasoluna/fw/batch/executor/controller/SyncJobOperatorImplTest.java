@@ -285,6 +285,7 @@ public class SyncJobOperatorImplTest {
 
         assertThat(status, is(234));
         verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
+        verify(applicationContextResolver).closeApplicationContext(blogicContext);
     }
 
     /**
