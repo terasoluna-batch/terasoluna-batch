@@ -128,7 +128,10 @@ public class BatchException extends RuntimeException {
      * BatchExceptionのファクトリメソッド
      * @param messageId メッセージID
      * @return 引数の内容で作成されたBatchExceptionインスタンス
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String)}
      */
+    @Deprecated
     public static BatchException createException(String messageId) {
         return new BatchException(messageId, MessageUtil.getMessage(messageId));
     }
@@ -138,7 +141,10 @@ public class BatchException extends RuntimeException {
      * @param messageId メッセージID
      * @param params 例外情報特定のためのパラメータ
      * @return 引数の内容で作成されたBatchExceptionインスタンス
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String)}
      */
+    @Deprecated
     public static BatchException createException(String messageId,
             Object... params) {
         return new BatchException(messageId, MessageUtil.getMessage(messageId,
@@ -150,7 +156,10 @@ public class BatchException extends RuntimeException {
      * @param messageId メッセージID
      * @param cause 原因となった例外
      * @return 引数の内容で作成されたBatchExceptionインスタンス
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String, Throwable)}
      */
+    @Deprecated
     public static BatchException createException(String messageId,
             Throwable cause) {
         return new BatchException(messageId, MessageUtil.getMessage(messageId),
@@ -163,7 +172,10 @@ public class BatchException extends RuntimeException {
      * @param cause 原因となった例外
      * @param params 例外情報特定のためのパラメータ
      * @return 引数の内容で作成されたBatchExceptionインスタンス
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String, Throwable)}
      */
+    @Deprecated
     public static BatchException createException(String messageId,
             Throwable cause, Object... params) {
         return new BatchException(messageId, MessageUtil.getMessage(messageId,
