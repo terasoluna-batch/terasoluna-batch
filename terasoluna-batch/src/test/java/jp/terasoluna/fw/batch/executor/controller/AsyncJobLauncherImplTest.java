@@ -16,7 +16,35 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
-import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
+
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -29,24 +57,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.task.TaskRejectedException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 
 /**
  * {@code AsyncJobLauncherImpl}のテストケース。<br>
@@ -102,7 +115,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set ThreadPoolTaskExecutor. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobLauncherImpl requires to set ThreadPoolTaskExecutor. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -127,7 +140,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set AsyncJobWorker. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobLauncherImpl requires to set AsyncJobWorker. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -241,7 +254,7 @@ public class AsyncJobLauncherImplTest {
                 .getThrowable()
                 .get() instanceof TaskRejectedException);
         assertEquals(
-                "[EAL025047] Thread starting went wrong.  jobSequenceId:0000000001",
+                "[EAL025047] This job cannot be accepted for execution. jobSequenceId:0000000001",
                 logger.getLoggingEvents().get(0).getMessage());
     }
 
@@ -273,7 +286,7 @@ public class AsyncJobLauncherImplTest {
                 .getThrowable()
                 .get() instanceof InterruptedException);
         assertEquals(
-                "[EAL025054] The asynchronous job in wait state was interrupted. jobSequenceId[0000000001]",
+                "[EAL025054] When the job is waiting for a available worker thread, it has been interrupted. jobSequenceId:0000000001",
                 logger.getLoggingEvents().get(0).getMessage());
     }
 
@@ -504,9 +517,8 @@ public class AsyncJobLauncherImplTest {
         assertEquals(10, semaphore.availablePermits());
 
         // ExceptionStatusHandlerImplでのログが出力されていること。
-        assertThat(logger.getLoggingEvents(),
-                is(asList(error(runtimeException,
-                        "[EAL025053] An exception occurred."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(runtimeException,
+                "[EAL025053] An exception occurred. please see below the stacktrace."))));
     }
 
     /**
@@ -571,7 +583,8 @@ public class AsyncJobLauncherImplTest {
         // ⇒ログにINFOログが1度だけ出力されていること。
         assertThat(logger.getLoggingEvents().size(), is(1));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025021] Waiting to shutdown all tasks in ThreadPoolTaskExecutor."))));
+info(
+                "[IAL025020] Waiting to shutdown all tasks in ThreadPoolTaskExecutor."))));
     }
 
     /**
@@ -608,8 +621,8 @@ public class AsyncJobLauncherImplTest {
         // 割り込み発生によりシャットダウン後の待ち合わせが行われていない。
         // ⇒ログにINFOログが1度だけ出力されていること。
         assertThat(logger.getLoggingEvents().size(), is(1));
-        assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025021] Waiting to shutdown all tasks in ThreadPoolTaskExecutor."))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025020] Waiting to shutdown all tasks in ThreadPoolTaskExecutor."))));
     }
 
     /**
@@ -693,7 +706,7 @@ public class AsyncJobLauncherImplTest {
             fail();
         } catch (IllegalStateException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobLauncherImpl requires to set executor.jobTerminateWaitInterval. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobLauncherImpl requires to set executor.jobTerminateWaitInterval. please confirm the settings.",
                     e.getMessage());
         }
     }

@@ -127,16 +127,16 @@ public class SyncJobOperatorImpl implements JobOperator {
             BLogicResolver blogicResolver, BLogicExecutor blogicExecutor) {
 
         Assert.notNull(applicationContextResolver,
-                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "applicationContextResolver"));
         Assert.notNull(blogicParamConverter,
-                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "blogicParamConverter"));
         Assert.notNull(blogicExceptionHandlerResolver,
-                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "blogicExceptionHandlerResolver"));
         Assert.notNull(blogicResolver,
-                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "blogicResolver"));
         Assert.notNull(blogicExecutor,
                 LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",

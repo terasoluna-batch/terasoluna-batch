@@ -27,6 +27,7 @@ import java.nio.file.Paths;
 
 import javax.annotation.Resource;
 
+import org.hamcrest.core.IsNot;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.assertThat;
@@ -36,7 +37,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 
@@ -81,14 +82,15 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         try {
+            // AfterPropertiesSetの出力ログは検証対象から除外するためにclearする。
+            logger.clear();
             assertTrue(asyncBatchStopper.canStop());
         } finally {
             // テストデータ削除
             Files.deleteIfExists(Paths.get("/tmp/batch_terminate_file"));
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:true"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -106,9 +108,8 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         assertFalse(asyncBatchStopper.canStop());
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:false"))));
+        assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
+                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -133,6 +134,7 @@ public class EndFileStopperTest {
         endFileStopper.afterPropertiesSet();
         assertEquals(endFileStopper.endMonitoringFileName,
                 "/tmp/batch_terminate_file");
+        assertThat(logger.getLoggingEvents(), is(asList(info("[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
     }
 
     /**
@@ -157,7 +159,8 @@ public class EndFileStopperTest {
             fail();
         } catch (IllegalStateException e) {
             assertEquals(e.getMessage(),
-                    "[EAL025089] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
+                    "[EAL025056] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
+            assertThat(logger.getLoggingEvents(), IsNot.not(asList(info("[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

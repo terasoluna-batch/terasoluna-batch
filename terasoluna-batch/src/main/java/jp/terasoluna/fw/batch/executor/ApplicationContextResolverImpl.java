@@ -251,7 +251,7 @@ public class ApplicationContextResolverImpl
             str = new StringBuilder(String.class.cast(exp.getValue(eval)));
         } catch (ParseException e) {
             throw new IllegalArgumentException(
-                    LOGGER.getLogMessage(LogId.EAL025092,
+                    LOGGER.getLogMessage(LogId.EAL025058,
                             "beanDefinition.business.classpath"), e);
         }
         return str.append(jobAppCd).append(PROPERTY_BEAN_FILENAME_SUFFIX)

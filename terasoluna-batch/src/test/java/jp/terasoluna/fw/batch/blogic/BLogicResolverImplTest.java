@@ -102,7 +102,7 @@ public class BLogicResolverImplTest {
         }
         assertThat(
                 logger.getLoggingEvents(),
-                is(asList(error("[EAL025009] BLogic bean not found. beanName:[DEFINE_NOT_EXISTBLogic]"))));
+                is(asList(error("[EAL025009] BLogic bean not found. beanName:DEFINE_NOT_EXISTBLogic"))));
     }
 
     /**

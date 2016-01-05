@@ -416,7 +416,7 @@ public class ApplicationContextResolverImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025092] invalid format in batch.properties, key: beanDefinition.business.classpath",
+                    "[EAL025058] Invalid format in batch.properties, key:beanDefinition.business.classpath",
                     e.getMessage());
         }
     }

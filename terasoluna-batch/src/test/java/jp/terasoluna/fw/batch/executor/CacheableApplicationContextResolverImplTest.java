@@ -16,7 +16,25 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,20 +46,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
 /**
  * {@code CacheableApplicationContextResolverImpl}のテストケース
@@ -121,7 +129,7 @@ public class CacheableApplicationContextResolverImplTest {
         ApplicationContext blogicContextFirst = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025019] BLogic context will be cached. jobAppCd[B000001]"))));
+                info("[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
         logger.clear();
 
         // テスト実行（２回目）
@@ -131,7 +139,7 @@ public class CacheableApplicationContextResolverImplTest {
         // 業務コンテキスト生成ログが出力されないこと。
         assertFalse(logger.getLoggingEvents()
                 .contains(
-                        info("[IAL025019] BLogic context will be cached. jobAppCd[B000001]")));
+                        info("[IAL025019] BLogic context will be cached. jobAppCd:B000001")));
         logger.clear();
 
         // キャッシュされたコンテキストとインスタンスが同一であること。
@@ -143,7 +151,7 @@ public class CacheableApplicationContextResolverImplTest {
         ApplicationContext anotherContextFirst = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025019] BLogic context will be cached. jobAppCd[B000002]"))));
+                info("[IAL025019] BLogic context will be cached. jobAppCd:B000002"))));
         logger.clear();
 
         // テスト実行（別の業務コンテキストを生成 ２回目）
@@ -152,7 +160,7 @@ public class CacheableApplicationContextResolverImplTest {
         // 業務コンテキスト生成ログが出力されないこと。
         assertFalse(logger.getLoggingEvents()
                 .contains(
-                        info("[IAL025019] BLogic context will be cached. jobAppCd[B000002]")));
+                        info("[IAL025019] BLogic context will be cached. jobAppCd:B000002")));
 
         // キャッシュされたコンテキストとインスタンスが同一であること。
         assertThat(anotherContextSecond, is(anotherContextFirst));
@@ -182,7 +190,7 @@ public class CacheableApplicationContextResolverImplTest {
         // テスト実行
         target.resolveApplicationContext(batchJobData);
         // 業務コンテキスト生成ログが出力されないこと。
-        assertThat(logger.getLoggingEvents(), is(asList(info("[IAL025019] BLogic context will be cached. jobAppCd[B000001]"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info("[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
     }
 
     /**
@@ -208,10 +216,6 @@ public class CacheableApplicationContextResolverImplTest {
         // コンテキストがクローズされていない⇒コンテキスト内部のBeanが取り出し可能であること。
         assertThat(ctx.getBean("B000001BLogic"), is(notNullValue()));
 
-        // コンテキストクローズ時のデバッグログが出力されていないこと。
-        assertFalse(logger.getLoggingEvents()
-                .contains(
-                        debug("[DAL025062] Closing no-cache BLogic context.")));
     }
 
     /**
@@ -233,10 +237,6 @@ public class CacheableApplicationContextResolverImplTest {
 
         // テスト実行
         target.closeApplicationContext(ctx);
-
-        // クローズ時のデバッグログが出力されていないこと。
-        assertFalse(logger.getLoggingEvents().contains(
-                debug("[DAL025062] Closing no-cache BLogic context.")));
 
         // コンテキストがクローズされている⇒コンテキスト内部のBeanを取り出した場合、ビジネスロジックが取り出せること。
         assertNotNull(ctx.getBean("B000001BLogic"));
@@ -262,7 +262,7 @@ public class CacheableApplicationContextResolverImplTest {
             target.afterPropertiesSet();
             fail();
         } catch (BeanCreationException e) {
-            assertThat(e.getMessage(), is("[EAL025095] Can not create CacheableBLogicContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext."));
+            assertThat(e.getMessage(), is("[EAL025061] Can not create CacheableBLogicContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext."));
         }
     }
 

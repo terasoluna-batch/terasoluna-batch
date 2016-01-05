@@ -16,11 +16,18 @@
 
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import javax.annotation.Resource;
 
 import org.aopalliance.intercept.MethodInvocation;
-import org.springframework.transaction.TransactionException;
-import org.springframework.transaction.TransactionSystemException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,20 +37,12 @@ import org.springframework.dao.RecoverableDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.TransactionSystemException;
 
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 
 /**
  * {@code AdminConnectionRetryInterceptor}のテストケース。<br>
@@ -147,7 +146,9 @@ public class AdminConnectionRetryInterceptorTest {
             assertSame(recoverableDataAccessException, e);
         }
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
-        assertEquals("[EAL025097] Connection retry count exceeded limit. maxRetryCount:0.", logger
+        assertEquals(
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
+                logger
                 .getLoggingEvents().get(0).getMessage());
     }
 
@@ -182,7 +183,9 @@ public class AdminConnectionRetryInterceptorTest {
             assertSame(transactionSystemException, e);
         }
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
-        assertEquals("[EAL025097] Connection retry count exceeded limit. maxRetryCount:0.", logger
+        assertEquals(
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
+                logger
                 .getLoggingEvents().get(0).getMessage());
     }
 
@@ -220,19 +223,12 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(1).getMessage());
     }
 
     /**
@@ -269,19 +265,12 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(1).getMessage());
     }
 
     /**
@@ -325,28 +314,20 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(4)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
+        assertEquals(
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(4).getLevel());
+        assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(4).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(5).getLevel());
-        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.ERROR, logger.getLoggingEvents().get(6).getLevel());
-        assertEquals("[EAL025097] Connection retry count exceeded limit. maxRetryCount:3.", logger
-                .getLoggingEvents().get(6).getMessage());
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3.",
+                logger.getLoggingEvents().get(3).getMessage());
 
     }
 
@@ -393,28 +374,20 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(4)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
+        assertEquals(
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(4).getLevel());
+        assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(4).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(5).getLevel());
-        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.ERROR, logger.getLoggingEvents().get(6).getLevel());
-        assertEquals("[EAL025097] Connection retry count exceeded limit. maxRetryCount:3.", logger
-                .getLoggingEvents().get(6).getMessage());
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3.",
+                logger.getLoggingEvents().get(3).getMessage());
 
     }
 
@@ -456,32 +429,20 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(5)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
+        assertEquals(
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(4).getLevel());
+        assertEquals(Level.INFO, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(4).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(5).getLevel());
-        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(6).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(6).getMessage());
-        assertEquals(logger.getLoggingEvents().get(7).getLevel(), Level.TRACE);
-        assertTrue(logger.getLoggingEvents().get(7).getMessage().contains(
-                "[TAL025010] Java memory info"));
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                logger.getLoggingEvents().get(3).getMessage());
 
     }
 

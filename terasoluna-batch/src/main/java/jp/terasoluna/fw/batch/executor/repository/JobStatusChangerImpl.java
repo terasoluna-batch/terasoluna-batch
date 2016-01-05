@@ -47,16 +47,6 @@ public class JobStatusChangerImpl implements JobStatusChanger {
     protected PlatformTransactionManager adminTransactionManager;
 
     /**
-     * ステータス変更契機：起動時.
-     */
-    public static final String EVENT_STATUS_START = "0";
-
-    /**
-     * ステータス変更契機：正常終了時.
-     */
-    public static final String EVENT_STATUS_NORMAL_TERMINATION = "1";
-
-    /**
      * コンストラクタ。
      */
     public JobStatusChangerImpl(SystemDao systemDao,
@@ -66,10 +56,10 @@ public class JobStatusChangerImpl implements JobStatusChanger {
         this.systemDao = systemDao;
         this.adminTransactionManager = adminTransactionManager;
 
-        Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025056,
                 "JobStatusChangerImpl", "systemDao"));
         Assert.notNull(adminTransactionManager, LOGGER.getLogMessage(
-                LogId.EAL025089, "JobStatusChangerImpl",
+                LogId.EAL025056, "JobStatusChangerImpl",
                 "adminTransactionManager"));
     }
 
@@ -86,7 +76,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
             BatchJobData batchJobData = getBatchJobData(jobSequenceId);
             if (!isJobStatusValid(batchJobData, JOB_STATUS_UNEXECUTION,
-                    EVENT_STATUS_START)) {
+                    JOB_STATUS_EXECUTING)) {
                 return false;
             }
 
@@ -97,7 +87,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
             adminTransactionManager.commit(transactionStatus);
         } finally {
             if (transactionStatus != null && !transactionStatus.isCompleted()) {
-                LOGGER.warn(LogId.WAL025013, jobSequenceId);
+                LOGGER.info(LogId.IAL025023, jobSequenceId);
                 adminTransactionManager.rollback(transactionStatus);
             }
         }
@@ -119,7 +109,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
             BatchJobData batchJobData = getBatchJobData(jobSequenceId);
             if (!isJobStatusValid(batchJobData, JOB_STATUS_EXECUTING,
-                    EVENT_STATUS_NORMAL_TERMINATION)) {
+                    JOB_STATUS_PROCESSED)) {
                 return false;
             }
             String appStatus = Integer.toString(blogicResult.getBlogicStatus());
@@ -130,7 +120,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
             adminTransactionManager.commit(transactionStatus);
         } finally {
             if (transactionStatus != null && !transactionStatus.isCompleted()) {
-                LOGGER.warn(LogId.WAL025013, jobSequenceId);
+                LOGGER.info(LogId.IAL025023, jobSequenceId);
                 adminTransactionManager.rollback(transactionStatus);
             }
         }
@@ -152,7 +142,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
         BatchJobData batchJobData = systemDao.selectJob(param);
 
         if (batchJobData == null) {
-            LOGGER.error(LogId.EAL025026, jobSequenceId);
+            LOGGER.info(LogId.IAL025024, jobSequenceId);
             return null;
         }
 
@@ -164,19 +154,18 @@ public class JobStatusChangerImpl implements JobStatusChanger {
      * 
      * @param batchJobData ジョブ実行時のパラメータ
      * @param expectJobStatus 期待するジョブのステータス
-     * @param eventName ステータス変更契機の名称
+     * @param changeTo 今後変更する予定のステータス値
      * @return 対象ステータスのときはtrue。BatchJobDataがnull、あるいは、ステータスが対象外のときはfalse。
      */
     private boolean isJobStatusValid(BatchJobData batchJobData,
-            String expectJobStatus, String eventName) {
+            String expectJobStatus, String changeTo) {
         // ステータス判定
         if (batchJobData == null) {
             return false;
         }
         if (!expectJobStatus.equals(batchJobData.getCurAppStatus())) {
             LOGGER.info(LogId.IAL025004, batchJobData.getJobSequenceId(),
-                    batchJobData.getBLogicAppStatus(), eventName, batchJobData
-                            .getCurAppStatus(), "false");
+                    expectJobStatus, batchJobData.getCurAppStatus(), changeTo);
             return false;
         }
         return true;

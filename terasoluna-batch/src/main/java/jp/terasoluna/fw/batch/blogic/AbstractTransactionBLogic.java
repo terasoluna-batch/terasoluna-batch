@@ -16,19 +16,17 @@
 
 package jp.terasoluna.fw.batch.blogic;
 
-import java.sql.SQLException;
 import java.util.Map;
-
-import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
-import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.exception.BatchException;
-import jp.terasoluna.fw.batch.util.BatchUtil;
-import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
+
+import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
+import jp.terasoluna.fw.batch.exception.BatchException;
+import jp.terasoluna.fw.batch.util.BatchUtil;
+import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * トランザクション管理を行うビジネスロジック抽象クラス。<br>
@@ -95,11 +93,8 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
             throw new BatchException(e);
         } finally {
             // トランザクション終了（未コミット時ロールバック）
-            boolean et = endTransactions(this.transactionManagerMap,
+            endTransactions(this.transactionManagerMap,
                     this.transactionStatusMap);
-            if (!et) {
-                LOGGER.error(LogId.EAL025001);
-            }
         }
 
         return status;
