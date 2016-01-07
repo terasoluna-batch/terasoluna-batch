@@ -139,7 +139,7 @@ public class SyncJobOperatorImpl implements JobOperator {
                 LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "blogicResolver"));
         Assert.notNull(blogicExecutor,
-                LOGGER.getLogMessage(LogId.EAL025089, "SyncJobOperatorImpl",
+                LOGGER.getLogMessage(LogId.EAL025056, "SyncJobOperatorImpl",
                         "blogicExecutor"));
 
         this.applicationContextResolver = applicationContextResolver;

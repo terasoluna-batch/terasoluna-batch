@@ -234,7 +234,7 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExecutor. please confirm the settings."));
+                    is("[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExecutor. please confirm the settings."));
         }
     }
 
