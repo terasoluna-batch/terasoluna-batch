@@ -16,9 +16,20 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.message.MessageAccessor;
-import jp.terasoluna.fw.util.PropertyUtil;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.StringEndsWith.endsWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+
+import java.lang.reflect.Field;
+import java.util.TreeMap;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -29,11 +40,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.spel.SpelEvaluationException;
 import org.springframework.util.ReflectionUtils;
 
-import java.lang.reflect.Field;
-import java.util.TreeMap;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.batch.message.MessageAccessor;
+import jp.terasoluna.fw.util.PropertyUtil;
 
 /**
  * {@code ApplicationContextResolverImpl}のテストケース。
@@ -127,7 +136,8 @@ public class ApplicationContextResolverImplTest {
         try {
             resolver.resolveApplicationContext();
         } catch (BeansException e) {
-            // Springが例外メッセージを返すため、メッセージの検証は行わない。
+            assertThat(e.getMessage(), is(endsWith(
+                    "[EAL025003] Bean definition default file name is not set. please confirm batch.properties.")));
         }
     }
 

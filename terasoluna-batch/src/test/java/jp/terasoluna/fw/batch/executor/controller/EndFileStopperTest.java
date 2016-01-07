@@ -51,8 +51,8 @@ public class EndFileStopperTest {
     @Resource
     protected AsyncBatchStopper asyncBatchStopper;
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(EndFileStopper.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            EndFileStopper.class);
 
     /**
      * テスト後処理：ロガーのクリアを行う。
@@ -70,8 +70,9 @@ public class EndFileStopperTest {
      * ・終了ファイルが存在する
      * 確認項目
      * ・trueが返却されること
-     * ・[DAL025060]のログが出力されること
+     * ・INFOログが出力されること
      * </pre>
+     * 
      * @throws IOException I/O 例外
      */
     @Test
@@ -101,6 +102,7 @@ public class EndFileStopperTest {
      * ・終了ファイルが存在しない
      * 確認項目
      * ・falseが返却されること
+     * ・INFOログが出力されること
      * </pre>
      */
     @Test
@@ -121,7 +123,7 @@ public class EndFileStopperTest {
      * 確認項目
      * ・"/tmp/batch_terminate_file"が返却されること
      * ・例外がスローされないこと
-     * ・[DAL025060]のログが出力されること
+     * ・INFOログが出力されること
      * </pre>
      */
     @Test
@@ -134,7 +136,8 @@ public class EndFileStopperTest {
         endFileStopper.afterPropertiesSet();
         assertEquals(endFileStopper.endMonitoringFileName,
                 "/tmp/batch_terminate_file");
-        assertThat(logger.getLoggingEvents(), is(asList(info("[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
     }
 
     /**
@@ -144,6 +147,8 @@ public class EndFileStopperTest {
      * 事前条件
      * 確認項目
      * ・IllegalStateException例外がスローされること
+     * ・ERRORログが出力されること
+     * ・INFOログが出力されないこと
      * </pre>
      */
     @Test
@@ -160,7 +165,8 @@ public class EndFileStopperTest {
         } catch (IllegalStateException e) {
             assertEquals(e.getMessage(),
                     "[EAL025056] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
-            assertThat(logger.getLoggingEvents(), IsNot.not(asList(info("[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
+            assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
+                    "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

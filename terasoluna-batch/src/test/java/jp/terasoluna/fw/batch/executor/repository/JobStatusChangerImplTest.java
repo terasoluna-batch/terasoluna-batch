@@ -189,7 +189,7 @@ public class JobStatusChangerImplTest {
      * ・無効(データなし)のジョブシーケンスIDが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -221,7 +221,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブシーケンスIDとしてnullが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -254,7 +254,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[WAL025013]のログが出力されること
+     * ・[IAL025004]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -293,7 +293,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブステータスの更新に失敗すること
      * 確認項目
      * ・falseが返却されること
-     * ・[DAL025023]、[EAL025025]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[EAL025025]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -370,7 +370,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
      * 確認項目
      * ・systemDao#selectJob()で例外がスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
@@ -410,7 +410,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
      * 確認項目
      * ・systemDao#updateJob()で例外がスローされること
-     * ・[DAL025023]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されないこと
      * </pre>
@@ -500,7 +500,7 @@ public class JobStatusChangerImplTest {
      * ・無効(データなし)のジョブシーケンスIDが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -533,7 +533,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブシーケンスIDとしてnullが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -567,7 +567,7 @@ public class JobStatusChangerImplTest {
      * ・blogicResultとしてnullが渡されること
      * 確認項目
      * ・NullPointerExceptionがスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -609,7 +609,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[WAL025013]のログが出力されること
+     * ・[IAL025004]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -650,7 +650,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブステータスの更新に失敗すること
      * 確認項目
      * ・falseが返却されること
-     * ・[DAL025023]、[EAL025025]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[EAL025025]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -730,7 +730,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGであること
      * 確認項目
      * ・systemDao#selectJob()で例外がスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
@@ -771,7 +771,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGであること
      * 確認項目
      * ・systemDao#updateJob()で例外がスローされること
-     * ・[DAL025023]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>

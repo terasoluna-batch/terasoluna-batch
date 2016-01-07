@@ -72,7 +72,6 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * テスト前処理
-     *
      * @throws Exception 予期しない例外
      */
     @Before
@@ -85,6 +84,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testSetCacheManager01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・特になし
@@ -107,6 +107,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testResolveApplicationContext01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・Spring cache abstractionによるキャッシュ機構が使用可能なインスタンスを使用し、
@@ -126,20 +127,19 @@ public class CacheableApplicationContextResolverImplTest {
         batchJobData.setJobAppCd("B000001");
 
         // テスト実行（１回目）
-        ApplicationContext blogicContextFirst = applicationContextResolver.resolveApplicationContext(
-                batchJobData);
-        assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
+        ApplicationContext blogicContextFirst = applicationContextResolver
+                .resolveApplicationContext(batchJobData);
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
         logger.clear();
 
         // テスト実行（２回目）
-        ApplicationContext blogicContextSecond = applicationContextResolver.resolveApplicationContext(
-                batchJobData);
+        ApplicationContext blogicContextSecond = applicationContextResolver
+                .resolveApplicationContext(batchJobData);
 
         // 業務コンテキスト生成ログが出力されないこと。
-        assertFalse(logger.getLoggingEvents()
-                .contains(
-                        info("[IAL025019] BLogic context will be cached. jobAppCd:B000001")));
+        assertFalse(logger.getLoggingEvents().contains(info(
+                "[IAL025019] BLogic context will be cached. jobAppCd:B000001")));
         logger.clear();
 
         // キャッシュされたコンテキストとインスタンスが同一であること。
@@ -148,19 +148,18 @@ public class CacheableApplicationContextResolverImplTest {
         batchJobData.setJobAppCd("B000002");
 
         // テスト実行（別の業務コンテキストを生成 １回目）
-        ApplicationContext anotherContextFirst = applicationContextResolver.resolveApplicationContext(
-                batchJobData);
-        assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025019] BLogic context will be cached. jobAppCd:B000002"))));
+        ApplicationContext anotherContextFirst = applicationContextResolver
+                .resolveApplicationContext(batchJobData);
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025019] BLogic context will be cached. jobAppCd:B000002"))));
         logger.clear();
 
         // テスト実行（別の業務コンテキストを生成 ２回目）
-        ApplicationContext anotherContextSecond = applicationContextResolver.resolveApplicationContext(
-                batchJobData);
+        ApplicationContext anotherContextSecond = applicationContextResolver
+                .resolveApplicationContext(batchJobData);
         // 業務コンテキスト生成ログが出力されないこと。
-        assertFalse(logger.getLoggingEvents()
-                .contains(
-                        info("[IAL025019] BLogic context will be cached. jobAppCd:B000002")));
+        assertFalse(logger.getLoggingEvents().contains(info(
+                "[IAL025019] BLogic context will be cached. jobAppCd:B000002")));
 
         // キャッシュされたコンテキストとインスタンスが同一であること。
         assertThat(anotherContextSecond, is(anotherContextFirst));
@@ -171,11 +170,12 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testResolveApplicationContext02 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・Spring cache abstractionによるキャッシュ機構を使用していない。(インスタンスをnewで生成)
      * 確認項目
-     * ・1度目に業務コンテキストが生成の後返却される際、INFOログが出力されないこと。
+     * ・1度目に業務コンテキストが生成の後返却される際、INFOログが出力されること。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -189,12 +189,14 @@ public class CacheableApplicationContextResolverImplTest {
 
         // テスト実行
         target.resolveApplicationContext(batchJobData);
-        // 業務コンテキスト生成ログが出力されないこと。
-        assertThat(logger.getLoggingEvents(), is(asList(info("[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
+        // 業務コンテキスト生成ログが出力されること。
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
     }
 
     /**
      * testCloseApplicationContext01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・Spring cache abstractionによるキャッシュ機構を使用している。
@@ -207,8 +209,7 @@ public class CacheableApplicationContextResolverImplTest {
      */
     @Test
     public void testCloseApplicationContext01() throws Exception {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext(
-                "beansDef/B000001.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("beansDef/B000001.xml");
 
         // テスト実行
         applicationContextResolver.closeApplicationContext(ctx);
@@ -220,6 +221,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testCloseApplicationContext02 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・Spring cache abstractionによるキャッシュ機構を使用していない。
@@ -231,8 +233,7 @@ public class CacheableApplicationContextResolverImplTest {
      */
     @Test
     public void testCloseApplicationContext02() throws Exception {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext(
-                "beansDef/B000001.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("beansDef/B000001.xml");
         CacheableApplicationContextResolverImpl target = new CacheableApplicationContextResolverImpl();
 
         // テスト実行
@@ -244,6 +245,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testAfterPropertiesSet01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・特になし。
@@ -262,12 +264,14 @@ public class CacheableApplicationContextResolverImplTest {
             target.afterPropertiesSet();
             fail();
         } catch (BeanCreationException e) {
-            assertThat(e.getMessage(), is("[EAL025061] Can not create CacheableBLogicContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext."));
+            assertThat(e.getMessage(), is(
+                    "[EAL025061] Can not create CacheableBLogicContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext."));
         }
     }
 
     /**
      * testDestroy01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ対象の業務コンテキストがフィールドに存在している。
@@ -280,10 +284,8 @@ public class CacheableApplicationContextResolverImplTest {
     @Test
     public void testDestroy01() throws Exception {
         CacheableApplicationContextResolverImpl target = new CacheableApplicationContextResolverImpl();
-        final ApplicationContext b000001 = new ClassPathXmlApplicationContext(
-                "beansDef/B000001.xml");
-        final ApplicationContext b000002 = new ClassPathXmlApplicationContext(
-                "beansDef/B000002.xml");
+        final ApplicationContext b000001 = new ClassPathXmlApplicationContext("beansDef/B000001.xml");
+        final ApplicationContext b000002 = new ClassPathXmlApplicationContext("beansDef/B000002.xml");
 
         CacheManager cacheManager = mock(CacheManager.class);
         doReturn(new ArrayList<String>() {
@@ -304,9 +306,8 @@ public class CacheableApplicationContextResolverImplTest {
             }
         }).when(cache).getNativeCache();
 
-        doReturn(cache).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(cache).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
         target.cacheManager = cacheManager;
 
         // テスト実行
@@ -319,21 +320,22 @@ public class CacheableApplicationContextResolverImplTest {
             b000001.getBean("B000001BLogic");
             fail();
         } catch (IllegalStateException e) {
-            assertThat(e.getMessage(),
-                    is("BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
+            assertThat(e.getMessage(), is(
+                    "BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
         }
 
         try {
             b000002.getBean("B000002BLogic");
             fail();
         } catch (IllegalStateException e) {
-            assertThat(e.getMessage(),
-                    is("BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
+            assertThat(e.getMessage(), is(
+                    "BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
         }
     }
 
     /**
      * testDestroyCachedContext01 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されているが、キャッシュは空。
@@ -352,9 +354,8 @@ public class CacheableApplicationContextResolverImplTest {
                 .getNativeCache();
 
         CacheManager cacheManager = mock(CacheManager.class);
-        doReturn(cache).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(cache).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
         doReturn(new ArrayList<String>() {
             private static final long serialVersionUID = 2574172591143649628L;
 
@@ -367,13 +368,14 @@ public class CacheableApplicationContextResolverImplTest {
         // テスト実行
         target.destroyCachedContext();
 
-        verify(target, never()).closeApplicationContext(
-                any(ApplicationContext.class));
+        verify(target, never()).closeApplicationContext(any(
+                ApplicationContext.class));
         verify(cache).clear();
     }
 
     /**
      * testDestroyCachedContext02 【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されており、
@@ -387,10 +389,8 @@ public class CacheableApplicationContextResolverImplTest {
      */
     @Test
     public void testDestroyCachedContext02() throws Exception {
-        final ApplicationContext b000001 = new ClassPathXmlApplicationContext(
-                "beansDef/B000001.xml");
-        final ApplicationContext b000002 = new ClassPathXmlApplicationContext(
-                "beansDef/B000002.xml");
+        final ApplicationContext b000001 = new ClassPathXmlApplicationContext("beansDef/B000001.xml");
+        final ApplicationContext b000002 = new ClassPathXmlApplicationContext("beansDef/B000002.xml");
 
         CacheableApplicationContextResolverImpl target = spy(
                 new CacheableApplicationContextResolverImpl());
@@ -405,9 +405,8 @@ public class CacheableApplicationContextResolverImplTest {
             }
         }).when(cache).getNativeCache();
         CacheManager cacheManager = mock(CacheManager.class);
-        doReturn(cache).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(cache).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
         doReturn(new ArrayList<String>() {
             private static final long serialVersionUID = 4460457695974083597L;
 
@@ -425,16 +424,16 @@ public class CacheableApplicationContextResolverImplTest {
             b000001.getBean("B000001BLogic");
             fail();
         } catch (IllegalStateException e) {
-            assertThat(e.getMessage(),
-                    is("BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
+            assertThat(e.getMessage(), is(
+                    "BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
         }
 
         try {
             b000002.getBean("B000002BLogic");
             fail();
         } catch (IllegalStateException e) {
-            assertThat(e.getMessage(),
-                    is("BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
+            assertThat(e.getMessage(), is(
+                    "BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext"));
         }
 
         verify(cache).clear();
@@ -442,6 +441,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testIsCacheEnabled01【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されていない。
@@ -461,6 +461,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testIsCacheEnabled02【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されているが、blogicContextというキャッシュ名を含んでいない。
@@ -483,6 +484,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testIsCacheEnabled03【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されているが、キャッシュオブジェクトがnull。
@@ -503,9 +505,8 @@ public class CacheableApplicationContextResolverImplTest {
                 add(CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
             }
         }).when(cacheManager).getCacheNames();
-        doReturn(null).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(null).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
 
         target.setCacheManager(cacheManager);
 
@@ -515,6 +516,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testIsCacheEnabled04【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されているが、キャッシュオブジェクトがMapではない。
@@ -537,9 +539,8 @@ public class CacheableApplicationContextResolverImplTest {
         }).when(cacheManager).getCacheNames();
         Cache cache = mock(Cache.class);
         doReturn("not Map").when(cache).getNativeCache();
-        doReturn(cache).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(cache).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
 
         target.setCacheManager(cacheManager);
 
@@ -549,6 +550,7 @@ public class CacheableApplicationContextResolverImplTest {
 
     /**
      * testIsCacheEnabled05【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されており、キャッシュオブジェクトとしてMapを設定している。
@@ -571,9 +573,8 @@ public class CacheableApplicationContextResolverImplTest {
         }).when(cacheManager).getCacheNames();
         Cache cache = mock(Cache.class);
         doReturn(new HashMap<String, Object>()).when(cache).getNativeCache();
-        doReturn(cache).when(cacheManager)
-                .getCache(
-                        CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
+        doReturn(cache).when(cacheManager).getCache(
+                CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY);
 
         target.setCacheManager(cacheManager);
 

@@ -86,8 +86,8 @@ public class AdminConnectionRetryInterceptorTest {
                 "maxRetryCount", maxRetryCount);
         ReflectionTestUtils.setField(adminConnectionRetryInterceptor,
                 "retryInterval", retryInterval);
-        ReflectionTestUtils.setField(adminConnectionRetryInterceptor, "retryReset",
-                retryReset);
+        ReflectionTestUtils.setField(adminConnectionRetryInterceptor,
+                "retryReset", retryReset);
         logger.clear();
     }
 
@@ -111,7 +111,8 @@ public class AdminConnectionRetryInterceptorTest {
 
         // テスト実行
         // 検証
-        assertNull(adminConnectionRetryInterceptor.invoke(mockMethodInvocation));
+        assertNull(adminConnectionRetryInterceptor.invoke(
+                mockMethodInvocation));
 
     }
 
@@ -148,8 +149,7 @@ public class AdminConnectionRetryInterceptorTest {
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
                 "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
-                logger
-                .getLoggingEvents().get(0).getMessage());
+                logger.getLoggingEvents().get(0).getMessage());
     }
 
     /**
@@ -185,8 +185,7 @@ public class AdminConnectionRetryInterceptorTest {
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
                 "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
-                logger
-                .getLoggingEvents().get(0).getMessage());
+                logger.getLoggingEvents().get(0).getMessage());
     }
 
     /**
@@ -219,7 +218,8 @@ public class AdminConnectionRetryInterceptorTest {
 
         // テスト実行
         // 検証
-        assertNull(adminConnectionRetryInterceptor.invoke(mockMethodInvocation));
+        assertNull(adminConnectionRetryInterceptor.invoke(
+                mockMethodInvocation));
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
@@ -261,7 +261,8 @@ public class AdminConnectionRetryInterceptorTest {
 
         // テスト実行
         // 検証
-        assertNull(adminConnectionRetryInterceptor.invoke(mockMethodInvocation));
+        assertNull(adminConnectionRetryInterceptor.invoke(
+                mockMethodInvocation));
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
@@ -391,7 +392,6 @@ public class AdminConnectionRetryInterceptorTest {
 
     }
 
-
     /**
      * invoke()メソッドのテスト 【異常系】
      * 
@@ -414,8 +414,8 @@ public class AdminConnectionRetryInterceptorTest {
                 "retryInterval", 500);
         ReflectionTestUtils.setField(adminConnectionRetryInterceptor,
                 "maxRetryCount", 3);
-        ReflectionTestUtils.setField(adminConnectionRetryInterceptor, "retryReset",
-                300);
+        ReflectionTestUtils.setField(adminConnectionRetryInterceptor,
+                "retryReset", 300);
 
         // テスト実行
         // 検証
@@ -425,7 +425,8 @@ public class AdminConnectionRetryInterceptorTest {
                                 new RecoverableDataAccessException(null))
                 .thenThrow(new RecoverableDataAccessException(null)).thenReturn(
                         null);
-        assertNull(adminConnectionRetryInterceptor.invoke(mockMethodInvocation));
+        assertNull(adminConnectionRetryInterceptor.invoke(
+                mockMethodInvocation));
         verify(mockMethodInvocation, times(5)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(

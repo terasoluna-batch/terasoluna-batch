@@ -582,8 +582,7 @@ public class AsyncJobLauncherImplTest {
         // シャットダウン後の待ち合わせが行われていない。
         // ⇒ログにINFOログが1度だけ出力されていること。
         assertThat(logger.getLoggingEvents().size(), is(1));
-        assertThat(logger.getLoggingEvents(), is(asList(
-info(
+        assertThat(logger.getLoggingEvents(), is(asList(info(
                 "[IAL025020] Waiting to shutdown all tasks in ThreadPoolTaskExecutor."))));
     }
 

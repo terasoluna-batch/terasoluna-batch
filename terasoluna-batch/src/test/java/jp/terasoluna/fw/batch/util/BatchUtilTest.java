@@ -16,7 +16,20 @@
 
 package jp.terasoluna.fw.batch.util;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.StringStartsWith.startsWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,12 +37,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
-import jp.terasoluna.fw.logger.TLogger;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -37,7 +47,10 @@ import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.TransactionSystemException;
 
-import static org.mockito.Mockito.*;
+import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
+import jp.terasoluna.fw.logger.TLogger;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 /**
  * 
@@ -46,6 +59,14 @@ import static org.mockito.Mockito.*;
 public class BatchUtilTest {
     // private Log log = LogFactory.getLog(BatchUtilTest.class);
     private Log log = TLogger.getLogger(BatchUtilTest.class);
+
+    private static TestLogger logger = TestLoggerFactory.getTestLogger(
+            BatchUtilTest.class);
+
+    @Before
+    public void setUp() throws Exception {
+        logger.clear();
+    }
 
     /**
      * testBatchUtil001
@@ -568,7 +589,7 @@ public class BatchUtilTest {
      * @throws Exception
      */
     @Test
-    public void testStartTransactions03() throws Exception {
+    public void testStartTransactions03() throws Exception {//
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new LinkedHashMap<String, PlatformTransactionManager>();
@@ -596,6 +617,9 @@ public class BatchUtilTest {
             assertFalse(tran2.wasCalledRollback());
             assertFalse(tran3.wasCalledRollback());
             assertFalse(tran4.wasCalledRollback());
+
+            assertThat(logger.getLoggingEvents().get(2).getMessage(), is(
+                    startsWith("[EAL025048] Failed to start transaction.")));
         }
     }
 
@@ -632,6 +656,9 @@ public class BatchUtilTest {
             assertFalse(tran2.wasCalledRollback());
             assertFalse(tran3.wasCalledRollback());
             assertFalse(tran4.wasCalledRollback());
+
+            assertThat(logger.getLoggingEvents().get(5).getMessage(), is(
+                    startsWith("[EAL025048] Failed to start transaction.")));
         }
     }
 
@@ -668,6 +695,9 @@ public class BatchUtilTest {
             assertTrue(tran2.wasCalledRollback());
             assertTrue(tran3.wasCalledRollback());
             assertFalse(tran4.wasCalledRollback());
+
+            assertThat(logger.getLoggingEvents().get(11).getMessage(), is(
+                    startsWith("[EAL025048] Failed to start transaction.")));
         }
     }
 
@@ -701,6 +731,7 @@ public class BatchUtilTest {
         assertFalse(tran2.wasCalledRollback());
         assertFalse(tran3.wasCalledRollback());
         assertFalse(tran4.wasCalledRollback());
+
     }
 
     /**
@@ -939,6 +970,8 @@ public class BatchUtilTest {
 
         // 結果検証
         assertFalse(result);
+        assertThat(logger.getLoggingEvents().get(3).getMessage(), is(startsWith(
+                "[EAL025045] Failed to rollback transaction.")));
     }
 
     /**

@@ -39,8 +39,8 @@ public class BLogicResolverImplTest {
 
     BLogicResolverImpl blogicResolverImpl;
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(BLogicResolverImpl.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            BLogicResolverImpl.class);
 
     @Before
     public void setUp() {
@@ -100,9 +100,8 @@ public class BLogicResolverImplTest {
             // 結果検証
             assertTrue(e instanceof NoSuchBeanDefinitionException);
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error("[EAL025009] BLogic bean not found. beanName:DEFINE_NOT_EXISTBLogic"))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025009] BLogic bean not found. beanName:DEFINE_NOT_EXISTBLogic"))));
     }
 
     /**
@@ -129,8 +128,8 @@ public class BLogicResolverImplTest {
                 BLogic.class);
 
         // テスト実施
-        BLogic blogic = blogicResolverImpl
-                .resolveBLogic(mockContext, "B000011");
+        BLogic blogic = blogicResolverImpl.resolveBLogic(mockContext,
+                "B000011");
         // 結果検証
         assertTrue(blogic instanceof BLogic);
     }
@@ -153,8 +152,8 @@ public class BLogicResolverImplTest {
             // テスト準備
             blogicResolverImpl.enableJobComponentAnnotation = true;
             // テスト実施
-            BLogic blogic = blogicResolverImpl.resolveBLogic(
-                    applicationContext, "B000011");
+            BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
+                    "B000011");
             // 結果検証
             assertTrue(blogic instanceof BLogic);
         } finally {
@@ -182,8 +181,8 @@ public class BLogicResolverImplTest {
             blogicResolverImpl.enableJobComponentAnnotation = true;
 
             // テスト実施
-            BLogic blogic = blogicResolverImpl.resolveBLogic(
-                    applicationContext, "B000012");
+            BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
+                    "B000012");
             // 結果検証
             assertTrue(blogic instanceof BLogic);
         } finally {
@@ -197,7 +196,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * @JobComponentアノテーション"B000012"を持つクラスが存在する
+     * &#64;JobComponentアノテーション"B000012"を持つクラスが存在する
      * 確認項目
      * ・BLogicのインスタンスが生成されること
      * </pre>
@@ -219,7 +218,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * @JobComponentアノテーション"DEFINE_NOT_EXIST"を持つクラスが存在しない
+     * &#64;JobComponentアノテーション"DEFINE_NOT_EXIST"を持つクラスが存在しない
      * 確認項目
      * ・nullが返却されること
      * </pre>
@@ -249,8 +248,8 @@ public class BLogicResolverImplTest {
 
         // テスト実施
         // 結果検証
-        assertEquals("B000011" + "BLogic", blogicResolverImpl
-                .getBLogicBeanName("B000011"));
+        assertEquals("B000011" + "BLogic", blogicResolverImpl.getBLogicBeanName(
+                "B000011"));
     }
 
     /**
