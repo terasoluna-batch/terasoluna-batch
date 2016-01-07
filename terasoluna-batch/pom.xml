@@ -41,6 +41,8 @@
                             <exclude>jp/terasoluna/fw/message/*.class</exclude>
                             <exclude>jp/terasoluna/fw/util/*.class</exclude>
                             <exclude>jp/terasoluna/fw/validation/*.class</exclude>
+                            <exclude>jp/terasoluna/fw/batch/annotation/*.class</exclude>
+                            <exclude>jp/terasoluna/fw/batch/executor/dao/*.class</exclude>
                         </excludes>
                     </instrumentation>
                     <check/>
