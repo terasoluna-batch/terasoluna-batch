@@ -855,7 +855,7 @@ public class AsyncJobWorkerImplTest {
         assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025059] JobSequenceId:seq0000001 : The BLogic execution has failed during processing."))));
+                "[EAL025059] The BLogic execution has failed during processing. JobSequenceId:seq0000001"))));
     }
 
     /**

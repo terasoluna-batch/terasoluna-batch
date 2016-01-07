@@ -164,7 +164,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
             return false;
         }
         if (!expectJobStatus.equals(batchJobData.getCurAppStatus())) {
-            LOGGER.info(LogId.IAL025004, batchJobData.getJobSequenceId(),
+            LOGGER.debug(LogId.DAL025055, batchJobData.getJobSequenceId(),
                     expectJobStatus, batchJobData.getCurAppStatus(), changeTo);
             return false;
         }

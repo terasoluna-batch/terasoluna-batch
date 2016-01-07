@@ -194,7 +194,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                         "executor.jobTerminateWaitInterval"));
 
         int maxPoolSize = threadPoolTaskExecutor.getMaxPoolSize();
-        LOGGER.debug(LogId.DAL025060, maxPoolSize, fair);
+        LOGGER.debug(LogId.DAL025054, maxPoolSize, fair);
         taskPoolLimit = new Semaphore(maxPoolSize, fair);
     }
 }

@@ -254,7 +254,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[IAL025023]のログが出力されること
+     * ・[DAL025055]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -276,8 +276,8 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025004] This job status at the job control table is illigal. JobSequenceId:00000001 expectedCurAppStatus:0 actualCurAppStatus:3 changeTo:1"),
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:0 actualCurAppStatus:3 changeTo:1"),
                 info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
@@ -609,7 +609,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[IAL025023]のログが出力されること
+     * ・[DAL025055]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -635,8 +635,8 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025004] This job status at the job control table is illigal. JobSequenceId:00000001 expectedCurAppStatus:1 actualCurAppStatus:2 changeTo:2"),
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:1 actualCurAppStatus:2 changeTo:2"),
                 info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }

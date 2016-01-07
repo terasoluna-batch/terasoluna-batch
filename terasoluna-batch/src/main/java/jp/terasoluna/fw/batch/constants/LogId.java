@@ -91,13 +91,13 @@ public final class LogId {
      */
     public static final String DAL025053 = "DAL025053";
     /**
-     * <strong>DAL025060 = Creating Semaphore. maxSize:{0} and fair:{1}</strong>
+     * <strong>DAL025054 = Creating Semaphore. maxSize:{0} and fair:{1}</strong>
      */
-    public static final String DAL025060 = "DAL025060";
+    public static final String DAL025054 = "DAL025054";
     /**
-     * <strong>IAL025004 = This job status at the job control table is illigal. JobSequenceId:{0} expectedCurAppStatus:{1} actualCurAppStatus:{2} changeTo:{3}</strong>
+     * <strong>DAL025055 = This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:{0} expectedCurAppStatus:{1} actualCurAppStatus:{2} changeTo:{3}</strong>
      */
-    public static final String IAL025004 = "IAL025004";
+    public static final String DAL025055 = "DAL025055";
     /**
      * <strong>IAL025005 = AsyncBatchExecutor START</strong>
      */
@@ -203,7 +203,7 @@ public final class LogId {
      */
     public static final String EAL025058 = "EAL025058";
     /**
-     * <strong>EAL025059 = JobSequenceId:{0} : The BLogic execution has failed during processing.</strong>
+     * <strong>EAL025059 = The BLogic execution has failed during processing. JobSequenceId:{0}</strong>
      */
     public static final String EAL025059 = "EAL025059";
     /**
