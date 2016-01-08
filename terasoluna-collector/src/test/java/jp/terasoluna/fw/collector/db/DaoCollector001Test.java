@@ -123,7 +123,7 @@ public class DaoCollector001Test extends DaoTestCaseJunit4 {
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub001.class;
 
-        QueueingResultHandler drh = dbc.getResultHandler();
+        QueueingResultHandler<?> drh = dbc.getResultHandler();
 
         dbc.close();
         assertNotNull(drh);

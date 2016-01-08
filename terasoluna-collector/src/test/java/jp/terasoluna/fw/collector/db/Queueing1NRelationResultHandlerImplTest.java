@@ -22,6 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@SuppressWarnings("deprecation")
 public class Queueing1NRelationResultHandlerImplTest {
 
     @BeforeClass
@@ -32,13 +33,11 @@ public class Queueing1NRelationResultHandlerImplTest {
     public static void tearDownAfterClass() throws Exception {
     }
 
-    @SuppressWarnings("deprecation")
     @Before
     public void setUp() throws Exception {
         Queueing1NRelationResultHandlerImpl.setVerbose(true);
     }
 
-    @SuppressWarnings("deprecation")
     @After
     public void tearDown() throws Exception {
         Queueing1NRelationResultHandlerImpl.setVerbose(false);
@@ -50,7 +49,6 @@ public class Queueing1NRelationResultHandlerImplTest {
      */
     @Test
     public void testHandleResult001() {
-        @SuppressWarnings("deprecation")
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
 
         assertNotNull(drh);
@@ -73,7 +71,6 @@ public class Queueing1NRelationResultHandlerImplTest {
      */
     @Test
     public void testHandleResult002() {
-        @SuppressWarnings("deprecation")
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
 
         assertNotNull(drh);
@@ -102,7 +99,6 @@ public class Queueing1NRelationResultHandlerImplTest {
      */
     @Test
     public void testHandleResult003() {
-        @SuppressWarnings("deprecation")
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
@@ -133,7 +129,6 @@ public class Queueing1NRelationResultHandlerImplTest {
      */
     @Test
     public void testHandleResult004() throws Exception {
-        @SuppressWarnings("deprecation")
         final Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
@@ -161,7 +156,6 @@ public class Queueing1NRelationResultHandlerImplTest {
      */
     @Test
     public void testHandleResult005() throws Exception {
-        @SuppressWarnings("deprecation")
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
@@ -182,7 +176,6 @@ public class Queueing1NRelationResultHandlerImplTest {
     /**
      * testDelayCollect001
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect001() {
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
@@ -200,7 +193,6 @@ public class Queueing1NRelationResultHandlerImplTest {
     /**
      * testDelayCollect002
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect002() {
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
@@ -225,7 +217,6 @@ public class Queueing1NRelationResultHandlerImplTest {
     /**
      * testDelayCollect003
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testDelayCollect003() {
         Queueing1NRelationResultHandlerImpl<HogeBean> drh = new Queueing1NRelationResultHandlerImpl<>();
@@ -295,9 +286,10 @@ public class Queueing1NRelationResultHandlerImplTest {
     /**
      * testDelayCollect004
      */
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Test
     public void testDelayCollect004() {
+        
         Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         drh.prevRow = new TestBean001();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub002();
@@ -327,16 +319,15 @@ public class Queueing1NRelationResultHandlerImplTest {
     /**
      * testDelayCollect005
      */
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Test
     public void testDelayCollect005() throws Exception {
-        @SuppressWarnings("deprecation")
         final Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         final DaoCollectorStub004 daoCollector = new DaoCollectorStub004(2);
         drh.setDaoCollector(daoCollector);
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
-            @SuppressWarnings("deprecation")
             @Override
             public void doRun() throws Exception {
                 drh.prevRow = "hoge1";

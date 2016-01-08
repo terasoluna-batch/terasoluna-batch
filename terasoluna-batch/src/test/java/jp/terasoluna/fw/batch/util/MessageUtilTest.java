@@ -50,6 +50,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * &lt;bean id=&quot;msgAcc&quot; class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot; /&gt; </fieldset> <br>
  * ・messages.propertiesファイルが存在すること<br>
  */
+@SuppressWarnings("deprecation")
 public class MessageUtilTest {
 
     /**

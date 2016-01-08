@@ -54,6 +54,7 @@ import jp.terasoluna.fw.util.PropertyUtil;
  * ・messages.propertiesファイルが存在すること<br>
  * 
  */
+@SuppressWarnings("deprecation")
 public class BatchExceptionTest {
 
 	/**
