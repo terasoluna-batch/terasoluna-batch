@@ -76,17 +76,17 @@ public class AsyncBatchExecutor {
             JobOperator jobOperator = context.getBean(JOB_OPERATOR_BEAN_NAME,
                     JobOperator.class);
             int status = jobOperator.start(args);
-            LOGGER.info(LogId.IAL025013);
+            LOGGER.info(LogId.IAL025013, status);
             return status;
         } catch (Throwable t) {
-            LOGGER.error(LogId.EAL025094, t);
+            LOGGER.error(LogId.EAL025060, t);
             return FAIL_TO_OBTAIN_JOB_OPERATOR_CODE;
         } finally {
             if (context != null) {
                 try {
                     resolver.closeApplicationContext(context);
                 } catch (Exception e)  {
-                    LOGGER.error(LogId.EAL025096, e);
+                    LOGGER.error(LogId.EAL025062, e);
                 }
             }
         }

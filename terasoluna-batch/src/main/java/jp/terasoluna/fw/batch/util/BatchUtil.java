@@ -295,7 +295,7 @@ public class BatchUtil {
                     }
 
                     if (log != null && log.isDebugEnabled()) {
-                        logDebug(log, LogId.DAL025036, key, trnStat);
+                        logDebug(log, LogId.DAL025035, key, trnStat);
                     }
                 }
             }
@@ -381,7 +381,6 @@ public class BatchUtil {
             PlatformTransactionManager ptm = (PlatformTransactionManager) ptmObj;
 
             if (log != null && log.isDebugEnabled()) {
-                logDebug(log, LogId.DAL025039, key, trnStat);
                 logDebug(log, LogId.DAL025038, trnStat);
             }
             // コミット
@@ -476,8 +475,7 @@ public class BatchUtil {
             }
 
             if (log != null && log.isDebugEnabled()) {
-                logDebug(log, LogId.DAL025042, key, trnStat);
-                logDebug(log, LogId.DAL025045, trnStat);
+                logDebug(log, LogId.DAL025041, trnStat);
             }
 
             // ロールバック
@@ -551,7 +549,7 @@ public class BatchUtil {
         stat.releaseSavepoint(savepoint);
 
         if (log != null && log.isDebugEnabled()) {
-            logDebug(log, LogId.DAL025049, savepoint);
+            logDebug(log, LogId.DAL025049, stat);
         }
     }
 

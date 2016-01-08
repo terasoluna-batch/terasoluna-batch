@@ -52,19 +52,25 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
     public boolean canStop() {
         File f = new File(endMonitoringFileName);
 
-        // ファイル名をDEBUGログとして出力する
-        LOGGER.debug(LogId.DAL025060, endMonitoringFileName, f.exists());
-        return f.exists();
+        // ファイルが存在した場合、INFOログを出力する
+        boolean isExist = f.exists();
+        if (isExist) {
+            LOGGER.info(LogId.IAL025022, endMonitoringFileName);
+        }
+        return isExist;
     }
 
     /**
-     * プロパティの設定後にファイル名が設定されているかどうかの判定を行う。<br>
+     * プロパティの設定後にファイルパスが設定されているかどうかの確認を行う。<br>
      * @throws IllegalStateException プロパティが未設定、あるいは、空文字である場合
      */
     @Override
     public void afterPropertiesSet() throws IllegalStateException {
         Assert.state(!"".equals(endMonitoringFileName), LOGGER.getLogMessage(
-                LogId.EAL025089, this.getClass().getSimpleName(),
+                LogId.EAL025056, this.getClass().getSimpleName(),
                 "executor.endMonitoringFile"));
+
+        File f = new File(endMonitoringFileName);
+        LOGGER.info(LogId.IAL025025, endMonitoringFileName, f.exists());
     }
 }

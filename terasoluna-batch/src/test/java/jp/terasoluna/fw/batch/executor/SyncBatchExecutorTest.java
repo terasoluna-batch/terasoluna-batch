@@ -146,7 +146,7 @@ public class SyncBatchExecutorTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025014] SyncBatchExecutor START"),
-                info("[IAL025015] SyncBatchExecutor END blogicStatus:[456]"))));
+                info("[IAL025015] SyncBatchExecutor END blogicStatus:456"))));
     }
 
     /**
@@ -177,7 +177,7 @@ public class SyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
     }
 
     /**
@@ -209,7 +209,7 @@ public class SyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
 
         verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
@@ -246,8 +246,8 @@ public class SyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."),
-                error(closeThrown, "[EAL025096] ApplicationContext closing failed."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."),
+                error(closeThrown, "[EAL025062] Failed to close the ApplicationContext."))));
     }
 
     /**

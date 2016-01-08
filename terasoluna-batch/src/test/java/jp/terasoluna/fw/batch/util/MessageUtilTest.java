@@ -16,20 +16,26 @@
 
 package jp.terasoluna.fw.batch.util;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 
 import java.lang.reflect.Method;
-
-import jp.terasoluna.fw.batch.message.MessageAccessor;
-import jp.terasoluna.fw.util.PropertyUtil;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import jp.terasoluna.fw.batch.message.MessageAccessor;
+import jp.terasoluna.fw.util.PropertyUtil;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 /**
  * 事前条件<br>
@@ -61,6 +67,9 @@ public class MessageUtilTest {
      */
     private MessageAccessor messageAccessor;
 
+    private static TestLogger logger = TestLoggerFactory.getTestLogger(
+            MessageUtil.class);
+
     @Before
     public void setUp() {
 
@@ -71,6 +80,8 @@ public class MessageUtilTest {
         messageAccessor = (MessageAccessor) context.getBean(value,
                 MessageAccessor.class);
         MessageUtil.setMessageAccessor(messageAccessor);
+        
+        logger.clear();
     }
 
     /**
@@ -195,6 +206,8 @@ public class MessageUtilTest {
     @Test
     public void testSetMessageAccessor01() throws Exception {
         MessageUtil.setMessageAccessor(null);
+        assertThat(logger.getLoggingEvents(), is(asList(
+                warn("[WAL025008] MessageAccessor setting is not specified, it will be skipped.  tg:[main] t:[main]"))));
         assertTrue(true);
     }
 

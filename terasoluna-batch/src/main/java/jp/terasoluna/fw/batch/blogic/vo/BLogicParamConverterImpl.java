@@ -44,7 +44,7 @@ public class BLogicParamConverterImpl implements BLogicParamConverter {
      * @param beanMapper BatchJobDataからBLogicParamに変換するためのマッパーオブジェクト
      */
     public BLogicParamConverterImpl(Mapper beanMapper) {
-        Assert.notNull(beanMapper, LOGGER.getLogMessage(LogId.EAL025089, this
+        Assert.notNull(beanMapper, LOGGER.getLogMessage(LogId.EAL025056, this
                 .getClass().getSimpleName(), "org.dozer.Mapper"));
         this.beanMapper = beanMapper;
     }

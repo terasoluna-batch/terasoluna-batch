@@ -110,7 +110,7 @@ public class JobStatusChangerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl requires to set systemDao. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - JobStatusChangerImpl requires to set systemDao. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -134,7 +134,7 @@ public class JobStatusChangerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl requires to set adminTransactionManager. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - JobStatusChangerImpl requires to set adminTransactionManager. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -176,7 +176,7 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertTrue(jobStatusChanger.changeToStartStatus("00000001"));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"))));
         verify(mockPlatformTransactionManager).commit(mockTran);
         verify(mockPlatformTransactionManager, never()).rollback(mockTran);
     }
@@ -189,7 +189,7 @@ public class JobStatusChangerImplTest {
      * ・無効(データなし)のジョブシーケンスIDが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -206,9 +206,9 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025026] Job record Not Found. jobSequenceId:00000001"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:00000001"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -221,7 +221,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブシーケンスIDとしてnullが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -238,9 +238,9 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus(null));
-        assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025026] Job record Not Found. jobSequenceId:null"), warn(
-                        "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:null"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:null"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -254,7 +254,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[WAL025013]のログが出力されること
+     * ・[DAL025055]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -276,9 +276,9 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:0 ジョブレコードのステータス値:3 判定:false)"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:0 actualCurAppStatus:3 changeTo:1"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -293,7 +293,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブステータスの更新に失敗すること
      * 確認項目
      * ・falseが返却されること
-     * ・[DAL025023]、[EAL025025]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[EAL025025]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -319,9 +319,9 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
-                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[null])"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"),
+                error("[EAL025025] Job status update error. JobSequenceId:00000001 blogicStatus:null"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -370,7 +370,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
      * 確認項目
      * ・systemDao#selectJob()で例外がスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
@@ -395,8 +395,8 @@ public class JobStatusChangerImplTest {
             assertSame(re, e);
         }
 
-        assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -410,7 +410,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
      * 確認項目
      * ・systemDao#updateJob()で例外がスローされること
-     * ・[DAL025023]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されないこと
      * </pre>
@@ -443,8 +443,8 @@ public class JobStatusChangerImplTest {
             assertSame(re, e);
         }
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -487,7 +487,7 @@ public class JobStatusChangerImplTest {
         assertTrue(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"))));
         verify(mockPlatformTransactionManager).commit(mockTran);
         verify(mockPlatformTransactionManager, never()).rollback(mockTran);
     }
@@ -500,7 +500,7 @@ public class JobStatusChangerImplTest {
      * ・無効(データなし)のジョブシーケンスIDが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -519,9 +519,9 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
-        assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025026] Job record Not Found. jobSequenceId:00000001"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:00000001"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -533,7 +533,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブシーケンスIDとしてnullが渡されること
      * 確認項目
      * ・falseが返却されること
-     * ・[EAL025026]、[WAL025013]のログが出力されること
+     * ・[IAL025024]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -552,9 +552,9 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus(null, blogicResult));
-        assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025026] Job record Not Found. jobSequenceId:null"), warn(
-                        "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:null"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:null"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -567,7 +567,7 @@ public class JobStatusChangerImplTest {
      * ・blogicResultとしてnullが渡されること
      * 確認項目
      * ・NullPointerExceptionがスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -595,8 +595,8 @@ public class JobStatusChangerImplTest {
             // 結果検証
             assertTrue(e instanceof NullPointerException);
         }
-        assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -609,7 +609,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGではないこと
      * 確認項目
      * ・falseが返却されること
-     * ・[IAL025004]、[WAL025013]のログが出力されること
+     * ・[DAL025055]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -635,9 +635,9 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:1 ジョブレコードのステータス値:2 判定:false)"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:1 actualCurAppStatus:2 changeTo:2"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -650,7 +650,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブステータスの更新に失敗すること
      * 確認項目
      * ・falseが返却されること
-     * ・[DAL025023]、[EAL025025]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[EAL025025]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
@@ -677,9 +677,9 @@ public class JobStatusChangerImplTest {
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
-                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[255])"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"),
+                error("[EAL025025] Job status update error. JobSequenceId:00000001 blogicStatus:255"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -730,7 +730,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGであること
      * 確認項目
      * ・systemDao#selectJob()で例外がスローされること
-     * ・[WAL025013]のログが出力されること
+     * ・[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
@@ -756,8 +756,8 @@ public class JobStatusChangerImplTest {
         } catch (Exception e) {
             assertSame(re, e);
         }
-        assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -771,7 +771,7 @@ public class JobStatusChangerImplTest {
      * ・ジョブのステータスがJOB_STATUS_EXECUTINGであること
      * 確認項目
      * ・systemDao#updateJob()で例外がスローされること
-     * ・[DAL025023]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
@@ -807,8 +807,8 @@ public class JobStatusChangerImplTest {
             assertSame(runtimeException, e);
         }
         assertThat(logger.getLoggingEvents(), is(asList(debug(
-                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
-                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"),
+                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }

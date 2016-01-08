@@ -158,7 +158,7 @@ public class CacheableApplicationContextResolverImpl
     public void afterPropertiesSet() {
         if (!isCacheEnabled()) {
             // キャッシュ機能使用不可の場合
-            throw new BeanCreationException(LOGGER.getLogMessage(LogId.EAL025095, BLOGIC_CONTEXT_CACHE_KEY));
+            throw new BeanCreationException(LOGGER.getLogMessage(LogId.EAL025061, BLOGIC_CONTEXT_CACHE_KEY));
         }
         super.afterPropertiesSet();
     }

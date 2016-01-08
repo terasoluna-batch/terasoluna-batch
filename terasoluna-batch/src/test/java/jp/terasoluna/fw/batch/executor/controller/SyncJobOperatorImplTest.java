@@ -16,6 +16,21 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
@@ -23,20 +38,10 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
+import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.*;
 
 /**
  * {@code SyncJobOperatorImpl}のテストケース
@@ -120,7 +125,8 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set applicationContextResolver. please confirm the settings."));
+ is(
+                    "[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set applicationContextResolver. please confirm the settings."));
         }
     }
 
@@ -147,7 +153,8 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicParamConverter. please confirm the settings."));
+ is(
+                    "[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set blogicParamConverter. please confirm the settings."));
         }
     }
 
@@ -173,7 +180,7 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExceptionHandlerResolver. please confirm the settings."));
+                    is("[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExceptionHandlerResolver. please confirm the settings."));
         }
     }
 
@@ -200,7 +207,7 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicResolver. please confirm the settings."));
+                    is("[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set blogicResolver. please confirm the settings."));
         }
     }
 
@@ -227,7 +234,7 @@ public class SyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(),
-                    is("[EAL025089] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExecutor. please confirm the settings."));
+                    is("[EAL025056] [Assertion failed] - SyncJobOperatorImpl requires to set blogicExecutor. please confirm the settings."));
         }
     }
 

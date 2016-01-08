@@ -124,7 +124,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicResolver. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicResolver. please confirm the settings."));
         }
     }
 
@@ -154,7 +154,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicExceptionHandlerResolver. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicExceptionHandlerResolver. please confirm the settings."));
         }
     }
 
@@ -184,7 +184,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set ApplicationContextResolver. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set ApplicationContextResolver. please confirm the settings."));
         }
     }
 
@@ -214,7 +214,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set JobControlFinder. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set JobControlFinder. please confirm the settings."));
         }
     }
 
@@ -244,7 +244,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicParamConverter. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicParamConverter. please confirm the settings."));
         }
     }
 
@@ -274,7 +274,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicExecutor. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set BLogicExecutor. please confirm the settings."));
         }
     }
 
@@ -304,7 +304,7 @@ public class AsyncJobWorkerImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025089] [Assertion failed] - AsyncJobWorkerImpl requires to set JobStatusChanger. please confirm the settings."));
+                    "[EAL025056] [Assertion failed] - AsyncJobWorkerImpl requires to set JobStatusChanger. please confirm the settings."));
         }
     }
 
@@ -405,9 +405,6 @@ public class AsyncJobWorkerImplTest {
 
         assertFalse(actual);
         verify(mockJobStatusChanger).changeToStartStatus("0000001");
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(info("[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
     }
 
     /**
@@ -417,13 +414,14 @@ public class AsyncJobWorkerImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・ジョブシーケンスコードに該当するレコードを更新時に例外がスローされた場合、{@code false}を返却すること
+     * ・ジョブシーケンスコードに該当するレコードを更新時に例外がスローされた場合、その例外がそのままスローされてくること
      * </pre>
      * 
      * @throws Exception 予期しない例外
      */
     @Test
     public void testBeforeExecute03() throws Exception {
+        @SuppressWarnings("serial")
         Exception ex = new DataAccessException("dummy exception") {};
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenThrow(
                 ex);
@@ -437,15 +435,13 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger);
 
         // テスト実行
-        boolean actual = target.beforeExecute("0000001");
-
-        assertFalse(actual);
-        verify(mockJobStatusChanger).changeToStartStatus("0000001");
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(info(
-                        ex,
-                        "[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
+        try {
+            target.beforeExecute("0000001");
+            fail("The exception has not been detected.");
+        } catch (DataAccessException dae) {
+            assertSame(ex, dae);
+            verify(mockJobStatusChanger).changeToStartStatus("0000001");
+        }
     }
 
     /**
@@ -507,11 +503,8 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error(
-                        ex,
-                        "[EAL025068] JobSequenceId:0000001 : The previous processing of the BLogic execution has failed."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
+                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
     }
 
     /**
@@ -575,11 +568,8 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error(
-                        ex,
-                        "[EAL025068] JobSequenceId:0000001 : The previous processing of the BLogic execution has failed."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
+                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
     }
 
     /**
@@ -647,11 +637,8 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error(
-                        ex,
-                        "[EAL025068] JobSequenceId:seq0000001 : The previous processing of the BLogic execution has failed."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
+                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
     }
 
     /**
@@ -721,11 +708,8 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error(
-                        ex,
-                        "[EAL025068] JobSequenceId:seq0000001 : The previous processing of the BLogic execution has failed."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
+                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
     }
 
     /**
@@ -807,9 +791,8 @@ public class AsyncJobWorkerImplTest {
         assertThat(blogicResult.getBlogicStatus(), is(1));
         assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(warn("[WAL025014] The BLogic execution continues without an ExceptionHandler."))));
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025010] The BLogic execution continues without an ExceptionHandler."))));
     }
 
     /**
@@ -871,11 +854,8 @@ public class AsyncJobWorkerImplTest {
         assertThat(blogicResult.getBlogicStatus(), is(255));
         assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error(
-                        ex,
-                        "[EAL025093] JobSequenceId:seq0000001 : The BLogic execution has failed during processing."))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
+                "[EAL025059] The BLogic execution has failed during processing. JobSequenceId:seq0000001"))));
     }
 
     /**
@@ -928,7 +908,7 @@ public class AsyncJobWorkerImplTest {
                 .closeApplicationContext(any(ApplicationContext.class));
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025022] Skipped job execution, because target job was not found. jobSequenceId[0000001]"))));
+                "[IAL025021] Skipped job execution, because target job was not found. jobSequenceId:0000001"))));
     }
 
     /**
@@ -1004,9 +984,8 @@ public class AsyncJobWorkerImplTest {
         verify(mockJobStatusChanger).changeToEndStatus("000001",
                 blogicResult);
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error("[EAL025025] Job status update error.(JOB_SEQ_ID:000001) blogicStatus:[1])"))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:1"))));
     }
 
     /**
@@ -1046,9 +1025,8 @@ public class AsyncJobWorkerImplTest {
         verify(mockJobStatusChanger).changeToEndStatus("000001",
                 blogicResult);
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error("[EAL025025] Job status update error.(JOB_SEQ_ID:000001) blogicStatus:[1])"))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:1"))));
     }
 
     /**
@@ -1083,8 +1061,7 @@ public class AsyncJobWorkerImplTest {
         verify(mockJobStatusChanger)
                 .changeToEndStatus("000001", null);
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(error("[EAL025025] Job status update error.(JOB_SEQ_ID:000001) blogicStatus:[null])"))));
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:null"))));
     }
 }

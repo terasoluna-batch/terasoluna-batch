@@ -128,7 +128,7 @@ public class AsyncBatchExecutorTest {
     public void testDoMain01() throws Exception {
         JobOperator mockJobOperator = mock(JobOperator.class);
         String[] args = new String[] { "aaa", "bbb", "ccc" };
-        doReturn(28194).when(mockJobOperator).start(args);
+        doReturn(123).when(mockJobOperator).start(args);
 
         ApplicationContext mockContext = mock(ApplicationContext.class);
         doReturn(mockJobOperator).when(mockContext)
@@ -142,11 +142,11 @@ public class AsyncBatchExecutorTest {
         doReturn(mockResolver).when(target).findAdminContextResolver();
 
         // テスト実行
-        assertEquals(28194, target.doMain(args));
+        assertEquals(123, target.doMain(args));
 
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                info("[IAL025013] AsyncBatchExecutor END"))));
+                info("[IAL025013] AsyncBatchExecutor END. exitStatus:123"))));
     }
 
     /**
@@ -177,7 +177,7 @@ public class AsyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
     }
 
     /**
@@ -209,7 +209,7 @@ public class AsyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
 
         verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
@@ -246,8 +246,8 @@ public class AsyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."),
-                error(closeThrown, "[EAL025096] ApplicationContext closing failed."))));
+                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."),
+                error(closeThrown, "[EAL025062] Failed to close the ApplicationContext."))));
     }
 
     /**

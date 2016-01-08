@@ -80,7 +80,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
      */
     public int handleThrowableException(Throwable e) {
         // WARNログを出力する
-        LOGGER.warn(LogId.WAL025007,e);
+        LOGGER.error(LogId.EAL025053, e);
 
         // 例外クラスと返却するステータス値のマップが設定されていた場合はそれに従う
         if (this.exceptionToStatusMap != null && e != null) {

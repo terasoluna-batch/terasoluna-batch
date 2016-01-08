@@ -27,6 +27,7 @@ import java.nio.file.Paths;
 
 import javax.annotation.Resource;
 
+import org.hamcrest.core.IsNot;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.assertThat;
@@ -36,7 +37,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 
@@ -50,8 +51,8 @@ public class EndFileStopperTest {
     @Resource
     protected AsyncBatchStopper asyncBatchStopper;
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(EndFileStopper.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            EndFileStopper.class);
 
     /**
      * テスト後処理：ロガーのクリアを行う。
@@ -69,8 +70,9 @@ public class EndFileStopperTest {
      * ・終了ファイルが存在する
      * 確認項目
      * ・trueが返却されること
-     * ・[DAL025060]のログが出力されること
+     * ・INFOログが出力されること
      * </pre>
+     * 
      * @throws IOException I/O 例外
      */
     @Test
@@ -81,14 +83,15 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         try {
+            // AfterPropertiesSetの出力ログは検証対象から除外するためにclearする。
+            logger.clear();
             assertTrue(asyncBatchStopper.canStop());
         } finally {
             // テストデータ削除
             Files.deleteIfExists(Paths.get("/tmp/batch_terminate_file"));
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:true"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -99,6 +102,7 @@ public class EndFileStopperTest {
      * ・終了ファイルが存在しない
      * 確認項目
      * ・falseが返却されること
+     * ・INFOログが出力されること
      * </pre>
      */
     @Test
@@ -106,9 +110,8 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         assertFalse(asyncBatchStopper.canStop());
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:false"))));
+        assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
+                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -120,7 +123,7 @@ public class EndFileStopperTest {
      * 確認項目
      * ・"/tmp/batch_terminate_file"が返却されること
      * ・例外がスローされないこと
-     * ・[DAL025060]のログが出力されること
+     * ・INFOログが出力されること
      * </pre>
      */
     @Test
@@ -133,6 +136,8 @@ public class EndFileStopperTest {
         endFileStopper.afterPropertiesSet();
         assertEquals(endFileStopper.endMonitoringFileName,
                 "/tmp/batch_terminate_file");
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
     }
 
     /**
@@ -142,6 +147,8 @@ public class EndFileStopperTest {
      * 事前条件
      * 確認項目
      * ・IllegalStateException例外がスローされること
+     * ・ERRORログが出力されること
+     * ・INFOログが出力されないこと
      * </pre>
      */
     @Test
@@ -157,7 +164,9 @@ public class EndFileStopperTest {
             fail();
         } catch (IllegalStateException e) {
             assertEquals(e.getMessage(),
-                    "[EAL025089] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
+                    "[EAL025056] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
+            assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
+                    "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

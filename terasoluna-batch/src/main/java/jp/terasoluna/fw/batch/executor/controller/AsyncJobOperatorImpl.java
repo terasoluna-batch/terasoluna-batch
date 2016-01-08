@@ -19,7 +19,6 @@ package jp.terasoluna.fw.batch.executor.controller;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.logger.TLogger;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,11 +73,11 @@ public class AsyncJobOperatorImpl implements JobOperator {
     public AsyncJobOperatorImpl(JobControlFinder jobControlFinder,
             AsyncJobLauncher asyncJobLauncher,
             AsyncBatchStopper asyncBatchStopper) {
-        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "JobControlFinder"));
-        Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(asyncJobLauncher, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "AsyncJobLauncher"));
-        Assert.notNull(asyncBatchStopper, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(asyncBatchStopper, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "AsyncBatchStopper"));
 
         this.jobControlFinder = jobControlFinder;

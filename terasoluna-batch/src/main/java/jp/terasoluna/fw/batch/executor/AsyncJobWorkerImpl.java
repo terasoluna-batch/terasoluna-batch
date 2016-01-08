@@ -100,22 +100,22 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             JobControlFinder jobControlFinder,
             BLogicParamConverter blogicParamConverter,
             BLogicExecutor blogicExecutor, JobStatusChanger jobStatusChanger) {
-        Assert.notNull(blogicResolver, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(blogicResolver, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "BLogicResolver"));
         Assert.notNull(blogicExceptionHandlerResolver, LOGGER.getLogMessage(
-                LogId.EAL025089, this.getClass().getSimpleName(),
+                LogId.EAL025056, this.getClass().getSimpleName(),
                 "BLogicExceptionHandlerResolver"));
         Assert.notNull(blogicApplicationContextResolver, LOGGER.getLogMessage(
-                LogId.EAL025089, this.getClass().getSimpleName(),
+                LogId.EAL025056, this.getClass().getSimpleName(),
                 "ApplicationContextResolver"));
-        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(jobControlFinder, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "JobControlFinder"));
         Assert.notNull(blogicParamConverter, LOGGER.getLogMessage(
-                LogId.EAL025089, this.getClass().getSimpleName(),
+                LogId.EAL025056, this.getClass().getSimpleName(),
                 "BLogicParamConverter"));
-        Assert.notNull(blogicExecutor, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(blogicExecutor, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "BLogicExecutor"));
-        Assert.notNull(jobStatusChanger, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(jobStatusChanger, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "JobStatusChanger"));
 
         this.blogicResolver = blogicResolver;
@@ -137,18 +137,8 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * @return 前処理の処理結果(falseならば主処理の実行を中断する)
      */
     protected boolean beforeExecute(final String jobSequenceId) {
-        try {
-            boolean updated = jobStatusChanger
-                    .changeToStartStatus(jobSequenceId);
-            if (!updated) {
-                LOGGER.info(LogId.IAL025010, jobSequenceId);
-            }
-            return updated;
-        } catch (Exception e) {
-            LOGGER.info(LogId.IAL025010, e, jobSequenceId);
-        }
-        // ステータス更新に失敗ているのでfalseで終了
-        return false;
+        boolean updated = jobStatusChanger.changeToStartStatus(jobSequenceId);
+        return updated;
     }
 
     /**
@@ -164,7 +154,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     public void executeWorker(final String jobSequenceId) {
 
         if (!beforeExecute(jobSequenceId)) {
-            LOGGER.info(LogId.IAL025022, jobSequenceId);
+            LOGGER.info(LogId.IAL025021, jobSequenceId);
             return;
         }
 
@@ -190,17 +180,17 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             }
             if (blogicExceptionHandler == null) {
                 // ExceptionHandlerがない場合でも処理を継続する
-                LOGGER.warn(LogId.WAL025014);
+                LOGGER.warn(LogId.WAL025010);
             }
 
             try {
                 blogicResult = blogicExecutor.execute(blogicContext, blogic,
                         blogicParam, blogicExceptionHandler);
             } catch (Exception e) {
-                LOGGER.error(LogId.EAL025093, e, jobSequenceId);
+                LOGGER.error(LogId.EAL025059, e, jobSequenceId);
             }
         } catch (Exception e) {
-            LOGGER.error(LogId.EAL025068, e, jobSequenceId);
+            LOGGER.error(LogId.EAL025055, e, jobSequenceId);
         } finally {
             afterExecuteWorker(jobSequenceId, blogicResult);
             blogicApplicationContextResolver

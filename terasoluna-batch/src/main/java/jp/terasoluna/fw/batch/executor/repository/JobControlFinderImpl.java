@@ -56,7 +56,7 @@ public class JobControlFinderImpl implements JobControlFinder {
      * コンストラクタ。
      */
     public JobControlFinderImpl(SystemDao systemDao) {
-        Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025089, this
+        Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025056, this
                 .getClass().getSimpleName(), "SystemDao"));
         this.systemDao = systemDao;
     }

@@ -19,7 +19,6 @@ package jp.terasoluna.fw.batch.executor;
 import java.util.concurrent.TimeUnit;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.aopalliance.intercept.MethodInterceptor;
@@ -106,7 +105,7 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
                 cause = e;
 
                 if (retryCount >= maxRetryCount) {
-                    LOGGER.error(LogId.EAL025097, cause, maxRetryCount);
+                    LOGGER.error(LogId.EAL025063, cause, maxRetryCount);
                     break;
                 }
 
@@ -114,9 +113,6 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
                 retryCount++;
                 LOGGER.info(LogId.IAL025017, retryCount, maxRetryCount,
                         retryReset, retryInterval);
-                if (LOGGER.isTraceEnabled()) {
-                    LOGGER.trace(LogId.TAL025010, BatchUtil.getMemoryInfo());
-                }
             }
         }
         if (cause != null) {

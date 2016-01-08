@@ -16,19 +16,29 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import org.junit.Before;
-import org.junit.Test;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-
-import static java.util.Arrays.asList;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 /**
  * {@code AsyncJobOperatorImpl}のテストケース。<br>
@@ -43,7 +53,7 @@ public class AsyncJobOperatorImplTest {
 
     protected AsyncBatchStopper asyncBatchStopper;
 
-    private static final TestLogger logger =
+    private final TestLogger logger =
             TestLoggerFactory.getTestLogger(AsyncJobOperatorImpl.class);
 
     /**
@@ -77,7 +87,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl requires to set JobControlFinder. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobOperatorImpl requires to set JobControlFinder. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -103,7 +113,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl requires to set AsyncJobLauncher. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobOperatorImpl requires to set AsyncJobLauncher. please confirm the settings.",
                     e.getMessage());
         }
     }
@@ -129,7 +139,7 @@ public class AsyncJobOperatorImplTest {
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(
-                    "[EAL025089] [Assertion failed] - AsyncJobOperatorImpl requires to set AsyncBatchStopper. please confirm the settings.",
+                    "[EAL025056] [Assertion failed] - AsyncJobOperatorImpl requires to set AsyncBatchStopper. please confirm the settings.",
                     e.getMessage());
         }
     }

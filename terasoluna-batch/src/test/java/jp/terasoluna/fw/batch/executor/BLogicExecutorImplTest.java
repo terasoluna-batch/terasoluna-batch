@@ -166,7 +166,7 @@ public class BLogicExecutorImplTest {
         assertEquals(255, result.getBlogicStatus());
         assertEquals(re, result.getBlogicThrowable());
         assertThat(logger.getLoggingEvents(), is(asList(error(re,
-                "[EAL025090] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
+                "[EAL025057] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
     }
 
     /**
@@ -194,7 +194,7 @@ public class BLogicExecutorImplTest {
         assertEquals(255, result.getBlogicStatus());
         assertEquals(er, result.getBlogicThrowable());
         assertThat(logger.getLoggingEvents(), is(asList(error(er,
-                "[EAL025090] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
+                "[EAL025057] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
     }
 
 }

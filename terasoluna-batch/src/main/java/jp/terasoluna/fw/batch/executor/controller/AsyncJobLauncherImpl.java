@@ -103,9 +103,9 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
             AsyncJobWorker asyncJobWorker) {
 
         Assert.notNull(threadPoolTaskExecutor, LOGGER.getLogMessage(
-                LogId.EAL025089, this.getClass().getSimpleName(),
+                LogId.EAL025056, this.getClass().getSimpleName(),
                 "ThreadPoolTaskExecutor"));
-        Assert.notNull(asyncJobWorker, LOGGER.getLogMessage(LogId.EAL025089,
+        Assert.notNull(asyncJobWorker, LOGGER.getLogMessage(LogId.EAL025056,
                 this.getClass().getSimpleName(), "AsyncJobWorker"));
 
         this.threadPoolTaskExecutor = threadPoolTaskExecutor;
@@ -160,7 +160,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                 threadPoolTaskExecutor.getThreadPoolExecutor();
         threadPoolExecutor.shutdown();
         while (!terminated(threadPoolExecutor)) {
-            LOGGER.info(LogId.IAL025021);
+            LOGGER.info(LogId.IAL025020);
         }
     }
 
@@ -190,11 +190,11 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     public void afterPropertiesSet() throws Exception {
 
         Assert.state(executorJobTerminateWaitIntervalTime > 0, LOGGER
-                .getLogMessage(LogId.EAL025089, this.getClass().getSimpleName(),
+                .getLogMessage(LogId.EAL025056, this.getClass().getSimpleName(),
                         "executor.jobTerminateWaitInterval"));
 
         int maxPoolSize = threadPoolTaskExecutor.getMaxPoolSize();
-        LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
+        LOGGER.debug(LogId.DAL025054, maxPoolSize, fair);
         taskPoolLimit = new Semaphore(maxPoolSize, fair);
     }
 }

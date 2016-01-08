@@ -45,7 +45,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
      * ビジネスロジックで例外が発生した場合は、以下を行う。
      * <ul>
      * <li>例外ハンドラが指定されていれば例外処理を委譲し、その結果を返却値{@code BLogicResult}のステータスに設定する。<br>
-     *     指定されていなければ発生した例外のログ出力のみを行う。ステータスは設定しない。</li>
+     * 指定されていなければ発生した例外のログ出力のみを行う。ステータスは設定しない。</li>
      * <li>返却値{@code BLogicResult}に発生した例外を設定する。</li>
      * </ul>
      * </p>
@@ -66,7 +66,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
                 result.setBlogicStatus(exceptionHandler
                         .handleThrowableException(th));
             } else {
-                LOGGER.error(LogId.EAL025090, th);
+                LOGGER.error(LogId.EAL025057, th);
             }
         }
         return result;
