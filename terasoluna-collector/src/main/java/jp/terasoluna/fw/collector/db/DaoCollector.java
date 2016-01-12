@@ -50,9 +50,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     protected String methodName = null;
 
     /** QueueingResultHandlerインスタンス */
+    @SuppressWarnings("rawtypes")
     protected QueueingResultHandler resultHandler = null;
 
     /** QueueingResultHandlerのクラス型 */
+    @SuppressWarnings("rawtypes")
     protected Class<? extends QueueingResultHandler> queueingResultHandlerClass = QueueingResultHandlerImpl.class;
 
     /** DaoCollector前後処理 */
@@ -287,6 +289,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * getResultHandlerメソッド.
      * @return QueueingResultHandler
      */
+    @SuppressWarnings("rawtypes")
     protected QueueingResultHandler getResultHandler() {
         QueueingResultHandler resultHandler = null;
 

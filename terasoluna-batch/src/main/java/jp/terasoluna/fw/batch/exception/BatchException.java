@@ -24,6 +24,7 @@ import jp.terasoluna.fw.batch.util.MessageUtil;
  * <br>
  * バッチ実行時に発生した例外情報を保持する。
  */
+@SuppressWarnings("deprecation")
 public class BatchException extends RuntimeException {
 
     /**

@@ -99,7 +99,7 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.resultHandler = new QueueingResultHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl<UserBean>();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -132,7 +132,7 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.resultHandler = new QueueingResultHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl<UserBean>();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -165,7 +165,7 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.resultHandler = new QueueingResultHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl<UserBean>();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -198,7 +198,7 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.resultHandler = new QueueingResultHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl<UserBean>();
     	Integer returncode = new Integer(99);
     	
     	// Call実行

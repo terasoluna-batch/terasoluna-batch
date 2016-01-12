@@ -100,6 +100,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * テストの実行環境により、期待値となるシステム時刻と 実行結果時刻で取得の時の誤差が生じることがあるため、 結果確認ではテスト対象の内容と誤差が1秒未満としている。<br>
      * @throws Exception 例外
      */
+    @SuppressWarnings("deprecation")
     @Test
     public void testGetSystemTime01() throws Exception {
         // 入力値の設定
