@@ -31,17 +31,13 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * 業務コンテキストのキャッシュと、業務コンテキストの親として共通コンテキストを
- * 指定可能にする{@code BLogicApplicationContextResolver}実装。
- * 非同期バッチ起動を行い同じジョブを繰り返し実行する場合、業務コンテキストのキャッシュによる性能向上が見込まれる。
+ * DIコンテナのキャッシュを実現する{@code ApplicationContextResolver}実装。
+ * 非同期バッチ起動を行い同じジョブを繰り返し実行する場合、DIコンテナのキャッシュによる性能向上が見込まれる。
  * <p>
- * 本機能ではSpring Cache Abstractionを用い、コンテナ内部でジョブ業務コードをキーとした
- * 業務コンテキストのキャッシュを行う。
- * 本機能によるキャッシュの対象となるのは業務コンテキストのみであり、
- * システム用アプリケーションコンテキストの生成はSpring のDIコンテナを利用しないため、
- * キャッシュ対象とならない。
+ * 本クラスではSpring Cache Abstractionを用いて、ジョブ業務コードをキーとしたDIコンテナのキャッシュを行う。
+ * キャッシュの対象となるのはジョブBean定義ファイルにもとづいたDIコンテナのみであり、システム用アプリケーションコンテキストは対象としない。
  *
- * 業務コンテキストのキャッシュを使用するためには、Bean定義ファイル内に
+ * DIコンテナのキャッシュを使用するためには、Bean定義ファイル内に
  * {@code <cache:annotation-driven/>}の指定と、{@code CacheManager}の定義・インジェクションが必要となる。
  * </p>
  * <p>
@@ -61,14 +57,14 @@ import java.util.Map;
  *     &lt;property name=&quot;caches&quot;&gt;
  *       &lt;set&gt;
  *         &lt;bean class=&quot;org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean&quot;&gt;
- *           &lt;!-- 業務コンテキストのキャッシュ名はbusinessContext固定 --&gt;
+ *           &lt;!-- DIコンテナのキャッシュ名はbusinessContext固定 --&gt;
  *           &lt;property name=&quot;name&quot; value=&quot;businessContext&quot;/&gt;
  *         &lt;/bean&gt;
  *       &lt;/set&gt;
  *     &lt;/property&gt;
  *   &lt;/bean&gt;
  *   &lt;bean id=&quot;blogicContextResolver&quot; class=&quot;jp.terasoluna.fw.batch.executor.CacheableApplicationContextResolverImpl&quot;&gt;
- *     &lt;!-- 共通コンテキストを業務コンテキストの親とする場合、commonContextClassPathでBean定義ファイルのクラスパスを記述する。(複数指定時はカンマ区切り) --&gt;
+ *     &lt;!-- 共通コンテキストをDIコンテナの親とする場合、commonContextClassPathでBean定義ファイルのクラスパスを記述する。(複数指定時はカンマ区切り) --&gt;
  *     &lt;property name=&quot;commonContextClassPath&quot; value=&quot;beansDef/commonContext.xml,beansDef/dataSource.xml&quot;/&gt;
  *     &lt;!-- cacheManagerのsetter-injection --&gt;
  *     &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot;/&gt;
@@ -82,12 +78,10 @@ import java.util.Map;
  * 変更することはできない。
  * 既にSpring Cache Abstractionの{@code ConcurrentMapCacheFactoryBean}による
  * ローカルキャッシュを使用している場合、{@code cacheManager}のBean定義にbusinessContextのキャッシュ領域を追加し、
- * {@code cacheManager}をインジェクションすることで本機能による業務コンテキストのキャッシュと併用可能となる。
+ * {@code cacheManager}をインジェクションすることで本機能によるDIコンテナのキャッシュと併用可能となる。
  *
- * また、{@code BLogicApplicationContextResolver}ではフレームワークにより
- * {@code closeApplicationContext()}メソッドによるコンテキストのクローズが行われるが、
- * {@code cacheManager}をインジェクションしている場合、
- * キャッシュ対象の業務コンテキストとしてクローズがスキップされる。
+ * また、{@code closeApplicationContext()}メソッドではキャッシュ対象のDIコンテナのクローズはスキップし、
+ * {@code #destroy()}メソッドで一括でクローズする。
  * </p>
  * @since 3.6
  */
@@ -102,17 +96,17 @@ public class CacheableApplicationContextResolverImpl
             CacheableApplicationContextResolverImpl.class);
 
     /**
-     * 業務コンテキストキャッシュを管理するキャッシュマネージャー
+     * DIコンテナキャッシュを管理するキャッシュマネージャー
      */
     protected CacheManager cacheManager;
 
     /**
-     * キャッシュ対象となる業務コンテキストのキャッシュキー
+     * キャッシュ対象となるDIコンテナのキャッシュキー
      */
     public static final String BLOGIC_CONTEXT_CACHE_KEY = "businessContext";
 
     /**
-     * 業務コンテキストのキャッシュを保持するキャッシュマネージャを設定する。
+     * DIコンテナのキャッシュを保持するキャッシュマネージャを設定する。
      *
      * @param cacheManager キャッシュマネージャ
      */
@@ -123,13 +117,13 @@ public class CacheableApplicationContextResolverImpl
     /**
      * {@inheritDoc}
      *
-     * ジョブ業務コードをキーとして、キャッシュ済みの業務コンテキストを返却する。
+     * ジョブ業務コードをキーとして、キャッシュ済みのDIコンテナを返却する。
      *
-     * キャッシュが行われていない場合、親クラスによる業務コンテキスト取得メソッドが呼び出される。<br>
+     * キャッシュが行われていない場合、親クラスによるDIコンテナ取得メソッドが呼び出される。<br>
      * 本クラスのプロパティに{@code CacheManager}が指定されていない場合キャッシュは行われず、
-     * メソッド呼び出しの都度業務コンテキストが生成される。
+     * メソッド呼び出しの都度DIコンテナが生成される。
      *
-     * @param batchJobData ジョブ実行時のパラメータ（ジョブ業務コード jobAppCdがキャッシュキーとなる）
+     * @param batchJobData ジョブ実行時のパラメータ（ジョブ業務コード{@code BatchJobData.jobAppCd}がキャッシュキーとなる）
      */
     @Override
     @Cacheable(value = BLOGIC_CONTEXT_CACHE_KEY, key = "#batchJobData.jobAppCd")
@@ -148,7 +142,7 @@ public class CacheableApplicationContextResolverImpl
      */
     @Override
     public void closeApplicationContext(ApplicationContext applicationContext) {
-        // キャッシュされた業務コンテキストをクローズしない。
+        // キャッシュされたDIコンテナをクローズしない。
     }
 
     /**
@@ -165,18 +159,18 @@ public class CacheableApplicationContextResolverImpl
 
     /**
      * 本インスタンス破棄時、共有コンテキスト及びキャッシュとして保持されている
-     * 業務コンテキストの破棄を行う。
+     * DIコンテナの破棄を行う。
      */
     @Override
     public void destroy() {
         destroyCachedContext();
         // 子コンテキストを破棄しても親コンテキストは破棄されないため、
-        // 業務コンテキスト破棄の後で親である共通コンテキストの破棄を行う。
+        // DIコンテナ破棄の後で親である共通コンテキストの破棄を行う。
         super.destroy();
     }
 
     /**
-     * キャッシュされた業務コンテキストの破棄とキャッシュ自身の破棄を行う。
+     * キャッシュされたDIコンテナの破棄とキャッシュ自身の破棄を行う。
      */
     protected void destroyCachedContext() {
         Cache cache = this.cacheManager.getCache(BLOGIC_CONTEXT_CACHE_KEY);
@@ -191,7 +185,7 @@ public class CacheableApplicationContextResolverImpl
     }
 
     /**
-     * 業務コンテキストがキャッシュ可能であるかを判定する。
+     * DIコンテナがキャッシュ可能であるかを判定する。
      *
      * @return キャッシュ可能ならばtrue、キャッシュ機能を使用していないためキャッシュ不可能ならばfalse
      */

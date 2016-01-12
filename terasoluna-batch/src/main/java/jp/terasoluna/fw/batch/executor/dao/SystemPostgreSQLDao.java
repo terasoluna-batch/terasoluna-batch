@@ -18,6 +18,8 @@ package jp.terasoluna.fw.batch.executor.dao;
 
 /**
  * フレームワークから使用されるDAO。（PostgreSQL用）
+ * 
+ * 本インタフェースの実装クラスは、{@code mybatis-spring}によって生成される。
  */
 public interface SystemPostgreSQLDao extends SystemDao {
 }

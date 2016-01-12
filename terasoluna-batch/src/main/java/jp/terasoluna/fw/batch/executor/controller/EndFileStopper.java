@@ -26,11 +26,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
 
 /**
- * 非同期バッチ起動プロセスの終了判定。<br>
+ * 非同期バッチ起動プロセスの終了判定を行う実装クラス。<br>
  * <p>
- * 終了ファイルの有無を利用して非同期バッチ起動プロセスの終了判定を行う
+ * 終了ファイルの有無によって、非同期バッチ起動プロセスを終了するかどうか判定する。<br>
+ * 終了ファイルのパスはプロパティファイルの{@code executor.endMonitoringFile}にて指定する。
  * </p>
- * @see jp.terasoluna.fw.batch.executor.controller.AsyncBatchStopper
+ * 
  * @since 3.6
  */
 public class EndFileStopper implements AsyncBatchStopper, InitializingBean {

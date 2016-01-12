@@ -21,7 +21,7 @@ import org.kohsuke.args4j.Argument;
 import java.sql.Timestamp;
 
 /**
- * ジョブ実行時のパラメータ。<br>
+ * 実行対象ジョブの情報。<br>
  */
 public class BatchJobData {
     /**

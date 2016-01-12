@@ -33,11 +33,15 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * ジョブシーケンスコードで決定されワーカスレッド内の処理を定義する実装クラス<br>
+ * ジョブシーケンスコードにもとづいたジョブを、ワーカスレッドで実行する実装クラス<br>
  * <p>
- * 前処理となる{@code beforeExecute}は実行された結果、{@code false}が返却された場合、 もしくは、{@code Exception}がスローされた場合、主処理である{@code executeWorker}
- * は実行されないよう、本機能の呼び出し元で実装すること。<br>
- * また、本機能はワーカスレッド（非同期ジョブを実行するスレッド）上で動作することを想定している。
+ * 本クラスは、以下の3ステップに処理を分割している。
+ * <ol>
+ * <li>{@code #beforeExecute}:前処理。ジョブステータスを「実行中：1」に変更する</li>
+ * <li>{@code #executeWorker}:主処理。BLogicを実行する。</li>
+ * <li>{@code #afterExecuteWorker}:後処理。ジョブステータスを「処理済み：2」に変更する</li>
+ * </ol>
+ * それぞれ、前処理と後処理は、主処理のメソッドからそれぞれ呼び出される。
  * </p>
  * @since 3.6
  */
@@ -85,7 +89,8 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     protected BLogicExecutor blogicExecutor;
 
     /**
-     * AsyncJobWorkerImplのコンストラクタ<br>
+     * AsyncJobWorkerImplのコンストラクタ
+     * 
      * @param blogicResolver BLogicのインスタンスを取得するためのBLogicResolverオブジェクト
      * @param blogicExceptionHandlerResolver BLogic用の例外ハンドラのインスタンスを取得するためのBLogicExceptionHandlerResolverオブジェクト
      * @param blogicApplicationContextResolver ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのBLogicApplicationContextResolverオブジェクト
@@ -131,10 +136,9 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * ジョブシーケンスコードに該当するジョブの前処理を行う<br>
      * <p>
      * ジョブシーケンスコードに該当するレコードのジョブステータスを「実行中：１」に変更する。
-     * 尚、このメソッドはワーカスレッド（非同期ジョブを実行するスレッド）で実行すること。
      * </p>
      * @param jobSequenceId ジョブシーケンスコード
-     * @return 前処理の処理結果(falseならば主処理の実行を中断する)
+     * @return 前処理の処理結果(true:更新成功、false:更新失敗)
      */
     protected boolean beforeExecute(final String jobSequenceId) {
         boolean updated = jobStatusChanger.changeToStartStatus(jobSequenceId);
@@ -144,9 +148,12 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     /**
      * ジョブシーケンスコードに該当するジョブの主処理を行う<br>
      * <p>
-     * ジョブシーケンスコードに該当するBatchJobDataを取得後、ジョブ業務コード（jobAppCd）からBLogic、BLogicParam、例外ハンドラのそれぞれのインスタンスを取得し、
-     * BLogicExecutorにBLogicの実行を移譲する。BLogicの実行後、ジョブシーケンスコードに該当するレコードのジョブステータスを 「処理済み：2」に変更する。<br>
-     * 尚、このメソッドは、ワーカスレッド（非同期ジョブを実行するスレッド）で実行すること。
+     * <ul>
+     * <li>{@code #beforeExecute}を呼び出す</li>
+     * <li>ジョブシーケンスコードに該当するBatchJobDataを取得後、ジョブ業務コード（jobAppCd）からBLogic、BLogicParam、例外ハンドラのそれぞれのインスタンスを取得し、
+     * BLogicExecutorにBLogicの実行を移譲する。</li>
+     * <li>{@code #afterExecuteWorker}を呼び出す。</li>
+     * </ul>
      * </p>
      * @param jobSequenceId ジョブシーケンスコード
      */

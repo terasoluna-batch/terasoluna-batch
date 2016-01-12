@@ -17,18 +17,17 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 /**
- * ジョブの実行を管理するためのインタフェース。<br>
- * プロセスの起動直後に呼び出されるエントリポイントとなる。<br>
+ * ジョブの実行における、DIコンテナ上のエントリポイントとなるインタフェース。<br>
  *
  * @since 3.6
  */
 public interface JobOperator {
 
     /**
-     * ジョブを開始し、実行管理を行う。<br>
+     * ジョブを起動する。<br>
      *
      * @param args 起動時引数
-     * @return プロセス終了ステータス
+     * @return 終了ステータスコード
      */
     int start(String[] args);
 }

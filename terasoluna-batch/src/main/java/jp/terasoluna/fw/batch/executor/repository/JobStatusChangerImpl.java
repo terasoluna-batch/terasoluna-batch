@@ -65,7 +65,6 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
     /**
      * {@inheritDoc}
-     * この実装では、引数のNULLチェックを行わないため呼出し側でチェックする必要がある。<br>
      */
     @Override
     public boolean changeToStartStatus(String jobSequenceId) {
@@ -96,7 +95,6 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
     /**
      * {@inheritDoc}
-     * この実装では、引数のNULLチェックを行わないため呼出し側でチェックする必要がある。<br>
      */
     @Override
     public boolean changeToEndStatus(String jobSequenceId,

@@ -35,14 +35,16 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.util.Assert;
 
 /**
- * 業務用DIコンテナの生成を行う。<br>
- * 本クラスで生成される業務用DIコンテナの親をsetterインジェクションを用い
- * Bean定義ファイルパスとして指定することができる。<br>
- * 親コンテナは本クラスの初期化時にロード・生成の後フィールドに保持されるため、
- * ライフサイクルはシステム用アプリケーションコンテキスト内で
- * 管理される本クラスのスコープ指定と同一となる。
+ * DIコンテナの生成を行う。<br>
+ * 本クラスでは、生成するDIコンテナの親コンテナを設定することができる。
+ * 設定方法は、Bean定義ファイルの{@code commonContextClassPath}要素にて、1つまたはカンマ区切りで複数指定することができる。
  * <p>
- * 業務用DIコンテナのBean定義ファイルが格納されるクラスパス直下から
+ * 親コンテナは本クラスの初期化時にロード・生成の後フィールドに保持されるため、本クラスが{@code singleton}スコープならば、親コンテナも{@code singleton}スコープとなる。
+ * また、本クラスはデフォルトではシステム用アプリケーションコンテキストのBean定義ファイル（AdminContext.xml）に定義するため、親コンテナは
+ * 同期型ジョブ実行ならばジョブの起動時に1回、非同期型ジョブ実行ならば常駐プロセス起動時に1回、生成される。
+ * </p>
+ * <p>
+ * DIコンテナのBean定義ファイルが格納されるクラスパス直下から
  * Bean定義ファイルの格納ディレクトリまでのパスとして{@code batch.properties}の
  * プロパティ{@code beanDefinition.business.classpath}の値を記述しておくこと。<br>
  * 指定がない場合、Bean定義ファイルパスはクラスパス直下にファイルが
@@ -65,13 +67,10 @@ import org.springframework.util.Assert;
  * </pre></code>
  * </p>
  * <p>
- * 配置ディレクトリはプロパティファイル経由で指定するが、ディレクトリパスに対して
- * ${jobAppCd}のように${}内にBatchJobDataのプロパティの名前を埋め込むことで、
+ * 配置ディレクトリはプロパティファイル経由で指定するが、ディレクトリパスに対して${jobAppCd}のように${}内にBatchJobDataのプロパティの名前を埋め込むことで、
  * {@code BatchJobData}のプロパティの値に置換される。<br>
- * これを利用してジョブ単位に業務用DIコンテナのBean定義ファイルの配置ディレクトリを
- * ジョブ毎の業務用Bean定義ファイルのパスとして分割することができる。<br>
- * なお、業務用DIコンテナのBean定義ファイル名は「ジョブ業務コード({@code jobAppCode})
- * + &quot;.xml&quot;」というファイル名が固定で使用される。
+ * これを利用してジョブ単位にDIコンテナのBean定義ファイルの配置ディレクトリをジョブ毎の業務用Bean定義ファイルのパスとして分割することができる。<br>
+ * なお、DIコンテナのBean定義ファイル名は「ジョブ業務コード({@code jobAppCode}) + &quot;.xml&quot;」というファイル名が固定で使用される。
  * </p>
  *
  * @since 3.6
@@ -87,7 +86,7 @@ public class ApplicationContextResolverImpl
             .getLogger(ApplicationContextResolverImpl.class);
 
     /**
-     * 業務用DIコンテナの親として使用されるDIコンテナ。<br>
+     * DIコンテナの親コンテナ。<br>
      */
     protected ApplicationContext parent;
 
@@ -173,11 +172,12 @@ public class ApplicationContextResolverImpl
     }
 
     /**
-     * 業務用DIコンテナとなるアプリケーションコンテキストを取得する。<br>
-     * 親コンテナが指定されている場合は、業務用DIコンテナの親としてコンテナが生成される。<br>
+     * DIコンテナを生成して返却する。<br>
+     * 親コンテナがあらかじめ指定されている場合は、指定されたジョブパラメータに従ってコンテナを生成する際に、親コンテナを設定して生成する。<br>
+     * 親コンテナが指定されていない場合は、親コンテナを設定せずに生成する。<br>
      *
      * @param batchJobData ジョブパラメータ
-     * @return 業務用DIコンテナ
+     * @return DIコンテナ
      */
     @Override
     public ApplicationContext resolveApplicationContext(
@@ -259,8 +259,8 @@ public class ApplicationContextResolverImpl
     }
 
     /**
-     * 業務用DIコンテナをクローズする。<br>
-     * 親コンテナは本メソッドではクローズされない点に注意すること。<br>
+     * DIコンテナをクローズする。<br>
+     * 親コンテナは本メソッドではクローズされない。親コンテナをクローズする場合は{@code #destroy()}を呼ぶこと。<br>
      *
      * @param applicationContext 業務用Bean定義のアプリケーションコンテキスト
      */
@@ -274,8 +274,8 @@ public class ApplicationContextResolverImpl
     }
 
     /**
-     * 共有コンテキストのクラスパスがプロパティとして設定されている時、
-     * Bean初期化処理として業務コンテキストの親コンテキストを指定する。
+     * 共通コンテキストのクラスパスがプロパティとして設定されている時、
+     * Bean初期化処理として親コンテナを生成して保持する。
      */
     @Override
     public void afterPropertiesSet() {
@@ -295,7 +295,7 @@ public class ApplicationContextResolverImpl
     }
 
     /**
-     * DIコンテナの破棄時、フィールドで保持されている共有コンテナの破棄を行う。
+     * DIコンテナの破棄時、フィールドで保持されている親コンテナの破棄を行う。
      */
     @Override
     public void destroy() {

@@ -35,22 +35,17 @@ import java.util.concurrent.TimeUnit;
  * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。
  * 本機能を利用するにはワーカスレッド処理{@code AsyncJobWorker}のBean定義が必要となる。
  * 以下は{@code AsyncJobLauncher}と、非同期ジョブの多重度を決定する{@code ThreadPoolTaskExecutor}のBean定義の設定例である。
- * <code><pre>
- * &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
- *     &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
- *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;asyncJobWorker&quot;/&gt;
- * &lt;/bean&gt;
- * &lt;bean id=&quot;threadPoolTaskExecutor&quot; class=&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt;
- *     &lt;property name=&quot;corePoolSize&quot; value=&quot;4&quot;/&gt;   ←コアプールサイズ
- *     &lt;property name=&quot;maxPoolSize&quot; value=&quot;4&quot;/&gt;    ←最大プールサイズ
- *     &lt;property name=&quot;queueCapacity&quot; value=&quot;4&quot;/&gt;  ←キューサイズの上限
- * &lt;/bean&gt;
- * </pre></code> {@code ThreadPoolTaskExecutor}のBean定義を利用した多重度の設定では以下の制約に留意すること。
- * <ol>
- * <li>コアプールサイズ(corePoolSize)と最大プールサイズ(maxPoolSize)はそれぞれ定義可能だが 本機能では同数を設定すること</li>
- * <li>キューサイズの上限値は最大プールサイズ未満の値を設定しないこと （無設定時は{@code Integer.MAX_VALUE}が上限となる）</li>
- * </ol>
- * 最大プールサイズ及びキューサイズの詳細は{@code ThreadPoolExecutor}の APIドキュメントを参照のこと。
+ * 
+ * <pre>{@code 
+ * <task:executor id="batchTaskExecutor" pool-size="10-10" queue-capacity="10" />
+ * 
+ * <bean id="asyncJobLauncher" class="jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl">
+ *   <constructor-arg index="0" ref="batchTaskExecutor" />
+ *   <constructor-arg index="1" ref="asyncJobWorker" />
+ * </bean>
+ * }</pre>
+ * 
+ * プールサイズ及びキューサイズの詳細は{@code ThreadPoolExecutor}の APIドキュメントを参照のこと。
  * 最大プールサイズ以上のジョブ実行が行われた場合はスレッドプールに空きが生じるまで待ち状態となるが、
  * この待ち状態が公平性（先入れ-先出し） を保ったまま解決されるかを{@code fair}プロパティで設定することができる。
  * （デフォルトは公平性あり：{@code true}であり、DIコンテナの起動後の変更は無効。）
@@ -165,7 +160,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     }
 
     /**
-     * スレッドプールのシャットダウン完了を指定時間以内に完了したらtrueを返却する。
+     * スレッドプールのシャットダウン完了が、プロパティファイルで設定された時間以内に完了したらtrueを返却する。
      * 完了待ち状態で割り込みが発生した場合、falseを返却する。
      *
      * @param threadPoolExecutor スレッドプール
