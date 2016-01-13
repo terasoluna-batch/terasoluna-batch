@@ -291,7 +291,7 @@
                     <encoding>${encoding}</encoding>
                     <bottom>
                         <![CDATA[
-            Copyright &copy; 2015 NTT DATA Corporation.
+            Copyright &copy; 2016 NTT DATA Corporation.
             ]]>
                     </bottom>
                     <show>private</show>
