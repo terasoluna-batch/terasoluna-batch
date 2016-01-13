@@ -18,6 +18,7 @@ package jp.terasoluna.fw.batch.blogic;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -73,8 +74,9 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
         int status = PROCESS_END_STATUS_FAILURE;
         ApplicationContext ctx = getApplicationContext();
 
-        this.transactionManagerMap = ctx
-                .getBeansOfType(PlatformTransactionManager.class);
+        this.transactionManagerMap = BeanFactoryUtils
+                .beansOfTypeIncludingAncestors(ctx,
+                        PlatformTransactionManager.class);
 
         // トランザクション開始
         this.transactionStatusMap = startTransactions(this.transactionManagerMap);
