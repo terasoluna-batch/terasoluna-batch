@@ -478,7 +478,7 @@ sp_cleanup.organize_imports=true
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <!-- 依存性関連のレポートは逐次jarのアップデートをセントラルサーバまで確認してしまうため、indexのみ出力とする。-->
+                            <!-- 依存性関連のレポートは逐次jarのアップデートをセントラルサーバまで確認してしまうため、indexのみ出力とする。 -->
                             <report>index</report>
                         </reports>
                     </reportSet>
