@@ -35,11 +35,13 @@ public class BatchException extends RuntimeException {
     /**
      * メッセージID
      */
+    @Deprecated
     private String messageId = null;
 
     /**
      * 例外情報特定のためのパラメータ
      */
+    @Deprecated
     private Object[] params = null;
 
     /**
@@ -78,7 +80,10 @@ public class BatchException extends RuntimeException {
      * BatchExceptionを生成する
      * @param messageId エラーコード
      * @param message エラーメッセージ
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String)}
      */
+    @Deprecated
     public BatchException(String messageId, String message) {
         super(message);
 
@@ -90,7 +95,10 @@ public class BatchException extends RuntimeException {
      * @param messageId メッセージID
      * @param message エラーメッセージ
      * @param cause 原因となった例外
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String, Throwable)}
      */
+    @Deprecated
     public BatchException(String messageId, String message, Throwable cause) {
         super(message, cause);
 
@@ -102,7 +110,10 @@ public class BatchException extends RuntimeException {
      * @param messageId メッセージID
      * @param message エラーメッセージ
      * @param params 例外情報特定のためのパラメータ
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String)}
      */
+    @Deprecated
     public BatchException(String messageId, String message, Object... params) {
         super(message);
 
@@ -116,7 +127,10 @@ public class BatchException extends RuntimeException {
      * @param message エラーメッセージ
      * @param cause 原因となった例外
      * @param params 例外情報特定のためのパラメータ
+     * @deprecated 例外生成時にメッセージIDを指定する本メソッドをバージョン3.6から非推奨とする。
+     *   コンストラクタ引数でエラーメッセージを直接指定すること。{@link #BatchException(String, Throwable)}
      */
+    @Deprecated
     public BatchException(String messageId, String message, Throwable cause,
             Object... params) {
         super(message, cause);
@@ -186,7 +200,9 @@ public class BatchException extends RuntimeException {
     /**
      * ログ出力用文字列作成
      * @return ログ出力用文字列
+     * @deprecated 例外生成時にメッセージIDを指定するメソッドをバージョン3.6から非推奨とするため、関連する本メソッドも非推奨とする。
      */
+    @Deprecated
     public String getLogMessage() {
 
         StringBuilder logMsg = new StringBuilder();
@@ -207,7 +223,9 @@ public class BatchException extends RuntimeException {
     /**
      * メッセージIDを取得.
      * @return the messageId
+     * @deprecated 例外生成時にメッセージIDを指定するメソッドをバージョン3.6から非推奨とするため、関連する本メソッドも非推奨とする。
      */
+    @Deprecated
     public String getMessageId() {
         return messageId;
     }
