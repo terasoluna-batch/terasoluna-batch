@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * 同期型ジョブの実行を管理するためにフレームワークが提供するデフォルトの実装クラス。<br>
+ * 同期型ジョブの起動において、DIコンテナ上のエントリポイントとなる実装クラス。<br>
  * メインスレッドでビジネスロジックを実行する。<br>
  *
  * @since 3.6

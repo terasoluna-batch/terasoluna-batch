@@ -31,7 +31,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
 
 /**
- * ビジネスロジックのインスタンス解決の実装クラス。<br>
+ * ビジネスロジックのインスタンスを解決する実装クラス。<br>
  * @since 3.6
  */
 public class BLogicResolverImpl implements BLogicResolver {

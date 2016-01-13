@@ -21,7 +21,7 @@ import java.beans.Introspector;
 import org.springframework.context.ApplicationContext;
 
 /**
- * ビジネスロジックの例外ハンドラを解決するリゾルバインタフェース。<br>
+ * ビジネスロジックの例外ハンドラを解決するリゾルバを実装するクラス。<br>
  * @since 3.6
  */
 public class BLogicExceptionHandlerResolverImpl implements

@@ -24,7 +24,7 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * 非同期型ジョブ起動機能のエントリポイント。<br>
- * TERASOLUNAフレームワークの非同期DIコンテナを作成し、{@code JobOperator}による非同期ジョブ機能の起動を行う。
+ * フレームワークのDIコンテナを作成し、{@code JobOperator}による非同期ジョブ機能の起動を行う。
  *
  * @see ApplicationContextResolver
  * @see JobOperator

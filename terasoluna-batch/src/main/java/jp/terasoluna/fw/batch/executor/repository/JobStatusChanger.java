@@ -25,7 +25,7 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 public interface JobStatusChanger {
 
     /**
-     * ジョブの実行ステータスを「実行中」に更新する。<br>
+     * ジョブの実行ステータスを「未実行」から「実行中」に更新する。<br>
      * @param jobSequenceId ジョブのシーケンスコード
      * @return 更新に成功したらtrue。<br>
      *         BatchJobDataが取得できないとき、ジョブステータスが想定外のとき、ジョブステータスの更新が正常に行えなかったときはfalse。
@@ -33,7 +33,7 @@ public interface JobStatusChanger {
     boolean changeToStartStatus(String jobSequenceId);
 
     /**
-     * ジョブの実行ステータスを「処理済み」に更新する。<br>
+     * ジョブの実行ステータスを「実行中」から「処理済み」に更新する。<br>
      * @param jobSequenceId ジョブのシーケンスコード
      * @param blogicResult ビジネスロジックの実行結果
      * @return 更新に成功したらtrue。<br>

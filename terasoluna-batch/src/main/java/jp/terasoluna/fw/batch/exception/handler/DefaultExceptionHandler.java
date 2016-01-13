@@ -26,10 +26,15 @@ import jp.terasoluna.fw.logger.TLogger;
 /**
  * 例外ハンドラのデフォルト実装.
  *
- * 例外クラスと返却するステータス値のマップ<br>
  * <p>
- * Bean定義に例外の型と対応するステータス値とのマッピングを定義することで、例外ごとに返却するステータス値を変えることができる。<br>
+ * Bean定義に、例外クラスと返却するステータス値のマッピング設定に従って、返却するステータス値を切り替える。<br>
  * マッピング設定を省略した場合は、すべての例外に対してステータス値255を返却する。<br>
+ * </p>
+ * <p>
+ * 本クラスは記述順の上から順に評価することに注意してマッピングの定義を行うこと。<br>
+ * たとえば、バッチ例外{@code BatchException}は、{@code java.lang.Exception}の子クラスであるため、
+ * 例外ハンドラマップにおいてバッチ例外よりも上に{@code java.lang.Exception}を記述すると、
+ * バッチ例外が発生した場合であっても{@code java.lang.Exception}に対するステータスが返却される。
  * </p>
  * <p>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;"><br>

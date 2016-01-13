@@ -18,6 +18,8 @@ package jp.terasoluna.fw.batch.executor.dao;
 
 /**
  * フレームワークから使用されるDAO。（ORACLE用）
+ * 
+ * 本インタフェースの実装クラスは、{@code mybatis-spring}によって生成される。
  */
 public interface SystemOracleDao extends SystemDao {
 }

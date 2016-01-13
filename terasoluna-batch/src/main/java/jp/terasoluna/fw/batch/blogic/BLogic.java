@@ -21,12 +21,13 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 /**
  * ビジネスロジックインタフェース。<br>
  * <br>
- * 任意にトランザクションを管理したい場合のBLogicインタフェースを実装すること。<br>
+ * ビジネスロジックにて任意にトランザクションを管理したい場合は、{@code BLogic}インタフェースを実装すること。<br>
  */
 public interface BLogic {
+
     /**
-     * バッチ処理実行メソッド.
-     * @param param BLogicParam
+     * ビジネスロジック実行メソッド。
+     * @param param ビジネスロジックの入力パラメータ
      * @return 終了フラグ
      */
     int execute(BLogicParam param);
