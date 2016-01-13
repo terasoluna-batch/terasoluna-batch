@@ -28,21 +28,43 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.TransactionException;
 
 /**
- * データベースアクセスで例外が発生した場合に、一定時間待ってからリトライするインターセプター実装。<br>
- * 例外発生後にデータベースに再度アクセスする際は、retryInterval(デフォルト20000ミリ秒)の間待機した後に行う。
- * リトライ回数は、最大maxRetryCount(デフォルト0回)回となる。
- * なお、リトライ処理時間がretryReset(デフォルト600000ミリ秒)経過した場合、リトライ回数はリセットされる。<br>
+ * データベースアクセスで例外が発生した場合に、一定時間待ってからリトライするインターセプター実装。
+ * <p>
+ * 例外発生後にデータベースに再度アクセスする際は、"リトライ実施前の待機時間"を経過した後に行う。<br>
+ * リトライ回数は、"最大リトライ"回数までとなる。<br>
+ * 前回のリトライから"リトライ回数リセットまでの経過時間"後、リトライ回数実施カウンタをリセットする。<br>
  * これらの設定はプロパティファイルの以下の項目で指定する。
- * <ul>
- * <li>batchTaskExecutor.dbAbnormalRetryMax</li>
- * <li>batchTaskExecutor.dbAbnormalRetryInterval</li>
- * <li>batchTaskExecutor.dbAbnormalRetryReset</li>
- * </ul>
  * 
- * また、本機能を利用するにはBean定義が必要となる。
+ * <table border>
+ * <tr>
+ * <th>プロパティ名</th>
+ * <th>説明</th>
+ * <th>デフォルト値</th>
+ * </tr>
+ * <tr>
+ * <td>batchTaskExecutor.dbAbnormalRetryMax</td>
+ * <td>最大リトライ回数</td>
+ * <td>0(回)</td>
+ * </tr>
+ * <tr>
+ * <td>batchTaskExecutor.dbAbnormalRetryInterval</td>
+ * <td>リトライ実施前の待機時間</td>
+ * <td>20000(ミリ秒)</td>
+ * </tr>
+ * <tr>
+ * <td>batchTaskExecutor.dbAbnormalRetryReset</td>
+ * <td>リトライ回数リセットまでの経過時間</td>
+ * <td>600000(ミリ秒)</td>
+ * </tr>
+ * </table>
+ * </p>
+ * <p>
+ * また、本機能を利用するにはBean定義が必要となる。<br>
  * 以下はBean定義に記述される{@code JobStatusChanger}、{@code JobControlFinder}のインタフェースで定義されたメソッドに対して
  * {@code AdminConnectionRetryInterceptor}によるコネクションリトライを行うための設定例である。
- * <pre>{@code 
+ * 
+ * <pre>
+ * {@code 
  * <bean id="adminConnectionRetryInterceptor"
  *     class="jp.terasoluna.fw.batch.executor.AdminConnectionRetryInterceptor" />
  * <aop:config>
@@ -53,15 +75,19 @@ import org.springframework.transaction.TransactionException;
  * </aop:config>
  * }
  * </pre>
+ * </p>
+ * <p>
  * 以下はリトライ対象となる例外である。
  * <ol>
  * <li>org.springframework.dao.DataAccessException</li>
  * <li>org.springframework.transaction.TransactionException</li>
  * </ol>
- * リトライによってデータベースアクセスが成功した場合は、例外をスローすることなく処理を終了する(リトライを示すINFOログは出力される)。
+ * リトライによってデータベースアクセスが成功した場合は、例外をスローすることなく処理を終了する(リトライを示すINFOログは出力される)。 
  * リトライ回数を超えたときは、最後に発生した例外をスローする。
- * なお、retryResetを短めに設定すると(たとえば、retryReset < retryIntervalのような設定をすると)、
+ * なお、"リトライ回数リセットまでの経過時間"を短めに設定すると(たとえば、"リトライ実施前の待機時間"以下のような設定をすると)、 
  * リトライ回数がすぐにリセットされてしまい例外がスローされる間スピンループしてしまう。このような設定は避けること。
+ * </p>
+ * 
  * @see org.springframework.dao.DataAccessException
  * @see org.springframework.transaction.TransactionException
  * @since 3.6
@@ -91,8 +117,8 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
 
     /**
      * 対象となる例外が発生したときにデータベース接続のリトライを実施する。
-     * リトライは、retryIntervalの間待機したのちに、最大maxRetryCount回行なう。
-     * 前回のリトライからretryResetミリ秒経過している場合は、リトライ実施回数カウンタをリセットする。
+     * リトライは、"リトライ実施前の待機時間"の後に、最大リトライ回数を上限に行なう。
+     * 前回のリトライから"リトライ回数リセットまでの経過時間"が経過している場合は、リトライ実施回数カウンタをリセットする。
      * 
      * @param invocation 処理対象となるメソッド
      * @return メソッド実行結果
