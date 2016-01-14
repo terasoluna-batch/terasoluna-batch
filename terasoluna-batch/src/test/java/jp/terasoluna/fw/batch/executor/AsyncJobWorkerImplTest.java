@@ -1002,10 +1002,9 @@ public class AsyncJobWorkerImplTest {
      */
     @Test
     public void testAfterExecuteWorker03() throws Exception {
-        when(
-                mockJobStatusChanger.changeToEndStatus(anyString(),
-                        any(BLogicResult.class))).thenThrow(
-                new RuntimeException());
+        Exception ex = new RuntimeException("for test.");
+        when(mockJobStatusChanger.changeToEndStatus(anyString(), any(
+                BLogicResult.class))).thenThrow(ex);
         BLogicResult blogicResult = new BLogicResult() {
             {
                 setBlogicStatus(1);
@@ -1025,7 +1024,7 @@ public class AsyncJobWorkerImplTest {
         verify(mockJobStatusChanger).changeToEndStatus("000001",
                 blogicResult);
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(
+        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:1"))));
     }
 

@@ -241,26 +241,18 @@ public class BatchUtil {
             TransactionDefinition tranDef, Map<?, ?> tranMap, Log log) {
         Map<String, TransactionStatus> statMap = new LinkedHashMap<String, TransactionStatus>();
 
-        Set<?> entrySet = tranMap.entrySet();
-
-        if (entrySet != null) {
-            for (Object entObj : entrySet) {
+        if (!tranMap.isEmpty()) {
+            for (Map.Entry<?, ?> ent : tranMap.entrySet()) {
                 String key = null;
                 PlatformTransactionManager ptm = null;
 
-                // マップエントリー
-                if (entObj instanceof Map.Entry) {
-                    Map.Entry<?, ?> ent = (Entry<?, ?>) entObj;
-                    if (ent != null) {
-                        // キー取り出し
-                        if (ent.getKey() instanceof String) {
-                            key = (String) ent.getKey();
-                        }
-                        // トランザクションマネージャ取り出し
-                        if (ent.getValue() instanceof PlatformTransactionManager) {
-                            ptm = (PlatformTransactionManager) ent.getValue();
-                        }
-                    }
+                // キー取り出し
+                if (ent.getKey() instanceof String) {
+                    key = (String) ent.getKey();
+                }
+                // トランザクションマネージャ取り出し
+                if (ent.getValue() instanceof PlatformTransactionManager) {
+                    ptm = (PlatformTransactionManager) ent.getValue();
                 }
 
                 if (ptm != null) {

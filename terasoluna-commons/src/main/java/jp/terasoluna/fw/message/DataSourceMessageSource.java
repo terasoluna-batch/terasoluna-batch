@@ -157,7 +157,7 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
      * @param dbMessageResourceDAO
      *            全てのメッセージリソースを取得するDAO
      */
-    public void setDbMessageResourceDAO(
+    public synchronized void setDbMessageResourceDAO(
             DBMessageResourceDAO dbMessageResourceDAO) {
         this.dbMessageResourceDAO = dbMessageResourceDAO;
     }

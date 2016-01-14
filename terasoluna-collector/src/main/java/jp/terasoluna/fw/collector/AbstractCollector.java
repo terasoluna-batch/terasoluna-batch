@@ -108,7 +108,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     protected CollectorExceptionHandler exceptionHandler = null;
 
     /** 子スレッド側インスタンス */
-    protected AbstractCollector<?> child = null;
+    protected volatile AbstractCollector<?> child = null;
 
     /**
      * AbstractCollectorを実行する。
@@ -393,7 +393,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                         LOGGER.trace(LogId.TAL041019, this.sleepWait);
                     }
                     // sleepWait ms待つ
-                    Thread.sleep(this.sleepWait);
+                    TimeUnit.MILLISECONDS.sleep(this.sleepWait);
 
                 } catch (InterruptedException e) {
                     LOGGER.warn(LogId.WAL041003, e);

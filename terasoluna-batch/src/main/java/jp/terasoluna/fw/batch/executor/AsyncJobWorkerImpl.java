@@ -226,7 +226,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
                 LOGGER.error(LogId.EAL025025, jobSequenceId, blogicStatus);
             }
         } catch (Exception e) {
-            LOGGER.error(LogId.EAL025025, jobSequenceId, blogicStatus);
+            LOGGER.error(LogId.EAL025025, e, jobSequenceId, blogicStatus);
         }
     }
 
