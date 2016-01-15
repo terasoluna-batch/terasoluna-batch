@@ -16,14 +16,14 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.annotation.JobComponent;
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
+import org.springframework.stereotype.Component;
 
 /**
  *
  */
-@JobComponent(jobId = "B000010")
+@Component("B000010")
 public class B000010 implements BLogic {
 
     /**

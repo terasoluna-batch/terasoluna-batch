@@ -17,18 +17,12 @@
 package jp.terasoluna.fw.batch.blogic;
 
 import java.beans.Introspector;
-import java.util.Map;
-import java.util.Set;
 
-import jp.terasoluna.fw.batch.annotation.JobComponent;
-import jp.terasoluna.fw.batch.annotation.util.GenericBeanFactoryAccessorEx;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
-import org.springframework.core.annotation.AnnotationUtils;
 
 /**
  * ビジネスロジックのインスタンスを解決する実装クラス。<br>
@@ -47,12 +41,6 @@ public class BLogicResolverImpl implements BLogicResolver {
     protected static final String DEFAULT_BLOGIC_BEAN_NAME_SUFFIX = "BLogic";
 
     /**
-     * JobComponentアノテーション有効化フラグ
-     */
-    @Value("${enableJobComponentAnnotation:false}")
-    protected boolean enableJobComponentAnnotation;
-
-    /**
      * 実行対象のビジネスロジックインスタンスを取得する。<br>
      * @param ctx インスタンス取得対象となるアプリケーションコンテキスト
      * @param jobAppCd ジョブ業務コード
@@ -61,12 +49,6 @@ public class BLogicResolverImpl implements BLogicResolver {
     @Override
     public BLogic resolveBLogic(ApplicationContext ctx, String jobAppCd) {
         BLogic blogic = null;
-        if (enableJobComponentAnnotation) {
-            blogic = resolveFromAnnotation(ctx, jobAppCd);
-            if (blogic != null) {
-                return blogic;
-            }
-        }
 
         String blogicBeanName = getBLogicBeanName(jobAppCd);
         // ビジネスロジックのBeanが存在するか確認
@@ -82,31 +64,6 @@ public class BLogicResolverImpl implements BLogicResolver {
             throw e;
         }
         return blogic;
-    }
-
-    /**
-     * アノテーションからビジネスロジックを取得する。<br>
-     * @param ctx インスタンス取得対象となるアプリケーションコンテキスト
-     * @param jobAppCd ジョブアプリケーションコード
-     * @return ビジネスロジック
-     */
-    protected BLogic resolveFromAnnotation(ApplicationContext ctx,
-            String jobAppCd) {
-        GenericBeanFactoryAccessorEx gbfa = new GenericBeanFactoryAccessorEx(ctx);
-        Map<String, Object> jobMap = gbfa
-                .getBeansWithAnnotation(JobComponent.class);
-        final Set<Map.Entry<String, Object>> entries = jobMap.entrySet();
-        for (Map.Entry<String, Object> entry : entries) {
-            Object obj = entry.getValue();
-            JobComponent jobComponent = AnnotationUtils.findAnnotation(obj
-                    .getClass(), JobComponent.class);
-            if (jobComponent.jobId() == null
-                    || !jobComponent.jobId().equals(jobAppCd)) {
-                continue;
-            }
-            return BLogic.class.cast(entry.getValue());
-        }
-        return null;
     }
 
     /**
