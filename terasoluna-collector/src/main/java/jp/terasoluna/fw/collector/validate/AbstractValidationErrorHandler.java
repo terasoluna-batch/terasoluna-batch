@@ -77,6 +77,7 @@ public abstract class AbstractValidationErrorHandler implements
     /**
      * {@inheritDoc}
      */
+    @Override
     public ValidateErrorStatus handleValidationError(
             DataValueObject dataValueObject, Errors errors) {
         errorFieldCount++;

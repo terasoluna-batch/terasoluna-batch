@@ -199,6 +199,6 @@ public class CacheableApplicationContextResolverImpl
             return false;
         }
         // NoOpCache使用時以外はConcurrentMapCacheとなる。
-        return (cache.getNativeCache() instanceof Map);
+        return cache.getNativeCache() instanceof Map;
     }
 }

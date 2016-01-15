@@ -170,6 +170,7 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
      * @see #cachedMergedProperties
      * 
      */
+    @Override
     public void afterPropertiesSet() {
         if (log.isDebugEnabled()) {
             log.debug("afterPropertiesSet");

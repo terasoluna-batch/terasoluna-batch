@@ -211,6 +211,7 @@ public class FixedFileLineWriter<T> extends AbstractFileLineWriter<T> {
      * 固定長ファイルは「'\u0000'」で固定。
      * @return 区切り文字
      */
+    @Override
     public char getDelimiter() {
 
         return DELIMITER;
@@ -221,6 +222,7 @@ public class FixedFileLineWriter<T> extends AbstractFileLineWriter<T> {
      * 固定長ファイルは「'\u0000'」で固定。
      * @return 囲み文字
      */
+    @Override
     public char getEncloseChar() {
 
         return ENCLOSE_CHAR;

@@ -54,6 +54,7 @@ public class FileControlImpl implements FileControl {
      * @param srcFile コピー元のファイルのパス
      * @param newFile コピー先のファイルのパス
      */
+    @Override
     public void copyFile(String srcFile, String newFile) {
 
         FileUtility
@@ -64,6 +65,7 @@ public class FileControlImpl implements FileControl {
      * ファイルの削除。
      * @param srcFile 削除するファイルのパス
      */
+    @Override
     public void deleteFile(String srcFile) {
 
         FileUtility.deleteFile(getAbsolutePath(srcFile));
@@ -74,6 +76,7 @@ public class FileControlImpl implements FileControl {
      * @param fileList 結合するファイルのリスト
      * @param newFile 結合してできるファイルのパス
      */
+    @Override
     public void mergeFile(List<String> fileList, String newFile) {
 
         List<String> srcFileList = new ArrayList<String>();
@@ -89,6 +92,7 @@ public class FileControlImpl implements FileControl {
      * @param srcFile 移動前のパス
      * @param newFile 移動後のパス
      */
+    @Override
     public void renameFile(String srcFile, String newFile) {
 
         FileUtility.renameFile(getAbsolutePath(srcFile),

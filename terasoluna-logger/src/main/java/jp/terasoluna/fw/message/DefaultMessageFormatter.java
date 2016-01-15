@@ -29,6 +29,7 @@ public class DefaultMessageFormatter implements MessageFormatter {
     /**
      * {@inheritDoc}
      */
+    @Override
     public String format(String pattern, Object... args) {
         return MessageFormat.format(pattern, args);
     }

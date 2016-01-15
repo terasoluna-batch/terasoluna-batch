@@ -778,7 +778,7 @@ public class BatchUtil {
         long total = rt.totalMemory() / 1024;
         long max = rt.maxMemory() / 1024;
         long used = total - free;
-        double ratio = (used * 100 / (double) total);
+        double ratio = used * 100 / (double) total;
 
         StringBuilder sb = new StringBuilder();
 

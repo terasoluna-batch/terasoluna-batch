@@ -31,6 +31,7 @@ public class StringConverterToUpperCase implements StringConverter {
      * @param column 変換前の文字列
      * @return 大文字に変換された文字列
      */
+    @Override
     public String convert(String column) {
         return StringUtils.upperCase(column);
     }

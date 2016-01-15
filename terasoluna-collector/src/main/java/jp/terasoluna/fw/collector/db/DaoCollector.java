@@ -173,6 +173,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Integer call() throws Exception {
         try {
             DaoCollectorPrePostProcessStatus expStatus = null;

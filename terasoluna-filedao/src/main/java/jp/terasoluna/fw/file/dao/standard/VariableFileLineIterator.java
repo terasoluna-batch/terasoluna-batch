@@ -197,6 +197,7 @@ public class VariableFileLineIterator<T> extends AbstractFileLineIterator<T> {
      * @param fileLineString 可変長ファイルの1レコード分の文字列
      * @return 文字配列
      */
+    @Override
     protected String[] separateColumns(String fileLineString) {
 
         if (fileLineString == null || "".equals(fileLineString)) {

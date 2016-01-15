@@ -195,8 +195,9 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @return 反復子がさらに要素を持つ場合は true
      * @see java.util.Iterator#hasNext()
      */
+    @Override
     public boolean hasNext() {
-        return (getNextObject() != null);
+        return getNextObject() != null;
     }
 
     /**
@@ -209,6 +210,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @see java.util.Iterator#next()
      */
     @SuppressWarnings("unchecked")
+    @Override
     public P next() {
         // 実行開始（初回のみ）
         execute();
@@ -277,6 +279,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @see jp.terasoluna.fw.collector.Collector#getNext()
      */
     @SuppressWarnings("unchecked")
+    @Override
     public P getNext() {
         DataValueObject value = getNextObject();
 
@@ -431,6 +434,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @see jp.terasoluna.fw.collector.Collector#getPrevious()
      */
     @SuppressWarnings("unchecked")
+    @Override
     public P getPrevious() {
         DataValueObject value = getPreviousObject();
 
@@ -502,6 +506,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @see jp.terasoluna.fw.collector.Collector#getCurrent()
      */
     @SuppressWarnings("unchecked")
+    @Override
     public P getCurrent() {
         // 実行開始（初回のみ）
         execute();
@@ -561,11 +566,10 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * </p>
      * @see java.io.Closeable#close()
      */
+    @Override
     public void close() {
-        if (!isFinish()) {
-            if (this.fo != null) {
+        if (!isFinish() && this.fo != null) {
                 this.fo.cancel(true);
-            }
         }
     }
 
@@ -580,6 +584,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
      * @throws IllegalStateException next メソッドがまだ呼び出されてない場合、または next メソッドの最後の呼び出しのあとに remove メソッドがすでに呼び出されている場合
      * @see java.util.Iterator#remove()
      */
+    @Override
     public void remove() {
         throw new UnsupportedOperationException();
     }
@@ -587,6 +592,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     /**
      * {@inheritDoc}
      */
+    @Override
     public Iterator<P> iterator() {
         return this;
     }
@@ -830,20 +836,16 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         if (future != null) {
             boolean done = future.isDone();
 
-            if (localChild != null) {
-                // 子スレッド側の終了フラグを参照する
-                if (localChild.isFinish()) {
-                    finish = localChild.isFinish();
-                }
+            // 子スレッド側の終了フラグを参照する
+            if (localChild != null && localChild.isFinish()) {
+                finish = localChild.isFinish();
             }
             return finish || done;
         }
 
-        if (localChild != null) {
-            // 子スレッド側の終了フラグを参照する
-            if (localChild.isFinish()) {
-                finish = localChild.isFinish();
-            }
+        // 子スレッド側の終了フラグを参照する
+        if (localChild != null && localChild.isFinish()) {
+            finish = localChild.isFinish();
         }
         return finish;
     }

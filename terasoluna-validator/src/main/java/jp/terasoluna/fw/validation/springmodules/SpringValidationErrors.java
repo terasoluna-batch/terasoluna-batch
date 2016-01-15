@@ -80,6 +80,7 @@ public class SpringValidationErrors implements ValidationErrors {
      * @param field commons-validatorのFieldオブジェクト。
      * @param va  commons-validatorのValidatorActionオブジェクト。
      */
+    @Override
     public void addError(Object bean, Field field, ValidatorAction va) {
         // エラー情報の取り出し
         String fieldCode = field.getKey();

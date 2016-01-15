@@ -199,6 +199,7 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
      * @param fileLineString 固定長ファイルの1レコード分の文字列
      * @return データ部１行の文字列を分解した文字配列
      */
+    @Override
     protected String[] separateColumns(String fileLineString) {
 
         // レコード文字列がnullか空文字の場合は要素０の配列を返却

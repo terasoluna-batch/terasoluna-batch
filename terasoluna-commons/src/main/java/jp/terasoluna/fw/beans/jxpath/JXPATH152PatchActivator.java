@@ -69,6 +69,7 @@ public class JXPATH152PatchActivator {
         // 特権モードで実行する。
         // (呼び出し元のクラスの権限が低い場合でも、このクラスに与えられた権限で実行する。)
         AccessController.doPrivileged(new PrivilegedAction<Void>() {
+            @Override
             public Void run() {
                 activate();
                 return null;

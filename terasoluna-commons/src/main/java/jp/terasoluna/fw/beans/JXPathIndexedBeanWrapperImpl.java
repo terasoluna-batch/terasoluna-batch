@@ -468,6 +468,7 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
      * @param propertyName プロパティ名
      * @return プロパティ名に一致する属性値を格納するMap（位置情報、属性値）
      */
+    @Override
     public Map<String, Object> getIndexedPropertyValues(String propertyName) {
 
         // プロパティ名がNull・空文字

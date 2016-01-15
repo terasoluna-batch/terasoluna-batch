@@ -265,6 +265,7 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
      * @param name オブジェクト名
      * @param obj バインドされるオブジェクト
      */
+    @Override
     public void rebind(String name, Object obj) {
         if (name == null || obj == null) {
             log.error("Illegal arguments error : name="
@@ -286,6 +287,7 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
      *
      * @param name オブジェクト名
      */
+    @Override
     public void unbind(String name) {
         if (name == null) {
             log.error("Illegal arguments error : name=" + name);

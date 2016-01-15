@@ -54,6 +54,7 @@ public class DatePropertyEditorRegistrar
      * カスタムプロパティエディタを生成する。
      * @param registry プロパティエディタを保持するオブジェクト
      */
+    @Override
     public void registerCustomEditors(PropertyEditorRegistry registry) {
         registry.registerCustomEditor(Date.class, 
                 new CustomDateEditor((DateFormat) dateFormat.clone(), false));

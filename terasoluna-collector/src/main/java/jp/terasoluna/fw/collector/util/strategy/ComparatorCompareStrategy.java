@@ -53,6 +53,7 @@ public class ComparatorCompareStrategy implements CompareStrategy<Object> {
      * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
+    @Override
     public boolean equalsObjects(Object value1, Object value2) {
         return (comparator.compare(value1, value2) == 0);
     }

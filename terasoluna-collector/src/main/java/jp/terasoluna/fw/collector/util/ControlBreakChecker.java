@@ -546,6 +546,7 @@ public class ControlBreakChecker {
      * @see #equalsObjects(Object, Object, CompareStrategy)
      * @deprecated このメソッドの代わりに、{@link #equalsObjects(Object, Object, CompareStrategy)}を使用すること.
      */
+    @Deprecated
     protected static boolean equalsObjects(Object value1, Object value2) {
         return equalsObjects(value1, value2, null);
     }

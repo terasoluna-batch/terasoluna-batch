@@ -83,6 +83,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
     /**
      * {@inheritDoc}
      */
+    @Override
     public int handleThrowableException(Throwable e) {
         // WARNログを出力する
         LOGGER.error(LogId.EAL025053, e);
