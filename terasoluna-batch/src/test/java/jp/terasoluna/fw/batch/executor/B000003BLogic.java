@@ -28,9 +28,7 @@ public class B000003BLogic implements BLogic {
      * {@inheritDoc}
      */
     public int execute(BLogicParam param) {
-
-        throw new RuntimeException();
-
+        return 0;
     }
 
 }

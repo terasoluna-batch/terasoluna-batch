@@ -10,12 +10,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- デフォルト例外ハンドラ -->
-    <bean id="defaultExceptionHandler" 
-        class="jp.terasoluna.fw.batch.exception.handler.DefaultExceptionHandler">
-    </bean>
-
-  	<bean id="B000003BLogic" class="jp.terasoluna.fw.batch.executor.B000003BLogic" />
-
+  <bean id="B000003BLogic" class="jp.terasoluna.fw.batch.executor.B000003BLogic" />
 
 </beans>
