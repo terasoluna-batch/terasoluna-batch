@@ -127,7 +127,7 @@ public class ArrayBlockingQueueExTest {
                 try {
                     // 待ち状態をつくる
                     queue.poll(timeout, unit);
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -135,7 +135,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -392,7 +392,7 @@ public class ArrayBlockingQueueExTest {
                 threadSync.countDown();
                 try {
                     queue.offer(obj2, timeout, unit);
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -400,7 +400,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -502,7 +502,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -617,7 +617,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -684,7 +684,7 @@ public class ArrayBlockingQueueExTest {
                 threadSync.countDown();
                 try {
                     queue.put(obj2);
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -692,7 +692,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -765,7 +765,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -810,7 +810,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -978,7 +978,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < (sleeptime - 50)) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -1107,7 +1107,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < (sleeptime - 50)) {
-                    return;
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
