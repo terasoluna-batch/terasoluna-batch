@@ -31,6 +31,7 @@ public class StringConverterToLowerCase implements StringConverter {
      * @param s 変換前の文字列
      * @return 小文字に変換された文字列
      */
+    @Override
     public String convert(String s) {
         return StringUtils.lowerCase(s);
     }

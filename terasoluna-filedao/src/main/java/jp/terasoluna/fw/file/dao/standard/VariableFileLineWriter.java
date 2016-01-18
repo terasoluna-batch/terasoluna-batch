@@ -217,6 +217,7 @@ public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
      * 区切り文字を取得する。
      * @return 区切り文字
      */
+    @Override
     public char getDelimiter() {
 
         return delimiter;
@@ -226,6 +227,7 @@ public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
      * 囲み文字を取得する。
      * @return 囲み文字
      */
+    @Override
     public char getEncloseChar() {
 
         return encloseChar;

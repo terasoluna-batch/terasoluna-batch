@@ -303,6 +303,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * @return 繰り返し処理でさらに要素がある場合に <code>true</code>
      * @throws FileException リーダからIOExceptionが発生した場合。
      */
+    @Override
     public boolean hasNext() {
         try {
             reader.mark(1);
@@ -342,6 +343,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * @throws FileException ファイル行オブジェクトの生成に失敗した場合。
      * @throws FileLineException ファイル行オブジェクトの取得に失敗した場合。
      */
+    @Override
     public T next() {
         if (readTrailer) {
             throw new FileLineException("Data part should be called before trailer part.", new IllegalStateException(), fileName, currentLineCount);
@@ -445,6 +447,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * FileQueryDAOでは実装しないので、他のクラスから呼び出した場合、 UnsupportedOperationExceptionをスローする。
      * @throws UnsupportedOperationException このメソッドはサポートしない。
      */
+    @Override
     public void remove() {
         throw new UnsupportedOperationException("remove() isn't supported.");
     }
@@ -815,6 +818,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * ファイル閉塞処理を行う。<br>
      * @throws FileException ファイル閉塞処理で失敗した場合。
      */
+    @Override
     public void closeFile() {
         try {
             reader.close();
@@ -828,6 +832,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * データ部とトレイラ部の取得処理の実行可否と関係なくヘッダ部を取得することが 出来る。
      * @return header ヘッダ部の文字列リスト
      */
+    @Override
     public List<String> getHeader() {
         return header;
     }
@@ -841,6 +846,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * @return トレイラ部の文字列リスト
      * @throws FileException データ行取得処理で失敗した場合。
      */
+    @Override
     public List<String> getTrailer() {
         // トレイラ部のキャッシュがない場合に実行する。
         if (!readTrailer) {
@@ -910,6 +916,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * データ部のデータを読み飛ばす処理を行う。<br>
      * @param skipLines 読み飛ばす行数。
      */
+    @Override
     public void skip(int skipLines) {
         for (int i = 0; i < skipLines; i++) {
             if (!hasNext()) {

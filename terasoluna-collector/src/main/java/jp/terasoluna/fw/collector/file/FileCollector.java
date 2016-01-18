@@ -119,6 +119,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
      * @return 取得件数
      * @throws Exception 汎用例外
      */
+    @Override
     public Integer call() throws Exception {
         FileLineIterator<P> fli = null;
         long dataCount = 0;

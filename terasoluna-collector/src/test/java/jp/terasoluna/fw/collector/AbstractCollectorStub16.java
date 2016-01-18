@@ -1,5 +1,7 @@
 package jp.terasoluna.fw.collector;
 
+import java.util.concurrent.TimeUnit;
+
 import jp.terasoluna.fw.collector.db.ValidatorStub;
 import jp.terasoluna.fw.collector.validate.ValidateErrorStatus;
 import jp.terasoluna.fw.collector.validate.ValidationErrorException;
@@ -19,7 +21,7 @@ public class AbstractCollectorStub16<P> extends AbstractCollector<P> {
     }
 
     public Integer call() throws Exception {
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         return null;
     }
 

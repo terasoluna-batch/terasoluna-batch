@@ -97,6 +97,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
      * キューに要素が入るのを待っているスレッドがいる場合、そのブロックを解除する。 キューに要素を詰めるスレッドは、キューイングが完了したあとで、必ずこのメソッドを実行すること。
      * </p>
      */
+    @Override
     public void finishQueueing() {
         queueLock.lock();
         try {

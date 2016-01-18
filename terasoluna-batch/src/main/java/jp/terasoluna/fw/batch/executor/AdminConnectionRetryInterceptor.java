@@ -124,6 +124,7 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
      * @return メソッド実行結果
      * @throws Throwable リトライ処理から外部にスローされるThrowable
      */
+    @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         int retryCount = 0;
         Throwable cause = null;

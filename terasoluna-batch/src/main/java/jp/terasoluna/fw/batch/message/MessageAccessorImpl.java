@@ -28,6 +28,7 @@ public class MessageAccessorImpl extends ApplicationObjectSupport implements
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getMessage(String code, Object[] args) {
 
         return getMessageSourceAccessor().getMessage(code, args);
@@ -37,6 +38,7 @@ public class MessageAccessorImpl extends ApplicationObjectSupport implements
     /**
      * {@inheritDoc}
      */
+    @Override
     public String getMessage(MessageSourceResolvable resolvable) {
 
         return getMessageSourceAccessor().getMessage(resolvable);

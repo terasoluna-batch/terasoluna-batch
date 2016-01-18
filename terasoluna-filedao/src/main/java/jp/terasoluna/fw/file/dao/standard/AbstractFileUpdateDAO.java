@@ -47,6 +47,7 @@ public abstract class AbstractFileUpdateDAO implements FileUpdateDAO {
      * @param clazz 1行分の文字列を格納するファイル行オブジェクトクラス
      * @return ファイル出力用Writer
      */
+    @Override
     public abstract <T> FileLineWriter<T> execute(String fileName,
             Class<T> clazz);
 

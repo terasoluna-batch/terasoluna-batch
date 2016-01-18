@@ -271,6 +271,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isFatalEnabled() {
         return logger.isFatalEnabled();
     }
@@ -329,6 +330,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isErrorEnabled() {
         return logger.isErrorEnabled();
     }
@@ -403,6 +405,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isWarnEnabled() {
         return logger.isWarnEnabled();
     }
@@ -477,6 +480,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isInfoEnabled() {
         return logger.isInfoEnabled();
     }
@@ -551,6 +555,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isDebugEnabled() {
         return logger.isDebugEnabled();
     }
@@ -625,6 +630,7 @@ public class TLogger implements Log {
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isTraceEnabled() {
         return logger.isTraceEnabled();
     }
@@ -796,9 +802,11 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      * 
      */
     @Deprecated
+    @Override
     public void trace(Object message) {
         trace(false, "{0}", message);
     }
@@ -812,9 +820,10 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void trace(Object message, Throwable t) {
         trace(false, "{0}", t, message);
     }
@@ -827,9 +836,11 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      * 
      */
     @Deprecated
+    @Override
     public void debug(Object message) {
         debug(false, "{0}", message);
     }
@@ -843,9 +854,11 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      * 
      */
     @Deprecated
+    @Override
     public void debug(Object message, Throwable t) {
         debug(false, "{0}", t, message);
     }
@@ -858,9 +871,11 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      * 
      */
     @Deprecated
+    @Override
     public void info(Object message) {
         info(false, "{0}", message);
     }
@@ -874,9 +889,10 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void info(Object message, Throwable t) {
         info(false, "{0}", t, message);
     }
@@ -889,9 +905,10 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void warn(Object message) {
         warn(false, "{0}", message);
     }
@@ -905,9 +922,10 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void warn(Object message, Throwable t) {
         warn(false, "{0}", t, message);
     }
@@ -920,9 +938,10 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void error(Object message) {
         error(false, "{0}", message);
     }
@@ -936,9 +955,10 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void error(Object message, Throwable t) {
         error(false, "{0}", t, message);
     }
@@ -951,9 +971,10 @@ public class TLogger implements Log {
      * </p>
      * 
      * @param message メッセージ
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void fatal(Object message) {
         fatal(false, "{0}", message);
     }
@@ -967,9 +988,10 @@ public class TLogger implements Log {
      * 
      * @param message メッセージ
      * @param t 起因例外
-     * 
+     * @deprecated CommonsLoggingのLogインタフェースを実装するためのAPIであり、使用しないでください。
      */
     @Deprecated
+    @Override
     public void fatal(Object message, Throwable t) {
         fatal(false, "{0}", t, message);
     }

@@ -38,6 +38,7 @@ public class IntColumnParser implements ColumnParser {
      * @throws IllegalAccessException ファイル行オブジェクトへの設定が失敗したとき
      * @throws InvocationTargetException ファイル行オブジェクトのメソッドが例外をスローしたとき
      */
+    @Override
     public void parse(String column, Object t, Method method,
             String columnFormat) throws NumberFormatException,
                                 IllegalArgumentException,

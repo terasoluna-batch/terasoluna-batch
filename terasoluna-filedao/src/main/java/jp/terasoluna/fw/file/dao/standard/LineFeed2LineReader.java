@@ -66,6 +66,7 @@ public class LineFeed2LineReader implements LineReader {
      * @return データ部の１行分の文字列
      * @throws FileException Readerの処理で例外が発生した場合。
      */
+    @Override
     public String readLine() {
         StringBuilder currentLineStringBuilder = new StringBuilder();
 

@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
@@ -117,7 +118,7 @@ public class HashMapForJXPathIntrospectorTest {
             }
             
         }.start();
-        Thread.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(500);
 
         // テスト実施
         long start = System.currentTimeMillis();
@@ -170,7 +171,7 @@ public class HashMapForJXPathIntrospectorTest {
             }
 
         }.start();
-        Thread.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(500);
 
         // テスト実施
         long start = System.currentTimeMillis();
@@ -220,7 +221,7 @@ public class HashMapForJXPathIntrospectorTest {
             }
             
         }.start();
-        Thread.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(500);
 
         // テスト実施
         long start = System.currentTimeMillis();
@@ -272,7 +273,7 @@ public class HashMapForJXPathIntrospectorTest {
             }
 
         }.start();
-        Thread.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(500);
 
         // テスト実施
         long start = System.currentTimeMillis();
@@ -298,7 +299,7 @@ public class HashMapForJXPathIntrospectorTest {
         @Override
         public int hashCode() {
             try {
-                Thread.sleep(sleepMillis);
+                TimeUnit.MILLISECONDS.sleep(sleepMillis);
             } catch (InterruptedException e) {
             }
             return super.hashCode();

@@ -127,7 +127,7 @@ public class ArrayBlockingQueueExTest {
                 try {
                     // 待ち状態をつくる
                     queue.poll(timeout, unit);
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -135,7 +135,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -143,7 +143,7 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
 
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
 
         // 割り込み
         thread01.interrupt();
@@ -277,7 +277,7 @@ public class ArrayBlockingQueueExTest {
             public void doRun() throws Exception {
                 threadSync.countDown();
                 for (int idx = 0; idx < 10; idx++) {
-                    Thread.sleep(500);
+                    TimeUnit.MILLISECONDS.sleep(500);
                     queue.put(new DataValueObject(idx));
                 }
             }
@@ -289,7 +289,7 @@ public class ArrayBlockingQueueExTest {
         // pollを実行
         // poll間隔をput間隔より長くすることで、キューが最大まで埋まり、put待ち状態を作る。
         for (int idx = 0; idx < 10; idx++) {
-            Thread.sleep(1000);
+            TimeUnit.MILLISECONDS.sleep(1000);
             DataValueObject obj = queue.poll();
             if (obj != null) {
                 count++;
@@ -392,7 +392,7 @@ public class ArrayBlockingQueueExTest {
                 threadSync.countDown();
                 try {
                     queue.offer(obj2, timeout, unit);
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -400,7 +400,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -408,7 +408,7 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
 
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
 
         // 割り込み
         thread01.interrupt();
@@ -502,7 +502,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -510,7 +510,7 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
 
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         // フラグを確認する（offerより前にpeekが動いていないこと）
         assertFalse(checkflg.get());
         // キューに要素を詰める（→これによりシグナルが出ればpeekが動くはず）
@@ -617,7 +617,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -625,7 +625,7 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
 
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         // フラグを確認する（offerより前にpeekが動いていないこと）
         assertFalse(checkflg.get());
         // キューに要素を詰める（→これによりシグナルが出ればpeekが動くはず）
@@ -684,7 +684,7 @@ public class ArrayBlockingQueueExTest {
                 threadSync.countDown();
                 try {
                     queue.put(obj2);
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 } catch (InterruptedException e) {
                     // 期待通り
                 }
@@ -692,7 +692,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -700,7 +700,7 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
 
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
 
         // 割り込み
         thread01.interrupt();
@@ -765,14 +765,14 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
         };
         thread01.start();
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         // フラグを確認する（pollより前にputが動いていないこと）
         assertFalse(checkflg.get());
         queue.poll(timeout, unit);
@@ -810,7 +810,7 @@ public class ArrayBlockingQueueExTest {
 
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < 950) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
                 checkflg.set(true);
             }
@@ -819,7 +819,7 @@ public class ArrayBlockingQueueExTest {
 
         // キューに要素を詰める（→これによりシグナルが出ればpeekが動くはず）
         threadSync.await();
-        Thread.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         // フラグを確認する（putより前にpeekが動いていないこと）
         assertFalse(checkflg.get());
         queue.put(obj1);
@@ -978,7 +978,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < (sleeptime - 50)) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -987,7 +987,7 @@ public class ArrayBlockingQueueExTest {
 
         // 少し待つ
         threadSync.await();
-        Thread.sleep(sleeptime);
+        TimeUnit.MILLISECONDS.sleep(sleeptime);
 
         // 割り込み
         thread01.interrupt();
@@ -1107,7 +1107,7 @@ public class ArrayBlockingQueueExTest {
                 long timeDiff = timeEnd - timeStart;
                 // 約1000ミリ秒の待ち確認(50ミリ秒の誤差を許容)
                 if (timeDiff < (sleeptime - 50)) {
-                    fail();
+                    throw new RuntimeException("An exception did not occur within a definite period of time.");
                 }
             }
         };
@@ -1116,7 +1116,7 @@ public class ArrayBlockingQueueExTest {
 
         // 少し待つ
         threadSync.await();
-        Thread.sleep(sleeptime);
+        TimeUnit.MILLISECONDS.sleep(sleeptime);
 
         // 割り込み
         thread01.interrupt();

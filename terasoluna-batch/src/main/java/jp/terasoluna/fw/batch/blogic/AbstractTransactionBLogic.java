@@ -53,7 +53,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
     /**
      * ログ.
      */
-    private static final TLogger LOGGER = TLogger
+    private static final TLogger logger = TLogger
             .getLogger(AbstractTransactionBLogic.class);
 
     /**
@@ -70,6 +70,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      * バッチ処理実行メソッド.
      * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(BLogicParam)
      */
+    @Override
     public int execute(BLogicParam param) {
         int status = PROCESS_END_STATUS_FAILURE;
         ApplicationContext ctx = getApplicationContext();
@@ -88,11 +89,10 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
             // トランザクションコミット
             commitTransactions(this.transactionManagerMap,
                     this.transactionStatusMap);
-        } catch (Throwable e) {
-            if (e instanceof RuntimeException) {
-                throw (RuntimeException) e;
-            }
-            throw new BatchException(e);
+        } catch (RuntimeException e) {
+            throw e;
+        } catch (Throwable th) {
+            throw new BatchException(th);
         } finally {
             // トランザクション終了（未コミット時ロールバック）
             endTransactions(this.transactionManagerMap,
@@ -116,7 +116,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      */
     private Map<String, TransactionStatus> startTransactions(Map<?, ?> trnMngMap) {
         return BatchUtil.startTransactions(
-                BatchUtil.getTransactionDefinition(), trnMngMap, LOGGER);
+                BatchUtil.getTransactionDefinition(), trnMngMap, logger);
     }
 
     /**
@@ -126,7 +126,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      */
     private void commitTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {
-        BatchUtil.commitTransactions(trnMngMap, tranStatMap, LOGGER);
+        BatchUtil.commitTransactions(trnMngMap, tranStatMap, logger);
     }
 
     /**
@@ -137,6 +137,6 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      */
     private boolean endTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {
-        return BatchUtil.endTransactions(trnMngMap, tranStatMap, LOGGER);
+        return BatchUtil.endTransactions(trnMngMap, tranStatMap, logger);
     }
 }

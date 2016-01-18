@@ -1,5 +1,7 @@
 package jp.terasoluna.fw.collector;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -30,7 +32,7 @@ public class CollectorTestUtil {
             }
         }
         try {
-            Thread.sleep(100);
+            TimeUnit.MILLISECONDS.sleep(100);
         } catch (InterruptedException e) {
         }
     }
@@ -59,7 +61,7 @@ public class CollectorTestUtil {
                 return false;
             }
             try {
-                Thread.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
             }
         }

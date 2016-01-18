@@ -47,6 +47,7 @@ public abstract class AbstractFileQueryDAO implements FileQueryDAO {
      * @param clazz 1行分の文字列を格納するファイル行オブジェクトクラス
      * @return ファイル行オブジェクト生成用のイテレータ
      */
+    @Override
     public abstract <T> FileLineIterator<T> execute(String fileName,
             Class<T> clazz);
 

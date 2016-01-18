@@ -20,6 +20,13 @@ package jp.terasoluna.fw.batch.constants;
  * ジョブステータス用定数定義クラス。
  */
 public class JobStatusConstants {
+    
+    /**
+     * インスタンス化を防ぐためのprivateコンストラクタ
+     */
+    private JobStatusConstants() {
+        // Do nothing
+    }
 
     /**
      * ジョブステータス：未実施.

@@ -50,6 +50,7 @@ public interface FileLineIterator<T> extends Iterator<T> {
      * </p>
      * @return 反復子がさらに要素を持つ場合は<code>true</code>。
      */
+    @Override
     boolean hasNext();
 
     /**
@@ -59,6 +60,7 @@ public interface FileLineIterator<T> extends Iterator<T> {
      * </p>
      * @return 次のファイル行オブジェクト。
      */
+    @Override
     T next();
 
     /**

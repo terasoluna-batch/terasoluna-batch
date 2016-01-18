@@ -34,12 +34,14 @@ public class BatchException extends RuntimeException {
 
     /**
      * メッセージID
+     * @deprecated 例外生成時にメッセージIDを指定するメソッドをバージョン3.6から非推奨とするため、関連する本フィールドも非推奨とする。
      */
     @Deprecated
     private String messageId = null;
 
     /**
      * 例外情報特定のためのパラメータ
+     * @deprecated 例外生成時にメッセージIDを指定するメソッドをバージョン3.6から非推奨とするため、関連する本フィールドも非推奨とする。
      */
     @Deprecated
     private Object[] params = null;

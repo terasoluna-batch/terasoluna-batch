@@ -19,7 +19,6 @@ package jp.terasoluna.fw.util;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -72,13 +71,13 @@ public class StringUtil {
      * 全角カナ(ワ"[&yen;30f7])。
      */
     private static final Character ZENKAKU_WA_DAKUTEN = 
-        new Character('\u30f7');
+        Character.valueOf('\u30f7');
 
     /**
      * 全角カナ(ヲ"[&yen;30fa])。
      */
     private static final Character ZENKAKU_WO_DAKUTEN = 
-        new Character('\u30fa');
+        Character.valueOf('\u30fa');
 
     /**
      * 全角カナリスト(パ)行。
@@ -457,19 +456,18 @@ public class StringUtil {
         sb.append("Map{");
         sb.append(LINE_SEP);
 
-        Iterator<?> it = map.keySet().iterator();
-        while (it.hasNext()) {
-            Object key = it.next();
+        for (Map.Entry<?, ?> ent : map.entrySet()) {
+            
             // キーオブジェクト
             String appendKey = null;
-            if (key == null) {
+            if (ent.getKey() == null) {
                 appendKey = "null";
             } else {
-                appendKey = key.toString();
+                appendKey = ent.getKey().toString();
             }
             sb.append(appendKey);
             sb.append('=');
-            Object valueObj = map.get(key);
+            Object valueObj = ent.getValue();
             if (valueObj == null) {
                 sb.append("null");
             } else if (valueObj.getClass().isArray()) {
@@ -536,30 +534,30 @@ public class StringUtil {
                 if (getValue != null) {
                     // ｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾊﾋﾌﾍﾎｳ
                     returnValue.append(getValue);
-                } else if (new Character(chars[i]).equals(
-                        new Character('ﾜ'))) {
+                } else if (Character.valueOf(chars[i]).equals(
+                        Character.valueOf('ﾜ'))) {
                     returnValue.append("ワ");
-                } else if (new Character(chars[i]).equals(
-                        new Character('ｦ'))) {
+                } else if (Character.valueOf(chars[i]).equals(
+                        Character.valueOf('ｦ'))) {
                     returnValue.append("ヲ");
                 } else {
                     returnValue.append(String.valueOf(chars[i]));
                 }
             } else {
-                nextvalue = new Character(chars[i + 1]);
-                if (nextvalue.equals(new Character('ﾞ'))) {
+                nextvalue = Character.valueOf(chars[i + 1]);
+                if (nextvalue.equals(Character.valueOf('ﾞ'))) {
                     getValue = getZenkakuDakuMoji(chars[i]);
                     if (getValue != null) {
                         // ｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞｳﾞ
                         returnValue.append(getValue);
                         i++;
-                    } else if (new Character(chars[i]).equals(
-                            new Character('ﾜ'))) {
+                    } else if (Character.valueOf(chars[i]).equals(
+                            Character.valueOf('ﾜ'))) {
                         // ﾜﾞ
                         returnValue.append(ZENKAKU_WA_DAKUTEN);
                         i++;
-                    } else if (new Character(chars[i]).equals(
-                            new Character('ｦ'))) {
+                    } else if (Character.valueOf(chars[i]).equals(
+                            Character.valueOf('ｦ'))) {
                         // ｦﾞ
                         returnValue.append(ZENKAKU_WO_DAKUTEN);
                         i++;
@@ -567,7 +565,7 @@ public class StringUtil {
                         returnValue.append((String.valueOf(chars[i]) + "゛"));
                         i++;
                     }
-                } else if (nextvalue.equals(new Character('ﾟ'))) {
+                } else if (nextvalue.equals(Character.valueOf('ﾟ'))) {
                     getValue = getZenkakuHandakuMoji(chars[i]);
                     if (getValue != null) {
                         // ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ
@@ -576,9 +574,9 @@ public class StringUtil {
                     } else {
                         // ｶﾟｷﾟｸﾟｹﾟｺﾟｻﾟｼﾟｽﾟｾﾟｿﾟﾀﾟﾁﾟﾂﾟﾃﾟﾄﾟｳﾟ
                         getValue = getZenkakuKasatahaMoji(chars[i]);
-                        if (getValue == null && (new Character('ﾜ')).equals(chars[i])) {
+                        if (getValue == null && (Character.valueOf('ﾜ')).equals(chars[i])) {
                             returnValue.append("ワ").append("゜");
-                        } else if ((new Character('ｦ')).equals(chars[i])) {
+                        } else if ((Character.valueOf('ｦ')).equals(chars[i])) {
                             returnValue.append("ヲ").append("゜");
                         } else {
                             returnValue.append(String.valueOf(getValue)).append("゜");
@@ -590,11 +588,11 @@ public class StringUtil {
                     if (getValue != null) {
                         // ｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾊﾋﾌﾍﾎｳ
                         returnValue.append(getValue);
-                    } else if (new Character(chars[i]).equals(
-                            new Character('ﾜ'))) {
+                    } else if (Character.valueOf(chars[i]).equals(
+                            Character.valueOf('ﾜ'))) {
                         returnValue.append("ワ");
-                    } else if (new Character(chars[i]).equals(
-                            new Character('ｦ'))) {
+                    } else if (Character.valueOf(chars[i]).equals(
+                            Character.valueOf('ｦ'))) {
                         returnValue.append("ヲ");
                     } else {
                         returnValue.append(String.valueOf(chars[i]));
@@ -759,16 +757,16 @@ public class StringUtil {
             // パピプペポ
             value = String.valueOf(HANKAKU_HA_LIST.charAt(index));
             return value + "ﾟ";
-        } else if ((new Character(c)).equals(new Character('ワ'))) {
+        } else if ((Character.valueOf(c)).equals(Character.valueOf('ワ'))) {
             // ワ
             return "ﾜ";
-        } else if ((new Character(c)).equals(new Character('ヲ'))) {
+        } else if ((Character.valueOf(c)).equals(Character.valueOf('ヲ'))) {
             // ヲ
             return "ｦ";
-        } else if ((new Character(c)).equals(ZENKAKU_WA_DAKUTEN)) {
+        } else if ((Character.valueOf(c)).equals(ZENKAKU_WA_DAKUTEN)) {
             // ワ"[\u30f7]
             return "ﾜﾞ";
-        } else if ((new Character(c)).equals(ZENKAKU_WO_DAKUTEN)) {
+        } else if ((Character.valueOf(c)).equals(ZENKAKU_WO_DAKUTEN)) {
             // ヲ"[\u30fa]
             return "ｦﾞ";
         } else {

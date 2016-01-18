@@ -99,6 +99,7 @@ public class EncloseCharLineFeed2LineReader implements LineReader {
      * @return データ部の１行分の文字列
      * @throws FileException Readerの処理で例外が発生した場合。
      */
+    @Override
     public String readLine() {
 
         // 1カラム分の文字列を格納するバッファ

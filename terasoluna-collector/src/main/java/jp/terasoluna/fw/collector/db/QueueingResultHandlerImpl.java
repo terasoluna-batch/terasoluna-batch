@@ -54,6 +54,7 @@ public class QueueingResultHandlerImpl<T> implements QueueingResultHandler<T> {
      *
      * @param context 取得行コンテキスト
      */
+    @Override
     public void handleResult(ResultContext<? extends T> context) {
         delayCollect();
         if (Thread.currentThread().isInterrupted()) {
@@ -70,6 +71,7 @@ public class QueueingResultHandlerImpl<T> implements QueueingResultHandler<T> {
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
+    @Override
     public void delayCollect() {
         if (this.prevRow == null) {
             return;
@@ -98,6 +100,7 @@ public class QueueingResultHandlerImpl<T> implements QueueingResultHandler<T> {
      * DaoCollectorを設定する。<br>
      * @param daoCollector DaoCollector&lt;?&gt;
      */
+    @Override
     public void setDaoCollector(DaoCollector<T> daoCollector) {
         this.daoCollector = daoCollector;
     }

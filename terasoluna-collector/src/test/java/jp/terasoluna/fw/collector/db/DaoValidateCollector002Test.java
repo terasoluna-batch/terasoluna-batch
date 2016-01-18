@@ -3,26 +3,29 @@
  */
 package jp.terasoluna.fw.collector.db;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.dao.DataAccessException;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.validation.Validator;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
-import jp.terasoluna.fw.exception.SystemException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.dao.DataAccessException;
-import org.springframework.validation.Validator;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import org.springframework.test.context.ContextConfiguration;
 import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
 import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+import jp.terasoluna.fw.exception.SystemException;
 
 /**
  * DaoValidateCollectorTest
@@ -137,7 +140,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
                         retryFlg = true;
                         retryCount--;
                         // ウェイト
-                        Thread.sleep(1000);
+                        TimeUnit.MILLISECONDS.sleep(1000);
                         continue;
                     }
                 }

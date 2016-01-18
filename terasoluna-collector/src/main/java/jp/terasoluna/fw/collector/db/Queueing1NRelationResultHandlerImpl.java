@@ -141,6 +141,7 @@ public class Queueing1NRelationResultHandlerImpl<T> extends
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
+    @Override
     public void delayCollect() {
         if (this.prevRow == null) {
             return;

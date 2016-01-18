@@ -62,6 +62,7 @@ public class CollectorThreadFactory implements ThreadFactory {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Thread newThread(Runnable runnable) {
         StringBuilder nameSb = new StringBuilder();
         nameSb.append(namePrefix);

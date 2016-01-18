@@ -1,5 +1,7 @@
 package jp.terasoluna.fw.collector;
 
+import java.util.concurrent.TimeUnit;
+
 //import java.util.concurrent.atomic.AtomicInteger;
 
 public class AbstractCollectorStub3<P> extends AbstractCollector<P> {
@@ -40,7 +42,7 @@ public class AbstractCollectorStub3<P> extends AbstractCollector<P> {
     }
 
     public Integer call() throws Exception {
-        Thread.sleep(3000);
+        TimeUnit.MILLISECONDS.sleep(3000);
         setFinish();
         return null;
     }
