@@ -61,7 +61,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000011.xmlにBLogic(B000011)の定義が存在する
+     * ・beansDef/B000003.xmlにBLogic(B000003)の定義が存在する
      * 確認項目
      * ・BLogicのインスタンスが生成されること
      * </pre>
@@ -69,10 +69,11 @@ public class BLogicResolverImplTest {
     @Test
     public void testResolveBLogic01() {
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "beansDef/B000003.xml");
         // テスト実施
         BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
-                "B000011");
+                "B000003");
         // 結果検証
         assertTrue(blogic instanceof BLogic);
     }
@@ -82,7 +83,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000011.xmlにBLogic(DEFINE_NOT_EXIST)の定義が存在しない
+     * ・beansDef/B000003.xmlにBLogic(DEFINE_NOT_EXIST)の定義が存在しない
      * 確認項目
      * ・NoSuchBeanDefinitionException例外がスローされること
      * ・[EAL025009]のログが出力されること
@@ -90,7 +91,8 @@ public class BLogicResolverImplTest {
      */
     @Test
     public void testResolveBLogic02() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "beansDef/B000003.xml");
         try {
             // テスト実施
             blogicResolverImpl.resolveBLogic(applicationContext,
@@ -109,7 +111,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000011.xmlにBLogic(b000011 : 先頭小文字)の定義が存在する
+     * ・beansDef/B000003.xmlにBLogic(B000003 : 先頭小文字)の定義が存在する
      * 確認項目
      * ・BLogicのインスタンスが生成されること
      * </pre>
@@ -117,120 +119,22 @@ public class BLogicResolverImplTest {
     @Test
     public void testResolveBLogic03() {
         // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "beansDef/B000003.xml");
         ApplicationContext mockContext = spy(applicationContext);
         BLogic mockBLogic = mock(BLogic.class);
 
         // 先頭大文字はfalseを返却させる
-        doReturn(false).when(mockContext).containsBean("B000011BLogic");
+        doReturn(false).when(mockContext).containsBean("B000003BLogic");
         // 先頭小文字のBeanを準備する
-        doReturn(mockBLogic).when(mockContext).getBean("b000011BLogic",
+        doReturn(mockBLogic).when(mockContext).getBean("b000003BLogic",
                 BLogic.class);
 
         // テスト実施
         BLogic blogic = blogicResolverImpl.resolveBLogic(mockContext,
-                "B000011");
+                "B000003");
         // 結果検証
         assertTrue(blogic instanceof BLogic);
-    }
-
-    /**
-     * resolveBLogicテスト 【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・beansDef/B000011.xmlにBLogicの定義が存在する
-     * ・enableJobComponentAnnotationがtrueである
-     * 確認項目
-     * ・BLogicのインスタンスが生成されること
-     * </pre>
-     */
-    @Test
-    public void testResolveBLogic04() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
-        try {
-            // テスト準備
-            blogicResolverImpl.enableJobComponentAnnotation = true;
-            // テスト実施
-            BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
-                    "B000011");
-            // 結果検証
-            assertTrue(blogic instanceof BLogic);
-        } finally {
-            // テスト完了処理
-            blogicResolverImpl.enableJobComponentAnnotation = false;
-        }
-    }
-
-    /**
-     * resolveBLogicテスト 【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・beansDef/B000011.xmlにBLogicの定義が存在する
-     * ・enableJobComponentAnnotationがtrueである
-     * 確認項目
-     * ・BLogicのインスタンスが生成されること
-     * </pre>
-     */
-    @Test
-    public void testResolveBLogic05() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
-        try {
-            // テスト準備
-            blogicResolverImpl.enableJobComponentAnnotation = true;
-
-            // テスト実施
-            BLogic blogic = blogicResolverImpl.resolveBLogic(applicationContext,
-                    "B000012");
-            // 結果検証
-            assertTrue(blogic instanceof BLogic);
-        } finally {
-            // テスト完了処理
-            blogicResolverImpl.enableJobComponentAnnotation = false;
-        }
-    }
-
-    /**
-     * resolveFromAnnotationテスト 【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * &#64;JobComponentアノテーション"B000012"を持つクラスが存在する
-     * 確認項目
-     * ・BLogicのインスタンスが生成されること
-     * </pre>
-     */
-    @Test
-    public void testResolveFromAnnotation01() {
-
-        // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
-        // テスト実施
-        BLogic blogic = blogicResolverImpl.resolveFromAnnotation(
-                applicationContext, "B000012");
-        // 結果検証
-        assertTrue(blogic instanceof BLogic);
-    }
-
-    /**
-     * resolveBLogicテスト 【異常系】
-     * 
-     * <pre>
-     * 事前条件
-     * &#64;JobComponentアノテーション"DEFINE_NOT_EXIST"を持つクラスが存在しない
-     * 確認項目
-     * ・nullが返却されること
-     * </pre>
-     */
-    @Test
-    public void testResolveFromAnnotation02() {
-        // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000012.xml");
-        // テスト実施
-        // 結果検証
-        assertNull(blogicResolverImpl.resolveFromAnnotation(applicationContext,
-                "DEFINE_NOT_EXIST"));
     }
 
     /**
@@ -238,7 +142,7 @@ public class BLogicResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000011.xmlにBLogic(B000011)の定義が存在する
+     * ・beansDef/B000003.xmlにBLogic(B000003)の定義が存在する
      * 確認項目
      * ・BLogicのインスタンスが生成されること
      * </pre>
@@ -248,8 +152,8 @@ public class BLogicResolverImplTest {
 
         // テスト実施
         // 結果検証
-        assertEquals("B000011" + "BLogic", blogicResolverImpl.getBLogicBeanName(
-                "B000011"));
+        assertEquals("B000003" + "BLogic", blogicResolverImpl.getBLogicBeanName(
+                "B000003"));
     }
 
     /**
