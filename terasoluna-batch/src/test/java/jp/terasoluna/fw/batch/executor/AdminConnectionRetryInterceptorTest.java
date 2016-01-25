@@ -223,11 +223,11 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(1).getMessage());
     }
 
@@ -266,11 +266,11 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(3)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(1).getMessage());
     }
 
@@ -315,15 +315,15 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(4)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
@@ -375,15 +375,15 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(4)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:2, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3 ,retryReset:600,000 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:3, retryMaxCount:3, retryReset:600,000 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
@@ -430,19 +430,19 @@ public class AdminConnectionRetryInterceptorTest {
         verify(mockMethodInvocation, times(5)).proceed();
         assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(0).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(1).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(1).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(2).getMessage());
         assertEquals(Level.INFO, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3 ,retryReset:300 ms, retryInterval:500 ms",
+                "[IAL025017] RetryDetails. currentRetryCount:1, retryMaxCount:3, retryReset:300 ms, retryInterval:500 ms",
                 logger.getLoggingEvents().get(3).getMessage());
 
     }

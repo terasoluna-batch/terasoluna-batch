@@ -160,6 +160,8 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     @Override
     public void executeWorker(final String jobSequenceId) {
 
+        LOGGER.info(LogId.IAL025001, jobSequenceId);
+
         if (!beforeExecute(jobSequenceId)) {
             LOGGER.info(LogId.IAL025021, jobSequenceId);
             return;
@@ -202,6 +204,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             afterExecuteWorker(jobSequenceId, blogicResult);
             blogicApplicationContextResolver
                     .closeApplicationContext(blogicContext);
+            LOGGER.info(LogId.IAL025003, jobSequenceId, blogicResult.getBlogicStatus());
         }
 
     }

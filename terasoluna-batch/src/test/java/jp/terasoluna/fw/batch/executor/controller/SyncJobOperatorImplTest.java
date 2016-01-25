@@ -16,6 +16,7 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
@@ -26,9 +27,11 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
@@ -42,6 +45,9 @@ import jp.terasoluna.fw.batch.executor.BLogicExecutor;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+
 
 /**
  * {@code SyncJobOperatorImpl}のテストケース
@@ -49,6 +55,8 @@ import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
  * @since 3.6
  */
 public class SyncJobOperatorImplTest {
+
+    private TestLogger logger = TestLoggerFactory.getTestLogger(SyncJobOperatorImpl.class);
 
     private SyncJobOperatorImpl target;
 
@@ -75,6 +83,8 @@ public class SyncJobOperatorImplTest {
      */
     @Before
     public void setUp() throws Exception {
+        logger.clear();
+        
         this.applicationContextResolver = mock(
                 ApplicationContextResolver.class);
         this.blogicParamConverter = mock(BLogicParamConverter.class);
@@ -293,6 +303,70 @@ public class SyncJobOperatorImplTest {
         assertThat(status, is(234));
         verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
         verify(applicationContextResolver).closeApplicationContext(blogicContext);
+    }
+    
+    /**
+     * start()のテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・例外をスローすることなくビジネスロジックが終了した場合、ビジネスロジックのステータスコードが返却されること。
+     * ・例外ハンドラが設定されていなくても、警告ログの出力以外は差異がないこと。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testStart02() throws Exception {
+
+        BLogicResult blogicResult = new BLogicResult();
+        blogicResult.setBlogicStatus(234);
+        BLogicParam blogicParam = new BLogicParam();
+        doReturn(blogicParam).when(blogicParamConverter).convertBLogicParam(any(BatchJobData.class));
+        doReturn(blogicResult).when(blogicExecutor).execute(blogicContext, blogic, blogicParam, null);
+        when(blogicExceptionHandlerResolver.resolveExceptionHandler(any(
+                ApplicationContext.class), anyString())).thenReturn(null);
+        // テスト実行
+        int status = target.start(new String[] { "jobAppCd" });
+
+        assertThat(status, is(234));
+        verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, null);
+        verify(applicationContextResolver).closeApplicationContext(blogicContext);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025010] The BLogic execution continues without an ExceptionHandler."))));
+    }
+    
+    /**
+     * start()のテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・例外をスローすることなくビジネスロジックが終了した場合、ビジネスロジックのステータスコードが返却されること。
+     * ・例外ハンドラ取得時に例外が発生しても、警告ログの出力以外は差異がないこと。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testStart03() throws Exception {
+
+        BLogicResult blogicResult = new BLogicResult();
+        blogicResult.setBlogicStatus(234);
+        BLogicParam blogicParam = new BLogicParam();
+        doReturn(blogicParam).when(blogicParamConverter).convertBLogicParam(any(BatchJobData.class));
+        doReturn(blogicResult).when(blogicExecutor).execute(blogicContext, blogic, blogicParam, null);
+        when(blogicExceptionHandlerResolver.resolveExceptionHandler(any(
+                ApplicationContext.class), anyString())).thenThrow(new NoSuchBeanDefinitionException("test."));
+        // テスト実行
+        int status = target.start(new String[] { "jobAppCd" });
+
+        assertThat(status, is(234));
+        verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, null);
+        verify(applicationContextResolver).closeApplicationContext(blogicContext);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025010] The BLogic execution continues without an ExceptionHandler."))));
     }
 
     /**

@@ -145,8 +145,8 @@ public class SyncBatchExecutorTest {
         assertEquals(456, target.doMain(args));
 
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025014] SyncBatchExecutor START"),
-                info("[IAL025015] SyncBatchExecutor END blogicStatus:456"))));
+                info("[IAL025014] SyncBatchExecutor START."),
+                info("[IAL025015] SyncBatchExecutor END. blogicStatus:456"))));
     }
 
     /**
@@ -176,8 +176,8 @@ public class SyncBatchExecutorTest {
         assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
+                info("[IAL025014] SyncBatchExecutor START."),
+                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."))));
     }
 
     /**
@@ -208,8 +208,8 @@ public class SyncBatchExecutorTest {
         assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."))));
+                info("[IAL025014] SyncBatchExecutor START."),
+                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."))));
 
         verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
@@ -245,8 +245,8 @@ public class SyncBatchExecutorTest {
         assertEquals(SyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025014] SyncBatchExecutor START"),
-                error(expectThrown, "[EAL025060] Failed to obtain JobOperator."),
+                info("[IAL025014] SyncBatchExecutor START."),
+                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
                 error(closeThrown, "[EAL025062] Failed to close the ApplicationContext."))));
     }
 

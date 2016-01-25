@@ -208,7 +208,7 @@ public class MessageUtilTest {
     public void testSetMessageAccessor01() throws Exception {
         MessageUtil.setMessageAccessor(null);
         assertThat(logger.getLoggingEvents(), is(asList(
-                warn("[WAL025008] MessageAccessor setting is not specified, it will be skipped.  tg:[main] t:[main]"))));
+                warn("[WAL025008] MessageAccessor setting is not specified. it will be skipped.  tg:[main] t:[main]"))));
         assertTrue(true);
     }
 

@@ -138,7 +138,7 @@ public class ApplicationContextResolverImpl
     /**
      * プロパティファイルからインジェクションされる業務用Bean定義ファイルのディレクトリパス。<br>
      */
-    @Value("${beanDefinition.business.classpath:}")
+    @Value("${beanDefinition.business.classpath:beansDef/}")
     protected String classpath;
 
     /**
@@ -183,6 +183,9 @@ public class ApplicationContextResolverImpl
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) {
         String blogicBeanDefinitionName = getBeanFileName(batchJobData);
+
+        LOGGER.debug(LogId.DAL025020, blogicBeanDefinitionName);
+
         if (parent != null) {
             return new ClassPathXmlApplicationContext(new String[]{ blogicBeanDefinitionName }, parent);
         }
@@ -203,6 +206,7 @@ public class ApplicationContextResolverImpl
         sb.append(PropertyUtil.getProperty(classPathKey, ""))
                 .append(PropertyUtil.getProperty(fileNameKey, ""));
         String beanDefinitionFileClasspath = sb.toString();
+
         LOGGER.debug(LogId.DAL025020, beanDefinitionFileClasspath);
 
         if ("".equals(beanDefinitionFileClasspath)) {

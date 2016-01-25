@@ -59,6 +59,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
         BLogicResult result = new BLogicResult();
 
         try {
+            LOGGER.debug(LogId.DAL025044, blogic.getClass().getName(), blogicParam);
             ThreadGroupApplicationContextHolder.setApplicationContext(applicationContext);
             int blogicStatus = blogic.execute(blogicParam);
             result.setBlogicStatus(blogicStatus);

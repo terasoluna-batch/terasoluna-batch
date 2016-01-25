@@ -36,7 +36,7 @@ import org.springframework.util.Assert;
  */
 public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
 
-    @Value("${executor.endMonitoringFile:}")
+    @Value("${executor.endMonitoringFile:/tmp/batch_terminate_file}")
     protected String endMonitoringFileName;
 
     /**
@@ -56,7 +56,7 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
         // ファイルが存在した場合、INFOログを出力する
         boolean isExist = f.exists();
         if (isExist) {
-            LOGGER.info(LogId.IAL025022, endMonitoringFileName);
+            LOGGER.info(LogId.IAL025011, endMonitoringFileName);
         }
         return isExist;
     }
@@ -71,7 +71,6 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
                 LogId.EAL025056, this.getClass().getSimpleName(),
                 "executor.endMonitoringFile"));
 
-        File f = new File(endMonitoringFileName);
-        LOGGER.info(LogId.IAL025025, endMonitoringFileName, f.exists());
+        LOGGER.info(LogId.IAL025025, endMonitoringFileName);
     }
 }

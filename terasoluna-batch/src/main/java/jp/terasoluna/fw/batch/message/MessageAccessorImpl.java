@@ -27,6 +27,8 @@ public class MessageAccessorImpl extends ApplicationObjectSupport implements
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws org.springframework.context.NoSuchMessageException メッセージが取得できなかった場合
      */
     @Override
     public String getMessage(String code, Object[] args) {
@@ -37,6 +39,8 @@ public class MessageAccessorImpl extends ApplicationObjectSupport implements
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws org.springframework.context.NoSuchMessageException メッセージが取得できなかった場合
      */
     @Override
     public String getMessage(MessageSourceResolvable resolvable) {

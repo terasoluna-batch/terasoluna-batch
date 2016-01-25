@@ -85,7 +85,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
      */
     @Override
     public int handleThrowableException(Throwable e) {
-        // WARNログを出力する
+        // ERRORログを出力する
         LOGGER.error(LogId.EAL025053, e);
 
         // 例外クラスと返却するステータス値のマップが設定されていた場合はそれに従う

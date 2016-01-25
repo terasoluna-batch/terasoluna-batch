@@ -50,7 +50,7 @@ public class AsyncJobOperatorImpl implements JobOperator {
     /**
      * ジョブのポーリング間隔。<br>
      */
-    @Value("${polling.interval:1000}")
+    @Value("${polling.interval:3000}")
     protected long jobIntervalTime;
 
     /**
