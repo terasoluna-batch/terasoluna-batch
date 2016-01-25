@@ -28,6 +28,7 @@ import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.BLogicExecutor;
+import jp.terasoluna.fw.batch.executor.ThreadGroupApplicationContextHolder;
 import jp.terasoluna.fw.logger.TLogger;
 import org.apache.commons.beanutils.BeanUtils;
 import org.kohsuke.args4j.CmdLineException;
@@ -43,6 +44,7 @@ import java.lang.reflect.InvocationTargetException;
  *
  * @since 3.6
  */
+@SuppressWarnings("deprecation")
 public class SyncJobOperatorImpl implements JobOperator {
 
     /**
@@ -163,6 +165,7 @@ public class SyncJobOperatorImpl implements JobOperator {
         ApplicationContext blogicContext = applicationContextResolver.resolveApplicationContext(
                 batchJobData);
         try {
+            ThreadGroupApplicationContextHolder.setApplicationContext(blogicContext);
             BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
                     blogicParam.getJobAppCd());
             ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
@@ -172,6 +175,7 @@ public class SyncJobOperatorImpl implements JobOperator {
                     blogicParam, exceptionHandler);
             return result.getBlogicStatus();
         } finally {
+            ThreadGroupApplicationContextHolder.removeApplicationContext();
             applicationContextResolver.closeApplicationContext(blogicContext);
         }
     }

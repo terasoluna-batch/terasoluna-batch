@@ -18,6 +18,7 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
@@ -30,6 +31,7 @@ import static org.mockito.Mockito.when;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
@@ -39,6 +41,7 @@ import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import jp.terasoluna.fw.batch.executor.BLogicExecutor;
+import jp.terasoluna.fw.batch.executor.ThreadGroupApplicationContextHolder;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
@@ -48,6 +51,7 @@ import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
  *
  * @since 3.6
  */
+@SuppressWarnings("deprecation")
 public class SyncJobOperatorImplTest {
 
     private SyncJobOperatorImpl target;
@@ -286,6 +290,7 @@ public class SyncJobOperatorImplTest {
         BLogicParam blogicParam = new BLogicParam();
         doReturn(blogicParam).when(blogicParamConverter).convertBLogicParam(any(BatchJobData.class));
         doReturn(blogicResult).when(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
+        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         int status = target.start(new String[] { "jobAppCd" });
@@ -293,6 +298,7 @@ public class SyncJobOperatorImplTest {
         assertThat(status, is(234));
         verify(blogicExecutor).execute(blogicContext, blogic, blogicParam, exceptionHandler);
         verify(applicationContextResolver).closeApplicationContext(blogicContext);
+        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
