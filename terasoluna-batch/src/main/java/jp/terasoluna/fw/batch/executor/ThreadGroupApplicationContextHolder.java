@@ -21,18 +21,22 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.context.ApplicationContext;
 
 /**
- * スレッドグループ単位で、{@code ApplicationContext}を管理するホルダークラス
+ * スレッド単位で、{@code ApplicationContext}を管理するホルダークラス
  * 
  * @deprecated バージョン3.6.0より、本クラスは非推奨である。<br>
- * スレッドグループ単位で{@code ApplicationContext}を共有する場合、手動で行うか、スレッドグループ全体の挙動に注意して使用すること。<br>
- * スレッドグループ内の各スレッドから単一の{@code ApplicationContext}を取得することは可能だが、
- * バージョン3.6.0よりスレッドグループのライフサイクルを考慮しないよう単純化し、単純なホルダーとしての機能しか持たないようになっている。
+ * 以前のバージョンのように、複数スレッド間で{@code ApplicationContext}を共有する場合、手動で行うこと。<br>
+ * バージョン3.6.0よりスレッドグループを考慮せず、スレッド単位で管理している。
+ * 互換性のためシグネチャは変更していない点に注意すること。
  */
 @Deprecated
 public class ThreadGroupApplicationContextHolder {
 
-    /** スレッドグループ毎にApplicationContextを保持する. */
-    private static final ConcurrentHashMap<ThreadGroup, ApplicationContext> tga = new ConcurrentHashMap<ThreadGroup, ApplicationContext>();
+    /**
+     * スレッド毎にApplicationContextを保持する.
+     * 
+     * @since 3.6 以前のバージョンでは{@code　ThreadGroup}をkeyに管理していたが、{@code Thread}をkeyに管理するように変更となった。
+     */
+    private static final ConcurrentHashMap<Thread, ApplicationContext> tga = new ConcurrentHashMap<Thread, ApplicationContext>();
 
     /**
      * コンストラクタ
@@ -43,28 +47,33 @@ public class ThreadGroupApplicationContextHolder {
     /**
      * ApplicationContextを取得する.<br>
      * <p>
-     * カレントスレッドが所属するスレッドグループに割り当てられたApplicationContextを取得する。
+     * カレントスレッドに割り当てられたApplicationContextを取得する。
      * </p>
      * @return ApplicationContextを返却する
+     * @since 3.6 以前のバージョンでは{@code　ThreadGroup}に対応する{@code ApplicationContext}を返却していたが、
+     * {@code Thread}に対応する{@code ApplicationContext}を返却するように変更となった。
      */
     public static ApplicationContext getCurrentThreadGroupApplicationContext() {
-        return getThreadGroupApplicationContext(getThreadGroup());
+        // シグネチャに合わせるために、ThreadGroupを渡している。
+        return getThreadGroupApplicationContext(Thread.currentThread().getThreadGroup());
     }
 
     /**
      * ApplicationContextを取得する.<br>
      * <p>
-     * 引数で渡したスレッドグループに割り当てられたApplicationContextを取得する。
+     * 引数で渡したスレッドグループを無視し、カレントスレッドに割り当てられたApplicationContextを取得する。
      * </p>
      * @param threadGroup ThreadGroup
      * @return ApplicationContextを返却する
+     * @since 3.6 以前のバージョンでは{@code　ThreadGroup}に対応する{@code ApplicationContext}を返却していたが、
+     * {@code Thread}に対応する{@code ApplicationContext}を返却するように変更となった。
      */
     public static ApplicationContext getThreadGroupApplicationContext(
             ThreadGroup threadGroup) {
         ApplicationContext applicationContext = null;
 
         if (threadGroup != null) {
-            applicationContext = tga.get(threadGroup);
+            applicationContext = tga.get(Thread.currentThread());
         }
 
         return applicationContext;
@@ -73,37 +82,29 @@ public class ThreadGroupApplicationContextHolder {
     /**
      * ApplicationContextを設定する.<br>
      * <p>
-     * ここで設定するApplicationContextはスレッドグループ毎に保持される。
+     * ここで設定するApplicationContextはスレッド毎に保持される。
      * </p>
      * @param applicationContext ApplicationContext
+     * @since 3.6 以前のバージョンでは{@code　ThreadGroup}に対応する{@code ApplicationContext}を返却していたが、
+     * {@code Thread}に対応する{@code ApplicationContext}を返却するように変更となった。
      */
     public static void setApplicationContext(
             ApplicationContext applicationContext) {
         if (applicationContext == null) {
             return;
         }
-
-        ThreadGroup tg = getThreadGroup();
-        if (tg != null) {
-            tga.put(tg, applicationContext);
-        }
+        tga.put(Thread.currentThread(), applicationContext);
     }
 
     /**
      * ApplicationContextを削除する.<br>
+     * 
+     * @since 3.6 以前のバージョンでは{@code　ThreadGroup}に対応する{@code ApplicationContext}を返却していたが、
+     * {@code Thread}に対応する{@code ApplicationContext}を返却するように変更となった。
      */
     public static void removeApplicationContext() {
-        ThreadGroup tg = getThreadGroup();
-        if (tg != null) {
-            tga.remove(tg);
+        if (tga.containsKey(Thread.currentThread())) {
+            tga.remove(Thread.currentThread());
         }
-    }
-
-    /**
-     * スレッドグループを取得する.
-     * @return ThreadGroup
-     */
-    private static ThreadGroup getThreadGroup() {
-        return Thread.currentThread().getThreadGroup();
     }
 }

@@ -158,7 +158,6 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * @param jobSequenceId ジョブシーケンスコード
      */
     @Override
-    @SuppressWarnings("deprecation")
     public void executeWorker(final String jobSequenceId) {
 
         if (!beforeExecute(jobSequenceId)) {
@@ -179,7 +178,6 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
                     .resolveApplicationContext(batchJobData);
             blogic = blogicResolver.resolveBLogic(blogicContext, batchJobData.getJobAppCd());
             blogicParam = blogicParamConverter.convertBLogicParam(batchJobData);
-            ThreadGroupApplicationContextHolder.setApplicationContext(blogicContext);
 
             try {
                 blogicExceptionHandler = blogicExceptionHandlerResolver
@@ -202,7 +200,6 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
             LOGGER.error(LogId.EAL025055, e, jobSequenceId);
         } finally {
             afterExecuteWorker(jobSequenceId, blogicResult);
-            ThreadGroupApplicationContextHolder.removeApplicationContext();
             blogicApplicationContextResolver
                     .closeApplicationContext(blogicContext);
         }

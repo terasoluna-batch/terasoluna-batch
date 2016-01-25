@@ -16,16 +16,23 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import static java.util.Arrays.*;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static org.hamcrest.core.Is.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.reset;
+import static org.mockito.Mockito.when;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
@@ -54,11 +61,16 @@ public class BLogicExecutorImplTest {
 
     private ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
 
+    @SuppressWarnings("deprecation")
+    private Map<?, ?> tga = (Map<?, ?>) ReflectionTestUtils.getField(
+            ThreadGroupApplicationContextHolder.class, "tga");
+
     /**
      * テスト前処理
      */
     @Before
     public void setUp() {
+        tga.clear();
         reset(applicationContext, blogic, exceptionHandler);
     }
 
@@ -67,6 +79,7 @@ public class BLogicExecutorImplTest {
      */
     @After
     public void tearDown() {
+        tga.clear();
         logger.clear();
     }
 
@@ -110,6 +123,7 @@ public class BLogicExecutorImplTest {
         // 結果検証
         assertEquals(0, result.getBlogicStatus());
         assertNull(result.getBlogicThrowable());
+        assertEquals(0, tga.size());
 
     }
 
@@ -138,6 +152,7 @@ public class BLogicExecutorImplTest {
         // 結果検証
         assertEquals(100, result.getBlogicStatus());
         assertEquals(re, result.getBlogicThrowable());
+        assertEquals(0, tga.size());
 
     }
 
@@ -165,6 +180,7 @@ public class BLogicExecutorImplTest {
         // 結果検証
         assertEquals(255, result.getBlogicStatus());
         assertEquals(re, result.getBlogicThrowable());
+        assertEquals(0, tga.size());
         assertThat(logger.getLoggingEvents(), is(asList(error(re,
                 "[EAL025057] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
     }
@@ -193,6 +209,7 @@ public class BLogicExecutorImplTest {
         // 結果検証
         assertEquals(255, result.getBlogicStatus());
         assertEquals(er, result.getBlogicThrowable());
+        assertEquals(0, tga.size());
         assertThat(logger.getLoggingEvents(), is(asList(error(er,
                 "[EAL025057] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
     }

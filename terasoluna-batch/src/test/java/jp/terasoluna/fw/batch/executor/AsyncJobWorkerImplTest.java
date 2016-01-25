@@ -17,37 +17,12 @@
 package jp.terasoluna.fw.batch.executor;
 
 import static java.util.Arrays.asList;
+import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.dao.DataAccessException;
-import org.springframework.test.util.ReflectionTestUtils;
-
+import static org.mockito.Mockito.*;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
@@ -58,6 +33,15 @@ import jp.terasoluna.fw.batch.executor.repository.JobControlFinder;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import org.springframework.dao.DataAccessException;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
@@ -473,7 +457,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker01() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -493,7 +476,6 @@ public class AsyncJobWorkerImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("0000001");
@@ -523,7 +505,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -539,7 +520,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker02() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -561,7 +541,6 @@ public class AsyncJobWorkerImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("0000001");
@@ -591,7 +570,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -607,7 +585,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker03() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -633,7 +610,6 @@ public class AsyncJobWorkerImplTest {
         batchJobData.setJobAppCd("0000001");
         doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("seq0000001");
@@ -663,7 +639,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -679,7 +654,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker04() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -707,7 +681,6 @@ public class AsyncJobWorkerImplTest {
         batchJobData.setJobAppCd("0000001");
         doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("seq0000001");
@@ -737,7 +710,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -754,7 +726,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker05() throws Exception {
         BatchJobData batchJobData = new BatchJobData() {
@@ -805,7 +776,6 @@ public class AsyncJobWorkerImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
         doReturn(true).when(target).beforeExecute(anyString());
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("0000001");
@@ -823,7 +793,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(warn(
                 "[WAL025010] The BLogic execution continues without an ExceptionHandler."))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -839,7 +808,6 @@ public class AsyncJobWorkerImplTest {
      * 
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker06() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -873,7 +841,6 @@ public class AsyncJobWorkerImplTest {
         batchJobData.setJobAppCd("0000001");
         doReturn(batchJobData).when(mockJobControlFinder)
                 .resolveBatchJobData("seq0000001");
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("seq0000001");
@@ -889,7 +856,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
                 "[EAL025059] The BLogic execution has failed during processing. JobSequenceId:seq0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**
@@ -904,7 +870,6 @@ public class AsyncJobWorkerImplTest {
      *
      * @throws Exception 予期しない例外
      */
-    @SuppressWarnings("deprecation")
     @Test
     public void testExecuteWorker07() throws Exception {
         Exception ex = new IllegalArgumentException();
@@ -933,7 +898,6 @@ public class AsyncJobWorkerImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
         doReturn(false).when(target).beforeExecute(anyString());
-        String before = ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString();
 
         // テスト実行
         target.executeWorker("0000001");
@@ -945,7 +909,6 @@ public class AsyncJobWorkerImplTest {
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
                 "[IAL025021] Skipped job execution, because target job was not found. jobSequenceId:0000001"))));
-        assertEquals(before, ReflectionTestUtils.getField(ThreadGroupApplicationContextHolder.class, "tga").toString());
     }
 
     /**

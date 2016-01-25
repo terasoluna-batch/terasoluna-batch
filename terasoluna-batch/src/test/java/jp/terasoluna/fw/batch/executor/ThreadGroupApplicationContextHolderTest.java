@@ -19,9 +19,10 @@ package jp.terasoluna.fw.batch.executor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -62,16 +63,22 @@ public class ThreadGroupApplicationContextHolderTest {
      */
     @Test
     public void testGetThreadGroupApplicationContext001() throws Exception {
-        ThreadGroup g = new ThreadGroup("hoge");
-        Thread th = new Thread(g, new Runnable() {
+        
+        final AtomicBoolean complete = new AtomicBoolean(false);
+        
+        Thread th = new Thread(new Runnable() {
             public void run() {
                 ThreadGroupApplicationContextHolder.setApplicationContext(ctx);
+                ApplicationContext result = 
+                        ThreadGroupApplicationContextHolder.getThreadGroupApplicationContext(getThreadGroup());
+                complete.set(ctx == result);
             }
         });
         th.start();
         th.join();
-        assertEquals(ctx, ThreadGroupApplicationContextHolder
-                .getThreadGroupApplicationContext(g));
+        assertNull(ThreadGroupApplicationContextHolder
+                .getThreadGroupApplicationContext(getThreadGroup()));
+        assertTrue(complete.get());
     }
 
     /**
@@ -107,64 +114,7 @@ public class ThreadGroupApplicationContextHolderTest {
                 .getCurrentThreadGroupApplicationContext());
     }
 
-    /**
-     * testRemoveApplicationContext002
-     */
-    @Test
-    public void testRemoveApplicationContext002() {
-        Thread th = Thread.currentThread();
-        ThreadGroup g = th.getThreadGroup();
-        String beforeTga = ReflectionTestUtils.getField(
-                ThreadGroupApplicationContextHolder.class, "tga").toString();
-
-        try {
-            ReflectionTestUtils.setField(th, "group", null);
-            ThreadGroupApplicationContextHolder.removeApplicationContext();
-        } finally {
-            ReflectionTestUtils.setField(th, "group", g);
-        }
-        assertEquals(beforeTga, ReflectionTestUtils.getField(
-                ThreadGroupApplicationContextHolder.class, "tga").toString());
-    }
-
-    /**
-     * testGetThreadGroup001
-     */
-    @Test
-    public void testGetThreadGroup001() {
-        assertEquals(Thread.currentThread().getThreadGroup(), getThreadGroup());
-    }
-
-    /**
-     * testGetThreadGroup002
-     */
-    @Test
-    public void testGetThreadGroup002() {
-        Thread th = Thread.currentThread();
-        ThreadGroup g = th.getThreadGroup();
-        try {
-            ReflectionTestUtils.setField(th, "group", null);
-            assertEquals(null, getThreadGroup());
-        } finally {
-            ReflectionTestUtils.setField(th, "group", g);
-        }
-    }
-
-    /**
-     * getThreadGroup
-     * @return
-     * @throws Exception
-     */
     private ThreadGroup getThreadGroup() {
-        Method method;
-        try {
-            method = ThreadGroupApplicationContextHolder.class
-                    .getDeclaredMethod("getThreadGroup");
-            method.setAccessible(true);
-            return (ThreadGroup) method.invoke(
-                    ThreadGroupApplicationContextHolder.class);
-        } catch (Exception e) {
-            throw new RuntimeException("faild.", e);
-        }
+        return Thread.currentThread().getThreadGroup();
     }
 }

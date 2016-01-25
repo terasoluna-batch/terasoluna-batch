@@ -50,6 +50,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
      * </ul>
      * </p>
      */
+    @SuppressWarnings("deprecation")
     @Override
     public BLogicResult execute(ApplicationContext applicationContext,
             BLogic blogic, BLogicParam blogicParam,
@@ -58,6 +59,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
         BLogicResult result = new BLogicResult();
 
         try {
+            ThreadGroupApplicationContextHolder.setApplicationContext(applicationContext);
             int blogicStatus = blogic.execute(blogicParam);
             result.setBlogicStatus(blogicStatus);
         } catch (Throwable th) {
@@ -68,6 +70,8 @@ public class BLogicExecutorImpl implements BLogicExecutor {
             } else {
                 LOGGER.error(LogId.EAL025057, th);
             }
+        } finally {
+            ThreadGroupApplicationContextHolder.removeApplicationContext();
         }
         return result;
     }
