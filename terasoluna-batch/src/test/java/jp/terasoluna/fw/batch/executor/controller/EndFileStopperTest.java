@@ -91,7 +91,7 @@ public class EndFileStopperTest {
             Files.deleteIfExists(Paths.get("/tmp/batch_terminate_file"));
         }
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
+                "[IAL025011] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -111,7 +111,7 @@ public class EndFileStopperTest {
         // 結果検証
         assertFalse(asyncBatchStopper.canStop());
         assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
-                "[IAL025022] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
+                "[IAL025011] Detected the end file. This AsyncBatchExecutor processing will complete. path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -137,7 +137,7 @@ public class EndFileStopperTest {
         assertEquals(endFileStopper.endMonitoringFileName,
                 "/tmp/batch_terminate_file");
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
+                "[IAL025025] The end monitoring file path:/tmp/batch_terminate_file. It will be checked to stop AsyncBatchExecutor at a certain interval."))));
     }
 
     /**
@@ -166,7 +166,7 @@ public class EndFileStopperTest {
             assertEquals(e.getMessage(),
                     "[EAL025056] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
             assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
-                    "[IAL025025] The end file path:/tmp/batch_terminate_file exists:false."))));
+                    "[IAL025025] The end monitoring file path:/tmp/batch_terminate_file. It will be checked to stop AsyncBatchExecutor at a certain interval."))));
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

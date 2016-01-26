@@ -503,8 +503,10 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:0000001"),
+                error(ex, "[EAL025055] Failed to pre-processing of the BLogic. jobSequenceId:0000001"),
+                info("[IAL025003] An async batch processing END. jobSequenceId:0000001, blogicStatus:255"))));
     }
 
     /**
@@ -568,8 +570,10 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:0000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:0000001"),
+                error(ex, "[EAL025055] Failed to pre-processing of the BLogic. jobSequenceId:0000001"),
+                info("[IAL025003] An async batch processing END. jobSequenceId:0000001, blogicStatus:255"))));
     }
 
     /**
@@ -637,8 +641,10 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:seq0000001"),
+                error(ex, "[EAL025055] Failed to pre-processing of the BLogic. jobSequenceId:seq0000001"),
+                info("[IAL025003] An async batch processing END. jobSequenceId:seq0000001, blogicStatus:255"))));
     }
 
     /**
@@ -708,8 +714,10 @@ public class AsyncJobWorkerImplTest {
                 any(ApplicationContext.class), any(BLogic.class),
                 any(BLogicParam.class), any(ExceptionHandler.class));
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025055] Failed to pre-processing of the BLogic. JobSequenceId:seq0000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:seq0000001"),
+                error(ex, "[EAL025055] Failed to pre-processing of the BLogic. jobSequenceId:seq0000001"),
+                info("[IAL025003] An async batch processing END. jobSequenceId:seq0000001, blogicStatus:255"))));
     }
 
     /**
@@ -791,8 +799,10 @@ public class AsyncJobWorkerImplTest {
         assertThat(blogicResult.getBlogicStatus(), is(1));
         assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
-        assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "[WAL025010] The BLogic execution continues without an ExceptionHandler."))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:0000001"),
+                warn("[WAL025010] The BLogic execution continues without an ExceptionHandler."),
+                info("[IAL025003] An async batch processing END. jobSequenceId:0000001, blogicStatus:1"))));
     }
 
     /**
@@ -854,8 +864,11 @@ public class AsyncJobWorkerImplTest {
         assertThat(blogicResult.getBlogicStatus(), is(255));
         assertThat(blogicResult.getBlogicThrowable(), nullValue());
 
-        assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025059] The BLogic execution has failed during processing. JobSequenceId:seq0000001"))));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025001] An async batch processing START. jobSequenceId:seq0000001"),
+                error(ex,
+                        "[EAL025059] The BLogic execution has failed during processing. jobSequenceId:seq0000001"),
+                info("[IAL025003] An async batch processing END. jobSequenceId:seq0000001, blogicStatus:255"))));
     }
 
     /**
@@ -908,7 +921,8 @@ public class AsyncJobWorkerImplTest {
                 .closeApplicationContext(any(ApplicationContext.class));
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025021] Skipped job execution, because target job was not found. jobSequenceId:0000001"))));
+                "[IAL025001] An async batch processing START. jobSequenceId:0000001"),
+                info("[IAL025021] Skipped this job execution because this job has already been started by another. jobSequenceId:0000001"))));
     }
 
     /**
@@ -985,7 +999,7 @@ public class AsyncJobWorkerImplTest {
                 blogicResult);
 
         assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:1"))));
+                "[EAL025025] Job status update error. jobSequenceId:000001 blogicStatus:1"))));
     }
 
     /**
@@ -1025,7 +1039,7 @@ public class AsyncJobWorkerImplTest {
                 blogicResult);
 
         assertThat(logger.getLoggingEvents(), is(asList(error(ex,
-                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:1"))));
+                "[EAL025025] Job status update error. jobSequenceId:000001 blogicStatus:1"))));
     }
 
     /**
@@ -1061,6 +1075,6 @@ public class AsyncJobWorkerImplTest {
                 .changeToEndStatus("000001", null);
 
         assertThat(logger.getLoggingEvents(), is(asList(error(
-                "[EAL025025] Job status update error. JobSequenceId:000001 blogicStatus:null"))));
+                "[EAL025025] Job status update error. jobSequenceId:000001 blogicStatus:null"))));
     }
 }

@@ -165,8 +165,19 @@ public class SyncJobOperatorImpl implements JobOperator {
         try {
             BLogic blogic = blogicResolver.resolveBLogic(blogicContext,
                     blogicParam.getJobAppCd());
-            ExceptionHandler exceptionHandler = blogicExceptionHandlerResolver.resolveExceptionHandler(
-                    blogicContext, blogicParam.getJobAppCd());
+
+            ExceptionHandler exceptionHandler = null;
+            try {
+                exceptionHandler = blogicExceptionHandlerResolver
+                        .resolveExceptionHandler(blogicContext, blogicParam
+                                .getJobAppCd());
+            } catch (Exception e) {
+                // Do nothing
+            }
+            if (exceptionHandler == null) {
+                // ExceptionHandlerがない場合でも処理を継続する
+                LOGGER.warn(LogId.WAL025010);
+            }
 
             BLogicResult result = blogicExecutor.execute(blogicContext, blogic,
                     blogicParam, exceptionHandler);

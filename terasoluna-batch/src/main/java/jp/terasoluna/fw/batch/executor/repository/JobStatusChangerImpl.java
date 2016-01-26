@@ -87,7 +87,11 @@ public class JobStatusChangerImpl implements JobStatusChanger {
         } finally {
             if (transactionStatus != null && !transactionStatus.isCompleted()) {
                 LOGGER.info(LogId.IAL025023, jobSequenceId);
-                adminTransactionManager.rollback(transactionStatus);
+                try {
+                    adminTransactionManager.rollback(transactionStatus);
+                } catch (Exception e) {
+                    LOGGER.error(LogId.EAL025064, e, jobSequenceId);
+                }
             }
         }
         return true;
@@ -119,7 +123,11 @@ public class JobStatusChangerImpl implements JobStatusChanger {
         } finally {
             if (transactionStatus != null && !transactionStatus.isCompleted()) {
                 LOGGER.info(LogId.IAL025023, jobSequenceId);
-                adminTransactionManager.rollback(transactionStatus);
+                try {
+                    adminTransactionManager.rollback(transactionStatus);
+                } catch (Exception e) {
+                    LOGGER.error(LogId.EAL025064, e, jobSequenceId);
+                }
             }
         }
         return true;

@@ -126,7 +126,7 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
      */
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        int retryCount = 0;
+        long retryCount = 0L;
         Throwable cause = null;
         Object returnObject = null;
         long lastExceptionTime = System.currentTimeMillis();
@@ -137,7 +137,7 @@ public class AdminConnectionRetryInterceptor implements MethodInterceptor {
                 break;
             } catch (DataAccessException | TransactionException e) {
                 if (System.currentTimeMillis() - lastExceptionTime > retryReset) {
-                    retryCount = 0;
+                    retryCount = 0L;
                 }
                 lastExceptionTime = System.currentTimeMillis();
 

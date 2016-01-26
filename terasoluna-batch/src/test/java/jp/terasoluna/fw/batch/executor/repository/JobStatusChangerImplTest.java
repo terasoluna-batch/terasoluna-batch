@@ -207,8 +207,8 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:00000001"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[IAL025024] This job has already been started by another. jobSequenceId:00000001"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -239,8 +239,8 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus(null));
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:null"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:null"))));
+                "[IAL025024] This job has already been started by another. jobSequenceId:null"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:null"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -278,7 +278,7 @@ public class JobStatusChangerImplTest {
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:0 actualCurAppStatus:3 changeTo:1"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -320,8 +320,8 @@ public class JobStatusChangerImplTest {
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"),
-                error("[EAL025025] Job status update error. JobSequenceId:00000001 blogicStatus:null"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                error("[EAL025025] Job status update error. jobSequenceId:00000001 blogicStatus:null"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
@@ -396,7 +396,7 @@ public class JobStatusChangerImplTest {
         }
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -412,7 +412,7 @@ public class JobStatusChangerImplTest {
      * ・systemDao#updateJob()で例外がスローされること
      * ・[DAL025023]、[IAL025023]のログが出力されること
      * ・PlatformTransactionManager#commit()が呼び出されないこと
-     * ・PlatformTransactionManager#rollback()が呼び出されないこと
+     * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
     @Test
@@ -444,7 +444,60 @@ public class JobStatusChangerImplTest {
         }
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+    }
+
+    /**
+     * changeToStartStatusテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・有効なジョブシーケンスIDが渡されること
+     * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
+     * 確認項目
+     * ・systemDao#updateJob()で例外がスローされること
+     * ・さらに、ロールバックで例外がスローされること
+     * ・[DAL025023]、[IAL025023]、[EAL025064]のログが出力されること
+     * ・PlatformTransactionManager#commit()が呼び出されないこと
+     * ・PlatformTransactionManager#rollback()が呼び出されること
+     * </pre>
+     */
+    @Test
+    public void testChangeToStartStatus09() {
+        // テスト入力データ設定
+        TransactionStatus mockTran = mock(TransactionStatus.class);
+        RuntimeException re = new RuntimeException("Test exception.");
+        RuntimeException reAtRollback = new RuntimeException("Test exception at Rollback.");
+    
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
+        when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
+                .thenReturn(new BatchJobData() {
+                    {
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_UNEXECUTION);
+                    }
+                });
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenThrow(re);
+        doThrow(reAtRollback).when(mockPlatformTransactionManager).rollback(any(
+                TransactionStatus.class));
+
+        // テスト実行
+        // 結果検証
+        try {
+            assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
+            fail();
+        } catch (Exception e) {
+            assertSame(re, e);
+        }
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:1"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"),
+                error(reAtRollback, "[EAL025064] Failed to rollback transaction. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -520,8 +573,8 @@ public class JobStatusChangerImplTest {
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:00000001"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[IAL025024] This job has already been started by another. jobSequenceId:00000001"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -553,8 +606,8 @@ public class JobStatusChangerImplTest {
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus(null, blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025024] Failed to get the target record at the job control table. jobSequenceId:null"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:null"))));
+                "[IAL025024] This job has already been started by another. jobSequenceId:null"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:null"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -596,7 +649,7 @@ public class JobStatusChangerImplTest {
             assertTrue(e instanceof NullPointerException);
         }
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -637,7 +690,7 @@ public class JobStatusChangerImplTest {
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025055] This job status at the job control table is already updated by another worker. It will be skip. jobSequenceId:00000001 expectedCurAppStatus:1 actualCurAppStatus:2 changeTo:2"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -678,8 +731,8 @@ public class JobStatusChangerImplTest {
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"),
-                error("[EAL025025] Job status update error. JobSequenceId:00000001 blogicStatus:255"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                error("[EAL025025] Job status update error. jobSequenceId:00000001 blogicStatus:255"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
@@ -757,7 +810,7 @@ public class JobStatusChangerImplTest {
             assertSame(re, e);
         }
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                "[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
@@ -808,7 +861,62 @@ public class JobStatusChangerImplTest {
         }
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"),
-                info("[IAL025023] Failed to update the job status. It will be attempt to roll-back. jobSequenceId:00000001"))));
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+    }
+
+    /**
+     * changeToEndStatusテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・有効なジョブシーケンスIDが渡されること
+     * ・ジョブのステータスがJOB_STATUS_EXECUTINGであること
+     * 確認項目
+     * ・systemDao#updateJob()で例外がスローされること
+     * ・さらに、ロールバックで例外がスローされること
+     * ・[DAL025023]、[IAL025023]、[EAL025064]のログが出力されること
+     * ・PlatformTransactionManager#commit()が呼び出されないこと
+     * ・PlatformTransactionManager#rollback()が呼び出されること
+     * </pre>
+     */
+    @Test
+    public void testChangeToEndStatus10() {
+        // テスト入力データ設定
+        BLogicResult blogicResult = new BLogicResult();
+        TransactionStatus mockTran = mock(TransactionStatus.class);
+        RuntimeException re = new RuntimeException("Test exception.");
+        RuntimeException reAtRollback = new RuntimeException("Test exception at Rollback.");
+    
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
+        when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
+                .thenReturn(new BatchJobData() {
+                    {
+                        setJobSequenceId("0000000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_EXECUTING);
+                    }
+                });
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenThrow(re);
+        doThrow(reAtRollback).when(mockPlatformTransactionManager).rollback(any(
+                TransactionStatus.class));
+    
+        // テスト実行
+        // 結果検証
+        try {
+            assertFalse(jobStatusChanger.changeToEndStatus("00000001",
+                    blogicResult));
+            fail();
+        } catch (Exception e) {
+            assertSame(re, e);
+        }
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] Try to update status jobSequenceId:00000001 changeStatus:2"),
+                info("[IAL025023] Skipped processing of updating the job status. This transaction will be attempt to roll-back. jobSequenceId:00000001"),
+                error(reAtRollback, "[EAL025064] Failed to rollback transaction. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager, never()).commit(mockTran);
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }

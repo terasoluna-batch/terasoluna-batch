@@ -86,7 +86,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     /**
      * 残留ジョブがある場合、シャットダウンを保留する再チェックまでのスリープ時間。
      */
-    @Value("${executor.jobTerminateWaitInterval:-1}")
+    @Value("${executor.jobTerminateWaitInterval:3000}")
     protected volatile long executorJobTerminateWaitIntervalTime;
 
     /**
