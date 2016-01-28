@@ -80,6 +80,7 @@ public class AsyncBatchExecutor {
             return status;
         } catch (Throwable t) {
             LOGGER.error(LogId.EAL025060, t);
+            LOGGER.info(LogId.IAL025013, FAIL_TO_OBTAIN_JOB_OPERATOR_CODE);
             return FAIL_TO_OBTAIN_JOB_OPERATOR_CODE;
         } finally {
             if (context != null) {
