@@ -177,7 +177,8 @@ public class AsyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."))));
+                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
+                info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"))));
     }
 
     /**
@@ -209,7 +210,8 @@ public class AsyncBatchExecutorTest {
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
-                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."))));
+                error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
+                info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"))));
 
         verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
@@ -247,6 +249,7 @@ public class AsyncBatchExecutorTest {
         assertThat(logger.getLoggingEvents(), is(asList(
                 info("[IAL025005] AsyncBatchExecutor START"),
                 error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
+                info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"),
                 error(closeThrown, "[EAL025062] Failed to close the ApplicationContext."))));
     }
 
