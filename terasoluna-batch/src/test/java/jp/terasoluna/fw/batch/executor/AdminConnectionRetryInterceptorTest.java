@@ -148,7 +148,7 @@ public class AdminConnectionRetryInterceptorTest {
         }
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0",
                 logger.getLoggingEvents().get(0).getMessage());
     }
 
@@ -184,7 +184,7 @@ public class AdminConnectionRetryInterceptorTest {
         }
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
         assertEquals(
-                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0.",
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:0",
                 logger.getLoggingEvents().get(0).getMessage());
     }
 
@@ -327,7 +327,7 @@ public class AdminConnectionRetryInterceptorTest {
                 logger.getLoggingEvents().get(2).getMessage());
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3.",
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3",
                 logger.getLoggingEvents().get(3).getMessage());
 
     }
@@ -387,7 +387,7 @@ public class AdminConnectionRetryInterceptorTest {
                 logger.getLoggingEvents().get(2).getMessage());
         assertEquals(Level.ERROR, logger.getLoggingEvents().get(3).getLevel());
         assertEquals(
-                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3.",
+                "[EAL025063] Connection retry count exceeded limit. maxRetryCount:3",
                 logger.getLoggingEvents().get(3).getMessage());
 
     }

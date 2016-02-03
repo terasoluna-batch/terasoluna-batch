@@ -137,7 +137,7 @@ public class EndFileStopperTest {
         assertEquals(endFileStopper.endMonitoringFileName,
                 "/tmp/batch_terminate_file");
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025025] The end monitoring file path:/tmp/batch_terminate_file. It will be checked to stop AsyncBatchExecutor at a certain interval."))));
+                "[IAL025025] It will be checked to stop AsyncBatchExecutor at a certain interval. the end monitoring file path:/tmp/batch_terminate_file"))));
     }
 
     /**
@@ -166,7 +166,7 @@ public class EndFileStopperTest {
             assertEquals(e.getMessage(),
                     "[EAL025056] [Assertion failed] - EndFileStopper requires to set executor.endMonitoringFile. please confirm the settings.");
             assertThat(logger.getLoggingEvents(), IsNot.not(asList(info(
-                    "[IAL025025] The end monitoring file path:/tmp/batch_terminate_file. It will be checked to stop AsyncBatchExecutor at a certain interval."))));
+                    "[IAL025025] It will be checked to stop AsyncBatchExecutor at a certain interval. the end monitoring file path:/tmp/batch_terminate_file"))));
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

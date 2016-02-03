@@ -265,7 +265,7 @@ public class CacheableApplicationContextResolverImplTest {
             fail();
         } catch (BeanCreationException e) {
             assertThat(e.getMessage(), is(
-                    "[EAL025061] Can not create CacheableApplicationContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext."));
+                    "[EAL025061] Cannot create CacheableApplicationContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:businessContext"));
         }
     }
 

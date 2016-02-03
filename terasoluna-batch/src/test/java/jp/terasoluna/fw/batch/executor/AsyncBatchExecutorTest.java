@@ -145,7 +145,7 @@ public class AsyncBatchExecutorTest {
         assertEquals(123, target.doMain(args));
 
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025005] AsyncBatchExecutor START"),
+                info("[IAL025005] AsyncBatchExecutor START."),
                 info("[IAL025013] AsyncBatchExecutor END. exitStatus:123"))));
     }
 
@@ -176,7 +176,7 @@ public class AsyncBatchExecutorTest {
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025005] AsyncBatchExecutor START"),
+                info("[IAL025005] AsyncBatchExecutor START."),
                 error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
                 info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"))));
     }
@@ -209,7 +209,7 @@ public class AsyncBatchExecutorTest {
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025005] AsyncBatchExecutor START"),
+                info("[IAL025005] AsyncBatchExecutor START."),
                 error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
                 info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"))));
 
@@ -247,7 +247,7 @@ public class AsyncBatchExecutorTest {
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
-                info("[IAL025005] AsyncBatchExecutor START"),
+                info("[IAL025005] AsyncBatchExecutor START."),
                 error(expectThrown, "[EAL025060] Failed to processing of JobOperator. please see below the stacktrace."),
                 info("[IAL025013] AsyncBatchExecutor END. exitStatus:255"),
                 error(closeThrown, "[EAL025062] Failed to close the ApplicationContext."))));

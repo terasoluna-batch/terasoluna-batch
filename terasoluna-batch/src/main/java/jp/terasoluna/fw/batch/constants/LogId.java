@@ -31,7 +31,7 @@ public final class LogId {
      */
     public static final String DAL025033 = "DAL025033";
     /**
-     * <strong>DAL025034 = Operationg target TransactionDefinition detail. propagation:{0} isolation:{1} timeout:{2} readonly:{3} name:{4}.</strong>
+     * <strong>DAL025034 = Operationg target TransactionDefinition detail. propagation:{0} isolation:{1} timeout:{2} readonly:{3} name:{4}</strong>
      */
     public static final String DAL025034 = "DAL025034";
     /**
@@ -111,7 +111,7 @@ public final class LogId {
      */
     public static final String IAL025003 = "IAL025003";
     /**
-     * <strong>IAL025005 = AsyncBatchExecutor START</strong>
+     * <strong>IAL025005 = AsyncBatchExecutor START.</strong>
      */
     public static final String IAL025005 = "IAL025005";
     /**
@@ -155,7 +155,7 @@ public final class LogId {
      */
     public static final String IAL025024 = "IAL025024";
     /**
-     * <strong>IAL025025 = The end monitoring file path:{0}. It will be checked to stop AsyncBatchExecutor at a certain interval.</strong>
+     * <strong>IAL025025 = It will be checked to stop AsyncBatchExecutor at a certain interval. the end monitoring file path:{0}</strong>
      */
     public static final String IAL025025 = "IAL025025";
     /**
@@ -223,7 +223,7 @@ public final class LogId {
      */
     public static final String EAL025060 = "EAL025060";
     /**
-     * <strong>EAL025061 = Can not create CacheableApplicationContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:{0}.</strong>
+     * <strong>EAL025061 = Cannot create CacheableApplicationContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:{0}</strong>
      */
     public static final String EAL025061 = "EAL025061";
     /**
@@ -231,7 +231,7 @@ public final class LogId {
      */
     public static final String EAL025062 = "EAL025062";
     /**
-     * <strong>EAL025063 = Connection retry count exceeded limit. maxRetryCount:{0}.</strong>
+     * <strong>EAL025063 = Connection retry count exceeded limit. maxRetryCount:{0}</strong>
      */
     public static final String EAL025063 = "EAL025063";
     /**
