@@ -51,6 +51,11 @@ public class JobControlFinderImpl implements JobControlFinder {
      */
     private static final RowBounds LIMIT_ONE_ROWBOUNDS =
             new RowBounds(RowBounds.NO_ROW_OFFSET, 1);
+    
+    /**
+     * {@code SystemDao#selectJobList(BatchJobListParam)}時のパラメータ
+     */
+    private BatchJobListParam param = new BatchJobListParam();
 
     /**
      * コンストラクタ。
@@ -59,6 +64,11 @@ public class JobControlFinderImpl implements JobControlFinder {
         Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025056, this
                 .getClass().getSimpleName(), "SystemDao"));
         this.systemDao = systemDao;
+        
+        // systemDaoのパラメータを事前に組み立てる
+        List<String> unExecution = new ArrayList<>();
+        unExecution.add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
+        param.setCurAppStatusList(unExecution);
     }
 
     /**
@@ -74,14 +84,6 @@ public class JobControlFinderImpl implements JobControlFinder {
      */
     @Override
     public BatchJobListResult resolveBatchJobResult(String[] args) {
-        BatchJobListParam param = new BatchJobListParam();
-        param.setCurAppStatusList(new ArrayList<String>() {
-            private static final long serialVersionUID = 1L;
-
-            {
-                add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
-            }
-        });
         List<BatchJobListResult> resultList = systemDao.selectJobList(
                 LIMIT_ONE_ROWBOUNDS, param);
         if (resultList == null || resultList.isEmpty()) {
