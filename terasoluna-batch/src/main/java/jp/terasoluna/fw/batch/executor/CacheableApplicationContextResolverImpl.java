@@ -16,19 +16,21 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.logger.TLogger;
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
 
-import java.util.Collection;
-import java.util.Map;
+import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * DIコンテナのキャッシュを実現する{@code ApplicationContextResolver}実装。
@@ -37,8 +39,7 @@ import java.util.Map;
  * 本クラスではSpring Cache Abstractionを用いて、ジョブ業務コードをキーとしたDIコンテナのキャッシュを行う。
  * キャッシュの対象となるのはジョブBean定義ファイルにもとづいたDIコンテナのみであり、システム用アプリケーションコンテキストは対象としない。
  *
- * DIコンテナのキャッシュを使用するためには、Bean定義ファイル内に
- * {@code <cache:annotation-driven/>}の指定と、{@code CacheManager}の定義・インジェクションが必要となる。
+ * DIコンテナのキャッシュを使用するためには、Bean定義ファイル内に{@code CacheManager}の定義・インジェクションが必要となる。
  * </p>
  * <p>
  * Bean定義ファイルの記述例：
@@ -46,12 +47,8 @@ import java.util.Map;
  * &lt;!-- cache名前空間のXMLスキーマ定義を追加 --&gt;
  * &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
  *    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
- *    xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
- *    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
- *      http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
+ *    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
  *    (略)
- *   &lt;!-- Spring Cache Abstraction機能の使用宣言 --&gt;
- *   &lt;cache:annotation-driven /&gt;
  *
  *   &lt;bean id=&quot;cacheManager&quot; class=&quot;org.springframework.cache.support.SimpleCacheManager&quot;&gt;
  *     &lt;property name=&quot;caches&quot;&gt;
@@ -80,7 +77,7 @@ import java.util.Map;
  * ローカルキャッシュを使用している場合、{@code cacheManager}のBean定義にbusinessContextのキャッシュ領域を追加し、
  * {@code cacheManager}をインジェクションすることで本機能によるDIコンテナのキャッシュと併用可能となる。
  *
- * また、{@code closeApplicationContext()}メソッドではキャッシュ対象のDIコンテナのクローズはスキップし、
+ * また、{@code closeApplicationContext()}メソッドではキャッシュ対象のDIコンテナのクローズは行わず、
  * {@code #destroy()}メソッドで一括でクローズする。
  * </p>
  * @since 3.6
@@ -94,7 +91,12 @@ public class CacheableApplicationContextResolverImpl
      */
     private static final TLogger LOGGER = TLogger.getLogger(
             CacheableApplicationContextResolverImpl.class);
-
+    
+    /**
+     * ジョブ業務コードごとのロックモニタを格納するホルダー
+     */
+    private ConcurrentMap<String, Object> lockMonitorHolder = new ConcurrentHashMap<>();
+    
     /**
      * DIコンテナキャッシュを管理するキャッシュマネージャー
      */
@@ -116,22 +118,56 @@ public class CacheableApplicationContextResolverImpl
 
     /**
      * {@inheritDoc}
-     *
-     * ジョブ業務コードをキーとして、キャッシュ済みのDIコンテナを返却する。
-     *
-     * キャッシュが行われていない場合、親クラスによるDIコンテナ取得メソッドが呼び出される。<br>
-     * 本クラスのプロパティに{@code CacheManager}が指定されていない場合キャッシュは行われず、
-     * メソッド呼び出しの都度DIコンテナが生成される。
-     *
+     * <p>
+     * ジョブ業務コードをキーとして、キャッシュ済みのDIコンテナを返却する。<br>
+     * キャッシュが行われていない場合、親クラスによってDIコンテナを生成し、結果をキャッシュする。
+     * </p>
      * @param batchJobData ジョブ実行時のパラメータ（ジョブ業務コード{@code BatchJobData.jobAppCd}がキャッシュキーとなる）
      */
     @Override
-    @Cacheable(value = BLOGIC_CONTEXT_CACHE_KEY, key = "#batchJobData.jobAppCd")
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) {
-        LOGGER.info(LogId.IAL025019, batchJobData.getJobAppCd());
-        return super.resolveApplicationContext(batchJobData);
+        
+        Cache cache = this.cacheManager.getCache(BLOGIC_CONTEXT_CACHE_KEY);
+        
+        String jobAppCd = batchJobData.getJobAppCd();
+        
+        // すでにキャッシュされていれば、それを返却する
+        ApplicationContext jobAppCtx = cache.get(jobAppCd, ApplicationContext.class);
+        if (jobAppCtx != null) {
+            return jobAppCtx;
+        }
+        
+        // まだキャッシュされていない場合、ジョブ業務コードごとに同期化して、コンテキストを生成しキャッシュする
+        Object lockMonitor = getLockMonitor(jobAppCd);
+        synchronized (lockMonitor) {
+            jobAppCtx = cache.get(jobAppCd, ApplicationContext.class);
+            if (jobAppCtx == null) {
+                LOGGER.info(LogId.IAL025019, batchJobData.getJobAppCd());
+                jobAppCtx = super.resolveApplicationContext(batchJobData);
+                cache.put(jobAppCd, jobAppCtx);
+            }
+        }
+        return jobAppCtx;
     }
+    
+    /**
+     * ジョブ業務コードに対応するロックモニタを返却する。
+     * 
+     * @param key ジョブ業務コード
+     * @return ロックモニタオブジェクト
+     */
+    private Object getLockMonitor(String key){
+        Object lockObjCandidate = new Object();
+        Object lockObj = lockMonitorHolder.putIfAbsent(key, lockObjCandidate);
+        // まだホルダーになかった場合はnullが返ってくるので、モニタ候補を正式版に格上げする
+        // ホルダーにあった場合はそれを使う
+        if (lockObj == null) {
+            lockObj = lockObjCandidate;
+        }
+        return lockObj;
+    }
+
 
     /**
      * {@inheritDoc}

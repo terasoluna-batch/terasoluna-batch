@@ -20,10 +20,7 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
@@ -34,6 +31,14 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -173,25 +178,96 @@ public class CacheableApplicationContextResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・Spring cache abstractionによるキャッシュ機構を使用していない。(インスタンスをnewで生成)
+     * ・Spring cache abstractionによるキャッシュ機構が使用可能なインスタンスを使用し、
+     *   事前に内部キャッシュがクリアされていること。
      * 確認項目
-     * ・1度目に業務コンテキストが生成の後返却される際、INFOログが出力されること。
+     * ・複数スレッドが同時にコールした場合に、ジョブ業務コード単位に同期化され、
+     *  ジョブ業務コードにつき1つのApplicationContextが生成されていること。
      * </pre>
      *
      * @throws Exception 予期しない例外
      */
     @Test
     public void testResolveApplicationContext02() throws Exception {
-        CacheableApplicationContextResolverImpl target = new CacheableApplicationContextResolverImpl();
-        BatchJobData batchJobData = new BatchJobData();
-        batchJobData.setJobAppCd("B000001");
-        target.classpath = "beansDef/";
+        // 事前準備
+        int multiplicity = 5;
+        CountDownLatch latch = new CountDownLatch(multiplicity);
+        ExecutorService es = Executors.newFixedThreadPool(multiplicity);
+        
+        // 5並列で、3種類のジョブ業務コードを実行する
+        List<SingleTask> taskList = new ArrayList<>();
+        taskList.add(new SingleTask(this.applicationContextResolver, latch, "B000001"));
+        taskList.add(new SingleTask(this.applicationContextResolver, latch, "B000001"));
+        taskList.add(new SingleTask(this.applicationContextResolver, latch, "B000002"));
+        taskList.add(new SingleTask(this.applicationContextResolver, latch, "B000002"));
+        taskList.add(new SingleTask(this.applicationContextResolver, latch, "B000003"));
+        
+        try {
+            // 試験実施
+            logger.clearAll();
+            
+            List<Future<ApplicationContext>> taskFutures = es.invokeAll(taskList);
 
-        // テスト実行
-        target.resolveApplicationContext(batchJobData);
-        // 業務コンテキスト生成ログが出力されること。
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025019] BLogic context will be cached. jobAppCd:B000001"))));
+            List<ApplicationContext> result = new ArrayList<>();
+            for (Future<ApplicationContext> future : taskFutures) {
+                result.add(future.get(60L, TimeUnit.SECONDS));
+            }
+            
+            // 検証
+            // 5並列の結果の確認
+            assertEquals(5, result.size());
+            
+            // ジョブ業務コードごとにコンテキストが払い出されていることの確認
+            int cachedSize = Map.class.cast(cacheManager.getCache(
+                    CacheableApplicationContextResolverImpl.BLOGIC_CONTEXT_CACHE_KEY)
+                    .getNativeCache()).size();
+            // ジョブ業務コードは3種類なのでキャッシュは3つ
+            assertEquals(3, cachedSize);
+            // B000001のctxは一致する
+            assertSame(result.get(0), result.get(1));
+            // B000002のctxは一致する
+            assertSame(result.get(2), result.get(3));
+            // B000003のctxは他と一致しない
+            assertNotSame(result.get(0), result.get(4));
+            assertNotSame(result.get(2), result.get(4));
+            
+            // ログ確認
+            assertThat(logger.getAllLoggingEvents(), is(asList(info(
+                    "[IAL025019] BLogic context will be cached. jobAppCd:B000001"),
+                    info("[IAL025019] BLogic context will be cached. jobAppCd:B000002"),
+                    info("[IAL025019] BLogic context will be cached. jobAppCd:B000003"))));
+
+        } finally {
+            es.shutdown();
+        }
+    }
+    
+    /**
+     * 並列処理用のタスククラス
+     */
+    public static class SingleTask implements Callable<ApplicationContext> {
+
+        public ApplicationContextResolver applicationContextResolver;
+        public CountDownLatch latch;
+        public String jobAppCd;
+
+        public SingleTask(ApplicationContextResolver applicationContextResolver,
+                CountDownLatch latch, String jobAppCd) {
+            this.applicationContextResolver = applicationContextResolver;
+            this.latch = latch;
+            this.jobAppCd = jobAppCd;
+        }
+
+        @Override
+        public ApplicationContext call() {
+            latch.countDown();
+
+            BatchJobData batchJobData = new BatchJobData();
+            batchJobData.setJobAppCd(jobAppCd);
+            ApplicationContext ctx = applicationContextResolver
+                    .resolveApplicationContext(batchJobData);
+            return ctx;
+        }
     }
 
     /**
@@ -217,30 +293,6 @@ public class CacheableApplicationContextResolverImplTest {
         // コンテキストがクローズされていない⇒コンテキスト内部のBeanが取り出し可能であること。
         assertThat(ctx.getBean("B000001BLogic"), is(notNullValue()));
 
-    }
-
-    /**
-     * testCloseApplicationContext02 【正常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・Spring cache abstractionによるキャッシュ機構を使用していない。
-     * 確認項目
-     * ・ApplicationContextがクローズされること。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testCloseApplicationContext02() throws Exception {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("beansDef/B000001.xml");
-        CacheableApplicationContextResolverImpl target = new CacheableApplicationContextResolverImpl();
-
-        // テスト実行
-        target.closeApplicationContext(ctx);
-
-        // コンテキストがクローズされている⇒コンテキスト内部のBeanを取り出した場合、ビジネスロジックが取り出せること。
-        assertNotNull(ctx.getBean("B000001BLogic"));
     }
 
     /**
