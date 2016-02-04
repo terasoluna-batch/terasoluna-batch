@@ -57,6 +57,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.task.TaskRejectedException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -224,6 +225,45 @@ public class AsyncJobLauncherImplTest {
      * 事前条件
      * ・特になし
      * 確認項目
+     * ・{@code AsyncJobWorker#beforeExecute}がfalseを返却した場合、以下となること。
+     *  - セマフォが解放される
+     *  - ログがでる
+     *  - 処理が打ち切られる。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testExecuteJob02() throws Exception {
+        Semaphore semaphore = new Semaphore(10);
+        doReturn(false).when(asyncJobWorker).beforeExecute(anyString());
+
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
+                threadPoolTaskExecutor, asyncJobWorker);
+        asyncJobLauncher.taskPoolLimit = semaphore;
+
+        // テスト実行
+        asyncJobLauncher.executeJob("0000000001");
+
+        // セマフォのサイズが元の値に戻っていること。
+        assertEquals(10, semaphore.availablePermits());
+
+        // エラーログ（EAL025054）とTaskRejectedExceptionの例外メッセージが出力されていること。
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025021] Skipped this job execution because this job has already been started by another. jobSequenceId:0000000001"))));
+
+        // 以降の処理が呼び出されていないこと。
+        verify(threadPoolTaskExecutor, never()).execute(any(Runnable.class));
+        verify(asyncJobWorker, never()).executeWorker(anyString());
+    }
+
+    /**
+     * executeJob()メソッドのテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・特になし
+     * 確認項目
      * ・{@code TaskRejectedException}を捕捉した場合、エラーログが出力されること。
      * </pre>
      *
@@ -234,20 +274,21 @@ public class AsyncJobLauncherImplTest {
         Semaphore semaphore = new Semaphore(10);
         doThrow(TaskRejectedException.class).when(threadPoolTaskExecutor)
                 .execute(any(Runnable.class));
-
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
+    
         AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
                 threadPoolTaskExecutor, asyncJobWorker);
         asyncJobLauncher.taskPoolLimit = semaphore;
-
+    
         // テスト実行
         asyncJobLauncher.executeJob("0000000001");
-
+    
         // AsyncJobWorker#executeWorker()が呼び出されていないこと。
         verify(asyncJobWorker, never()).executeWorker(anyString());
-
+    
         // セマフォのサイズが元の値に戻っていること。
         assertEquals(10, semaphore.availablePermits());
-
+    
         // エラーログ（EAL025054）とTaskRejectedExceptionの例外メッセージが出力されていること。
         assertTrue(logger.getLoggingEvents()
                 .get(0)
@@ -273,21 +314,31 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob04() throws Exception {
         Semaphore semaphore = spy(new Semaphore(10));
         doThrow(InterruptedException.class).when(semaphore).acquire();
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
+        
         AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
                 threadPoolTaskExecutor, asyncJobWorker);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
-        asyncJobLauncher.executeJob("0000000001");
+        try {
+            asyncJobLauncher.executeJob("0000000001");
+            fail("An exception has not been occured.");
+        } catch (BatchException be) {
+            // 目的の例外が発生していること
+            assertTrue(be.getCause() instanceof InterruptedException);
+            // AsyncJobWorker#executeWorker()が呼び出されていないこと。
+            verify(asyncJobWorker, never()).executeWorker(anyString());
 
-        // エラーログ（EAL025054）とTaskRejectedExceptionの例外メッセージが出力されていること。
-        assertTrue(logger.getLoggingEvents()
-                .get(0)
-                .getThrowable()
-                .get() instanceof InterruptedException);
-        assertEquals(
-                "[EAL025054] When the job is waiting for a available worker thread, it has been interrupted. jobSequenceId:0000000001",
-                logger.getLoggingEvents().get(0).getMessage());
+            // エラーログ（EAL025054）とTaskRejectedExceptionの例外メッセージが出力されていること。
+            assertTrue(logger.getLoggingEvents()
+                    .get(0)
+                    .getThrowable()
+                    .get() instanceof InterruptedException);
+            assertEquals(
+                    "[EAL025054] When the job is waiting for a available worker thread, it has been interrupted. jobSequenceId:0000000001",
+                    logger.getLoggingEvents().get(0).getMessage());
+        }
     }
 
     /**
@@ -303,6 +354,7 @@ public class AsyncJobLauncherImplTest {
      */
     @Test
     public void testExecuteJob05() throws Exception {
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
         doNothing().when(asyncJobWorker).executeWorker(anyString());
         Semaphore semaphore = new Semaphore(10);
         doAnswer(new Answer<Object>() {
@@ -344,6 +396,7 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob07() throws Exception {
         final RuntimeException runtimeException = new RuntimeException(
                 "exception in AsyncJobWorker#executeWorker()");
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
         doThrow(runtimeException).when(asyncJobWorker)
                 .executeWorker("0000000001");
         Semaphore semaphore = new Semaphore(10);
@@ -376,8 +429,8 @@ public class AsyncJobLauncherImplTest {
      * ・特になし
      * 確認項目
      * ・セマフォの上限3以上のジョブがサブミットされた場合、メインスレッドで
-     * 　セマフォの待ち受けが発生し、実行中タスクのいずれかが終了した後に
-     * 　待ち受けされたタスクが実行されること。
+     * セマフォの待ち受けが発生し、実行中タスクのいずれかが終了した後に
+     * 待ち受けされたタスクが実行されること。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -385,6 +438,7 @@ public class AsyncJobLauncherImplTest {
 
     @Test
     public void testExecuteJob08() throws Exception {
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor() {
             private static final long serialVersionUID = 1L;
 
@@ -481,7 +535,7 @@ public class AsyncJobLauncherImplTest {
      * ・{@code AsyncJobWorker#executeWorker()}で例外がスローされること
      * 確認項目
      * ・{@code AsyncJobWorker#executeWorker()}により、
-     * 　{@code RuntimeException}がスローされた場合、セマフォ解放が行われていること。
+     * {@code RuntimeException}がスローされた場合、セマフォ解放が行われていること。
      * ・{@code ThreadPoolTaskExecutor}により、{@code AsyncJobWorker#executeWorker()}が呼び出されること。
      * ・ExceptionStatusHandlerImplでのEAL025053ログが出力されること。
      * </pre>
@@ -490,6 +544,7 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob09() throws Exception {
         final RuntimeException runtimeException = new RuntimeException(
                 "exception in AsyncJobWorker#executeWorker()");
+        doReturn(true).when(asyncJobWorker).beforeExecute(anyString());
         doThrow(runtimeException).when(asyncJobWorker)
                 .executeWorker("0000000001");
         Semaphore semaphore = new Semaphore(10);

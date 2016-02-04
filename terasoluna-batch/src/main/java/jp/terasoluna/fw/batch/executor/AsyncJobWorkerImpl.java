@@ -41,7 +41,10 @@ import jp.terasoluna.fw.logger.TLogger;
  * <li>{@code #executeWorker}:主処理。BLogicを実行する。</li>
  * <li>{@code #afterExecuteWorker}:後処理。ジョブステータスを「処理済み：2」に変更する</li>
  * </ol>
- * それぞれ、前処理と後処理は、主処理のメソッドからそれぞれ呼び出される。
+ * </p>
+ * <p>
+ * 前処理は、本クラスを呼び出す側(メインスレッド)にて実行すること。主処理、後処理はワーカスレッドにて実行すること。<br>
+ * 後処理は、主処理の内部で呼び出されるため個別に呼び出してはならない。<br>
  * </p>
  * @since 3.6
  */
@@ -140,7 +143,7 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
      * @param jobSequenceId ジョブシーケンスコード
      * @return 前処理の処理結果(true:更新成功、false:更新失敗)
      */
-    protected boolean beforeExecute(final String jobSequenceId) {
+    public boolean beforeExecute(final String jobSequenceId) {
         boolean updated = jobStatusChanger.changeToStartStatus(jobSequenceId);
         return updated;
     }
@@ -161,11 +164,6 @@ public class AsyncJobWorkerImpl implements AsyncJobWorker {
     public void executeWorker(final String jobSequenceId) {
 
         LOGGER.info(LogId.IAL025001, jobSequenceId);
-
-        if (!beforeExecute(jobSequenceId)) {
-            LOGGER.info(LogId.IAL025021, jobSequenceId);
-            return;
-        }
 
         BLogicResult blogicResult = new BLogicResult();
         ApplicationContext blogicContext = null;

@@ -17,6 +17,7 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.AsyncJobWorker;
 import jp.terasoluna.fw.logger.TLogger;
 
@@ -122,9 +123,26 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
      */
     @Override
     public void executeJob(final String jobSequenceId) {
+
         Assert.notNull(jobSequenceId);
+
         try {
             taskPoolLimit.acquire();
+        } catch (InterruptedException e) {
+            // メインスレッドへの割り込みがかかっている状況ならば安全のため停止する
+            LOGGER.error(LogId.EAL025054, e, jobSequenceId);
+            throw new BatchException(e);
+        }
+
+        // 前処理で例外が発生した場合は上位に処理を委譲する。
+        // 例外発生時はセマフォのリリースは行わないが実害はない。
+        if (!asyncJobWorker.beforeExecute(jobSequenceId)) {
+            taskPoolLimit.release();
+            LOGGER.info(LogId.IAL025021, jobSequenceId);
+            return;
+        }
+
+        try {
             threadPoolTaskExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -140,8 +158,6 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
         } catch (TaskRejectedException e) {
             LOGGER.error(LogId.EAL025047, e, jobSequenceId);
             taskPoolLimit.release();
-        } catch (InterruptedException e) {
-            LOGGER.error(LogId.EAL025054, e, jobSequenceId);
         }
     }
 
