@@ -475,7 +475,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -525,10 +524,8 @@ public class AsyncJobWorkerImplTest {
     @Test
     public void testExecuteWorker02() throws Exception {
         Exception ex = new IllegalArgumentException();
-        when(
-                mockBLogicApplicationContextResolver
-                        .resolveApplicationContext(any(BatchJobData.class)))
-                .thenThrow(ex);
+        when(mockBLogicApplicationContextResolver.resolveApplicationContext(any(
+                BatchJobData.class))).thenThrow(ex);
 
         ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
@@ -542,7 +539,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -592,9 +588,8 @@ public class AsyncJobWorkerImplTest {
     @Test
     public void testExecuteWorker03() throws Exception {
         Exception ex = new IllegalArgumentException();
-        when(
-                mockBLogicResolver.resolveBLogic(any(ApplicationContext.class),
-                        anyString())).thenThrow(ex);
+        when(mockBLogicResolver.resolveBLogic(any(ApplicationContext.class),
+                anyString())).thenThrow(ex);
 
         ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
@@ -608,7 +603,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
@@ -663,10 +657,8 @@ public class AsyncJobWorkerImplTest {
     @Test
     public void testExecuteWorker04() throws Exception {
         Exception ex = new IllegalArgumentException();
-        when(
-                mockBLogicParamConverter
-                        .convertBLogicParam(any(BatchJobData.class)))
-                .thenThrow(ex);
+        when(mockBLogicParamConverter.convertBLogicParam(any(
+                BatchJobData.class))).thenThrow(ex);
 
         ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
@@ -680,8 +672,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
-
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
@@ -783,7 +773,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -821,17 +810,15 @@ public class AsyncJobWorkerImplTest {
     @Test
     public void testExecuteWorker06() throws Exception {
         Exception ex = new IllegalArgumentException();
-        when(
-                mockBLogicExecutor.execute(any(ApplicationContext.class),
-                        any(BLogic.class), any(BLogicParam.class),
-                        any(ExceptionHandler.class))).thenThrow(ex);
+        when(mockBLogicExecutor.execute(any(ApplicationContext.class), any(
+                BLogic.class), any(BLogicParam.class), any(
+                        ExceptionHandler.class))).thenThrow(ex);
         ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
         when(exceptionHandler.handleThrowableException(any(Throwable.class))).thenReturn(0);
         
-        when(
-                mockBLogicExceptionHandlerResolver.resolveExceptionHandler(
-                        any(ApplicationContext.class), anyString()))
-                .thenReturn(exceptionHandler);
+        when(mockBLogicExceptionHandlerResolver.resolveExceptionHandler(any(
+                ApplicationContext.class), anyString())).thenReturn(
+                        exceptionHandler);
 
         ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
@@ -845,7 +832,6 @@ public class AsyncJobWorkerImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 blogicResultCaptor.capture());
-        doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
@@ -869,60 +855,6 @@ public class AsyncJobWorkerImplTest {
                 error(ex,
                         "[EAL025059] The BLogic execution has failed during processing. jobSequenceId:seq0000001"),
                 info("[IAL025003] An async batch processing END. jobSequenceId:seq0000001, blogicStatus:255"))));
-    }
-
-    /**
-     * {@code executeWorker}のテスト07 【正常系】<br>
-     *
-     * <pre>
-     * 事前条件
-     * ・特になし
-     * 確認事項
-     *  {@code beforeExecute()}がfalseを返却した際、INFOログを出力し後続を処理せず終了すること。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testExecuteWorker07() throws Exception {
-        Exception ex = new IllegalArgumentException();
-        when(
-                mockBLogicExecutor.execute(any(ApplicationContext.class),
-                        any(BLogic.class), any(BLogicParam.class),
-                        any(ExceptionHandler.class))).thenThrow(ex);
-        ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
-        when(exceptionHandler.handleThrowableException(any(Throwable.class))).thenReturn(0);
-
-        when(
-                mockBLogicExceptionHandlerResolver.resolveExceptionHandler(
-                        any(ApplicationContext.class), anyString()))
-                .thenReturn(exceptionHandler);
-
-        ArgumentCaptor<BLogicResult> blogicResultCaptor = ArgumentCaptor
-                .forClass(BLogicResult.class);
-
-        AsyncJobWorkerImpl target = spy(new AsyncJobWorkerImpl(mockBLogicResolver,
-                mockBLogicExceptionHandlerResolver,
-                mockBLogicApplicationContextResolver,
-                mockJobControlFinder,
-                mockBLogicParamConverter,
-                mockBLogicExecutor,
-                mockJobStatusChanger));
-        doNothing().when(target).afterExecuteWorker(anyString(),
-                blogicResultCaptor.capture());
-        doReturn(false).when(target).beforeExecute(anyString());
-
-        // テスト実行
-        target.executeWorker("0000001");
-
-        verify(target, never()).afterExecuteWorker(eq("0000001"),
-                any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, never())
-                .closeApplicationContext(any(ApplicationContext.class));
-
-        assertThat(logger.getLoggingEvents(), is(asList(info(
-                "[IAL025001] An async batch processing START. jobSequenceId:0000001"),
-                info("[IAL025021] Skipped this job execution because this job has already been started by another. jobSequenceId:0000001"))));
     }
 
     /**

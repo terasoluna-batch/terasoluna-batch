@@ -17,10 +17,18 @@
 package jp.terasoluna.fw.batch.executor;
 
 /**
- * ジョブシーケンスコードにもとづいたジョブを、ワーカスレッドで実行するインタフェース。<br>
+ * ジョブシーケンスコードにもとづいたジョブを実行するインタフェース。<br>
  */
 public interface AsyncJobWorker {
-
+    
+    /**
+     * ジョブの前処理を行う<br>
+     * 
+     * @param jobSequenceId ジョブシーケンスコード
+     * @return 前処理の処理結果(true:成功、false:失敗)
+     */
+    boolean beforeExecute(String jobSequenceId);
+    
     /**
      * ジョブの主処理を行う。<br>
      *
