@@ -57,16 +57,6 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
             .getLogger(AbstractTransactionBLogic.class);
 
     /**
-     * transactionManagerMap.
-     */
-    private Map<?, ?> transactionManagerMap = null;
-
-    /**
-     * transactionStatusMap
-     */
-    private Map<String, TransactionStatus> transactionStatusMap = null;
-
-    /**
      * バッチ処理実行メソッド.
      * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(BLogicParam)
      */
@@ -75,28 +65,29 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
         int status = PROCESS_END_STATUS_FAILURE;
         ApplicationContext ctx = getApplicationContext();
 
-        this.transactionManagerMap = BeanFactoryUtils
+        Map<?, ?> transactionManagerMap = BeanFactoryUtils
                 .beansOfTypeIncludingAncestors(ctx,
                         PlatformTransactionManager.class);
 
         // トランザクション開始
-        this.transactionStatusMap = startTransactions(this.transactionManagerMap);
+        Map<String, TransactionStatus> transactionStatusMap
+                = startTransactions(transactionManagerMap);
 
         try {
             // 主処理
             status = doMain(param);
 
             // トランザクションコミット
-            commitTransactions(this.transactionManagerMap,
-                    this.transactionStatusMap);
+            commitTransactions(transactionManagerMap,
+                    transactionStatusMap);
         } catch (RuntimeException e) {
             throw e;
         } catch (Throwable th) {
             throw new BatchException(th);
         } finally {
             // トランザクション終了（未コミット時ロールバック）
-            endTransactions(this.transactionManagerMap,
-                    this.transactionStatusMap);
+            endTransactions(transactionManagerMap,
+                    transactionStatusMap);
         }
 
         return status;
@@ -114,7 +105,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      * @param trnMngMap PlatformTransactionManagerマップ
      * @return TransactionStatusマップ
      */
-    private Map<String, TransactionStatus> startTransactions(Map<?, ?> trnMngMap) {
+    Map<String, TransactionStatus> startTransactions(Map<?, ?> trnMngMap) {
         return BatchUtil.startTransactions(
                 BatchUtil.getTransactionDefinition(), trnMngMap, logger);
     }
@@ -124,7 +115,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      * @param trnMngMap PlatformTransactionManagerマップ
      * @param tranStatMap TransactionStatusマップ
      */
-    private void commitTransactions(Map<?, ?> trnMngMap,
+    void commitTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {
         BatchUtil.commitTransactions(trnMngMap, tranStatMap, logger);
     }
@@ -135,7 +126,7 @@ public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
      * @param tranStatMap TransactionStatusマップ
      * @return 正常ならtrue
      */
-    private boolean endTransactions(Map<?, ?> trnMngMap,
+    boolean endTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {
         return BatchUtil.endTransactions(trnMngMap, tranStatMap, logger);
     }

@@ -1,6 +1,10 @@
 package jp.terasoluna.fw.batch.blogic;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 import java.util.Map;
 
@@ -8,9 +12,9 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.transaction.TransactionStatus;
 
 public class AbstractTransactionBLogicTest {
@@ -20,12 +24,13 @@ public class AbstractTransactionBLogicTest {
      */
     @Test
     public void testExecute001() {
-        AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
                 return 0;
             }
-        };
+        });
+
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
                 "jp/terasoluna/fw/batch/blogic/TestContext.xml" });
         blogic.setApplicationContext(context);
@@ -37,12 +42,15 @@ public class AbstractTransactionBLogicTest {
 
         assertEquals(0, result);
 
-        @SuppressWarnings("unchecked")
-        Map<String, TransactionStatus> txStatusMap = (Map<String, TransactionStatus>) ReflectionTestUtils
-                .getField(blogic, "transactionStatusMap");
+        verify(blogic).startTransactions(any(Map.class));
+        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
 
-        assertEquals(1, txStatusMap.size());
-        for (TransactionStatus txStatus : txStatusMap.values()) {
+        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+        verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+        assertEquals(1, trnStsMap.getValue().size());
+        for (Object txStatusObj : trnStsMap.getValue().values()) {
+            TransactionStatus txStatus = TransactionStatus.class.cast(txStatusObj);
             assertTrue(txStatus.isCompleted());
         }
     }
@@ -52,12 +60,12 @@ public class AbstractTransactionBLogicTest {
      */
     @Test
     public void testExecute002() {
-        AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
                 throw new BatchException("hoge");
             }
-        };
+        });
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
                 "jp/terasoluna/fw/batch/blogic/TestContext.xml" });
         blogic.setApplicationContext(context);
@@ -73,12 +81,16 @@ public class AbstractTransactionBLogicTest {
             assertEquals(BatchException.class, e.getClass());
             assertEquals("hoge", e.getMessage());
 
-            @SuppressWarnings("unchecked")
-            Map<String, TransactionStatus> txStatusMap = (Map<String, TransactionStatus>) ReflectionTestUtils
-                    .getField(blogic, "transactionStatusMap");
+            verify(blogic).startTransactions(any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
 
-            assertEquals(1, txStatusMap.size());
-            for (TransactionStatus txStatus : txStatusMap.values()) {
+            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+            verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+            assertEquals(1, trnStsMap.getValue().size());
+            for (Object txStatusObj : trnStsMap.getValue().values()) {
+                TransactionStatus txStatus
+                        = TransactionStatus.class.cast(txStatusObj);
                 assertTrue(txStatus.isCompleted());
             }
         }
@@ -89,12 +101,12 @@ public class AbstractTransactionBLogicTest {
      */
     @Test
     public void testExecute003() {
-        AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
                 throw new NullPointerException("ぬるぽ");
             }
-        };
+        });
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
                 "jp/terasoluna/fw/batch/blogic/TestContext.xml" });
         blogic.setApplicationContext(context);
@@ -106,12 +118,16 @@ public class AbstractTransactionBLogicTest {
         } catch (Exception e) {
             assertEquals(NullPointerException.class, e.getClass());
 
-            @SuppressWarnings("unchecked")
-            Map<String, TransactionStatus> txStatusMap = (Map<String, TransactionStatus>) ReflectionTestUtils
-                    .getField(blogic, "transactionStatusMap");
+            verify(blogic).startTransactions(any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
 
-            assertEquals(1, txStatusMap.size());
-            for (TransactionStatus txStatus : txStatusMap.values()) {
+            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+            verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+            assertEquals(1, trnStsMap.getValue().size());
+            for (Object txStatusObj : trnStsMap.getValue().values()) {
+                TransactionStatus txStatus
+                        = TransactionStatus.class.cast(txStatusObj);
                 assertTrue(txStatus.isCompleted());
             }
         }
@@ -122,12 +138,12 @@ public class AbstractTransactionBLogicTest {
      */
     @Test
     public void testExecute004() {
-        AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
                 throw new OutOfMemoryError("※テスト※メモリ不足※テスト※");
             }
-        };
+        });
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
                 "jp/terasoluna/fw/batch/blogic/TestContext.xml" });
         blogic.setApplicationContext(context);
@@ -140,12 +156,16 @@ public class AbstractTransactionBLogicTest {
             assertEquals(BatchException.class, e.getClass());
             assertEquals(OutOfMemoryError.class, e.getCause().getClass());
 
-            @SuppressWarnings("unchecked")
-            Map<String, TransactionStatus> txStatusMap = (Map<String, TransactionStatus>) ReflectionTestUtils
-                    .getField(blogic, "transactionStatusMap");
+            verify(blogic).startTransactions(any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
 
-            assertEquals(1, txStatusMap.size());
-            for (TransactionStatus txStatus : txStatusMap.values()) {
+            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+            verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+            assertEquals(1, trnStsMap.getValue().size());
+            for (Object txStatusObj : trnStsMap.getValue().values()) {
+                TransactionStatus txStatus
+                        = TransactionStatus.class.cast(txStatusObj);
                 assertTrue(txStatus.isCompleted());
             }
         }
@@ -156,12 +176,12 @@ public class AbstractTransactionBLogicTest {
      */
     @Test
     public void testExecute005() {
-        AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
                 return 0;
             }
-        };
+        });
         ApplicationContext parent = new ClassPathXmlApplicationContext(new String[] {
                 "jp/terasoluna/fw/batch/blogic/TestContext.xml" });
         ApplicationContext child = new ClassPathXmlApplicationContext(new String[] {
@@ -176,14 +196,90 @@ public class AbstractTransactionBLogicTest {
 
         assertEquals(0, result);
 
-        @SuppressWarnings("unchecked")
-        Map<String, TransactionStatus> txStatusMap = (Map<String, TransactionStatus>) ReflectionTestUtils
-                .getField(blogic, "transactionStatusMap");
+        verify(blogic).startTransactions(any(Map.class));
+        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
 
-        assertEquals(1, txStatusMap.size());
-        for (TransactionStatus txStatus : txStatusMap.values()) {
+        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+        verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+        assertEquals(1, trnStsMap.getValue().size());
+        for (Object txStatusObj : trnStsMap.getValue().values()) {
+            TransactionStatus txStatus
+                    = TransactionStatus.class.cast(txStatusObj);
             assertTrue(txStatus.isCompleted());
         }
     }
 
+    /**
+     * testExecute006
+     */
+    @Test
+    public void testExecute006() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
+            @Override
+            public int doMain(BLogicParam param) {
+                return 0;
+            }
+        });
+
+        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
+                "jp/terasoluna/fw/batch/blogic/MultiDataSourceContext.xml" });
+        blogic.setApplicationContext(context);
+
+        BLogicParam param = new BLogicParam();
+
+        // テスト
+        int result = blogic.execute(param);
+
+        assertEquals(0, result);
+
+        verify(blogic).startTransactions(any(Map.class));
+        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
+
+        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+        verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+        assertEquals(2, trnStsMap.getValue().size());
+        for (Object txStatusObj : trnStsMap.getValue().values()) {
+            TransactionStatus txStatus = TransactionStatus.class.cast(txStatusObj);
+            assertTrue(txStatus.isCompleted());
+        }
+    }
+
+    /**
+     * testExecute007
+     */
+    @Test
+    public void testExecute007() {
+        AbstractTransactionBLogic blogic = spy(new AbstractTransactionBLogic() {
+            @Override
+            public int doMain(BLogicParam param) {
+                throw new RuntimeException("throwing RuntimeException");
+            }
+        });
+        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
+                "jp/terasoluna/fw/batch/blogic/MultiDataSourceContext.xml" });
+        blogic.setApplicationContext(context);
+        BLogicParam param = new BLogicParam();
+
+        // テスト
+        try {
+            blogic.execute(param);
+        } catch (Exception e) {
+            assertEquals(RuntimeException.class, e.getClass());
+
+            verify(blogic).startTransactions(any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
+
+            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
+            verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
+
+            assertEquals(2, trnStsMap.getValue().size());
+            for (Object txStatusObj : trnStsMap.getValue().values()) {
+                TransactionStatus txStatus
+                        = TransactionStatus.class.cast(txStatusObj);
+                assertTrue(txStatus.isCompleted());
+            }
+        }
+    }
 }
