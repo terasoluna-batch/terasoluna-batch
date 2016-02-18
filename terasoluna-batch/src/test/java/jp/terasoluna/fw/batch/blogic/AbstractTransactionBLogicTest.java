@@ -12,12 +12,20 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Matchers;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.TransactionStatus;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AbstractTransactionBLogicTest {
+
+    @Captor
+    private ArgumentCaptor<Map<String, TransactionStatus>> trnStsMap;
 
     /**
      * testExecute001
@@ -43,9 +51,9 @@ public class AbstractTransactionBLogicTest {
         assertEquals(0, result);
 
         verify(blogic).startTransactions(any(Map.class));
-        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
+        verify(blogic).commitTransactions(Matchers.<Map<?, ?>>any(),
+                Matchers.<Map<String, TransactionStatus>>any());
 
-        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
         verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
         assertEquals(1, trnStsMap.getValue().size());
@@ -82,9 +90,9 @@ public class AbstractTransactionBLogicTest {
             assertEquals("hoge", e.getMessage());
 
             verify(blogic).startTransactions(any(Map.class));
-            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class),
+                    Matchers.<Map<String, TransactionStatus>>any());
 
-            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
             verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
             assertEquals(1, trnStsMap.getValue().size());
@@ -119,9 +127,9 @@ public class AbstractTransactionBLogicTest {
             assertEquals(NullPointerException.class, e.getClass());
 
             verify(blogic).startTransactions(any(Map.class));
-            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class),
+                    Matchers.<Map<String, TransactionStatus>>any());
 
-            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
             verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
             assertEquals(1, trnStsMap.getValue().size());
@@ -157,9 +165,9 @@ public class AbstractTransactionBLogicTest {
             assertEquals(OutOfMemoryError.class, e.getCause().getClass());
 
             verify(blogic).startTransactions(any(Map.class));
-            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class),
+                    Matchers.<Map<String, TransactionStatus>>any());
 
-            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
             verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
             assertEquals(1, trnStsMap.getValue().size());
@@ -197,9 +205,9 @@ public class AbstractTransactionBLogicTest {
         assertEquals(0, result);
 
         verify(blogic).startTransactions(any(Map.class));
-        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
+        verify(blogic).commitTransactions(any(Map.class),
+                Matchers.<Map<String, TransactionStatus>>any());
 
-        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
         verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
         assertEquals(1, trnStsMap.getValue().size());
@@ -234,9 +242,9 @@ public class AbstractTransactionBLogicTest {
         assertEquals(0, result);
 
         verify(blogic).startTransactions(any(Map.class));
-        verify(blogic).commitTransactions(any(Map.class), any(Map.class));
+        verify(blogic).commitTransactions(any(Map.class),
+                Matchers.<Map<String, TransactionStatus>>any());
 
-        ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
         verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
         assertEquals(2, trnStsMap.getValue().size());
@@ -269,9 +277,9 @@ public class AbstractTransactionBLogicTest {
             assertEquals(RuntimeException.class, e.getClass());
 
             verify(blogic).startTransactions(any(Map.class));
-            verify(blogic, never()).commitTransactions(any(Map.class), any(Map.class));
+            verify(blogic, never()).commitTransactions(any(Map.class),
+                    Matchers.<Map<String, TransactionStatus>>any());
 
-            ArgumentCaptor<Map> trnStsMap = ArgumentCaptor.forClass(Map.class);
             verify(blogic).endTransactions(any(Map.class), trnStsMap.capture());
 
             assertEquals(2, trnStsMap.getValue().size());
