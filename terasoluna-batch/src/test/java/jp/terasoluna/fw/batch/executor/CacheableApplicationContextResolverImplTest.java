@@ -18,6 +18,7 @@ package jp.terasoluna.fw.batch.executor;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.*;
@@ -232,10 +233,10 @@ public class CacheableApplicationContextResolverImplTest {
             assertNotSame(result.get(2), result.get(4));
             
             // ログ確認
-            assertThat(logger.getAllLoggingEvents(), is(asList(info(
-                    "[IAL025019] BLogic context will be cached. jobAppCd:B000001"),
+            assertThat(logger.getAllLoggingEvents(),  hasItems(
+                    info("[IAL025019] BLogic context will be cached. jobAppCd:B000001"),
                     info("[IAL025019] BLogic context will be cached. jobAppCd:B000002"),
-                    info("[IAL025019] BLogic context will be cached. jobAppCd:B000003"))));
+                    info("[IAL025019] BLogic context will be cached. jobAppCd:B000003")));
 
         } finally {
             es.shutdown();
