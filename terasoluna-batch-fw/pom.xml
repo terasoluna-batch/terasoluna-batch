@@ -46,18 +46,18 @@
         <!-- oro -->
         <oro.version>2.0.8</oro.version>
         <!-- args4j -->
-        <args4j.version>2.32</args4j.version>
+        <args4j.version>2.33</args4j.version>
         <!-- assertj -->
-        <assertj.version>2.2.0</assertj.version>
+        <assertj.version>2.5.0</assertj.version>
         <!-- powermock -->
-        <powermock.version>1.6.2</powermock.version>
+        <powermock.version>1.6.5</powermock.version>
         <!-- slf4j -->
         <lidalia.slf4j.ext.version>1.0.0</lidalia.slf4j.ext.version>
         <slf4j-test.version>1.1.0</slf4j-test.version>
         <!-- oracle -->
-        <oracle.jdbc.version>11.2.0.4.0</oracle.jdbc.version>
+        <oracle.jdbc.version>12.1.0.2</oracle.jdbc.version>
         <!-- postgresql -->
-        <postgresql.version>9.3-1103-jdbc41</postgresql.version>
+        <postgresql.version>9.4.1208.jre7</postgresql.version>
 
         <!-- plugin version -->
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
