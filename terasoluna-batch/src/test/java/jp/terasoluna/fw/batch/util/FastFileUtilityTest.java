@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +31,6 @@ import java.net.URL;
 import java.nio.channels.Channel;
 import java.util.Random;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileException;
@@ -76,10 +76,22 @@ public class FastFileUtilityTest {
         FastFileUtility.copyFile(srcFile, newFile);
 
         // 結果検証
-        File expected = new File(srcFile);
-        File actual = new File(newFile);
+        try (FileInputStream fis1 = new FileInputStream(srcFile);
+                BufferedInputStream expected = new BufferedInputStream(fis1);
+                FileInputStream fis2 = new FileInputStream(newFile);
+                BufferedInputStream actual = new BufferedInputStream(fis2);) {
 
-        Assertions.assertThat(actual).hasSameContentAs(expected);
+            int ch = expected.read();
+            while (-1 != ch) {
+                final int ch2 = actual.read();
+                if (ch != ch2) {
+                    fail();
+                }
+                ch = expected.read();
+            }
+            final int ch2 = actual.read();
+            assertEquals(-1, ch2);
+        }
     }
 
     /**
@@ -222,11 +234,22 @@ public class FastFileUtilityTest {
         FastFileUtility.copyFile(srcFile, newFile);
 
         // 結果検証
-        File expected = new File(srcFile);
-        File actual = new File(newFile);
+        try (FileInputStream fis1 = new FileInputStream(srcFile);
+                BufferedInputStream expected = new BufferedInputStream(fis1);
+                FileInputStream fis2 = new FileInputStream(newFile);
+                BufferedInputStream actual = new BufferedInputStream(fis2);) {
 
-        Assertions.assertThat(actual).hasSameContentAs(expected);
-
+            int ch = expected.read();
+            while (-1 != ch) {
+                final int ch2 = actual.read();
+                if (ch != ch2) {
+                    fail();
+                }
+                ch = expected.read();
+            }
+            final int ch2 = actual.read();
+            assertEquals(-1, ch2);
+        }
     }
 
     /**
