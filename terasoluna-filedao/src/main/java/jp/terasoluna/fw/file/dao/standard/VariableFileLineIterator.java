@@ -222,7 +222,7 @@ public class VariableFileLineIterator<T> extends AbstractFileLineIterator<T> {
         char[] columnEncloseChar = getColumnEncloseChar();
 
         if (!isEnclosed()) {
-            return StringUtils.split(fileLineString, Character.toString(delimiter));
+            return StringUtils.splitByWholeSeparator(fileLineString, Character.toString(delimiter));
         } else {
             for (char currentChar : fileLineString.toCharArray()) {
                 if (previousChar == Character.MIN_VALUE) {
