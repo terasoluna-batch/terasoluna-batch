@@ -917,6 +917,52 @@ public class VariableFileLineIteratorTest {
     }
 
     /**
+     * testSeparateColumns15() <br>
+     * <br>
+     * (正常系) <br>
+     * 観点：E, F <br>
+     * <br>
+     * 入力値：(引数) fileLineString:"aaa|aaa|aaa"<br>
+     * (状態) this.encloseChar:Character.MIN_VALUE<br>
+     * (状態) delimiter:'|'<br>
+     * <br>
+     * 期待値：(戻り値) columns[]:{"aaa","aaa","aaa"}<br>
+     * <br>
+     * 正常パターン。(囲み文字がない場合の処理)<br>
+     * 区切り文字をデフォルト以外かつ正規表現上特殊な意味を持つものに設定した場合でも、要素数3の配列を返却することを確認する。 <br>
+     * @throws Exception このメソッドで発生した例外
+     */
+    @Test
+    public void testSeparateColumns15() throws Exception {
+        // テスト対象のインスタンス化
+        URL url = this.getClass().getResource("File_Empty.txt");
+        String fileName = url.getPath();
+        Class<VariableFileLineIterator_Stub15> clazz = VariableFileLineIterator_Stub15.class;
+        Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
+        columnParserMap.put("java.lang.String", new NullColumnParser());
+        VariableFileLineIterator<VariableFileLineIterator_Stub15> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub15>(fileName, clazz, columnParserMap);
+
+        // 引数の設定
+        String fileLineString = "aaa|aaa|aaa";
+
+        // 前提条件の設定
+        // テスト対象のインスタンス化時に設定済み
+
+        // テスト実施
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
+
+        // 返却値の確認
+        assertEquals(3, result.length);
+        assertEquals("aaa", result[0]);
+        assertEquals("aaa", result[1]);
+        assertEquals("aaa", result[2]);
+
+        // 状態変化の確認
+        // なし
+    }
+
+    /**
      * testGetEncloseChar01() <br>
      * <br>
      * (正常系) <br>
