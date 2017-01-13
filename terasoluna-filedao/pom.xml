@@ -21,7 +21,7 @@
     <parent>
         <groupId>jp.terasoluna.fw</groupId>
         <artifactId>terasoluna-batch-fw</artifactId>
-        <version>3.6.1-SNAPSHOT</version>
+        <version>3.6.2-SNAPSHOT</version>
         <relativePath>../terasoluna-batch-fw</relativePath>
     </parent>
 
@@ -59,8 +59,20 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- SLF4J -->
+        <dependency>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
 
