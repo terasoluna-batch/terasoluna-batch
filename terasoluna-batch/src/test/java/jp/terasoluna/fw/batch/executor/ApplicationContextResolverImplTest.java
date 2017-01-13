@@ -398,7 +398,7 @@ public class ApplicationContextResolverImplTest {
             fail();
         } catch (SpelEvaluationException e) {
             assertTrue(e.getMessage().contains(
-                    "EL1008E:(pos 0): Property or field 'noDefProperty' cannot be found on object of type 'jp.terasoluna.fw.batch.executor.ApplicationContextResolverImplTest"));
+                    "EL1008E: Property or field 'noDefProperty' cannot be found on object of type 'jp.terasoluna.fw.batch.executor.ApplicationContextResolverImplTest"));
         }
     }
 

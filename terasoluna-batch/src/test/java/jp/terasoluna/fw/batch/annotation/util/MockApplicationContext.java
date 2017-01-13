@@ -481,4 +481,9 @@ public class MockApplicationContext extends
         return null;
     }
 
+    @Override
+    public boolean hasEmbeddedValueResolver() {
+        return false;
+    }
+
 }
