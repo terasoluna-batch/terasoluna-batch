@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.dao.FileException;
 
@@ -220,7 +222,8 @@ public class VariableFileLineIterator<T> extends AbstractFileLineIterator<T> {
         char[] columnEncloseChar = getColumnEncloseChar();
 
         if (!isEnclosed()) {
-            return fileLineString.split(Character.toString(delimiter), -1);
+            return StringUtils.splitByWholeSeparatorPreserveAllTokens(
+                    fileLineString, Character.toString(delimiter));
         } else {
             for (char currentChar : fileLineString.toCharArray()) {
                 if (previousChar == Character.MIN_VALUE) {
