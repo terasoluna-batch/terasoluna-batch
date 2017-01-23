@@ -7,6 +7,7 @@
         <setting name="cacheEnabled" value="true" />
         <setting name="lazyLoadingEnabled" value="true" />
         <setting name="localCacheScope" value="STATEMENT" />
+        <setting name="defaultFetchSize" value="1000" />
         <setting name="safeResultHandlerEnabled" value="false" />
     </settings>
 
