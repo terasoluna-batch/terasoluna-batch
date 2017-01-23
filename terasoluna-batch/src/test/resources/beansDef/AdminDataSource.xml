@@ -31,7 +31,8 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
     <!-- トランザクションマネージャの定義 -->
     <bean id="adminTransactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="adminDataSource"/>
+        <property name="dataSource" ref="adminDataSource" />
+        <property name="rollbackOnCommitFailure" value="true" />
     </bean>
 
     <!-- システム共通SqlSessionFactory定義 -->
