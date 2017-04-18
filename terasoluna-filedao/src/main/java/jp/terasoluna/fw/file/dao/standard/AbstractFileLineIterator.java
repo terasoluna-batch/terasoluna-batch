@@ -27,7 +27,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -179,7 +179,7 @@ public abstract class AbstractFileLineIterator<T> implements
      * ファイル行オブジェクトのストリングコンバータを格納するマップ。
      */
     @SuppressWarnings("rawtypes")
-    private static Map<Class, StringConverter> stringConverterCacheMap = new HashMap<Class, StringConverter>();
+    private static Map<Class, StringConverter> stringConverterCacheMap = new ConcurrentHashMap<Class, StringConverter>();
 
     /**
      * ファイル行オブジェクトのFieldに対応するsetterメソッドを格納する。
