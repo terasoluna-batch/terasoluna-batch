@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.terasoluna.fw.batch.executor.dao.B000004Dao">
+
+    <select id="findAll"
+            resultType="jp.terasoluna.fw.batch.executor.HogeBean">
+        SELECT
+        EMPLOYEE_ID AS id
+        ,EMPLOYEE_FAMILY_NAME AS familyName
+        ,EMPLOYEE_FIRST_NAME AS firstName
+        ,EMPLOYEE_AGE AS age
+        FROM
+        EMPLOYEE
+    </select>
+
+</mapper>

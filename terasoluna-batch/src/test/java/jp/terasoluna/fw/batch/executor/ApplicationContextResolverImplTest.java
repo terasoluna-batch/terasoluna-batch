@@ -29,7 +29,11 @@ import static org.mockito.Mockito.mock;
 
 import java.lang.reflect.Field;
 import java.util.TreeMap;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
 
+import jp.terasoluna.fw.batch.executor.dao.B000004Dao;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -38,6 +42,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.spel.SpelEvaluationException;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.ReflectionUtils;
 
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
@@ -255,6 +260,63 @@ public class ApplicationContextResolverImplTest {
 
         // 業務用DIコンテナの親コンテナが、業務共通DIコンテナと同一であること
         assertNull(ctx.getParent());
+    }
+
+    /**
+     * resolveApplicationContext(BatchJobData)のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * 　親コンテナにデータソース、MyBatisの設定がある状態で子コンテキストが並列作成可能であること。
+     * </pre>
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testResolveApplicationContextBatchJobData05() throws Exception {
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("B000004");
+
+        target.classpath = "beansDef/";
+        target.parent = new ClassPathXmlApplicationContext(new String[]{
+                "beansDef/dataSourceForApplicationContextResolverImplTest.xml",
+                "beansDef/commonContext.xml"});
+
+        final int maxThread = 80;
+        final int trialCount = 3;
+
+        final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(maxThread);
+        executor.setMaxPoolSize(maxThread);
+        executor.setQueueCapacity(trialCount * maxThread);
+        executor.afterPropertiesSet();
+
+        final BlockingQueue<Result> blockingQueue = new ArrayBlockingQueue<>(maxThread * trialCount);
+
+        final ApplicationContextResolverParallelExecutionThread thread =
+                new ApplicationContextResolverParallelExecutionThread(target, blockingQueue, batchJobData);
+
+        try {
+            for (int i = 0; i < trialCount; i++) {
+                for (int j = 0; j < maxThread; j++) {
+                    executor.submit(thread);
+                }
+                for (int j = 0; j < maxThread; j++) {
+                    Result result = blockingQueue.take();
+                    if (result.status != Status.SUCCESS) {
+                        // Exception occurred.
+                        result.throwable().printStackTrace();
+                        fail();
+                    }
+                    // resolve BLogic instance from ApplicationContext.
+                    result.context().getBean("B000004BLogic", B000004BLogic.class);
+                    // resolve DAO instance from ApplicationContext.
+                    result.context().getBean(B000004Dao.class);
+                }
+            }
+        } finally {
+            executor.shutdown();
+        }
     }
 
     /**
@@ -622,4 +684,75 @@ public class ApplicationContextResolverImplTest {
 
         assertNotNull(target.parent.getBean("defaultExceptionHandler"));
     }
+
+    /**
+     * resolveApplicationContext()を並列実行するヘルパクラス。
+     */
+    private class ApplicationContextResolverParallelExecutionThread implements Runnable {
+
+        private final ApplicationContextResolver resolver;
+        private final BlockingQueue<Result> results;
+        private final BatchJobData batchJobData;
+
+        private ApplicationContextResolverParallelExecutionThread(ApplicationContextResolver resolver,
+                                                                  BlockingQueue<Result> results,
+                                                                  BatchJobData batchJobData) {
+            this.resolver = resolver;
+            this.results = results;
+            this.batchJobData = batchJobData;
+        }
+
+        @Override
+        public void run() {
+
+            try {
+                final ApplicationContext context = resolver.resolveApplicationContext(batchJobData);
+                results.put(new Result(Status.SUCCESS, null, context));
+            } catch (Exception e) {
+                try {
+                    results.put(new Result(Status.FAILURE, e, null));
+                } catch (InterruptedException e1) {
+                    // ignored.
+                }
+            }
+        }
+    }
+
+    /**
+     * 並列実行結果オブジェクト。
+     */
+    private class Result {
+
+        private final Status status;
+        private final Throwable throwable;
+        private final ApplicationContext context;
+
+        Result(Status status, Throwable throwable, ApplicationContext context) {
+
+            this.status = status;
+            this.throwable = throwable;
+            this.context = context;
+        }
+
+        Status status() {
+            return status;
+        }
+
+        Throwable throwable() {
+            return throwable;
+        }
+
+        ApplicationContext context() {
+            return context;
+        }
+    }
+
+    /**
+     * 並列実行結果。
+     */
+    private enum Status {
+        SUCCESS,
+        FAILURE
+    }
 }
+
