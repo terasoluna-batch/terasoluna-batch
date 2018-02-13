@@ -187,7 +187,9 @@ public class ApplicationContextResolverImpl
         LOGGER.debug(LogId.DAL025020, blogicBeanDefinitionName);
 
         if (parent != null) {
-            return new ClassPathXmlApplicationContext(new String[]{ blogicBeanDefinitionName }, parent);
+            synchronized (this) {
+                return new ClassPathXmlApplicationContext(new String[]{blogicBeanDefinitionName}, parent);
+            }
         }
         return new ClassPathXmlApplicationContext(blogicBeanDefinitionName);
     }

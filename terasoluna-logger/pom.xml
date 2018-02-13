@@ -17,7 +17,7 @@
     <parent>
         <groupId>jp.terasoluna.fw</groupId>
         <artifactId>terasoluna-batch-fw</artifactId>
-        <version>3.6.3.RELEASE</version>
+        <version>3.6.4.RELEASE</version>
         <relativePath>../terasoluna-batch-fw</relativePath>
     </parent>
 
