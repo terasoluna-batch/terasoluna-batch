@@ -51,6 +51,9 @@ import static org.junit.Assert.*;
  * wareki.gengo.5.name = 平成<br>
  * wareki.gengo.5.roman = H<br>
  * wareki.gengo.5.startDate = asdf<br>
+ * wareki.gengo.6.name = 久化<br>
+ * wareki.gengo.6.roman = K<br>
+ * wareki.gengo.6.startDate = 1706/01/01<br>
  */
 public class DateUtilTest01 extends PropertyTestCase {
 
@@ -83,6 +86,9 @@ public class DateUtilTest01 extends PropertyTestCase {
         addProperty("wareki.gengo.5.name", "平成");
         addProperty("wareki.gengo.5.roman", "H");
         addProperty("wareki.gengo.5.startDate", "asdf");
+        addProperty("wareki.gengo.6.name", "久化");
+        addProperty("wareki.gengo.6.roman", "K");
+        addProperty("wareki.gengo.6.startDate", "1706/01/01");
     }
 
     @After
@@ -333,7 +339,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * 入力値：format="yyyyyyyyyy"<br>
      * currentTime="2001年1月1日 0時0分0秒"<br>
      * 期待値："13"<br>
-     * ・元号のフォーマットを「yyyyyyyyyy」と10文字にし、和暦年が出力されることを確認する。<br>
+     * ・元号のフォーマットを「yyyyyyyyyy」と10文字にし、和暦年がゼロパディングありで出力されることを確認する。<br>
      * @throws Exception 例外
      */
     @Test
@@ -348,7 +354,7 @@ public class DateUtilTest01 extends PropertyTestCase {
         String str = DateUtil.dateToWarekiString(format, date);
 
         // 結果確認
-        assertEquals("13", str);
+        assertEquals("0000000013", str);
     }
 
     // ************************************************************************
@@ -385,10 +391,10 @@ public class DateUtilTest01 extends PropertyTestCase {
      * (正常系)<br>
      * 観点：A<br>
      * 入力値：format="E"<br>
-     * currentTime="1868年9月3日 0時0分0秒"<br>
+     * currentTime="1705年12月31日 0時0分0秒"<br>
      * 期待値："木"<br>
      * ・曜日のフォーマットを「E」と1文字にし、入力する日付が<br>
-     * 明治最初の日の前日の場合を確認する。<br>
+     * プロパティファイルで指定された最古年号切り替えの前日の場合を確認する。<br>
      * @throws Exception 例外
      */
     @Test
@@ -397,7 +403,7 @@ public class DateUtilTest01 extends PropertyTestCase {
         String format = "E";
         // 時刻の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1705.12.31 00:00:00").getTime());
 
         // テスト対象の実行
         String str = DateUtil.dateToWarekiString(format, date);
@@ -871,7 +877,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * (異常系)<br>
      * 観点：G<br>
      * 入力値：format="G"<br>
-     * currentTime="1868年9月3日 0時0分0秒"<br>
+     * currentTime="1705年12月31日 0時0分0秒"<br>
      * 期待値：IllegalArgumentExceptionがスローされる<br>
      * ・プロパティファイルで指定された最古日付以前の日付をdateで渡した場合、<br>
      * フォーマットに"G"を指定するとIllegalArgumentExceptionがスローされることを確認する。<br>
@@ -883,7 +889,7 @@ public class DateUtilTest01 extends PropertyTestCase {
         String format = "G";
         // 時刻の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1705.12.31 00:00:00").getTime());
 
         // テスト対象の実行
         try {
@@ -899,7 +905,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * (異常系)<br>
      * 観点：G<br>
      * 入力値：format="y"<br>
-     * currentTime="1868年9月3日 0時0分0秒"<br>
+     * currentTime="1700年9月3日 0時0分0秒"<br>
      * 期待値：IllegalArgumentExceptionがスローされる<br>
      * ・プロパティファイルで指定された最古日付以前の日付をdateで渡した場合、<br>
      * フォーマットに"y"を指定するとIllegalArgumentExceptionがスローされることを確認する。<br>
@@ -911,7 +917,7 @@ public class DateUtilTest01 extends PropertyTestCase {
         String format = "y";
         // 時刻の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1700.09.03 00:00:00").getTime());
 
         // テスト対象の実行
         try {
@@ -1014,7 +1020,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * "GGGG 'GGGG' ''GGGG'' '''GGGG''' ''''GGGG'''' yyyy 'yyyy' ''yyyy'' '''yyyy''' ''''y'''' EEEE 'EEEE' ''EEEE'' '''EEEE''' ''''EEEE''''"
      * <br>
      * currentTime="2001年1月1日 0時0分0秒"<br>
-     * 期待値：平成 GGGG '平成' 'GGGG' ''平成'' 13 yyyy '13' 'yyyy' ''13'' 月曜日 EEEE '月曜日' 'EEEE' ''月曜日''<br>
+     * 期待値：平成 GGGG '平成' 'GGGG' ''平成'' 0013 yyyy '0013' 'yyyy' ''13'' 月曜日 EEEE '月曜日' 'EEEE' ''月曜日''<br>
      * ・フォーマットキャラクタをシングルクォーテーションで囲んだ場合、<br>
      * エスケープされることを確認する。<br>
      * ・フォーマットキャラクタをシングルクォーテーション2つで囲んだ場合、<br>
@@ -1035,7 +1041,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // 結果確認
         assertEquals(
-                "平成 GGGG '平成' 'GGGG' ''平成'' 13 yyyy '13' 'yyyy' ''13'' 月曜日 EEEE '月曜日' 'EEEE' ''月曜日''",
+                "平成 GGGG '平成' 'GGGG' ''平成'' 0013 yyyy '0013' 'yyyy' ''13'' 月曜日 EEEE '月曜日' 'EEEE' ''月曜日''",
                 str);
     }
 
@@ -1065,7 +1071,242 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     // ************************************************************************
-    // getWarekiGengoName
+    //  和暦年のゼロパティングの確認
+    // ************************************************************************
+
+    /**
+     * testDateToWarekiString35。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="Gy"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H02"<br>
+     * 　　　　"H10"<br>
+     * 　　　　"K100"<br>
+     * 
+     * ・元号のフォーマットを「Gy」とし、和暦年がゼロパディングなしで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString35() throws Exception {
+        // 入力値の設定
+        String format = "Gy";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H2", str);
+        assertEquals("H10", str2);
+        assertEquals("K100", str3);
+    }
+
+    /**
+     * testDateToWarekiString36。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="Gyy"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H2"<br>
+     * 　　　　"H10"<br>
+     * 　　　　"K100"<br>
+     * 
+     * ・元号のフォーマットを「Gyy」とし、和暦年が1桁の場合はゼロパディングありで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString36() throws Exception {
+        // 入力値の設定
+        String format = "Gyy";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H02", str);
+        assertEquals("H10", str2);
+        assertEquals("K100", str3);
+    }
+
+
+    /**
+     * testDateToWarekiString37。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="Gyyy"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H002"<br>
+     * 　　　　"H010"<br>
+     * 　　　　"K100"<br>
+     *
+     * ・元号のフォーマットを「Gyyy」とし、和暦年が2桁までの場合はゼロパディングありで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString37() throws Exception {
+        // 入力値の設定
+        String format = "Gyyy";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H002", str);
+        assertEquals("H010", str2);
+        assertEquals("K100", str3);
+    }
+
+    /**
+     * testDateToWarekiString38。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="GyMMdd"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H20101"<br>
+     * 　　　　"H100101"<br>
+     * 　　　　"K1000101"<br>
+     * 
+     * ・元号のフォーマットを「GyMMdd」とし、和暦年がゼロパディングなしで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString38() throws Exception {
+        // 入力値の設定
+        String format = "GyMMdd";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H20101", str);
+        assertEquals("H100101", str2);
+        assertEquals("K1000101", str3);
+    }
+
+    /**
+     * testDateToWarekiString39。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="GyyMMdd"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H020101"<br>
+     * 　　　　"H100101"<br>
+     * 　　　　"K1000101"<br>
+     * 
+     * ・元号のフォーマットを「GyyMMdd」とし、和暦年が1桁の場合はゼロパディングありで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString39() throws Exception {
+        // 入力値の設定
+        String format = "GyyMMdd";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H020101", str);
+        assertEquals("H100101", str2);
+        assertEquals("K1000101", str3);
+    }
+
+
+    /**
+     * testDateToWarekiString40。<br>
+     *
+     * (正常系)<br>
+     * 観点：A<br>
+     *
+     * 入力値：format="GyyyMMdd"<br>
+     * 　　　　currentTime="1990年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1998年1月1日 0時0分0秒"<br>
+     * 　　　　currentTime="1805年1月1日 0時0分0秒"<br>
+     * 期待値："H0020101"<br>
+     * 　　　　"H0100101"<br>
+     * 　　　　"K1000101"<br>
+     *
+     * ・元号のフォーマットを「GyyyMMdd」とし、和暦年が2桁までの場合はゼロパディングありで出力されることを確認する。<br>
+     * @throws Exception 例外
+     */
+    @Test
+    public void testDateToWarekiString40() throws Exception {
+        // 入力値の設定
+        String format = "GyyyMMdd";
+        // 時刻の設定
+        df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        date = new Date(df.parse("1990.01.01 00:00:00").getTime()); // 1桁
+        Date date2 = new Date(df.parse("1998.01.01 00:00:00").getTime()); // 2桁
+        Date date3 = new Date(df.parse("1805.01.01 00:00:00").getTime()); // 3桁
+
+        // テスト対象の実行
+        String str = DateUtil.dateToWarekiString(format, date);
+        String str2 = DateUtil.dateToWarekiString(format, date2);
+        String str3 = DateUtil.dateToWarekiString(format, date3);
+
+        // 結果確認
+        assertEquals("H0020101", str);
+        assertEquals("H0100101", str2);
+        assertEquals("K1000101", str3);
+    }
+    
+
+    // ************************************************************************
+    //  getWarekiGengoName
     // ************************************************************************
 
     /**
@@ -1138,16 +1379,16 @@ public class DateUtilTest01 extends PropertyTestCase {
      * testGetWarekiGengoName04。<br>
      * (異常系)<br>
      * 観点：G<br>
-     * 入力値：date=1868年9月3日<br>
+     * 入力値：date=1705年12月31日<br>
      * 期待値：IllegalArgumentException<br>
-     * ・入力する日付が明治最初の日の前日の場合を確認する。<br>
+     * ・入力する日付がプロパティファイルで指定された最古年号切り替えの前日の場合を確認する。<br>
      * @throws Exception 例外
      */
     @Test
     public void testGetWarekiGengoName04() throws Exception {
         // 入力値の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1705.12.31 00:00:00").getTime());
 
         // テスト対象の実行
         try {
@@ -1257,16 +1498,16 @@ public class DateUtilTest01 extends PropertyTestCase {
      * testGetWarekiGengoRoman04。<br>
      * (異常系)<br>
      * 観点：G<br>
-     * 入力値：date=1868年9月3日<br>
+     * 入力値：date=1705年12月31日<br>
      * 期待値：IllegalArgumentExceptionがスローされる<br>
-     * ・入力する日付が明治最初の日の前日の場合を確認する。<br>
+     * ・入力する日付がプロパティファイルで指定された最古年号切り替えの前日の場合を確認する。<br>
      * @throws Exception 例外
      */
     @Test
     public void testGetWarekiGengoRoman04() throws Exception {
         // 入力値の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1705.12.31 00:00:00").getTime());
 
         // テスト対象の実行
         try {
@@ -1376,16 +1617,16 @@ public class DateUtilTest01 extends PropertyTestCase {
      * testGetWarekiYear04。<br>
      * (異常系)<br>
      * 観点：G<br>
-     * 入力値：date=1868年9月3日<br>
+     * 入力値：date=1705年12月31日<br>
      * 期待値：IllegalArgumentExceptionがスローされる<br>
-     * ・入力する日付が明治最初の日の前日の場合を確認する。<br>
+     * ・入力する日付がプロパティファイルで指定された最古年号切り替えの前日の場合を確認する。<br>
      * @throws Exception 例外
      */
     @Test
     public void testGetWarekiYear04() throws Exception {
         // 入力値の設定
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        date = new Date(df.parse("1868.09.03 00:00:00").getTime());
+        date = new Date(df.parse("1705.12.31 00:00:00").getTime());
 
         // テスト対象の実行
         try {
