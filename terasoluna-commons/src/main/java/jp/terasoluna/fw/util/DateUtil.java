@@ -132,6 +132,8 @@ public class DateUtil {
      * のインスタンス作成時に、ロケールを &quot;ja&quot;
      * に指定することで変換される。</p>
      *
+     * <p>また、年（和暦）については、パターン文字列の数に従って、ゼロパディングした値に変換される。</p>
+     *
      * <p>和暦元号名、および和暦年については、getWarekiGengoName()、
      * getWarekiGengoRoman()、getWarekiYear() メソッドによって取得する。
      * これらのメソッドで参照する和暦の設定は、AplicationResources ファイルで
@@ -170,7 +172,8 @@ public class DateUtil {
                     sb.append(getWarekiGengoRoman(date));
                     sb.append('\'');
                 } else if (prevCh == 'y') {
-                    sb.append(getWarekiYear(date));
+                    // 和暦年が二桁以上の場合はゼロパティングする。
+                    sb.append(padding(getWarekiYear(date), count));
                 }
                 count = 0;
             }
@@ -198,7 +201,7 @@ public class DateUtil {
                 sb.append(getWarekiGengoRoman(date));
                 sb.append('\'');
             } else if (prevCh == 'y') {
-                sb.append(getWarekiYear(date));
+                sb.append(padding(getWarekiYear(date), count));
             }
         }
 
@@ -208,6 +211,30 @@ public class DateUtil {
         sdf.getCalendar().setLenient(false);
         sdf.setLenient(false);
         return sdf.format(date);
+    }
+
+    /**
+     * ゼロパディングを実施する。
+     *
+     * @param intValue パディング対象の数値
+     * @param size フォーマット桁数
+     */
+    private static String padding(int intValue, int size) {
+        final String strValue = Integer.toString(intValue);
+        if (size < 2) {
+            return strValue;
+        }
+        final int pads = size - strValue.length();
+        if (pads <= 0) {
+            // パディング不要
+            return strValue;
+        }
+        final char[] buf = new char[size];
+        for (int i = pads - 1; i >= 0; i--) {
+            buf[i] = '0';
+        }
+        strValue.getChars(0, strValue.length(), buf, pads);
+        return new String(buf);
     }
 
     /**
